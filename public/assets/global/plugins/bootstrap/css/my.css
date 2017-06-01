@@ -1,0 +1,111 @@
+.btn
+{
+ transition: box-shadow 0.60s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 0px;
+
+}
+.btn:hover
+{
+    -webkit-box-shadow:  0 5px 2px 0 rgba(0, 0, 0, 0.20), 0 4px 2px 0 rgba(0, 0, 0, 0.20);
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.20), 0 4px 5px 0 rgba(0, 0, 0, 0.20);
+    transition: box-shadow 0.60s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-buscar 
+{
+    background-color: white;
+    border-color:#03a9f4;
+    border-radius: 0px;
+    color: #03a9f4;
+}
+
+.btn-buscar:hover 
+{
+    color: #1c7da9;
+    background-color: white;
+    border-color: #1c7da9;
+}
+.btn-delete 
+{
+    background-color: white;
+    border-color: rgba(192, 26, 26, 0.61);
+    color: #db2323;
+}
+
+.btn-delete:hover 
+{
+    color: #db2323;
+    background-color: white;
+    border-color: rgba(192, 26, 26, 0.61);
+    border-radius: 0px;    
+}
+.btn-agregar 
+{
+    color: #660066;
+    background-color: white;
+    border-color: rgba(128, 0, 128, 0.48);
+    border-radius: 0px;    
+}
+
+.btn-agregar:hover 
+{
+    color: #660066;
+    background-color: white;
+    border-color: purple;
+}
+.btn-editar 
+{
+    background-color: white;
+    border-color: rgb(213, 216, 41);
+    color: rgb(237, 230, 35);
+}
+
+.btn-editar:hover 
+{
+    color: rgb(237, 230, 35);
+    background-color: white;
+    border-color: rgb(213, 216, 41);
+}
+.btn-guardar 
+{
+    background-color: white;
+    border-color:#71cd73;
+    border-radius: 0px;    
+    color: #59b75c;
+}
+
+.btn-guardar:hover 
+{
+    color: #59b75c;
+    background-color: white;
+    border-color: #71cd73;
+}
+.btn-info 
+{
+    background-color: white;
+    border-color: #1FC7F9;
+    border-radius: 0px;    
+    color: #20B4E0;
+}
+
+.btn-info:hover 
+{
+    color: #20B4E0;
+    background-color: white;
+    border-color: #00B6EC;
+}
+.btn-refresh 
+{
+    background-color: white;
+    border-color: #999;
+    color: #988;
+}
+
+.btn-refresh:hover 
+{
+    color: #988;
+    background-color: white;
+    border-color: #999;
+    border-radius: 0px;    
+}
