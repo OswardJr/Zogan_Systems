@@ -29,7 +29,7 @@
                                     <div class="form-group col-lg-6 " style="margin-bottom: 0px; height: 60px">
                                       <label>Cédula ó Rif<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                                       <div class="input-group input-group-sm">
-                                        <input type="text" name="rif" id="" class="form-control " pattern="^([JVEG]{1})-([0-9]{8})-([0-9]{1})$" title="El formato debe ser J-12345678-9"  placeholder="J-12345678-9" onkeyup="this.value=this.value.toUpperCase()" value="" required="true" >
+                                        <input type="text" name="rif" id="propietarios" class="form-control typeahead" pattern="^([JVEG]{1})-([0-9]{8})-([0-9]{1})$" title="El formato debe ser J-12345678-9"  placeholder="J-12345678-9" onkeyup="this.value=this.value.toUpperCase()" value="" required="true" >
                                         <span class="input-group-btn">
                                           <button  data-toggle="tooltip" title="Consultar" class="btn btn-buscar btn-flat fa fa-search
                                           " type="button" name="btn-search"></button>
@@ -39,11 +39,11 @@
                                     </div>
                                     <div class="form-group col-lg-6">
                                       <label>Nombre<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="nombre" id="" class="form-control" placeholder="José" required="true">
+                                      <input type="text" name="nombre" value="{nombre}" id="" class="form-control" placeholder="José" required="true">
                                     </div>
                                     <div class="form-group col-lg-6">
                                       <label>Apellido<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="apellido" id="" class="form-control" placeholder="Pérez" required="true">
+                                      <input type="text" name="apellido" value="{apellido}" id="" class="form-control" placeholder="Pérez" required="true">
                                     </div>
                                     <div class="form-group col-lg-6">
                                       <label>Celular</label>
@@ -64,7 +64,7 @@
                                     </div>
                                     <center class="col-lg-offset-3 col-lg-6">
                                       <span class="" style="font-weight:bold;">Los campos marcados con <a class="obli" rel="tooltip" style="font-size:20px;">*</a> son Obligatorios.</span><br><br>
-                                      <button data-toggle="tooltip" title="Registrar" type="submit" class="btn btn-guardar margin glyphicon glyphicon-floppy-disk" name="agregar"></button>
+                                      <button data-toggle="tooltip" title="Guardar" type="submit" class="btn btn-guardar margin glyphicon glyphicon-floppy-disk" name="agregar"></button>
                                       <button data-toggle="tooltip" title="Limpiar Formulario" type="reset" class="btn btn-refresh margin glyphicon glyphicon-repeat"></button>
                                     </center>
                                   </form>
@@ -80,3 +80,36 @@
                 </div>
 
 @include('layouts.footer')                
+
+    <script>
+        function baseUrl(url) {
+            return '{{url('')}}/' + url;
+        }
+    </script>
+ 
+<script>
+        self.on('mount', function(){
+            __clientAutocomplete();
+            __productAutocomplete();
+        })            function __clientAutocomplete(){
+            var propietarios = $("#propietarios"),
+                options = {
+                url: function(q) {
+                    return baseUrl('propietarios/findRif?q=' + q);
+                },
+                getValue: 'nombre',
+                list: {
+                    onClickEvent: function() {
+                        var e = propietarios.getSelectedItemData();
+                        self.id = e.id;
+                        self.nombre = e.nombre;
+                        self.apellido = e.apellido;
+
+                        self.update();
+                    }
+                }
+            };
+
+            propietarios.easyAutocomplete(options);
+        }
+</script>

@@ -2,20 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Propietarios;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
 
-class VehiculosController extends Controller
-{    
-    private $path = 'vehiculos';    
-    private $propietarios = null;
-
-    public function __CONSTRUCT()
-    {
-        $this->propietarios = new Propietarios();
-    }
+class Vehiculo_prop extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         //
@@ -28,7 +23,7 @@ class VehiculosController extends Controller
      */
     public function create()
     {
-        return view('vehiculos/create');
+        //
     }
 
     /**
@@ -39,19 +34,7 @@ class VehiculosController extends Controller
      */
     public function store(Request $request)
     {
-        $vehiculos = new Vehiculos();
-        $vehiculos->placa = $request->placa;
-        $vehiculos->marca = $request->marca;
-        $vehiculos->modelo = $request->modelo;
-        $vehiculos->anio = $request->anio;
-        $vehiculos->serial_motor = $request->serial_motor;
-        $vehiculos->serial_carro = $request->serial_carro;
-        $vehiculos->color = $request->color;  
-        $vehiculos->tipo = $request->tipo;                      
-        $vehiculos->status = 'activo';
-        $vehiculos->save();
-
-      return redirect('/listprop')->with('message','El vehiculo ha sido guardado exitosamente!');
+        //
     }
 
     /**
@@ -98,11 +81,4 @@ class VehiculosController extends Controller
     {
         //
     }
-    
-
-/*       public function findRif(Request $req)
-    {
-        return $this->propietarios->findByName($req->input('q'));
-    }
-*/        
 }

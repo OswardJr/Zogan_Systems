@@ -9,11 +9,8 @@ use Illuminate\Support\Facades\Validator;
 
 class AseguradorasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    private $path = 'aseguradoras';
+
     public function index()
     {
       $aseguradoras = DB::table('aseguradoras')->orderBy('rif', 'desc')->paginate(15);
@@ -66,18 +63,14 @@ class AseguradorasController extends Controller
      */
     public function show($id)
     {
-        //
+        $aseguradoras = Aseguradoras::findOrFail($id);
+        return view($this->path.'.see', compact('aseguradoras'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+      $aseguradoras = Aseguradoras::findOrFail($id);
+        return view($this->path.'.edit', compact('aseguradoras')); 
     }
 
     /**
@@ -89,7 +82,22 @@ class AseguradorasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $this->validate($request, [
+        'rif'=> 'required',
+        'denominacion' => 'required',
+        'telefono' => 'required',
+        'email' => 'required',
+        ]);
+
+          $aseguradoras = Aseguradoras::findOrFail($id);
+          $aseguradoras->rif = $request->rif;
+          $aseguradoras->denominacion = $request->denominacion;
+          $aseguradoras->telefono = $request->telefono;
+          $aseguradoras->email = $request->email;
+          $aseguradoras->status = 'activo';
+
+          $aseguradoras->save();
+          return redirect()->route('aseguradoras.index');
     }
 
     /**

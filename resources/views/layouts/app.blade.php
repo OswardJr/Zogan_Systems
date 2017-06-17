@@ -83,5 +83,11 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+<script>
+    function baseUrl(url) {
+        return '{{url('')}}/' + url;
+    }
+</script>
+
 </body>
 </html>

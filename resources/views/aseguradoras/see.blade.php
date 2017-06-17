@@ -26,12 +26,14 @@
                                 </div>
 
                                 <div class="panel-body ">
-                                  <form method="post" action="{{ url('/aseguradoras') }}">
+                                 <form method="post" action=" {{ url('/aseguradoras/') }}/{{ $aseguradoras->id }}">
+                                   <input name="_method" type="hidden" value="PUT">
                                    <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
+
                                     <div class="form-group col-xs-6 " style="margin-bottom: 0px; height: 60px">
-                                      <label>Rif<a class="campos-required" title="Campo Obligatorio."> *</a></label>
+                                      <label>Rif<a class="campos-required" title="Campo Obligatorio."></a></label>
                                       <div class="input-group input-group-sm">
-                                        <input type="text" name="rif" id="" class="form-control " pattern="^([JVEG]{1})-([0-9]{8})-([0-9]{1})$" title="El formato debe ser J-12345678-9"  placeholder="J-12345678-9" onkeyup="this.value=this.value.toUpperCase()" value="" required="true" >
+                                        <input type="text" name="rif" id="" class="form-control " pattern="^([JVEG]{1})-([0-9]{8})-([0-9]{1})$" title="El formato debe ser J-12345678-9"  placeholder="J-12345678-9" onkeyup="this.value=this.value.toUpperCase()" value="{{ $aseguradoras->rif }}" required="true" disabled>
                                         <span class="input-group-btn">
                                           <button  data-toggle="tooltip" title="Consultar" class="btn btn-buscar btn-flat fa fa-search
                                           " type="button" name="btn-search"></button>
@@ -40,21 +42,19 @@
                                       <center><span id="mensaje" class="help-block"></span></center>
                                     </div>
                                     <div class="form-group col-xs-6">
-                                      <label>Denominación<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="denominacion" id="" class="form-control" placeholder="Seguros Caracas C.A" required="true">
+                                      <label>Denominación<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."></a></label>
+                                      <input type="text" name="denominacion" id="" class="form-control" placeholder="Seguros Caracas C.A" required="true" value="{{ $aseguradoras->denominacion }}" disabled>
                                     </div>
                                     <div class="form-group col-xs-6">
-                                      <label>Teléfono<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="telefono" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0212-XXXXXXX">
+                                      <label>Teléfono<a class="campos-required" title="Campo Obligatorio."></a></label>
+                                      <input type="text" name="telefono" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0212-XXXXXXX" value="{{ $aseguradoras->telefono }}" disabled>
                                     </div>
                                     <div class="form-group col-xs-6">
-                                      <label>Email<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="email" name="email" id="email" class="form-control" placeholder="contact@example.com">
+                                      <label>Email<a class="campos-required" title="Campo Obligatorio."></a></label>
+                                      <input type="email" name="email" id="email" class="form-control" placeholder="contact@example.com" value="{{ $aseguradoras->email }}" disabled>
                                     </div>
                                     <center class="col-xs-offset-3 col-xs-6">
-                                      <span class="" style="font-weight:bold;">Los campos marcados con <a class="obli" rel="tooltip" style="font-size:20px;">*</a> son Obligatorios.</span><br><br>
-                                      <button data-toggle="tooltip" title="Guardar" type="submit" class="btn btn-guardar margin glyphicon glyphicon-floppy-disk" name="agregar"></button>
-                                      <button data-toggle="tooltip" title="Limpiar Formulario" type="reset" class="btn btn-refresh margin glyphicon glyphicon-repeat"></button>
+                                      <button data-toggle="tooltip" title="Regresar" type="reset" onClick="javascript:history.go(-1);" class="btn btn-refresh margin glyphicon glyphicon-arrow-left"></button>
                                     </center>
                                   </form>
                               </div>

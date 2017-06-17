@@ -58,7 +58,7 @@
                                       <input type="text" name="direccion" id="" value="{{ $propietarios->direccion }}" class="form-control" placeholder="Dirección de su casa u oficina" disabled></input>
                                     </div>
                                     <center class="col-md-offset-3 col-md-6">
-                                      <button data-toggle="tooltip" title="Limpiar Formulario" type="reset" onClick="javascript:history.go(-1);" class="btn btn-refresh margin glyphicon glyphicon-arrow-left"></button>
+                                      <button data-toggle="tooltip" title="Regresar" type="reset" onClick="javascript:history.go(-1);" class="btn btn-refresh margin glyphicon glyphicon-arrow-left"></button>
                                     </center>
                                   </form>
                               </div>

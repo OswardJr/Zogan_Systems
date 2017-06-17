@@ -3,10 +3,10 @@
                 <div class="page-content-wrapper" style="">
                     <div class="page-content"> 
                         <section class="content">
-                        	 <h3>Vehículos en Reparación</h3>
+                        	 <h3>Se Encuentra en el Módulo de la Ruta del Taller</h3>
                                 <hr style="width:100%">
                         	      <div class="panel panel-primary">
-        								<div class="panel-heading"><strong>Listado</strong></div>
+        								<div class="panel-heading"><strong>Vehículos en Reparación</strong></div>
                           <div class="row">
                             <div class="col-md-12 ">
                             <div class="table-responsive">
@@ -29,7 +29,7 @@
                                     <td>IRIS VILLAMIZAR</td>
                                     <td>RECEPCION</td>
                                     
-                                    <td><a href="images.php" class="btn btn-agregar"><i class="fa fa-camera"></i>
+                                    <td><a href="" class="btn btn-agregar" data-toggle="tooltip" title="Photos"><i class="fa fa-camera"></i>
                                     </a></td>
                                 </tr> 
 
@@ -40,7 +40,7 @@
                                     <td>DEAR C.A</td>
                                     <td>LATONERIA</td>
                                     
-                                    <td><a href="images.php" class="btn btn-agregar"><i class="fa fa-camera"></i> 
+                                    <td><a href="" class="btn btn-agregar" data-toggle="tooltip" title="Photos"><i class="fa fa-camera"></i> 
                                     </a></td>
                                 </tr>
 
@@ -51,7 +51,7 @@
                                     <td>PATRICIA PROIETTI</td>
                                     <td>LATONERIA</td>
                                     
-                                    <td><a href="images.php" class="btn btn-agregar"><i class="fa fa-camera"></i> 
+                                    <td><a href="" class="btn btn-agregar" data-toggle="tooltip" title="Photos"><i class="fa fa-camera"></i> 
                                     </a></td>
                                 </tr>
 
@@ -62,7 +62,7 @@
                                     <td>SANCHEZ Y COMPAÑÍA</td>
                                     <td>RECEPCION</td>
                                     
-                                    <td><a href="images.php" class="btn btn-agregar"><i class="fa fa-camera"></i>
+                                    <td><a href="" class="btn btn-agregar" data-toggle="tooltip" title="Photos"><i class="fa fa-camera"></i>
                                     </a></td>
                                 </tr>
 
@@ -73,7 +73,7 @@
                                     <td>LOUTUCHE JORGE</td>
                                     <td>PINTURA</td>
                                     
-                                    <td><a href="images.php" class="btn btn-agregar"><i class="fa fa-camera"></i>   
+                                    <td><a href="" class="btn btn-agregar" data-toggle="tooltip" title="Photos"><i class="fa fa-camera"></i>   
                                     </a></td>
                                 </tr>
 

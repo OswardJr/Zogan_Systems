@@ -13,6 +13,8 @@
                 <div class="page-content-wrapper" style="">
                     <div class="page-content">                    
                         <section class="content">
+                            <h3>Listado de Aseguradoras</h3>
+                                <hr>                         
                             <div class="panel panel-primary">
                                 <div class="panel-heading"><strong>Aseguradoras</strong></div>
                           <div class="row">
@@ -36,15 +38,15 @@
                                           <td>{{ ($asegu->telefono) }}</td> 
                                           <td>{{ ($asegu->email) }}</td>             
                                     <td>
-                                        <a class="btn btn-buscar"><i class="fa fa-eye"></i>
+                                        <a href="{{ route('aseguradoras.show', $asegu->id) }}" class="btn btn-buscar" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i>
                                             
                                         </a>
 
-                                        <a class="btn btn-editar"><i class="fa fa-pencil"></i>
+                                        <a href="{{ route('aseguradoras.edit', $asegu->id) }}" class="btn btn-editar" data-toggle="tooltip" title="Actualizar"><i class="fa fa-pencil"></i>
                                             
                                         </a>
 
-                                        <a class="btn btn-delete"><i class="fa fa-trash"></i>
+                                        <a class="btn btn-delete" data-toggle="tooltip" title="Eliminar"><i class="fa fa-trash"></i>
                                             
                                         </a>
                                     </td>

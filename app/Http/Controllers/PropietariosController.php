@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Validator;
 class PropietariosController extends Controller
 {
     private $path = 'propietarios';
+    
+    public function __CONSTRUCT()
+    {
+        $this->propietarios = new Propietarios();            
+    }
+
     public function index()
     {
       $propietarios = DB::table('propietarios')->orderBy('rif', 'desc')->paginate(15);
@@ -121,4 +127,11 @@ class PropietariosController extends Controller
         return redirect()->route('operarios.index');
 */
     }
+
+/*    public function findRif(Request $req)
+    {
+        return $this->_clientRepo
+                    ->findByName($req->input('q'));
+    }    
+*/
 }

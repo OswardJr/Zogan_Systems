@@ -29,6 +29,8 @@
         <!-- END THEME GLOBAL STYLES -->
         <!-- BEGIN THEME LAYOUT STYLES -->
         <link href="{{asset('assets/layouts/layout/css/layout.min.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('assets/layouts/layout/css/easy-autocomplete.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('assets/layouts/layout/css/easy-autocomplete.min.css')}}" rel="stylesheet" type="text/css" />        
         <link href="{{asset('assets/layouts/layout/css/themes/light.css')}}" rel="stylesheet" type="text/css" id="style_color" />
         <link href="{{asset('assets/layouts/layout/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/fileinput/css/fileinput.min.css')}}" rel="stylesheet" type="text/css" />
@@ -293,6 +295,66 @@
                                     </li>     
                                 </ul>
                             </li>
+
+                                                        <li class="nav-item">
+                                <a href="javascript:;" class="nav-link nav-toggle">
+                                    <i class="fa fa-clone"></i>
+                                    <span class="title">Módulos</span>
+                                    <span class="arrow "></span>
+                                </a>
+                                <ul class="sub-menu">    
+
+                                    <li class="nav-item">
+                                        <a href="{{url('home_services')}}" class="nav-link">
+                                            <i class="fa fa-truck"></i>  Servicios
+                                        </a>
+                                    </li>   
+
+                                    <li class="nav-item">
+                                        <a href="{{url('home_ruta')}}" class="nav-link">
+                                            <i class="fa fa-refresh"></i>  Ruta
+                                        </a>
+                                    </li> 
+
+                                    <li class="nav-item">
+                                        <a href="{{url('home_repuestos')}}" class="nav-link">
+                                            <i class="fa fa-wrench"></i>  Repuestos
+                                        </a>
+                                    </li> 
+
+
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="fa fa-chain"></i>  Materiales
+                                        </a>
+                                    </li>                                        
+
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="fa fa-briefcase"></i>  Almacén
+                                        </a>
+                                    </li> 
+
+
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="fa fa-money"></i>  Facturación
+                                        </a>
+                                    </li>                                        
+
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="fa fa-line-chart"></i>  Estadísticas
+                                        </a>
+                                    </li> 
+
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">
+                                            <i class="fa fa-sign-out"></i>  Web
+                                        </a>
+                                    </li>   
+                                </ul>
+                            </li>  
 
                             </ul>
                             <!-- END SIDEBAR MENU -->

@@ -3,6 +3,8 @@
                 <div class="page-content-wrapper" style="">
                     <div class="page-content">                    
                         <section class="content">
+                            <h3>Se Encuentra en el Módulo de Repuestos</h3>
+                                <hr style="width:100%">
                             <div class="panel panel-primary">
                                 <div class="panel-heading"><strong>Nuevo Repuesto</strong></div>        
                           <div class="row">
@@ -27,15 +29,15 @@
                                     <td>5200bsf</td>
                                     
                                     <td>
-                                        <a class="btn btn-buscar"><i class="fa fa-eye"></i>
+                                        <a class="btn btn-buscar" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i>
                                             
                                         </a>
 
-                                        <a class="btn btn-editar"><i class="fa fa-pencil"></i>
+                                        <a class="btn btn-editar" data-toggle="tooltip" title="Editar"><i class="fa fa-pencil"></i>
                                             
                                         </a>
 
-                                        <a class="btn btn-delete"><i class="fa fa-trash"></i>
+                                        <a class="btn btn-delete" data-toggle="tooltip" title="Eliminar"><i class="fa fa-trash"></i>
                                             
                                         </a>
                                     </td>

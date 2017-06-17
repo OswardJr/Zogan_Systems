@@ -3,10 +3,10 @@
                 <div class="page-content-wrapper" style="">
                     <div class="page-content"> 
                         <section class="content">
-                        	 <h3>Vehículos en Reparación</h3>
+                        	 <h3>Se Encuentra en el Módulo de Servicios</h3>
                                 <hr>
                         	      <div class="panel panel-primary">
-        								<div class="panel-heading"><strong>Listado</strong></div>
+        								<div class="panel-heading"><strong>Vehículos en Reparación</strong></div>
                           <div class="row">
                             <div class="col-md-12 ">
                             <div class="table-responsive">
@@ -30,11 +30,11 @@
                                     <td>RECEPCION</td>
                                     
                                     <td>
-                                        <a class="btn btn-editar"><i class="fa fa-pencil"></i>
+                                        <a class="btn btn-editar" data-toggle="tooltip" title="Actualizar"><i class="fa fa-pencil"></i>
                                         </a>
-                                        <a class="btn btn-agregar"><i class="fa fa-camera"></i>
+                                        <a class="btn btn-agregar" data-toggle="tooltip" title="Photos"><i class="fa fa-camera"></i>
                                         </a>
-                                        <a class="btn btn-delete"><i class="fa fa-trash"></i>
+                                        <a class="btn btn-delete" data-toggle="tooltip" title="Eliminar"><i class="fa fa-trash"></i>
                                         </a>
                                     </td>   
                                 </tr> 

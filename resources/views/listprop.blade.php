@@ -13,6 +13,8 @@
                 <div class="page-content-wrapper" style="">
                     <div class="page-content">                    
                         <section class="content">
+                            <h3>Listado de Propietarios</h3>
+                                <hr>                         
                             <div class="panel panel-primary">
                                 <div class="panel-heading"><strong>Propietarios</strong></div>
                           <div class="row">
@@ -36,15 +38,15 @@
                                           <td>{{ ($prop->apellido) }}</td> 
                                           <td>{{ ($prop->email) }}</td>             
                                     <td>
-                                        <a href="{{ route('propietarios.show', $prop->id) }}" class="btn btn-buscar"><i class="fa fa-eye"></i>
+                                        <a href="{{ route('propietarios.show', $prop->id) }}" class="btn btn-buscar" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i>
                                             
                                         </a>
 
-                                        <a href="{{ route('propietarios.edit', $prop->id) }}" class="btn btn-editar"><i class="fa fa-pencil"></i>
+                                        <a href="{{ route('propietarios.edit', $prop->id) }}" class="btn btn-editar" data-toggle="tooltip" title="Actualizar"><i class="fa fa-pencil"></i>
                                             
                                         </a>
 
-                                        <a href="{{ url('/listprop', $prop->id) }}" class="btn btn-delete"><i class="fa fa-trash"></i>
+                                        <a href="{{ url('/listprop', $prop->id) }}" class="btn btn-delete" data-toggle="tooltip" title="Eliminar"><i class="fa fa-trash"></i>
                                             
                                         </a>
                                     </td>

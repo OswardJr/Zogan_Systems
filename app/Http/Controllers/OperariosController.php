@@ -106,18 +106,11 @@ class OperariosController extends Controller
           $operarios->tipo = $request->tipo;
           $operarios->direccion = $request->direccion;
           $operarios->status = 'activo';
-          // save all data
+
           $operarios->save();
-          //redirect page after save data
           return redirect()->route('operarios.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
 // $ope = Operarios::find($id);

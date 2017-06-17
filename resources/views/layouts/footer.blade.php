@@ -25,7 +25,6 @@
         <script src="{{asset('assets/global/plugins/horizontal-timeline/horozontal-timeline.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/global/plugins/flot/jquery.flot.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/global/plugins/flot/jquery.flot.categories.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/global/plugins/jquery.sparkline.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/fullcalendar/moment.min.js')}}"></script>
         <script src="{{asset('assets/global/plugins/fullcalendar/fullcalendar.min.js')}}"></script>
@@ -40,6 +39,8 @@
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <script src="{{asset('assets/layouts/layout/scripts/layout.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/layouts/layout/scripts/jquery.easy-autocomplete.js')}}" type="text/javascript"></script>        
+        <script src="{{asset('assets/layouts/layout/scripts/jquery.easy-autocomplete.min.js')}}" type="text/javascript"></script>        
         <script src="{{asset('assets/layouts/layout/scripts/demo.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/layouts/global/scripts/quick-sidebar.min.js')}}" type="text/javascript"></script>
         <script  src="{{asset('assets/fileinput/js/fileinput.js')}}" type="text/javascript"></script>

@@ -10,4 +10,10 @@ class Propietarios extends Model
     {
         return $this->hasMany('App\Vehiculos');
     }
+
+/*    public function findByName($q) {
+        return $this->model->where('nombre', 'like', "%$q%")
+                           ->get();
+    }    
+*/    
 }
