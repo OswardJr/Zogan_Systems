@@ -118,9 +118,8 @@ class OperariosController extends Controller
 //        return back()->with('listope', 'Fue eliminado exitosamente'); 
 //            $operarios = DB::table('operarios')->where('id', '?')->update(['status' => 'inactivo']);
 
-        $ope = Operarios::findOrFail($id);
-        $ope->delete();
-
+        $ope = DB::select('UPDATE operarios SET status = "inactivo" WHERE id = ?', [1]);
+        
         return redirect()->route('operarios.index'); 
     }
 }

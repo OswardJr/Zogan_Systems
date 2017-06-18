@@ -48,6 +48,13 @@
                                       <label>Email<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                                       <input type="email" name="email" id="email" class="form-control" placeholder="contact@example.com">
                                     </div>
+                                    <div class="form-group col-xs-6">
+                                      <label>Aseguradora<a class="campos-required" title="Campo Obligatorio."> *</a></label>
+                                      <select name="" class="form-control">
+                                        <option value=""></option>
+                                      </select>
+                                    </div>
+
                                     <center class="col-xs-offset-3 col-xs-6">
                                       <span class="" style="font-weight:bold;">Los campos marcados con <a class="obli" rel="tooltip" style="font-size:20px;">*</a> son Obligatorios.</span><br><br>
                                       <button data-toggle="tooltip" title="Guardar" type="submit" class="btn btn-guardar margin glyphicon glyphicon-floppy-disk" name="agregar"></button>

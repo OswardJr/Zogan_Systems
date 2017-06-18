@@ -283,42 +283,18 @@
                                   <span class="arrow "></span>
                                 </a>
                                 <ul class="sub-menu">
-                                <li class="nav-item">
-                                        <a href="servicios.php" class="nav-link nav-toggle">
-                                            <span class="title">Orden de Reparación</span>
-                                            <span class="arrow"></span>
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li class="nav-item ">
-                                                <a href="reparacion.php" class="nav-link "> Aseguradoras </a>
-                                            </li>
-                                            <li class="nav-item ">
-                                                <a href="reparacion-prop.php" class="nav-link "> Propietarios </a>
-                                            </li>
-                                        </ul>
-                                    </li> 
+                                  <li class="nav-item">
+                                    <a href="dashboard.php" target="" class="nav-link">
+                                      <i class="fa fa-truck"></i>  Orden de Reparación
+                                    </a>
+                                  </li>    
 
                                   <li class="nav-item">
-
-                                    <a href="servicios.php" class="nav-link nav-toggle">
-                                      <span class="title">Orden de Servicios</span>
-                                      <span class="arrow"></span>
+                                    <a href="rev.php" class="nav-link">
+                                      <i class="fa fa-user"></i>  Asignación de Citas
                                     </a>
-                                    <ul class="sub-menu">
-                                      <li class="nav-item ">
-                                        <a href="servicios.php" class="nav-link "> Aseguradoras </a>
-                                      </li>
-                                      <li class="nav-item ">
-                                        <a href="servicios-prop.php" class="nav-link "> Propietarios </a>
-                                      </li>
-                                    </ul>
-                                  </li> 
+                                  </li>     
 
-                                  <li class="nav-item">
-                                    <a href="newcita.php" target="" class="nav-link">
-                                      Asignar Citas
-                                    </a>
-                                  </li>        
                                 </ul>
                               </li>
 
@@ -341,11 +317,6 @@
                                     </a>
                                   </li>     
 
-                                  <li class="nav-item">
-                                    <a href="asig_ope.php" class="nav-link">
-                                      <i class="fa fa-group"></i>  Asignar Operarios 
-                                    </a>    
-                                  </li> 
                                 </ul>
                               </li>
 
