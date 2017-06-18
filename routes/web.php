@@ -30,6 +30,8 @@ Route::resource('aseguradoras', 'AseguradorasController');
 
 Route::resource('materiales', 'MaterialesController');
 
+Route::resource('analistas', 'AnalistasController');
+
 Route::resource('operarios', 'OperariosController');
 
 Route::resource('repuestos', 'RepuestosController');

@@ -250,21 +250,9 @@
                                 </a>
                                 <ul class="sub-menu">
                                   <li class="nav-item">
-                                    <a href="{{ url('/propietarios/create') }}" target="" class="nav-link">
-                                      <i class="icon-user"></i>  Propietarios
+                                    <a href="{{ url('/analistas/create') }}" target="" class="nav-link">
+                                      <i class="icon-user"></i>  Analistas
                                     </a>
-                                  </li>    
-
-                                  <li class="nav-item">
-                                    <a href="{{ url('/vehiculos/create') }}" class="nav-link">
-                                      <i class="fa fa-truck"></i>  Vehículos 
-                                    </a>
-                                  </li>     
-
-                                  <li class="nav-item">
-                                    <a href="{{ url('/operarios/create') }}" class="nav-link">
-                                      <i class="fa fa-group"></i>  Operarios 
-                                    </a>    
                                   </li>
 
                                   <li class="nav-item">
@@ -275,10 +263,16 @@
 
                                   <li class="nav-item">
                                     <a href="{{ url('/corredores/create') }}" class="nav-link">
-                                      <i class="fa fa-user"></i>  A.D.S
+                                      <i class="fa fa-user"></i>  Corredores de Seguro
                                     </a>
-                                  </li>   
-
+                                  </li> 
+       
+                                  <li class="nav-item">
+                                    <a href="{{ url('/operarios/create') }}" class="nav-link">
+                                      <i class="fa fa-group"></i>  Operarios 
+                                    </a>    
+                                  </li>
+  
                                 </ul>
                               </li>
 
