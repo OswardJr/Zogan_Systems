@@ -42,6 +42,10 @@ Route::resource('propietarios', 'PropietariosController');
 
 Route::resource('corredores', 'CorredoresController');
 
+Route::resource('ordenes', 'OrdenesController');
+
+Route::resource('citas', 'CitasController');
+
 Route::get('/listprop', 'PropietariosController@index');
 
 Route::get('/listope', 'OperariosController@index');

@@ -284,13 +284,13 @@
                                 </a>
                                 <ul class="sub-menu">
                                   <li class="nav-item">
-                                    <a href="dashboard.php" target="" class="nav-link">
+                                    <a href="{{ url('/ordenes/create') }}" target="" class="nav-link">
                                       <i class="fa fa-truck"></i>  Orden de Reparación
                                     </a>
                                   </li>    
 
                                   <li class="nav-item">
-                                    <a href="rev.php" class="nav-link">
+                                    <a href="{{ url('/citas/create') }}" class="nav-link">
                                       <i class="fa fa-user"></i>  Asignación de Citas
                                     </a>
                                   </li>     

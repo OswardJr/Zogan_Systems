@@ -5,13 +5,13 @@
                         <section class="content">
                           <div class="row">
                             <div class="col-md-12 ">
-                                  <h3>Nuevo Corredor de Seguro</h3>
+                                  <h3>Nuevo Analista</h3>
                                 <hr>
 
                                 <div class="panel panel-primary">
                                 <div class="panel-heading ">
                                   <center>
-                                    <h4>Datos del A.D.S</h4>
+                                    <h4>Datos del Analista</h4>
                                   </center>
                                 </div>
 
@@ -51,7 +51,7 @@
                                     <div class="form-group col-xs-6">
                                       <label>Aseguradora<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                                       <select name="" class="form-control">
-                                          <option value="{{$corre->id}}">{{$corre->nombre}}</option>
+                                          <option value=""></option>
                                       </select>
                                     </div>
 
