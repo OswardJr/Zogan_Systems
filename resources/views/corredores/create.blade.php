@@ -53,7 +53,7 @@
                                       <label>Aseguradora<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                                       <select name="" class="form-control">
                                           @foreach ($corredores as $corre)
-                                            <option value="{{ $corre->denominacion }}">{{ $corre->denominacion }}</option>
+                                            <option value="{{ $corre->id }}">{{ $corre->denominacion }}</option>
                                           @endforeach                                          
                                       </select><!-- links(), no sirve acá -->
                                     </div>

@@ -2,15 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Corre_asegu;
 use App\Corredores;
 use App\Aseguradoras;
-use App\Corre_asegu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
-class CorredoresController extends Controller
+
+class CorreAseguController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         //
@@ -23,9 +29,7 @@ class CorredoresController extends Controller
      */
     public function create()
     {
-      $corredores = DB::table('aseguradoras')->get();
-
-      return view('corredores/create', ['corredores' => $corredores]);
+        //
     }
 
     /**
@@ -36,28 +40,15 @@ class CorredoresController extends Controller
      */
     public function store(Request $request)
     {
-        $corredores = new Corredores();  
-        $corredores->cedula = $request->cedula;
-        $corredores->nombre = $request->nombre;
-        $corredores->apellido = $request->apellido;
-        $corredores->celular = $request->celular;
-        $corredores->telefono = $request->telefono;
-        $corredores->email = $request->email;
-        $corredores->status = 'activo';
-        $corredores->save();
-        $Idcorre = $corredores->id;
-
-        $asegu = new Aseguradoras();  
-        $aseguCorre = new Corre_asegu();  
-        $aseguId = $asegu->id;
-        $aseguCorre->corredor_id = $aseguId;
-        $aseguCorre->aseguradora_id = $Idcorre;
-        $aseguCorre->save();
-
-      return redirect('/corredores/create')->with('message','El corredor ha sido guardado exitosamente!');
-
+        //
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function show($id)
     {
         //
