@@ -54,8 +54,7 @@ class CorredoresController extends Controller
         $aseguCorre->aseguradora_id = $Idcorre;
         $aseguCorre->save();
 
-      return redirect('/corredores/create')->with('message','El corredor ha sido guardado exitosamente!');
-
+      return redirect('/corredores/create')->with('message','El corredor ha sido registrado de manera exitosamente!');
     }
 
     public function show($id)
