@@ -25,7 +25,9 @@ class OperariosController extends Controller
      */
     public function create()
     {
-        return view('operarios/create');        
+      $operarios = DB::table('operarios')->get();
+
+      return view('operarios/create', ['operarios' => $operarios]);         
     }
 
     /**
