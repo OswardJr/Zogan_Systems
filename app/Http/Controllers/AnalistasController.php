@@ -26,46 +26,36 @@ class AnalistasController extends Controller
         return view('/analistas/create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $analistas = new Analistas();  
+        $analistas->cedula = $request->cedula;
+        $analistas->nombre = $request->nombre;
+        $analistas->apellido = $request->apellido;
+        $analistas->celular = $request->celular;
+        $analistas->telefono = $request->telefono;
+        $analistas->email = $request->email;
+        $analistas->status = 'activo';
+        $analistas->save();
+
+      return redirect('/analistas/create')->with('message','El analista ha sido registrado de manera exitosamente!');
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         //
