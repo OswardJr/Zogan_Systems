@@ -20,13 +20,13 @@
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         <script src="{{asset('assets/global/plugins/morris/morris.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/global/plugins/morris/raphael-min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('assets/global/plugins/counterup/jquery.waypoints.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('assets/global/plugins/counterup/jquery.counterup.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('assets/global/plugins/horizontal-timeline/horozontal-timeline.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('assets/global/plugins/flot/jquery.flot.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('assets/global/plugins/flot/jquery.flot.categories.min.js')}}" type="text/javascript"></script>
+        <!-- <script src="{{asset('assets/global/plugins/counterup/jquery.waypoints.min.js')}}" type="text/javascript"></script> -->
+        <!-- <script src="{{asset('assets/global/plugins/counterup/jquery.counterup.min.js')}}" type="text/javascript"></script> -->
+        <!-- <script src="{{asset('assets/global/plugins/horizontal-timeline/horizontal-timeline.min.js')}}" type="text/javascript"></script> -->
+        <!-- <script src="{{asset('assets/global/plugins/flot/jquery.flot.min.js')}}" type="text/javascript"></script> -->
+        <!-- <script src="{{asset('assets/global/plugins/flot/jquery.flot.categories.min.js')}}" type="text/javascript"></script> -->
         <script src="{{asset('assets/global/plugins/jquery.sparkline.min.js')}}" type="text/javascript"></script>
-        <script src="{{asset('assets/fullcalendar/moment.min.js')}}"></script>
+        <script src="{{asset('assets/global/plugins/fullcalendar/moment.min.js')}}"></script>
         <script src="{{asset('assets/global/plugins/fullcalendar/fullcalendar.min.js')}}"></script>
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
