@@ -45,5 +45,10 @@
         <script src="{{asset('assets/layouts/global/scripts/quick-sidebar.min.js')}}" type="text/javascript"></script>
         <script  src="{{asset('assets/fileinput/js/fileinput.js')}}" type="text/javascript"></script>
         <script  src="{{asset('assets/fileinput/js/locales/es.js')}}" type="text/javascript"></script>
+        <script>
+            function baseUrl(url) {
+                return '{{url('')}}/' + url;
+            }
+        </script>        
         <!-- END THEME LAYOUT SCRIPTS -->
     </body>

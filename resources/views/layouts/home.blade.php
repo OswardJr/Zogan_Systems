@@ -571,6 +571,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                       </div>
                                       <!-- END FOOTER -->
                                     </div>
+<<<<<<< HEAD
+=======
         <script src="{{asset('assets/global/plugins/jquery.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/global/plugins/js.cookie.min.js')}}" type="text/javascript"></script>
@@ -613,4 +615,5 @@ License: You must have a valid license purchased only from themeforest(the above
     }
 </script>
 
+>>>>>>> bb602f874a0a27282d1f4a6e9b7559ecc9383ddd
 </body>
