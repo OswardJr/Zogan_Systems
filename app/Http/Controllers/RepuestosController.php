@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Validator;
 
 class RepuestosController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    private $path = 'repuestos';
+
     public function index()
     {
-        //
+      $repuestos = DB::table('repuestos')->orderBy('codigo', 'desc')->paginate(15);
+
+      return view('/listrepuesto', ['repuestos' => $repuestos]);        
     }
 
     /**
@@ -37,49 +37,65 @@ class RepuestosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      Validator::make($request->all(), [
+        'codigo'=> 'required',
+        'descripcion' => 'required',       
+        'cantidad' => 'required',
+        'marca' => 'required',
+        'modelo' => 'required',
+        'costo' => 'required',
+        ])->validate();
+
+        $repuestos = new Repuestos();
+        $repuestos->codigo = $request->codigo;
+        $repuestos->descripcion = $request->descripcion;
+        $repuestos->cantidad = $request->cantidad;
+        $repuestos->marca = $request->marca;
+        $repuestos->modelo = $request->modelo;
+        $repuestos->costo = $request->costo;
+        $repuestos->status = 'activo';
+        $repuestos->save();
+
+      return redirect('/listrepuesto')->with('message','El repuesto ha sido registrado de manera exitosamente!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $repuestos = Repuestos::findOrFail($id);
+        return view($this->path.'.see', compact('repuestos'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+      $repuestos = Repuestos::findOrFail($id);
+        return view($this->path.'.edit', compact('repuestos')); 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        //
+      $this->validate($request, [
+        'codigo'=> 'required',
+        'descripcion' => 'required',
+        'cantidad' => 'required',
+        'marca' => 'required',
+        'modelo' => 'required',
+        'costo' => 'required',
+        ]);
+
+          $repuestos = Repuestos::findOrFail($id);
+          $repuestos->codigo = $request->codigo;
+          $repuestos->descripcion = $request->descripcion;
+          $repuestos->cantidad = $request->cantidad;
+          $repuestos->marca = $request->marca;
+          $repuestos->modelo = $request->modelo;
+          $repuestos->costo = $request->costo;
+          $repuestos->status = 'activo';
+          $repuestos->save();
+
+          return redirect()->route('repuestos.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

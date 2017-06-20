@@ -273,7 +273,7 @@
                                 <ul class="sub-menu">    
 
                                     <li class="nav-item">
-                                        <a href="listrepuesto.php" class="nav-link">
+                                        <a href="{{ url('/listrepuesto') }}" class="nav-link">
                                             <i class="fa fa-suitcase"></i>  Repuestos
                                         </a>
                                     </li>     

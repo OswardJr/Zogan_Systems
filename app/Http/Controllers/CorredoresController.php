@@ -47,10 +47,13 @@ class CorredoresController extends Controller
         $corredores->save();
         $Idcorre = $corredores->id;
 
-        $corre = new Aseguradoras();  
-        $aseguCorre = new Corre_asegu(); 
-        $ab = Aseguradoras::find($corre);
+       foreach ($corredores as $corre) {
+        $corre = new Aseguradoras();
+        $ab = Aseguradoras::findOrFail($corre);
         $aseguId = $ab->id;
+        }
+
+        $aseguCorre = new Corre_asegu(); 
         $aseguCorre->corredor_id = $Idcorre;
         $aseguCorre->aseguradora_id = $aseguId;
         $aseguCorre->save();

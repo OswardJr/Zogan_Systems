@@ -56,6 +56,8 @@ Route::get('/listcorre', 'CorredoresController@index');
 
 Route::get('/listvehi', 'PropietariosController@index');
 
+Route::get('/listrepuesto', 'RepuestosController@index');
+
 Route::get('/vehiculos/create', 'VehiculosController@create');
 
 Route::get('/vehiculos/findRif', 'VehiculosController@findRif');

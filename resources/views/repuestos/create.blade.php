@@ -1,5 +1,16 @@
 @include('layouts.headrepuestos')
 
+                          <div class="col-md-12">
+                              @if(Session::get('message'))
+                              <div class="col-md-6 col-md-offset-6">
+                                  <div class="alert alert-danger alert-dismissable">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <h3> {{ Session::get('message') }}</h3>
+                                  </div>
+                              </div>
+                              @endif                            
+                          </div> 
+                          
                 <div class="page-content-wrapper">
                     <div class="page-content">                    
                         <section class="content">
@@ -16,11 +27,12 @@
                                 </div>
 
                                 <div class="panel-body ">
-                                  <form name="" action="" method="post" id="">
+                                  <form method="post" action="{{ url('/repuestos') }}">
+                                   <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <div class="form-group col-md-6 " style="margin-bottom: 0px; height: 60px">
                                       <label>Código<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                                       <div class="input-group input-group-sm">
-                                        <input type="text" name="" id="" class="form-control "title="El formato debe ser ABC105C"  placeholder="R0001" onkeyup="this.value=this.value.toUpperCase()" value="" required="true" >
+                                        <input type="text" name="codigo" id="" class="form-control "title="El formato debe ser ABC105C"  placeholder="R0001" onkeyup="this.value=this.value.toUpperCase()" value="" required="true" >
                                         <span class="input-group-btn">
                                           <button  data-toggle="tooltip" title="Consultar" class="btn btn-buscar btn-flat fa fa-search
                                           " type="button"  onClick="" name="btn-search"></button>
@@ -30,19 +42,23 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                       <label>Descripción<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="" id="" class="form-control" placeholder="Rolinera" required="true">
+                                      <input type="text" name="descripcion" id="" class="form-control" placeholder="Rolinera" required="true">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                      <label>Cantidad<a class="campos-required" title="Campo Obligatorio."> *</a></label>
+                                      <input type="text" name="cantidad" id="" class="form-control" placeholder="12" required="true">
                                     </div>
                                     <div class="form-group col-md-6">
                                       <label>Marca<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="" id="" class="form-control" placeholder="Vy" required="true">
+                                      <input type="text" name="marca" id="" class="form-control" placeholder="Vy" required="true">
                                     </div>
                                     <div class="form-group col-md-6">
-                                      <label>Modelo<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="" id="" pattern="" class="form-control" placeholder="Standard">
-                                    </div>
+                                      <label>Modelo<a class="" title=" Obligatorio."> *</a></label>
+                                      <input type="text" name="modelo" class="form-control" placeholder="5200bsf" required="">
+                                    </div> 
                                     <div class="form-group col-md-6">
                                       <label>Costo<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="" id="" pattern="" class="form-control" placeholder="5200bsf">
+                                      <input type="text" name="costo" class="form-control" placeholder="5200bsf" required="true">
                                     </div>                                  
                               </div>
 
@@ -58,7 +74,7 @@
                         </div>
                         <div class="panel-body ">
                           <div class="form-group image">
-                            <input id="images-input1" name="images[]" type="file" multiple data-preview-file-type="any" class="file" required="true">
+                            <input id="images-input1" name="" type="file" multiple data-preview-file-type="any" class="file" required="true">
                           </div>
                         </div>
                       </div>
@@ -77,13 +93,6 @@
                         </section><!-- /.content -->
                     </div>
                 </div>
-<script type="text/javascript">
-        $("#images-input1").fileinput({
-          language: "es",
-          uploadUrl: '/file-upload-batch/2',
-          maxFileCount: 8,
-          allowedFileExtensions: ["jpg", "png"]
-        });
-      </script>                
+      
 
 @include('layouts.footer')                
