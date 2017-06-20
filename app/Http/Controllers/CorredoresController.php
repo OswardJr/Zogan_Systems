@@ -48,10 +48,11 @@ class CorredoresController extends Controller
         $Idcorre = $corredores->id;
 
         $corre = new Aseguradoras();  
-        $aseguCorre = new Corre_asegu();  
-        $aseguId = $corre->id;
-        $aseguCorre->corredor_id = $aseguId;
-        $aseguCorre->aseguradora_id = $Idcorre;
+        $aseguCorre = new Corre_asegu(); 
+        $ab = Aseguradoras::find($corre);
+        $aseguId = $ab->id;
+        $aseguCorre->corredor_id = $Idcorre;
+        $aseguCorre->aseguradora_id = $aseguId;
         $aseguCorre->save();
 
       return redirect('/corredores/create')->with('message','El corredor ha sido registrado de manera exitosamente!');

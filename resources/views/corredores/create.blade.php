@@ -51,7 +51,7 @@
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Aseguradora<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <select name="" class="form-control">
+                                      <select name="one" class="form-control">
                                           @foreach ($corredores as $corre)
                                             <option value="{{ $corre->id }}">{{ $corre->denominacion }}</option>
                                           @endforeach                                          
