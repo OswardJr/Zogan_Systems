@@ -47,9 +47,9 @@ class CorredoresController extends Controller
         $corredores->save();
         $Idcorre = $corredores->id;
 
-        $asegu = new Aseguradoras();  
+        $corre = new Aseguradoras();  
         $aseguCorre = new Corre_asegu();  
-        $aseguId = $asegu->id;
+        $aseguId = $corre->id;
         $aseguCorre->corredor_id = $aseguId;
         $aseguCorre->aseguradora_id = $Idcorre;
         $aseguCorre->save();
