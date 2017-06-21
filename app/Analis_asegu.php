@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Analist_asegu extends Model
+class Analis_asegu extends Model
 {
-	public $table = "Corre_asegu";
+	public $table = "Analis_asegu";
 
     public function aseguradoras(){
     	return $this->belongsToMany('App\Aseguradoras', 'id');

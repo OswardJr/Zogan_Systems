@@ -54,6 +54,8 @@ Route::get('/listasegu', 'AseguradorasController@index');
 
 Route::get('/listcorre', 'CorredoresController@index');
 
+Route::get('/listanalis', 'AnalistasController@index');
+
 Route::get('/listvehi', 'PropietariosController@index');
 
 Route::get('/listrepuesto', 'RepuestosController@index');
