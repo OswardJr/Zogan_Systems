@@ -43,19 +43,14 @@ class CorredoresController extends Controller
         $corredores->celular = $request->celular;
         $corredores->telefono = $request->telefono;
         $corredores->email = $request->email;
+        $corre = $request->get('one');        
         $corredores->status = 'activo';
         $corredores->save();
         $Idcorre = $corredores->id;
-
-       foreach ($corredores as $corre) {
-        $corre = new Aseguradoras();
-        $ab = Aseguradoras::findOrFail($corre);
-        $aseguId = $ab->id;
-        }
-
+//QUE ESTUPIDEZ............
         $aseguCorre = new Corre_asegu(); 
         $aseguCorre->corredor_id = $Idcorre;
-        $aseguCorre->aseguradora_id = $aseguId;
+        $aseguCorre->aseguradora_id = $corre;
         $aseguCorre->save();
 
       return redirect('/corredores/create')->with('message','El corredor ha sido registrado de manera exitosamente!');
