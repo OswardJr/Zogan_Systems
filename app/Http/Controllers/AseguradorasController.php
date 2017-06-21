@@ -19,22 +19,11 @@ class AseguradorasController extends Controller
       return view('/listasegu', ['aseguradoras' => $aseguradoras]); 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('aseguradoras/create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
 
@@ -56,12 +45,6 @@ class AseguradorasController extends Controller
       return redirect('/listasegu')->with('message','La aseguradora ha sido guardada exitosamente!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $aseguradoras = Aseguradoras::findOrFail($id);
@@ -74,13 +57,6 @@ class AseguradorasController extends Controller
         return view($this->path.'.edit', compact('aseguradoras')); 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
       $this->validate($request, [
@@ -101,12 +77,6 @@ class AseguradorasController extends Controller
           return redirect()->route('aseguradoras.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

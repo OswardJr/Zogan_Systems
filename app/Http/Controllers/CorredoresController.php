@@ -11,9 +11,15 @@ use Illuminate\Support\Facades\Validator;
 
 class CorredoresController extends Controller
 {
+    private $path = 'corredores';
+
+    private $Corre_asegu = 'Corre_asegu';
+
     public function index()
     {
-        //
+      $corredores = DB::table('corredores')->orderBy('cedula', 'desc')->paginate(15);
+
+      return view('/listcorre', ['corredores' => $corredores]); 
     }
 
     /**
@@ -53,43 +59,53 @@ class CorredoresController extends Controller
         $aseguCorre->aseguradora_id = $corre;
         $aseguCorre->save();
 
-      return redirect('/corredores/create')->with('message','El corredor ha sido registrado de manera exitosamente!');
+      return redirect('/listcorre')->with('message','El corredor ha sido registrado de manera exitosamente!');
     }
 
     public function show($id)
     {
-        //
+        $corredores = Corredores::findOrFail($id);
+        return view($this->path.'.see', compact('corredores'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+      $aseguradoras = DB::table('aseguradoras')->get();
+
+      $corredores = Corredores::findOrFail($id);
+
+       foreach ($corredores as $value) {
+        $aseguradoras = DB::select('
+              SELECT i.aseguradora_id, aseguradoras.denominacion 
+              FROM corre_asegu as i 
+              inner JOIN corredores as q 
+              ON i.corredor_id = q.id 
+              INNER JOIN aseguradoras 
+              ON i.aseguradora_id = aseguradoras.id 
+              WHERE corredor_id = :id', ['id' => $corredores->id]);
+
+        foreach ($aseguradoras as $asegu) {
+        }            
+      }
+
+        return view($this->path.'.edit', ['corredores' => $corredores, 'aseguradoras' => $aseguradoras]); 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+          $corredores = Corredores::findOrFail($id);
+          $corredores->cedula = $request->cedula;
+          $corredores->nombre = $request->nombre;
+          $corredores->apellido = $request->apellido;
+          $corredores->celular = $request->celular;
+          $corredores->telefono = $request->telefono;
+          $corredores->email = $request->email;
+          $corredores->status = 'activo';
+
+          $corredores->save();
+          return redirect()->route('corredores.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
