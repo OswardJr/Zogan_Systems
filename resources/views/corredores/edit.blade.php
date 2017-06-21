@@ -55,8 +55,13 @@
                                       <label>Aseguradora<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                                       <select name="one" class="form-control">
                                           @foreach ($aseguradoras as $asegu)
-                                            <option value="">{{ $asegu->denominacion }}</option>
-                                          @endforeach                                          
+                                            <option value="{{ $asegu->id }}">{{ $asegu->denominacion }}</option>
+                                          @endforeach
+                                          <option></option>                                          
+                                          <option>Opciones Disponibles:</option>
+                                          @foreach ($seguros as $asegu)
+                                            <option value="{{ $asegu->id }}">{{ $asegu->denominacion }}</option>
+                                          @endforeach                                                                                     
                                       </select><!-- links(), no sirve acá -->
                                     </div>
                                     <center class="col-xs-offset-3 col-xs-6">

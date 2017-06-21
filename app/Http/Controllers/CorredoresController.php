@@ -64,14 +64,6 @@ class CorredoresController extends Controller
 
     public function show($id)
     {
-        $corredores = Corredores::findOrFail($id);
-        return view($this->path.'.see', compact('corredores'));
-    }
-
-    public function edit($id)
-    {
-      $aseguradoras = DB::table('aseguradoras')->get();
-
       $corredores = Corredores::findOrFail($id);
 
        foreach ($corredores as $value) {
@@ -88,7 +80,32 @@ class CorredoresController extends Controller
         }            
       }
 
-        return view($this->path.'.edit', ['corredores' => $corredores, 'aseguradoras' => $aseguradoras]); 
+      $seguros = DB::table('aseguradoras')->get();
+
+        return view($this->path.'.see', ['corredores' => $corredores, 'aseguradoras' => $aseguradoras, 'seguros' => $seguros]);
+    }
+
+    public function edit($id)
+    {
+      $corredores = Corredores::findOrFail($id);
+
+       foreach ($corredores as $value) {
+        $aseguradoras = DB::select('
+              SELECT i.aseguradora_id, aseguradoras.denominacion 
+              FROM corre_asegu as i 
+              inner JOIN corredores as q 
+              ON i.corredor_id = q.id 
+              INNER JOIN aseguradoras 
+              ON i.aseguradora_id = aseguradoras.id 
+              WHERE corredor_id = :id', ['id' => $corredores->id]);
+
+        foreach ($aseguradoras as $asegu) {
+        }            
+      }
+
+      $seguros = DB::table('aseguradoras')->get();
+
+        return view($this->path.'.edit', ['corredores' => $corredores, 'aseguradoras' => $aseguradoras, 'seguros' => $seguros]); 
     }
 
     public function update(Request $request, $id)
@@ -100,9 +117,20 @@ class CorredoresController extends Controller
           $corredores->celular = $request->celular;
           $corredores->telefono = $request->telefono;
           $corredores->email = $request->email;
+          $asegu = $request->get('one');                  
           $corredores->status = 'activo';
-
           $corredores->save();
+          $Idcorre = $corredores->id;
+//QUE ESTUPIDEZ............
+
+          $aseguCorre = new Corre_asegu(); 
+          $aseguCorre->corredor_id = $Idcorre;
+$asegu = aseguradora_id::find('id');
+
+$asegu->roles()->attach(1);
+          $aseguCorre->aseguradora_id = $asegu;
+          $aseguCorre->save();     
+
           return redirect()->route('corredores.index');
     }
 
