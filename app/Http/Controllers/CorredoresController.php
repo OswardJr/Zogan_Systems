@@ -117,19 +117,13 @@ class CorredoresController extends Controller
           $corredores->celular = $request->celular;
           $corredores->telefono = $request->telefono;
           $corredores->email = $request->email;
-          $asegu = $request->get('one');                  
+          $asegu = $request->get('one'); 
+          $segu = $request->get('one');                                             
           $corredores->status = 'activo';
           $corredores->save();
           $Idcorre = $corredores->id;
 //QUE ESTUPIDEZ............
-
-          $aseguCorre = new Corre_asegu(); 
-          $aseguCorre->corredor_id = $Idcorre;
-$asegu = aseguradora_id::find('id');
-
-$asegu->roles()->attach(1);
-          $aseguCorre->aseguradora_id = $asegu;
-          $aseguCorre->save();     
+   
 
           return redirect()->route('corredores.index');
     }

@@ -53,16 +53,9 @@
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Aseguradora<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <select name="one" class="form-control">
-                                          @foreach ($aseguradoras as $asegu)
-                                            <option value="{{ $asegu->id }}">{{ $asegu->denominacion }}</option>
-                                          @endforeach
-                                          <option></option>                                          
-                                          <option>Opciones Disponibles:</option>
-                                          @foreach ($seguros as $asegu)
-                                            <option value="{{ $asegu->id }}">{{ $asegu->denominacion }}</option>
-                                          @endforeach                                                                                     
-                                      </select><!-- links(), no sirve acá -->
+                                    @foreach ($aseguradoras as $asegu)
+                                      <input type="text" name="one" id="one" class="form-control" placeholder="contact@example.com" value="{{ $asegu->denominacion }}" disabled>
+                                    @endforeach          
                                     </div>
                                     <center class="col-xs-offset-3 col-xs-6">
                                       <span class="" style="font-weight:bold;">Los campos marcados con <a class="obli" rel="tooltip" style="font-size:20px;">*</a> son Obligatorios.</span><br><br>
