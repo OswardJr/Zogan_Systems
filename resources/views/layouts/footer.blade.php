@@ -9,7 +9,7 @@
 <script src="../assets/global/plugins/respond.min.js"></script>
 <script src="../assets/global/plugins/excanvas.min.js"></script> 
 <![endif]-->
-        <!-- BEGIN CORE PLUGINS -->
+        <!-- BEGIN CORE PLUGINS -->        
         <script src="{{asset('assets/global/plugins/jquery.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/global/plugins/js.cookie.min.js')}}" type="text/javascript"></script>
@@ -20,11 +20,6 @@
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         <script src="{{asset('assets/global/plugins/morris/morris.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/global/plugins/morris/raphael-min.js')}}" type="text/javascript"></script>
-        <!-- <script src="{{asset('assets/global/plugins/counterup/jquery.waypoints.min.js')}}" type="text/javascript"></script> -->
-        <!-- <script src="{{asset('assets/global/plugins/counterup/jquery.counterup.min.js')}}" type="text/javascript"></script> -->
-        <!-- <script src="{{asset('assets/global/plugins/horizontal-timeline/horizontal-timeline.min.js')}}" type="text/javascript"></script> -->
-        <!-- <script src="{{asset('assets/global/plugins/flot/jquery.flot.min.js')}}" type="text/javascript"></script> -->
-        <!-- <script src="{{asset('assets/global/plugins/flot/jquery.flot.categories.min.js')}}" type="text/javascript"></script> -->
         <script src="{{asset('assets/global/plugins/jquery.sparkline.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/global/plugins/fullcalendar/moment.min.js')}}"></script>
         <script src="{{asset('assets/global/plugins/fullcalendar/fullcalendar.min.js')}}"></script>
@@ -40,15 +35,21 @@
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <script src="{{asset('assets/layouts/layout/scripts/layout.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/layouts/layout/scripts/jquery.easy-autocomplete.js')}}" type="text/javascript"></script>        
-        <script src="{{asset('assets/layouts/layout/scripts/jquery.easy-autocomplete.min.js')}}" type="text/javascript"></script>        
+        <script src="{{asset('assets/layouts/layout/scripts/jquery.easy-autocomplete.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/layouts/layout/scripts/riot.min.js')}}" type="text/javascript"></script>        
+        <script src="{{asset('assets/layouts/layout/scripts/riot-compiler.min.js')}}" type="text/javascript"></script>                  
         <script src="{{asset('assets/layouts/layout/scripts/demo.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/layouts/global/scripts/quick-sidebar.min.js')}}" type="text/javascript"></script>
         <script  src="{{asset('assets/fileinput/js/fileinput.js')}}" type="text/javascript"></script>
         <script  src="{{asset('assets/fileinput/js/locales/es.js')}}" type="text/javascript"></script>
-        <script>
-            function baseUrl(url) {
-                return '{{url('')}}/' + url;
-            }
-        </script>        
+        <script src="{{asset('ini.js')}}"></script>
+        <script src="{{asset('bower_components/riot/riot.min.js')}}"></script>
+        <script src="{{asset('bower_components/riot/riot+compiler.min.js')}}"></script>
+        <script src="{{asset('bower_components/EasyAutocomplete//dist/jquery.easy-autocomplete.min.js')}}"></script>        
+    <script>
+        function baseUrl(url) {
+            return '{{url('')}}/' + url;
+        }
+    </script>        
         <!-- END THEME LAYOUT SCRIPTS -->
     </body>

@@ -28,19 +28,21 @@
 
                               <div class="panel-body ">
                                     <div class="form-group col-lg-4">
-                                      <label>Apellidos y Nombres del Asegurado:<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="" id="" class="form-control" placeholder="Pacheco Requena Osward José" required="true" >
-                                    </div>
-                                    <div class="form-group col-lg-4">
                                       <label>Cédula / Rif:<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
                                       <input type="text" name="" id="" class="form-control" placeholder="V-20989357" required="true" >
                                     </div>
                                     <div class="form-group col-lg-4">
+                                      <label>Apellidos y Nombres del Asegurado:<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
+                                      <input type="text" name="" id="" class="form-control" placeholder="Pacheco Requena Osward José" required="true" >
+                                    </div>
+                                    <div class="form-group col-lg-4">
                                       <label for="">Seleccione la Aseguradora</label>
-                                      <select class="form-control" id="" name="">
-                                        <option value=""></option>
-                                        <option>Seguros Caracas, C.A</option>
-                                        <option>Seguros Universitas, C.A</option>
+                                      <select name="one" class="form-control">
+                                            <option></option>}
+                                            option
+                                          @foreach ($aseguradoras as $asegu)
+                                            <option value="{{ $asegu->id }}">{{ $asegu->denominacion }}</option>
+                                          @endforeach                           
                                       </select>
                                   </div>
                                     <div class="form-group col-lg-4">
@@ -70,6 +72,10 @@
 
                               <div class="panel-body ">
                                     <div class="form-group col-md-3">
+                                      <label>Placa:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
+                                      <input type="text" name="" id="" pattern="" class="form-control" placeholder="D1O5V3N" >
+                                    </div>
+                                    <div class="form-group col-md-3">
                                       <label>Marca:<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
                                       <input type="text" name="" id="" class="form-control" placeholder="CHEVROLET" required="true" >
                                     </div>
@@ -88,11 +94,7 @@
                                     <div class="form-group col-md-3">
                                       <label>Color:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                                       <input type="text" name="" id="" pattern="" class="form-control" placeholder="BLANCO" >
-                                    </div> 
-                                    <div class="form-group col-md-3">
-                                      <label>Placa:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="" id="" pattern="" class="form-control" placeholder="D1O5V3N" >
-                                    </div>  
+                                    </div>   
                                     <div class="form-group col-md-3">
                                       <label>Serial del Motor:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                                       <input type="text" name="" id="" pattern="" class="form-control" placeholder="326488" >
@@ -114,10 +116,12 @@
                                    <div class="col-lg-offset-1 col-lg-4">
                                     <div class="form-group">
                                       <label for="">Seleccione el Analista</label>
-                                      <select class="form-control" id="" name="">
-                                        <option value=""></option>
-                                        <option>Richard Pérez</option>
-                                        <option>Manuel Olivares</option>
+                                      <select name="two" class="form-control">
+                                            <option></option>}
+                                            option
+                                          @foreach ($analistas as $analis)
+                                            <option value="{{ $analis->id }}">{{ $analis->nombre }} {{ $analis->apellido }}</option>
+                                          @endforeach                           
                                       </select>
                                     </div>
                                   </div>
@@ -357,15 +361,15 @@
                                 </div>
                                 <div class="form-group col-md-6 ">
                                   <label>Tipo de Daño</label>
-                                  <textarea type="text" placeholder="REPARAR Y PINTAR 
-INSTALAR" class="form-control"></textarea>
+                                  <textarea type="text" placeholder="REPARAR Y PINTAR INSTALAR" class="form-control"></textarea>
                                 </div>
 
                                 </div>
                                 <input type="hidden" name="" value="" />
                               </div>
 
-                                                            <div class="panel panel-primary ">
+
+                            <div class="panel panel-primary ">
                                 <div class="panel-heading ">
                                   <center>
                                     <h4>Repuestos</h4>
@@ -441,78 +445,6 @@ INSTALAR" class="form-control"></textarea>
 
                             </div>
 
-                                                          <div class="panel panel-primary ">
-                                <div class="panel-heading ">
-                                  <center>
-                                    <h4>Operarios Seleccionados</h4>
-                                  </center>
-                                </div>
-                                <div class="panel-body">
-
-                                  <div class="form-group col-md-offset-1 col-md-3">
-                                  <p class="margin"><strong>Lista de Operarios</strong></p>
-                                  <select class="form-control">
-                                      <option></option>
-                                      <option>José</option>
-                                      <option>Rafael</option>                                   
-                                  </select>
-                                </div>
-                                                                <div class="form-group col-md-6 ">
-                                  <label>Observaciones</label>
-                                  <textarea type="text" placeholder="PUERTA DERECHA (CAMIÓN)" class="form-control"></textarea>
-                                </div>
-                                <div class="form-group col-md-1" style="margin-right:-20px">
-                                  <div class="btn btn-agregar fa fa-plus btn-agregar-producto" onClick="" style="margin-top:25px"></div>
-                                </div>
-
-                                </div>
-                                <input type="hidden" name="" value="" />
-                              </div>
-
-
-                              <div class="panel panel-primary ">
-                                <div class="panel-heading ">
-                                  <center>
-                                    <h4>Operarios Seleccionados</h4>
-                                  </center>
-                                </div>
-                                <div class="panel-body ">
-                                   <div class="table-responsive"> 
-                                    <table data-toggle="table" class="table table-bordered table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Operarios</th>
-                                    <th>Observaciones</th>
-                                    <th>Acción</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-
-                                <tr id="tr-id-1" class="tr-class-1">
-                                    <td id="td-id-1" class="td-class-1">José
-                                    </td>
-                                    <td>REPARAR Y PINTAR</td>
-                                    <td><a class="btn btn-delete"><i class="fa fa-trash"></i> 
-                                    </a></td>
-                                </tr> 
-
-                                <tr id="tr-id-2" class="tr-class-1">
-                                    <td id="td-id-2" class="td-class-1">Rafael
-                                    </td>
-                                    <td>REPARAR Y PINTAR</td>
-                                    <td><a>
-                                        <button class="btn btn-delete"><i class="fa fa-trash"></i>
-                                            
-                                        </button>
-                                    </a></td>
-                                </tr>
-
-                                </tr>
-                                </tbody>
-                            </table>
-                                </div>
-                                </div>
-                                </div>
 
                                       <div class="col-xs-offset-5 col-md-12">
                                           <button type="submit" class="btn btn-guardar fa fa-save"></button>
@@ -521,3 +453,12 @@ INSTALAR" class="form-control"></textarea>
                             </div>                                    
 
 @include('layouts.footer')   
+
+
+    <script src="{{asset('components/invoice.tag')}}" type="riot/tag"></script>
+    <script>
+        $(document).ready(function(){
+            riot.mount('invoice');
+        })
+    </script>
+  

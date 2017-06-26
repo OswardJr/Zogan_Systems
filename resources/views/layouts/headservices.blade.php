@@ -11,7 +11,7 @@
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="description" />
         <meta content="" name="author" />
-        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->       
         <link href="{{asset('assets/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/global/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/global/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
@@ -34,6 +34,7 @@
         <link href="{{asset('assets/layouts/layout/css/themes/light.css')}}" rel="stylesheet" type="text/css" id="style_color" />
         <link href="{{asset('assets/layouts/layout/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/fileinput/css/fileinput.min.css')}}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="{{asset('bower_components/EasyAutocomplete/dist/easy-autocomplete.min.css')}}">        
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> 
         <style type="text/css">
@@ -375,7 +376,7 @@
                                     </li>   
 
                                     <li class="nav-item">
-                                        <a href="{{url('home_ruta')}}" class="nav-link">
+                                        <a href="{{url('ruta')}}" class="nav-link">
                                             <i class="fa fa-refresh"></i>  Ruta
                                         </a>
                                     </li> 

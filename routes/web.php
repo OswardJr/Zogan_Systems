@@ -68,4 +68,28 @@ Route::get('/propietarios/create', 'PropietariosController@create');
 
 Route::get('/propietarios/findRif', 'PropietariosController@findRif');
 
+Route::get('/ordenes', 'OrdenesController@index');
+
+Route::get('/ordenes/create', 'OrdenesController@create');
+
+Route::get('/ordenes/findProduct', 'OrdenesController@findProduct');
+
+Route::post('/ordenes/save', 'OrdenesController@save');
+
+Route::resource('imagenes', 'ImagenesController');
+
+Route::resource('images-rev', 'ImageRevController');
+
+Route::resource('revisiones', 'RevisionesController');
+
+Route::get('revision/{id}', 'RevisionesController@index');
+
+Route::post('upload', 'UploadController@upload');
+
+Route::get('mivehiculo/{placa}', 'UploadController@mivehiculo');
+
+Route::get('getimages/{placa}', 'UploadController@getImages');
+
+Route::get('/ruta', 'OrdenesController@index');
+
 Auth::routes();

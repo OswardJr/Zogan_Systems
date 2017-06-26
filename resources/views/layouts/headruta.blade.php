@@ -306,7 +306,7 @@
                                     </li>   
 
                                     <li class="nav-item">
-                                        <a href="{{url('home_ruta')}}" class="nav-link">
+                                        <a href="{{url('ruta')}}" class="nav-link">
                                             <i class="fa fa-refresh"></i>  Ruta
                                         </a>
                                     </li> 
