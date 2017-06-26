@@ -15,7 +15,7 @@ class CreateFacturacionesTable extends Migration
     {
         Schema::create('facturaciones', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('orden_id')->unsigned();            
+            $table->integer('orden_servicio_id')->unsigned();            
             $table->text('descripcion');
             $table->enum('forma_pago',['efectivo','deposito / transferencia']);
             $table->string('nro_cuenta');
@@ -26,8 +26,7 @@ class CreateFacturacionesTable extends Migration
             $table->enum('status',['activo','inactivo']);            
             $table->timestamps();
 
-            $table->foreign('orden_id')->references('id')->on('ordenes')->onDelete('cascade');  
-        Schema::enableForeignKeyConstraints();                                  
+            $table->foreign('orden_servicio_id')->references('id')->on('orden_servicios')->onDelete('cascade');            
         });
     }
 

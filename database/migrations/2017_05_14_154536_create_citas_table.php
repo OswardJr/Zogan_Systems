@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAsigCitasTable extends Migration
+class CreateCitasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateAsigCitasTable extends Migration
      */
     public function up()
     {
-        Schema::create('asig_citas', function (Blueprint $table) {
+        Schema::create('citas', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('reparacion_id')->unsigned();
             $table->date('selec_dia');
             $table->string('hora');
-            $table->integer('orden_id')->unsigned();
-            $table->timestamps();            
+            $table->timestamps();
 
-            $table->foreign('orden_id')->references('id')->on('ordenes')->onDelete('cascade'); 
-        Schema::enableForeignKeyConstraints();                                   
+            $table->foreign('reparacion_id')->references('id')->on('reparaciones')->onDelete('cascade');            
         });
     }
 
@@ -32,6 +31,6 @@ class CreateAsigCitasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('asig_citas');
+        Schema::dropIfExists('citas');
     }
 }

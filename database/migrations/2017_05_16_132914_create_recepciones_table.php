@@ -28,9 +28,7 @@ class CreateRecepcionesTable extends Migration
             $table->string('observacion');            
             $table->timestamps();
 
-            $table->foreign('cita_id')->references('id')->on('asig_citas')->onDelete('cascade');
-
-        Schema::enableForeignKeyConstraints();                        
+            $table->foreign('cita_id')->references('id')->on('citas')->onDelete('cascade');
         });
     }
 

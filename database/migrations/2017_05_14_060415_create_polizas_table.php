@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOrdenAseguTable extends Migration
+class CreatePolizasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class CreateOrdenAseguTable extends Migration
      */
     public function up()
     {
-        Schema::create('orden_asegu', function (Blueprint $table) {
+        Schema::create('polizas', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('orden_id')->unsigned();
+            $table->string('numero');
             $table->integer('aseguradora_id')->unsigned();
-            $table->string('nro_poliza');                        
+            $table->integer('vehiculo_id')->unsigned();
+            $table->enum('status', ['activo', 'inactivo']);            
             $table->timestamps();
 
-            $table->foreign('orden_id')->references('id')->on('ordenes')->onDelete('cascade');
-
             $table->foreign('aseguradora_id')->references('id')->on('aseguradoras')->onDelete('cascade');
+
+            $table->foreign('vehiculo_id')->references('id')->on('vehiculos')->onDelete('cascade');                        
         });
     }
 
@@ -33,6 +34,6 @@ class CreateOrdenAseguTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orden_asegu');
+        Schema::dropIfExists('polizas');
     }
 }
