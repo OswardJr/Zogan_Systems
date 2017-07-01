@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRepueOrdServiTable extends Migration
+class CreateRepueReparTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateRepueOrdServiTable extends Migration
      */
     public function up()
     {
-        Schema::create('repue_ord_servi', function (Blueprint $table) {
+        Schema::create('repue_repar', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('orden_servicio_id')->unsigned();
+            $table->integer('reparacion_id')->unsigned();
             $table->integer('repuesto_id')->unsigned();                        
             $table->timestamps();
 
-            $table->foreign('orden_servicio_id')->references('id')->on('orden_servicios')->onDelete('cascade');
+            $table->foreign('reparacion_id')->references('id')->on('reparaciones')->onDelete('cascade');
 
             $table->foreign('repuesto_id')->references('id')->on('repuestos')->onDelete('cascade');
         });
@@ -32,6 +32,6 @@ class CreateRepueOrdServiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('repue_ord_servi');
+        Schema::dropIfExists('repue_repar');
     }
 }
