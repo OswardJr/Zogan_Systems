@@ -250,7 +250,7 @@
                                 </a>
                                 <ul class="sub-menu">
                                     <li class="nav-item">
-                                        <a href="recibirauto.php" class="nav-link">
+                                        <a href="{{ url('recepciones/create') }}" class="nav-link">
                                             <i class="fa fa-suitcase"></i> Registrar Datos 
                                         </a>    
                                     </li>
@@ -266,7 +266,7 @@
                                 <ul class="sub-menu">    
 
                                     <li class="nav-item">
-                                        <a href="ruta.php" class="nav-link">
+                                        <a href="{{ url('ruta') }}" class="nav-link">
                                             <i class="fa fa-suitcase"></i>  Fases de Reparación
                                         </a>
                                     </li>     

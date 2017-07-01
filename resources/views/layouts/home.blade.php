@@ -348,7 +348,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                       </div><div class="col-lg-3 col-md-6 col-xs-6">
                                         <div class="panel panel-primary">
                                           <div class="panel-heading">
-                                          <a href="{{ url('/home_services') }}" style="color:#000">
+                                          <a href="{{ url('/home_ruta') }}" style="color:#000">
                                             <div class="row">
                                               <div class="col-xs-3">
                                                 <i class="fa  fa-refresh fa-5x"></i>

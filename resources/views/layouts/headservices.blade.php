@@ -285,7 +285,7 @@
                                 </a>
                                 <ul class="sub-menu">
                                   <li class="nav-item">
-                                    <a href="{{ url('/ordenes/create') }}" target="" class="nav-link">
+                                    <a href="{{ url('/reparaciones/create') }}" target="" class="nav-link">
                                       <i class="fa fa-truck"></i>  Orden de Reparación
                                     </a>
                                   </li>    

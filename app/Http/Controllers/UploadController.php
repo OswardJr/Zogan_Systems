@@ -59,7 +59,7 @@ class UploadController extends Controller
         return $msj;
       }
 
-      $results = DB::select('SELECT id  FROM revisiones WHERE ordenes_id  = :id', ['id' => $auto->id]);
+      $results = DB::select('SELECT id  FROM revisiones WHERE reparacion_id  = :id', ['id' => $auto->id]);
 
       $array = array();
       $desarmado = array();$latoneria= array();$pintura = array();$preparacion = array();$pulitura = array();$limpieza= array();$recepcion = array();

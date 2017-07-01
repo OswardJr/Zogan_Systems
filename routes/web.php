@@ -42,7 +42,9 @@ Route::resource('propietarios', 'PropietariosController');
 
 Route::resource('corredores', 'CorredoresController');
 
-Route::resource('ordenes', 'OrdenesController');
+Route::resource('reparaciones', 'ReparacionesController');
+
+Route::resource('recepciones', 'RecepcionesController');
 
 Route::resource('citas', 'CitasController');
 
@@ -68,13 +70,13 @@ Route::get('/propietarios/create', 'PropietariosController@create');
 
 Route::get('/propietarios/findRif', 'PropietariosController@findRif');
 
-Route::get('/ordenes', 'OrdenesController@index');
+Route::get('/reparaciones', 'ReparacionesController@index');
 
-Route::get('/ordenes/create', 'OrdenesController@create');
+Route::get('/reparaciones/create', 'ReparacionesController@create');
 
-Route::get('/ordenes/findProduct', 'OrdenesController@findProduct');
+Route::get('/reparaciones/findProduct', 'ReparacionesController@findProduct');
 
-Route::post('/ordenes/save', 'OrdenesController@save');
+Route::post('/reparaciones/save', 'ReparacionesController@save');
 
 Route::resource('imagenes', 'ImagenesController');
 
@@ -90,6 +92,6 @@ Route::get('mivehiculo/{placa}', 'UploadController@mivehiculo');
 
 Route::get('getimages/{placa}', 'UploadController@getImages');
 
-Route::get('/ruta', 'OrdenesController@index');
+Route::get('/ruta', 'ReparacionesController@index');
 
 Auth::routes();

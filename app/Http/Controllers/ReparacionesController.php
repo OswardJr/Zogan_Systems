@@ -6,16 +6,16 @@ use App\Repuestos;
 use Illuminate\Http\Request;
 use App\Analistas;
 use App\Aseguradoras;
-use App\Ordenes;
+use App\Reparaciones;
 use App\Operarios;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
-class OrdenesController extends Controller
+class ReparacionesController extends Controller
 {
     public function index()
     {
-      $autos = DB::table('ordenes')->orderBy('id', 'desc')->paginate(15);
+      $autos = DB::table('reparaciones')->orderBy('id', 'desc')->paginate(15);
 
       return view('dashboard', ['autos' => $autos]);
     }
@@ -26,12 +26,12 @@ class OrdenesController extends Controller
 
         $analistas = DB::table('analistas')->get();
 
-      return view('ordenes.create', ['aseguradoras' => $aseguradoras, 'analistas' => $analistas]);
+      return view('reparaciones.create', ['aseguradoras' => $aseguradoras, 'analistas' => $analistas]);
     }
 
     public function store(Request $request)
     {
-        $ordenes = new Ordenes();  
+        $ordenes = new Reparaciones();  
         $ordenes->rif = $request->rif;
         $ordenes->nombre_completo = $request->nombre_completo;
         $ordenes->fecha_ocurrencia = $request->fecha_ocurrencia;
@@ -56,7 +56,6 @@ class OrdenesController extends Controller
         $ordenes->depre_repues = $request->depre_repues;
         $ordenes->total_accesorios = $request->total_accesorios;
         $ordenes->repues_taller = $request->repues_taller;  
-
         $ordenes->manejo_repues = $request->manejo_repues;
         $ordenes->total_manobra = $request->total_manobra;
         $ordenes->deduccion = $request->deduccion;
