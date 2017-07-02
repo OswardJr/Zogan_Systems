@@ -18,7 +18,14 @@ class ReparacionesController extends Controller
 {
     public function index()
     {
-      $autos = DB::table('reparaciones')->orderBy('id', 'desc')->paginate(15);
+      $autos = DB::select('
+                  SELECT i.nombre_completo_id, r.placa,r.marca
+                  FROM image_revs as i 
+                  inner JOIN revisiones as r 
+                  ON i.revision_id = r.id 
+                  INNER JOIN imagenes 
+                  ON i.imagen_id = imagenes.id 
+                  WHERE revision_id = :id', ['id' => $value->id]);
 
       return view('dashboard', ['autos' => $autos]);
     }
@@ -64,6 +71,7 @@ class ReparacionesController extends Controller
         $vehiculos->color = $request->color;
         $vehiculos->serial_motor = $request->serial_motor;
         $vehiculos->serial_carro = $request->serial_carro;
+        $vehiculos->status = 'Ninguno';
         $vehiculos->save();
         $Idvehi = $vehiculos->id;
 

@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use Storage;
 use App\Imagenes;
 use App\Revisiones; 
-use App\Revisiones; 
+use App\Vehiculos; 
+use App\Propietarios; 
 use App\Recepciones; 
 use App\Image_rev;
 use App\Reparaciones;
@@ -54,7 +55,7 @@ class UploadController extends Controller
     }
         public function getImages($placa)
         {
-          $auto = Ordenes::where('placa', $placa)->first();
+          $auto = Vehiculos::where('placa', $placa)->first();
 
           if (!$auto) {
             $msj = array('status' => 'error');
