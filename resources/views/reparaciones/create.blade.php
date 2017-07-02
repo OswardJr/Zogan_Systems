@@ -48,8 +48,7 @@
           <div class="form-group col-lg-4">
             <label for="">Seleccione la Aseguradora</label>
             <select name="one" class="form-control">
-              <option></option>}
-              option
+              <option></option>
               @foreach ($aseguradoras as $asegu)
               <option value="{{ $asegu->id }}">{{ $asegu->denominacion }}</option>
               @endforeach

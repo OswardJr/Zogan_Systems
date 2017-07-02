@@ -16,9 +16,6 @@ Route::get('/home_repuestos', function () {
     return view('home_repuestos');
 });
 
-Route::get('/home_ruta', function () {
-    return view('home_ruta');
-});
 
 Auth::routes();
 
@@ -60,6 +57,8 @@ Route::get('/listanalis', 'AnalistasController@index');
 
 Route::get('/listvehi', 'PropietariosController@index');
 
+Route::get('/listorden', 'ReparacionesController@on');
+
 Route::get('/listrepuesto', 'RepuestosController@index');
 
 Route::get('/vehiculos/create', 'VehiculosController@create');
@@ -78,7 +77,6 @@ Route::get('/reparaciones/findProduct', 'ReparacionesController@findProduct');
 
 Route::post('/reparaciones/save', 'ReparacionesController@save');
 
-
 Route::resource('imagenes', 'ImagenesController');
 
 Route::resource('images-rev', 'ImageRevController');
@@ -94,5 +92,9 @@ Route::get('mivehiculo/{placa}', 'UploadController@mivehiculo');
 Route::get('getimages/{placa}', 'UploadController@getImages');
 
 Route::get('/ruta', 'ReparacionesController@index');
+
+Route::get('/home_ruta', 'ReparacionesController@me');
+
+Route::get('/ruta', 'ReparacionesController@store');
 
 Auth::routes();
