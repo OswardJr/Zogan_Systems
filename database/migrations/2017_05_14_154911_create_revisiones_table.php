@@ -16,6 +16,9 @@ class CreateRevisionesTable extends Migration
         Schema::create('revisiones', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('vehiculo_id')->unsigned();
+            $table->string('encargado_entrega');
+            $table->string('encargado_recibe');            
+            $table->text('avances');
             $table->string('tipo');
             $table->date('fecha');
             $table->timestamps();

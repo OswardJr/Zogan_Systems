@@ -95,6 +95,6 @@ Route::get('/ruta', 'ReparacionesController@index');
 
 Route::get('/home_ruta', 'ReparacionesController@me');
 
-Route::get('/ruta', 'ReparacionesController@store');
+Route::get('/ruta', 'ReparacionesController@index');
 
 Auth::routes();

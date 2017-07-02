@@ -147,7 +147,7 @@ class ReparacionesController extends Controller
         $ordenes->latonero_id = $ope;
         $oper = $request->get('fourth');    
         $ordenes->pintor_id = $oper;   
-        $ordenes->status = 'Ninguno';             
+        $ordenes->status = 'NINGUNO';             
         $ordenes->save();
         $Idorden = $ordenes->id;
 
