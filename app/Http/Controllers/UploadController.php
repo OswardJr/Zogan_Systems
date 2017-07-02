@@ -65,7 +65,7 @@ class UploadController extends Controller
     $results = DB::select('SELECT id  FROM revisiones WHERE vehiculo_id  = :id', ['id' => $auto->id]);
 
     $array = array();
-    $desarmado = array();$latoneria= array();$pintura = array();$preparacion = array();$pulitura = array();$limpieza = array();$recepcion = array();$entrega = array();
+    $DESARMADO = array();$LATONERIA= array();$PINTURA = array();$PREPARACION = array();$PULITURA = array();$LIMPIEZA = array();$ENTREGA = array();
 
     foreach ($results as $value) {
       $images = DB::select('
@@ -77,29 +77,29 @@ class UploadController extends Controller
         ON i.imagen_id = imagenes.id 
         WHERE revision_id = :id', ['id' => $value->id]);
       foreach ($images as $image){
-        if ($image->tipo == 'desarmado') {
-          array_push($desarmado,$image);
+        if ($image->tipo == 'LATONERIA') {
+          array_push($LATONERIA,$image);
         }
-        elseif ($image->tipo == 'latoneria') {
-          array_push($latoneria,$image);
+        elseif ($image->tipo == 'PINTURA') {
+          array_push($PINTURA,$image);
         }
-        elseif ($image->tipo == 'pintura') {
-          array_push($pintura,$image);
+        elseif ($image->tipo == 'PREPARACION') {
+          array_push($PREPARACION, $image);
         }
-        elseif ($image->tipo == 'preparacion') {
-          array_push($preparacion, $image);
+        elseif ($image->tipo == 'PULITURA') {
+          array_push($PULITURA,$image);
         }
-        elseif ($image->tipo == 'pulitura') {
-          array_push($pulitura,$image);
+        elseif ($image->tipo == 'LIMPIEZA') {
+          array_push($LIMPIEZA,$image); 
         }
-        elseif ($image->tipo == 'limpieza') {
-          array_push($limpieza,$image); 
-        }
-        elseif ($image->tipo == 'entrega') {
-          array_push($entrega,$image); 
+        elseif ($image->tipo == 'ENTREGA') {
+          array_push($ENTREGA,$image); 
+        }        
+        elseif ($image->tipo == 'DESARMADO') {
+          array_push($DESARMADO,$image); 
         }
       }
-      $array = array('desarmado'=>$desarmado,'latoneria'=>$latoneria,'pintura'=>$pintura,'preparacion'=>$preparacion,'pulitura'=>$pulitura,'limpieza'=>$limpieza,'entrega'=>$entrega);      
+      $array = array('DESARMADO'=>$DESARMADO,'LATONERIA'=>$LATONERIA,'PINTURA'=>$PINTURA,'PREPARACION'=>$PREPARACION,'PULITURA'=>$PULITURA,'LIMPIEZA'=>$LIMPIEZA,'ENTREGA'=>$ENTREGA);      
     }
 
         // SELECT id FROM revisions WHERE vehiculo_id = 1
@@ -126,6 +126,9 @@ class UploadController extends Controller
    $auto->save();
 
 
+   $rev->encargado_entrega = $request->encargado_entrega;
+   $rev->encargado_recibe = $request->encargado_recibe;
+   $rev->avances = $request->avances;
    $rev->tipo = $request->_tipoRev;
    $rev->fecha = $request->_fechaRev;
    $rev->vehiculo_id = $request->_idAuto;
