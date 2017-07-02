@@ -15,12 +15,12 @@ class CreateRevisionesTable extends Migration
     {
         Schema::create('revisiones', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('reparacion_id')->unsigned();
+            $table->integer('vehiculo_id')->unsigned();
             $table->string('tipo');
             $table->date('fecha');
             $table->timestamps();
 
-            $table->foreign('reparacion_id')->references('id')->on('reparaciones')->onDelete('cascade');
+            $table->foreign('vehiculo_id')->references('id')->on('vehiculos')->onDelete('cascade');
         });
     }
 

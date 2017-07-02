@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Reparaciones;
 use App\Revisiones;
+use App\Vehiculos;
+use App\Propietarios;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -16,38 +18,56 @@ class RevisionesController extends Controller
 
     public function index($id)
     {
-      $tiposRev = array('desarmado','latoneria','preparacion','pintura','pulitura','limpieza');
+      $tiposRev = array('recepcion','desarmado','latoneria','preparacion','pintura','pulitura','limpieza','entrega');
 
-      $auto = Reparaciones::find($id);
+      $auto = Vehiculos::find($id);
 
       if ( !$auto ) {
+        abort(404);
+      }
+
+      $prop = Propietarios::find($id);
+
+      if ( !$prop ) {
+        abort(404);
+      }
+
+      $repa = Reparaciones::find($id);
+
+      if ( !$repa ) {
         abort(404);
       }
 
       $revs = Reparaciones::find($id)->revisions;
 
       foreach ($revs as $rev) {
-        if ($rev->tipo == 'latoneria') {
+        if ($rev->tipo == 'desarmado') {
           $tiposRev = array_except($tiposRev, [1]);
         }
-        elseif ($rev->tipo == 'pintura') {
+        elseif ($rev->tipo == 'latoneria') {
           $tiposRev = array_except($tiposRev, [2]);
         }
-        elseif ($rev->tipo == 'preparacion') {
+        elseif ($rev->tipo == 'pintura') {
           $tiposRev = array_except($tiposRev, [4]);
         }
-        elseif ($rev->tipo == 'pulitura') {
+        elseif ($rev->tipo == 'preparacion') {
           $tiposRev = array_except($tiposRev, [3]);
         }
-        elseif ($rev->tipo == 'limpieza') {
+        elseif ($rev->tipo == 'pulitura') {
           $tiposRev = array_except($tiposRev, [5]);
         }
-        elseif ($rev->tipo == 'desarmado') {
+        elseif ($rev->tipo == 'limpieza') {
+          $tiposRev = array_except($tiposRev, [6]);
+        }
+        elseif ($rev->tipo == 'entrega') {
+          $tiposRev = array_except($tiposRev, [7]);
+        }
+        elseif ($rev->tipo == 'recepcion') {
           $tiposRev = array_except($tiposRev, [0]);
         }
       }
 
-      return view('revisiones.new', compact('auto', 'revs', 'tiposRev'));
+      return view('revisiones.new', compact('auto','prop','repa', 'revs', 'tiposRev'));
     }
 
     public function create()

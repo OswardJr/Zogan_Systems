@@ -37,7 +37,7 @@
                <tbody>
                 @foreach ($autos as $auto)
                 <tr>
-                  <th scope="row">{{ $auto->id}}</th>
+                  <th scope="row">{{ $auto->vehiculo_id}}</th>
                   <td>{{ strtoupper($auto->placa) }}</td>
                   <td>{{ strtoupper($auto->marca) }} - {{ strtoupper($auto->modelo)}}</td>
                   <td>{{ strtoupper($auto->nombre_completo) }}</td>
@@ -47,7 +47,7 @@
                     <a class="btn btn-success btn-xs" title="Agregar revision al vehículo"><i class="fa fa-camera fa-lg"></i>
                     </a>
                     @else
-                    <a href="{{ url('revision') }}/{{ $auto->id }}" class="btn btn-success btn-xs" title="Agregar revision al vehículo"><i class="fa fa-camera fa-lg"></i>
+                    <a href="{{ url('revision') }}/{{ $auto->vehiculo_id }}" class="btn btn-success btn-xs" title="Agregar revision al vehículo"><i class="fa fa-camera fa-lg"></i>
                     </a>
                     @endif
 
@@ -59,7 +59,6 @@
 
           </div>
         </div>
-        {{ $autos->links() }}
       </div>
     </div>
   </div>

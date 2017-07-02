@@ -19,15 +19,43 @@ class ReparacionesController extends Controller
     public function index()
     {
       $autos = DB::select('
-                  SELECT i.nombre_completo_id, r.placa,r.marca
-                  FROM image_revs as i 
-                  inner JOIN revisiones as r 
-                  ON i.revision_id = r.id 
-                  INNER JOIN imagenes 
-                  ON i.imagen_id = imagenes.id 
-                  WHERE revision_id = :id', ['id' => $value->id]);
+              SELECT i.vehiculo_id,i.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo 
+              FROM reparaciones as i 
+              inner JOIN vehiculos as q 
+              ON i.vehiculo_id = q.id 
+              INNER JOIN propietarios 
+              ON i.propietario_id = propietarios.id');       
 
       return view('dashboard', ['autos' => $autos]);
+    }
+
+    public function me()
+    {
+      $autos = DB::select('
+              SELECT i.vehiculo_id,i.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo 
+              FROM reparaciones as i 
+              inner JOIN vehiculos as q 
+              ON i.vehiculo_id = q.id 
+              INNER JOIN propietarios 
+              ON i.propietario_id = propietarios.id');       
+
+      return view('home_ruta', ['autos' => $autos]);
+    }
+
+    public function on()
+    {
+      $reparaciones = DB::select('
+              SELECT i.vehiculo_id,i.analista_id,i.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo,analistas.nombre 
+              FROM reparaciones as i 
+              inner JOIN vehiculos as q 
+              ON i.vehiculo_id = q.id 
+              INNER JOIN propietarios 
+              ON i.propietario_id = propietarios.id
+              INNER JOIN analistas 
+              ON i.analista_id = analistas.id
+              ');
+
+      return view('/listorden', ['reparaciones' => $reparaciones]);     
     }
 
     public function create()
@@ -71,7 +99,6 @@ class ReparacionesController extends Controller
         $vehiculos->color = $request->color;
         $vehiculos->serial_motor = $request->serial_motor;
         $vehiculos->serial_carro = $request->serial_carro;
-        $vehiculos->status = 'Ninguno';
         $vehiculos->save();
         $Idvehi = $vehiculos->id;
 
@@ -119,12 +146,13 @@ class ReparacionesController extends Controller
         $ope = $request->get('three');    
         $ordenes->latonero_id = $ope;
         $oper = $request->get('fourth');    
-        $ordenes->pintor_id = $oper;        
+        $ordenes->pintor_id = $oper;   
+        $ordenes->status = 'Ninguno';             
         $ordenes->save();
         $Idorden = $ordenes->id;
 
 
-      return redirect('/listcorre')->with('message','El corredor ha sido registrado de manera exitosamente!');
+      return redirect('/listorden')->with('message','El corredor ha sido registrado de manera exitosamente!');
     }
 
     public function show($id)
