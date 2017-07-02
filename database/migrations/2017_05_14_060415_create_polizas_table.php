@@ -17,12 +17,9 @@ class CreatePolizasTable extends Migration
             $table->increments('id');
             $table->string('numero');
             $table->integer('aseguradora_id')->unsigned();
-            $table->integer('vehiculo_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('aseguradora_id')->references('id')->on('aseguradoras')->onDelete('cascade');
-
-            $table->foreign('vehiculo_id')->references('id')->on('vehiculos')->onDelete('cascade');                        
         });
     }
 

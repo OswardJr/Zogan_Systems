@@ -8,6 +8,8 @@ use App\Analistas;
 use App\Polizas;
 use App\Aseguradoras;
 use App\Reparaciones;
+use App\Propietarios;
+use App\Vehiculos;
 use App\Operarios;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -36,10 +38,21 @@ class ReparacionesController extends Controller
     {
 
         $polizas = new Polizas();
-        $polizas->nro_poliza = $request->nro_poliza;
-        $polizas = $request->get('one');    
-        $polizas->vehiculo_id = $auto;
+        $polizas->numero = $request->numero;
+        $asegu = $request->get('one');    
+        $polizas->aseguradora_id = $asegu;
         $polizas->save();  
+        $Idpoli = $polizas->id;
+
+
+        $propietarios = new Propietarios();
+        $propietarios->rif = $request->rif;
+        $propietarios->nombre_completo = $request->nombre_completo;
+        $propietarios->telefono = $request->telefono;
+        $propietarios->email = $request->email;
+        $propietarios->save();
+        $Idprop = $propietarios->id;
+
 
 
         $vehiculos = new Vehiculos();
@@ -47,20 +60,17 @@ class ReparacionesController extends Controller
         $vehiculos->marca = $request->marca;
         $vehiculos->modelo = $request->modelo;
         $vehiculos->tipo = $request->tipo;
-        $vehiculos->año = $request->año;
+        $vehiculos->anio = $request->anio;
         $vehiculos->color = $request->color;
         $vehiculos->serial_motor = $request->serial_motor;
-        $vehiculos->serial_carroceria = $request->serial_carroceria;
+        $vehiculos->serial_carro = $request->serial_carro;
         $vehiculos->save();
         $Idvehi = $vehiculos->id;
-        $auto = Vehiculo::find($Idvehi);
 
 
-        $ordenes = new Ordenes();
-        $ordenes->rif = $request->rif;
-        $ordenes->nombre_completo = $request->nombre_completo;
-        $ordenes->fecha_ocurrencia = $request->fecha_ocurrencia;
-        $ordenes->nro_certificado = $request->nro_certificado;
+        $ordenes = new Reparaciones();
+        $ordenes->fecha_ocu = $request->fecha_ocu;
+        $ordenes->num_certificado = $request->num_certificado;
         $ordenes->nro_siniestro = $request->nro_siniestro;        
         $ordenes->notas = $request->notas;
         $ordenes->mano_obra = $request->mano_obra;
@@ -90,6 +100,14 @@ class ReparacionesController extends Controller
         $ordenes->depreciacion_nega = $request->depreciacion_nega;
         $ordenes->total_ordenes_acc = $request->total_ordenes_acc;
         $ordenes->monto_final = $request->monto_final;
+        $ordenes->propietario_id = $Idprop;        
+        $ordenes->vehiculo_id = $Idvehi;        
+        $analis = $request->get('two');    
+        $ordenes->analista_id = $analis;        
+        $ope = $request->get('three');    
+        $ordenes->latonero_id = $ope;
+        $oper = $request->get('fourth');    
+        $ordenes->pintor_id = $oper;        
         $ordenes->save();
         $Idorden = $ordenes->id;
 

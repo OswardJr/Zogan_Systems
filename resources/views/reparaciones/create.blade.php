@@ -27,6 +27,8 @@
         </div>
 
         <div class="panel-body ">
+          <form method="post" action="{{ url('/reparaciones') }}">
+            <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
           <div class="form-group col-lg-4">
             <label>Cédula / Rif:<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
             <input type="text" name="rif" id="" class="form-control" placeholder="V-20989357" required="true" >
@@ -59,15 +61,15 @@
           </div>
           <div class="form-group col-lg-4">
             <label>Número de Poliza:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-            <input type="text" name="numero" id="" pattern="" class="form-control" placeholder="93-56-2399217" >
+            <input type="text" name="numero" id="" class="form-control" placeholder="93-56-2399217" >
           </div>  
           <div class="form-group col-lg-4">
             <label>Número del Certificado / Recibo:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-            <input type="text" name="num_certificado" id="" pattern="" class="form-control" placeholder="0/4739494" >
+            <input type="text" name="num_certificado" id="" class="form-control" placeholder="0/4739494" >
           </div> 
           <div class="form-group col-lg-4">
             <label>Número del Siniestro:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-            <input type="text" name="nro_siniestro" id="" pattern="" class="form-control" placeholder="93-562388688" >
+            <input type="text" name="nro_siniestro" id="" class="form-control" placeholder="93-562388688" >
           </div>                                            </div>
         </div>
 
@@ -81,7 +83,7 @@
           <div class="panel-body ">
             <div class="form-group col-md-3">
               <label>Placa:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-              <input type="text" name="placa" id="" pattern="" class="form-control" placeholder="D1O5V3N" >
+              <input type="text" name="placa" id="" class="form-control" placeholder="D1O5V3N" >
             </div>
             <div class="form-group col-md-3">
               <label>Marca:<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
@@ -97,19 +99,19 @@
             </div>
             <div class="form-group col-md-3">
               <label>Año:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-              <input type="text" name="anio" id="" pattern="" class="form-control" placeholder="2013" >
+              <input type="text" name="anio" id="" class="form-control" placeholder="2013" >
             </div>  
             <div class="form-group col-md-3">
               <label>Color:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-              <input type="text" name="color" id="" pattern="" class="form-control" placeholder="BLANCO" >
+              <input type="text" name="color" id="" class="form-control" placeholder="BLANCO" >
             </div>   
             <div class="form-group col-md-3">
               <label>Serial del Motor:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-              <input type="text" name="serial_motor" id="" pattern="" class="form-control" placeholder="326488" >
+              <input type="text" name="serial_motor" id="" class="form-control" placeholder="326488" >
             </div> 
             <div class="form-group col-md-3">
               <label>Serial de la Carrocería:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-              <input type="text" name="serial_carro" id="" pattern="" class="form-control" placeholder="UWRUU38484NXWJD23" >
+              <input type="text" name="serial_carro" id="" class="form-control" placeholder="UWRUU38484NXWJD23" >
             </div>                                                                              
           </div>
         </div>
@@ -413,8 +415,8 @@
           <label>Pintor</label>
           <select name="fourth" class="form-control">
             <option value=""></option>
-            @foreach ($operarios as $ope)
-            <option value="{{ $ope->id }}">{{ $ope->nombre }} {{ $ope->apellido }}</option>
+            @foreach ($operarios as $oper)
+            <option value="{{ $oper->id }}">{{ $oper->nombre }} {{ $oper->apellido }}</option>
             @endforeach                       
           </select>
         </div>
@@ -425,7 +427,8 @@
     <div class="col-xs-offset-5 col-md-12">
       <button type="submit" class="btn btn-guardar fa fa-save"></button>
       <button type="reset" class="btn btn-refresh fa fa-repeat  "></button>
-    </div>                                  
+    </div>  
+    </form>                                
   </div>                                    
 
   @include('layouts.footer')   
