@@ -15,7 +15,6 @@ class CreateVehiculosTable extends Migration
     {
         Schema::create('vehiculos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('propietario_id')->unsigned();
             $table->string('placa')->unique();
             $table->string('marca');
             $table->string('modelo');
@@ -23,8 +22,7 @@ class CreateVehiculosTable extends Migration
             $table->string('serial_motor');
             $table->string('serial_carro');
             $table->string('color');
-            $table->enum('tipo', ['ligero', 'pesado']);
-            $table->enum('status', ['activo','inactivo']);
+            $table->string('tipo');
             $table->timestamps();
         });
     }

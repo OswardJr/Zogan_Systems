@@ -22,7 +22,6 @@ class CreatePropietariosTable extends Migration
             $table->string('telefono', 20);
             $table->string('email', 30);
             $table->text('direccion');
-            $table->enum('status', ['activo', 'inactivo']);            
             $table->timestamps();
         });
     }

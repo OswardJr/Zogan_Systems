@@ -18,6 +18,9 @@ class CreateReparacionesTable extends Migration
             $table->integer('propietario_id')->unsigned();
             $table->integer('vehiculo_id')->unsigned();
             $table->integer('analista_id')->unsigned();
+            $table->string('fecha_ocu');
+            $table->string('num_certificado');
+            $table->string('nro_siniestro');
             $table->string('notas');
             $table->string('mano_obra');
             $table->string('depreciacion');
@@ -49,7 +52,8 @@ class CreateReparacionesTable extends Migration
             $table->string('monto_asegu');
             $table->text('descripcion_daños');
             $table->text('tipos_daños');
-            $table->text('observaciones');
+            $table->text('selec_repues');
+            $table->text('no_dispo');
             $table->timestamps();
 
             $table->foreign('propietario_id')->references('id')->on('propietarios');
