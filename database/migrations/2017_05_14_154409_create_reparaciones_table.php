@@ -18,6 +18,8 @@ class CreateReparacionesTable extends Migration
             $table->integer('propietario_id')->unsigned();
             $table->integer('vehiculo_id')->unsigned();
             $table->integer('analista_id')->unsigned();
+            $table->integer('latonero_id')->unsigned();
+            $table->integer('pintor_id')->unsigned();
             $table->string('fecha_ocu');
             $table->string('num_certificado');
             $table->string('nro_siniestro');
@@ -61,6 +63,10 @@ class CreateReparacionesTable extends Migration
             $table->foreign('vehiculo_id')->references('id')->on('vehiculos');
 
             $table->foreign('analista_id')->references('id')->on('analistas');
+
+            $table->foreign('latonero_id')->references('id')->on('operarios');
+
+            $table->foreign('pintor_id')->references('id')->on('operarios');
 
             Schema::enableForeignKeyConstraints();                                                   
         });
