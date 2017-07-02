@@ -1,7 +1,7 @@
 @include('layouts.headservices')
 
 <div class="page-content-wrapper" style="">
-  <div class="page-content">                    
+  <div class="page-content">
     <section class="content">
       <div class="row">
 
@@ -14,7 +14,7 @@
             <h4><strong>Número:</strong> 0000001</h4>
           </div>
         </div>
-      </div>                            
+      </div>
     </div>
 
     <div class="col-md-12 ">
@@ -42,7 +42,7 @@
           <div class="form-group col-lg-4">
             <label>Correo:<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
             <input type="text" name="email" id="" class="form-control" placeholder="Pacheco Requena Osward José" required="true" >
-          </div>                                                                        
+          </div>
           <div class="form-group col-lg-4">
             <label for="">Seleccione la Aseguradora</label>
             <select name="one" class="form-control">
@@ -50,7 +50,7 @@
               option
               @foreach ($aseguradoras as $asegu)
               <option value="{{ $asegu->id }}">{{ $asegu->denominacion }}</option>
-              @endforeach                           
+              @endforeach
             </select>
           </div>
           <div class="form-group col-lg-4">
@@ -60,11 +60,11 @@
           <div class="form-group col-lg-4">
             <label>Número de Poliza:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
             <input type="text" name="numero" id="" pattern="" class="form-control" placeholder="93-56-2399217" >
-          </div>  
+          </div>
           <div class="form-group col-lg-4">
             <label>Número del Certificado / Recibo:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
             <input type="text" name="num_certificado" id="" pattern="" class="form-control" placeholder="0/4739494" >
-          </div> 
+          </div>
           <div class="form-group col-lg-4">
             <label>Número del Siniestro:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
             <input type="text" name="nro_siniestro" id="" pattern="" class="form-control" placeholder="93-562388688" >
@@ -98,19 +98,19 @@
             <div class="form-group col-md-3">
               <label>Año:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
               <input type="text" name="anio" id="" pattern="" class="form-control" placeholder="2013" >
-            </div>  
+            </div>
             <div class="form-group col-md-3">
               <label>Color:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
               <input type="text" name="color" id="" pattern="" class="form-control" placeholder="BLANCO" >
-            </div>   
+            </div>
             <div class="form-group col-md-3">
               <label>Serial del Motor:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
               <input type="text" name="serial_motor" id="" pattern="" class="form-control" placeholder="326488" >
-            </div> 
+            </div>
             <div class="form-group col-md-3">
               <label>Serial de la Carrocería:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
               <input type="text" name="serial_carro" id="" pattern="" class="form-control" placeholder="UWRUU38484NXWJD23" >
-            </div>                                                                              
+            </div>
           </div>
         </div>
 
@@ -128,7 +128,7 @@
                 <option></option>
                 @foreach ($analistas as $analis)
                 <option value="{{ $analis->id }}">{{ $analis->nombre }} {{ $analis->apellido }}</option>
-                @endforeach                           
+                @endforeach
               </select>
             </div>
           </div>
@@ -138,7 +138,7 @@
               <label for="">Notas / Observaciones</label>
               <textarea name="notas" class="form-control"></textarea>
             </div>
-          </div> 
+          </div>
 
         </div>
       </div>
@@ -160,7 +160,7 @@
 
         <div class="col-lg-offset-2 col-lg-4">
           <div class="form-group">
-            <label for="fecha_nac">Total de Repuestos:</label>                                      
+            <label for="fecha_nac">Total de Repuestos:</label>
             <input type="text" name="total_repues" class="form-control" placeholder="bsf" required="required">
           </div>
         </div>
@@ -169,7 +169,7 @@
           <div class="form-group">
             <label for="">Depreciación / Penalización:</label>
             <input type="text" name="depreciacion" placeholder="bsf" class="form-control">
-          </div> 
+          </div>
         </div>
 
         <div class="col-lg-offset-2 col-lg-4">
@@ -177,7 +177,7 @@
             <label for="">Depre. Rep:</label>
             <input type="text" name="depre_repues" placeholder="bsf" class="form-control">
           </div>
-        </div>  
+        </div>
         <div class="col-lg-offset-1 col-lg-4">
           <div class="form-group">
             <label for="">Mecánica / Otros:</label>
@@ -187,7 +187,7 @@
 
         <div class="col-lg-offset-2 col-lg-4">
           <div class="form-group">
-            <label for="fecha_nac">Total Accesorios:</label>                                      
+            <label for="fecha_nac">Total Accesorios:</label>
             <input type="text" name="total_accesorios" class="form-control" placeholder="bsf" required="required">
           </div>
         </div>
@@ -214,7 +214,7 @@
 
         <div class="col-lg-offset-2 col-lg-4">
           <div class="form-group">
-            <label for="fecha_nac">Dif.S / Repuestos Taller:</label>                                      
+            <label for="fecha_nac">Dif.S / Repuestos Taller:</label>
             <input type="text" name="repues_taller" class="form-control" placeholder="bsf" required="required">
           </div>
         </div>
@@ -329,7 +329,7 @@
             <label for="">Total Órdenes Rep/Acc:</label>
             <input type="text" name="total_ordenes_acc" placeholder="bsf" class="form-control">
           </div>
-        </div>  
+        </div>
 
         <div class="col-lg-offset-1 col-lg-4">
           <div class="form-group">
@@ -343,14 +343,14 @@
             <label for="">Monto a Cargo del Asegurado:</label>
             <input type="text" name="monto_asegu" placeholder="bsf" class="form-control">
           </div>
-        </div> 
+        </div>
 
         <div class="col-lg-offset-1 col-lg-4">
           <div class="form-group">
             <label for="">Total Orden de Reparación:</label>
             <input type="text" name="total_orden" placeholder="bsf" class="form-control">
           </div>
-        </div>                                                                                         
+        </div>
       </div>
     </div>
 
@@ -406,7 +406,7 @@
             <option value=""></option>
             @foreach ($operarios as $ope)
             <option value="{{ $ope->id }}">{{ $ope->nombre }} {{ $ope->apellido }}</option>
-            @endforeach                      
+            @endforeach
           </select>
         </div>
         <div class="form-group col-md-6 ">
@@ -415,20 +415,20 @@
             <option value=""></option>
             @foreach ($operarios as $ope)
             <option value="{{ $ope->id }}">{{ $ope->nombre }} {{ $ope->apellido }}</option>
-            @endforeach                       
+            @endforeach
           </select>
         </div>
       </div>
     </div>
 
 
-    <div class="col-xs-offset-5 col-md-12">
+    <div class="col-xs-offset-5 col-md-5">
       <button type="submit" class="btn btn-guardar fa fa-save"></button>
       <button type="reset" class="btn btn-refresh fa fa-repeat  "></button>
-    </div>                                  
-  </div>                                    
+    </div>
+  </div>
 
-  @include('layouts.footer')   
+  @include('layouts.footer')
 
 
   <script src="{{asset('components/invoice.tag')}}" type="riot/tag"></script>
@@ -437,4 +437,4 @@
       riot.mount('invoice');
     })
   </script>
-  
+
