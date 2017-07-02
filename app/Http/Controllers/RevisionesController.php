@@ -13,43 +13,36 @@ class RevisionesController extends Controller
     {
       $this->middleware('auth');
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index($id)
     {
-      $tiposRev = array('recepcion','desarmado','latoneria','preparacion','pintura','pulitura','limpieza');
+      $tiposRev = array('desarmado','latoneria','preparacion','pintura','pulitura','limpieza');
 
-      $auto = Ordenes::find($id);
+      $auto = Reparaciones::find($id);
 
       if ( !$auto ) {
         abort(404);
       }
 
-      $revs = Ordenes::find($id)->revisions;
+      $revs = Reparaciones::find($id)->revisions;
 
       foreach ($revs as $rev) {
-        if ($rev->tipo == 'desarmado') {
+        if ($rev->tipo == 'latoneria') {
           $tiposRev = array_except($tiposRev, [1]);
         }
-        elseif ($rev->tipo == 'latoneria') {
+        elseif ($rev->tipo == 'pintura') {
           $tiposRev = array_except($tiposRev, [2]);
         }
-        elseif ($rev->tipo == 'pintura') {
+        elseif ($rev->tipo == 'preparacion') {
           $tiposRev = array_except($tiposRev, [4]);
         }
-        elseif ($rev->tipo == 'preparacion') {
+        elseif ($rev->tipo == 'pulitura') {
           $tiposRev = array_except($tiposRev, [3]);
         }
-        elseif ($rev->tipo == 'pulitura') {
+        elseif ($rev->tipo == 'limpieza') {
           $tiposRev = array_except($tiposRev, [5]);
         }
-        elseif ($rev->tipo == 'limpieza') {
-          $tiposRev = array_except($tiposRev, [6]);
-        }
-        elseif ($rev->tipo == 'recepcion') {
+        elseif ($rev->tipo == 'desarmado') {
           $tiposRev = array_except($tiposRev, [0]);
         }
       }

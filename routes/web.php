@@ -78,6 +78,7 @@ Route::get('/reparaciones/findProduct', 'ReparacionesController@findProduct');
 
 Route::post('/reparaciones/save', 'ReparacionesController@save');
 
+
 Route::resource('imagenes', 'ImagenesController');
 
 Route::resource('images-rev', 'ImageRevController');

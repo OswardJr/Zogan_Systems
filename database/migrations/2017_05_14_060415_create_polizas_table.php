@@ -18,7 +18,6 @@ class CreatePolizasTable extends Migration
             $table->string('numero');
             $table->integer('aseguradora_id')->unsigned();
             $table->integer('vehiculo_id')->unsigned();
-            $table->enum('status', ['activo', 'inactivo']);            
             $table->timestamps();
 
             $table->foreign('aseguradora_id')->references('id')->on('aseguradoras')->onDelete('cascade');

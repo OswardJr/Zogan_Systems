@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Orden_asegu extends Model
+class Repar_ope extends Model
 {
     //
 }

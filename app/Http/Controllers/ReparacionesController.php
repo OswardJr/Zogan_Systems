@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repuestos;
 use Illuminate\Http\Request;
 use App\Analistas;
+use App\Polizas;
 use App\Aseguradoras;
 use App\Reparaciones;
 use App\Operarios;
@@ -26,25 +27,41 @@ class ReparacionesController extends Controller
 
         $analistas = DB::table('analistas')->get();
 
-      return view('reparaciones.create', ['aseguradoras' => $aseguradoras, 'analistas' => $analistas]);
+        $operarios = DB::table('operarios')->get();
+
+      return view('reparaciones.create', ['aseguradoras' => $aseguradoras, 'analistas' => $analistas, 'operarios' =>$operarios]);
     }
 
     public function store(Request $request)
     {
-        $ordenes = new Reparaciones();  
+
+        $polizas = new Polizas();
+        $polizas->nro_poliza = $request->nro_poliza;
+        $polizas = $request->get('one');    
+        $polizas->vehiculo_id = $auto;
+        $polizas->save();  
+
+
+        $vehiculos = new Vehiculos();
+        $vehiculos->placa = $request->placa;
+        $vehiculos->marca = $request->marca;
+        $vehiculos->modelo = $request->modelo;
+        $vehiculos->tipo = $request->tipo;
+        $vehiculos->año = $request->año;
+        $vehiculos->color = $request->color;
+        $vehiculos->serial_motor = $request->serial_motor;
+        $vehiculos->serial_carroceria = $request->serial_carroceria;
+        $vehiculos->save();
+        $Idvehi = $vehiculos->id;
+        $auto = Vehiculo::find($Idvehi);
+
+
+        $ordenes = new Ordenes();
         $ordenes->rif = $request->rif;
         $ordenes->nombre_completo = $request->nombre_completo;
         $ordenes->fecha_ocurrencia = $request->fecha_ocurrencia;
         $ordenes->nro_certificado = $request->nro_certificado;
-        $ordenes->nro_siniestro = $request->nro_siniestro;
-        $ordenes->placa = $request->placa;
-        $ordenes->marca = $request->marca;
-        $ordenes->modelo = $request->modelo;
-        $ordenes->tipo = $request->tipo;
-        $ordenes->año = $request->año;
-        $ordenes->color = $request->color;
-        $ordenes->serial_motor = $request->serial_motor;
-        $ordenes->serial_carroceria = $request->serial_carroceria;
+        $ordenes->nro_siniestro = $request->nro_siniestro;        
         $ordenes->notas = $request->notas;
         $ordenes->mano_obra = $request->mano_obra;
         $ordenes->depreciacion = $request->depreciacion;
@@ -72,26 +89,11 @@ class ReparacionesController extends Controller
         $ordenes->accesorios = $request->accesorios;    
         $ordenes->depreciacion_nega = $request->depreciacion_nega;
         $ordenes->total_ordenes_acc = $request->total_ordenes_acc;
-        $ordenes->repues_otros = $request->repues_otros;
-        $ordenes->depreciacion_two = $request->depreciacion_two;
-        $ordenes->accesorios = $request->accesorios;
-      
-        $corre = $request->get('one');    
-
-        $ordenes->status = 'activo';
+        $ordenes->monto_final = $request->monto_final;
         $ordenes->save();
-        $Idcorre = $ordenes->id;
-//QUE ESTUPIDEZ............
-        $aseguCorre = new Corre_asegu(); 
-        $aseguCorre->corredor_id = $Idcorre;
-        $aseguCorre->aseguradora_id = $corre;
-        $aseguCorre->save();
+        $Idorden = $ordenes->id;
 
-            $table->string('monto_asegu');
-            $table->text('descripcion_daños');
-            $table->text('tipos_daños');
-            $table->text('observaciones');
-            $table->integer('analista_id')->unsigned();
+
       return redirect('/listcorre')->with('message','El corredor ha sido registrado de manera exitosamente!');
     }
 
