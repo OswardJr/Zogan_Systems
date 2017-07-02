@@ -36,7 +36,6 @@ class CreateReparacionesTable extends Migration
             $table->string('depre_acce');
             $table->string('repues_taller');
             $table->string('manejo_repues');
-            $table->string('total_manobra');
             $table->string('deduccion');
             $table->string('desc_prepago');
             $table->string('monto');
@@ -44,7 +43,6 @@ class CreateReparacionesTable extends Migration
             $table->string('deducible_p');
             $table->string('subtotal');
             $table->string('islr');
-            $table->string('total_orden');
             $table->string('ordenes_repues');
             $table->string('repues_otros');
             $table->string('depreciacion_two');

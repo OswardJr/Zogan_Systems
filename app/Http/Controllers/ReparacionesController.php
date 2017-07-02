@@ -83,8 +83,8 @@ class ReparacionesController extends Controller
         $ordenes->depre_repues = $request->depre_repues;
         $ordenes->total_accesorios = $request->total_accesorios;
         $ordenes->repues_taller = $request->repues_taller;  
+        $ordenes->depre_acce = $request->depre_acce;  
         $ordenes->manejo_repues = $request->manejo_repues;
-        $ordenes->total_manobra = $request->total_manobra;
         $ordenes->deduccion = $request->deduccion;
         $ordenes->desc_prepago = $request->desc_prepago;
         $ordenes->monto = $request->monto;
@@ -92,7 +92,7 @@ class ReparacionesController extends Controller
         $ordenes->deducible_p = $request->deducible_p;
         $ordenes->subtotal = $request->subtotal;
         $ordenes->islr = $request->islr;
-        $ordenes->total_orden = $request->total_orden;
+        $ordenes->monto_asegu = $request->monto_asegu;
         $ordenes->ordenes_repues = $request->ordenes_repues;
         $ordenes->repues_otros = $request->repues_otros;
         $ordenes->depreciacion_two = $request->depreciacion_two;
@@ -100,6 +100,10 @@ class ReparacionesController extends Controller
         $ordenes->depreciacion_nega = $request->depreciacion_nega;
         $ordenes->total_ordenes_acc = $request->total_ordenes_acc;
         $ordenes->monto_final = $request->monto_final;
+        $ordenes->descripcion_daños = $request->descripcion_daños;
+        $ordenes->tipos_daños = $request->tipos_daños;
+        $ordenes->selec_repues = $request->selec_repues;
+        $ordenes->no_dispo = $request->no_dispo;
         $ordenes->propietario_id = $Idprop;        
         $ordenes->vehiculo_id = $Idvehi;        
         $analis = $request->get('two');    

@@ -61,21 +61,12 @@
           </div>
           <div class="form-group col-lg-4">
             <label>Número de Poliza:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-<<<<<<< HEAD
             <input type="text" name="numero" id="" class="form-control" placeholder="93-56-2399217" >
           </div>  
           <div class="form-group col-lg-4">
             <label>Número del Certificado / Recibo:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
             <input type="text" name="num_certificado" id="" class="form-control" placeholder="0/4739494" >
           </div> 
-=======
-            <input type="text" name="numero" id="" pattern="" class="form-control" placeholder="93-56-2399217" >
-          </div>
-          <div class="form-group col-lg-4">
-            <label>Número del Certificado / Recibo:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-            <input type="text" name="num_certificado" id="" pattern="" class="form-control" placeholder="0/4739494" >
-          </div>
->>>>>>> 8f140c276be8f6cb964c53478b5b590e58caff41
           <div class="form-group col-lg-4">
             <label>Número del Siniestro:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
             <input type="text" name="nro_siniestro" id="" class="form-control" placeholder="93-562388688" >
@@ -108,37 +99,20 @@
             </div>
             <div class="form-group col-md-3">
               <label>Año:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-<<<<<<< HEAD
               <input type="text" name="anio" id="" class="form-control" placeholder="2013" >
             </div>  
             <div class="form-group col-md-3">
               <label>Color:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
               <input type="text" name="color" id="" class="form-control" placeholder="BLANCO" >
-            </div>   
+            </div>
             <div class="form-group col-md-3">
               <label>Serial del Motor:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
               <input type="text" name="serial_motor" id="" class="form-control" placeholder="326488" >
-            </div> 
+            </div>
             <div class="form-group col-md-3">
               <label>Serial de la Carrocería:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
               <input type="text" name="serial_carro" id="" class="form-control" placeholder="UWRUU38484NXWJD23" >
-            </div>                                                                              
-=======
-              <input type="text" name="anio" id="" pattern="" class="form-control" placeholder="2013" >
             </div>
-            <div class="form-group col-md-3">
-              <label>Color:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-              <input type="text" name="color" id="" pattern="" class="form-control" placeholder="BLANCO" >
-            </div>
-            <div class="form-group col-md-3">
-              <label>Serial del Motor:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-              <input type="text" name="serial_motor" id="" pattern="" class="form-control" placeholder="326488" >
-            </div>
-            <div class="form-group col-md-3">
-              <label>Serial de la Carrocería:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-              <input type="text" name="serial_carro" id="" pattern="" class="form-control" placeholder="UWRUU38484NXWJD23" >
-            </div>
->>>>>>> 8f140c276be8f6cb964c53478b5b590e58caff41
           </div>
         </div>
 
@@ -283,7 +257,7 @@
         <div class="col-lg-offset-2 col-lg-4">
           <div class="form-group">
             <br><label for="">Órdenes de Repuestos / Accesorios:</label>
-            <input type="text" name="total_repues" placeholder="bsf" class="form-control">
+            <input type="text" name="ordenes_repues" placeholder="bsf" class="form-control">
           </div>
         </div>
 
@@ -297,7 +271,7 @@
         <div class="col-lg-offset-2 col-lg-4">
           <div class="form-group">
             <label for="">Repuestos Otros Suplidores:</label>
-            <input type="text" name="depre_repues" placeholder="bsf" class="form-control">
+            <input type="text" name="repues_otros" placeholder="bsf" class="form-control">
           </div>
         </div>
 
@@ -376,7 +350,7 @@
         <div class="col-lg-offset-1 col-lg-4">
           <div class="form-group">
             <label for="">Total Orden de Reparación:</label>
-            <input type="text" name="total_orden" placeholder="bsf" class="form-control">
+            <input type="text" name="monto_final" placeholder="bsf" class="form-control">
           </div>
         </div>
       </div>
@@ -441,15 +415,9 @@
           <label>Pintor</label>
           <select name="fourth" class="form-control">
             <option value=""></option>
-<<<<<<< HEAD
             @foreach ($operarios as $oper)
             <option value="{{ $oper->id }}">{{ $oper->nombre }} {{ $oper->apellido }}</option>
             @endforeach                       
-=======
-            @foreach ($operarios as $ope)
-            <option value="{{ $ope->id }}">{{ $ope->nombre }} {{ $ope->apellido }}</option>
-            @endforeach
->>>>>>> 8f140c276be8f6cb964c53478b5b590e58caff41
           </select>
         </div>
       </div>
@@ -459,14 +427,11 @@
     <div class="col-xs-offset-5 col-md-5">
       <button type="submit" class="btn btn-guardar fa fa-save"></button>
       <button type="reset" class="btn btn-refresh fa fa-repeat  "></button>
-<<<<<<< HEAD
     </div>  
     </form>                                
   </div>                                    
-=======
     </div>
   </div>
->>>>>>> 8f140c276be8f6cb964c53478b5b590e58caff41
 
   @include('layouts.footer')
 
