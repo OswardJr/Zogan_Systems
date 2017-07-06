@@ -27,7 +27,8 @@
                     <th>Nombre</th>
                     <th>Teléfono</th>
                     <th>Email</th>
-                    <th>Acciones</th>
+                    <th>Estatus</th>
+                    <th colspan="3">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -37,18 +38,25 @@
                     <td>{{ ($anali->nombre) }}</td>
                     <td>{{ ($anali->telefono) }}</td>
                     <td>{{ ($anali->email) }}</td>
+                    <td>{{ ($anali->status) }}</td>
                     <td>
                       <a href="{{ route('analistas.show', $anali->id) }}" class="btn btn-buscar" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i>
 
                       </a>
-
+                    </td>  
+                    
+                    <td>
                       <a href="{{ route('analistas.edit', $anali->id) }}" class="btn btn-editar" data-toggle="tooltip" title="Actualizar"><i class="fa fa-pencil"></i>
-
                       </a>
+                    </td>  
 
-                      <a class="btn btn-delete" data-toggle="tooltip" title="Eliminar"><i class="fa fa-trash"></i>
+                    <td>
+                      <form action="{{ route('analistas.destroy', $anali->id) }}" method="post">
+                        <input name="_method" type="hidden" value="DELETE">
+                          <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <button type="submit" onclick="if(!confirm('¿Desea eliminar al analista?'))event.preventDefault();" class="btn btn-delete" data-toggle="tooltip" title="Eliminar"><i class="fa fa-trash"></i></button>
 
-                      </a>
+                      </form>
                     </td>
                   </tr>
                   @endforeach

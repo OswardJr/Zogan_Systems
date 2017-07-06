@@ -357,7 +357,12 @@
                                     <a href="{{ url('/listasegu') }}" class="nav-link">
                                       <i class="fa fa-suitcase"></i>  Aseguradoras
                                     </a>
-                                  </li>    
+                                  </li>  
+                                  <li class="nav-item">
+                                    <a href="{{ url('/listanalis') }}" class="nav-link">
+                                      <i class="fa fa-suitcase"></i>  Analistas
+                                    </a>
+                                  </li>                                      
                                 </ul>
                               </li>
 

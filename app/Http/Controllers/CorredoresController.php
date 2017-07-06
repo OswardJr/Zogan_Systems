@@ -130,6 +130,11 @@ class CorredoresController extends Controller
 
     public function destroy($id)
     {
-        //
+        $corre = DB::table('corredores')
+            ->where('id', '=', $id)
+            ->where('status', '=', 'activo')
+            ->update(['status' => 'inactivo']);
+
+        return redirect()->route('corredores.index');
     }
 }

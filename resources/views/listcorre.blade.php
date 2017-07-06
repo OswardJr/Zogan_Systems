@@ -27,7 +27,8 @@
                     <th>Nombre</th>
                     <th>Teléfono</th>
                     <th>Email</th>
-                    <th>Acciones</th>
+                    <th>Estatus</th>
+                    <th colspan="3">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -37,18 +38,26 @@
                     <td>{{ ($corre->nombre) }}</td>
                     <td>{{ ($corre->telefono) }}</td>
                     <td>{{ ($corre->email) }}</td>
+                    <td>{{ ($corre->status) }}</td>
                     <td>
                       <a href="{{ route('corredores.show', $corre->id) }}" class="btn btn-buscar" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i>
 
                       </a>
-
+                    </td>  
+                    
+                    <td>
                       <a href="{{ route('corredores.edit', $corre->id) }}" class="btn btn-editar" data-toggle="tooltip" title="Actualizar"><i class="fa fa-pencil"></i>
 
                       </a>
+                    </td>
 
-                      <a class="btn btn-delete" data-toggle="tooltip" title="Eliminar"><i class="fa fa-trash"></i>
+                    <td>
+                      <form action="{{ route('corredores.destroy', $corre->id) }}" method="post">
+                        <input name="_method" type="hidden" value="DELETE">
+                          <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <button type="submit" onclick="if(!confirm('¿Desea eliminar al corredor de seguro?'))event.preventDefault();" class="btn btn-delete" data-toggle="tooltip" title="Eliminar"><i class="fa fa-trash"></i></button>
 
-                      </a>
+                      </form>
                     </td>
                   </tr>
                   @endforeach

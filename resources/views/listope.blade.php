@@ -25,9 +25,9 @@
                   <tr>
                     <th>Cédula/Rif</th>
                     <th>Nombre</th>
-                    <th>Estado</th>
                     <th>Labor</th>
-                    <th>Acciones</th>
+                    <th>Estatus</th>
+                    <th colspan="3">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -35,21 +35,26 @@
                   <tr>
                     <td>{{ $ope->id}}</td>
                     <td>{{ ($ope->nombre) }}</td>
-                    <td>{{ ($ope->status) }}</td>
                     <td>{{ ($ope->tipo) }}</td>
+                    <td>{{ ($ope->status) }}</td>
                     <td>
                       <a href="{{ route('operarios.show', $ope->id) }}" class="btn btn-buscar" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i>
 
                       </a>
+                      </td>
 
+                      <td>
                       <a href="{{ route('operarios.edit', $ope->id) }}" class="btn btn-editar" data-toggle="tooltip" title="Actualizar"><i class="fa fa-pencil"></i>
 
                       </a>
 
+                      </td>
+
+                      <td>
                       <form action="{{ route('operarios.destroy', $ope->id) }}" method="post">
                         <input name="_method" type="hidden" value="DELETE">
-                        <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button type="submit" class="btn btn-delete" data-toggle="tooltip" title="Eliminar"><i class="fa fa-trash"></i></button>
+                          <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <button type="submit" onclick="if(!confirm('¿Desea eliminar al Operario?'))event.preventDefault();" class="btn btn-delete" data-toggle="tooltip" title="Eliminar"><i class="fa fa-trash"></i></button>
 
                       </form>
                     </td>

@@ -34,21 +34,9 @@
                   @foreach ($propietarios as $prop)
                   <tr>
                     <td>{{ $prop->rif}}</td>
-                    <td>{{ ($prop->nombre) }}</td>
-                    <td>{{ ($prop->apellido) }}</td>
-                    <td>{{ ($prop->email) }}</td>
+                    <td>{{ ($prop->nombre_completo) }}</td>
                     <td>
-                      <a href="{{ route('propietarios.show', $prop->id) }}" class="btn btn-buscar" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i>
 
-                      </a>
-
-                      <a href="{{ route('propietarios.edit', $prop->id) }}" class="btn btn-editar" data-toggle="tooltip" title="Actualizar"><i class="fa fa-pencil"></i>
-
-                      </a>
-
-                      <a href="{{ url('/listprop', $prop->id) }}" class="btn btn-delete" data-toggle="tooltip" title="Eliminar"><i class="fa fa-trash"></i>
-
-                      </a>
                     </td>
                   </tr>
                   @endforeach

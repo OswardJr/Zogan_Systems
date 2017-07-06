@@ -109,3 +109,8 @@
     border-color: #999;
     border-radius: 0px;    
 }
+.alert-success {
+    background-color: #abe7ed;
+    border-color: #abe7ed;
+    color: #425354;
+}

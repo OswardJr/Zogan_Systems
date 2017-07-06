@@ -121,6 +121,11 @@ class AnalistasController extends Controller
 
     public function destroy($id)
     {
-        //
+        $anali = DB::table('analistas')
+            ->where('id', '=', $id)
+            ->where('status', '=', 'activo')
+            ->update(['status' => 'inactivo']);
+
+        return redirect()->route('analistas.index');
     }
 }

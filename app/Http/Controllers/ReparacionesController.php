@@ -152,7 +152,7 @@ class ReparacionesController extends Controller
         $Idorden = $ordenes->id;
 
 
-      return redirect('/listorden')->with('message','El corredor ha sido registrado de manera exitosamente!');
+      return redirect('/listorden')->with('message','Orden de Reparación guardada de manera exitosamente!');
     }
 
     public function show($id)

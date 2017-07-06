@@ -79,6 +79,11 @@ class AseguradorasController extends Controller
 
     public function destroy($id)
     {
-        //
+        $asegu = DB::table('aseguradoras')
+            ->where('id', '=', $id)
+            ->where('status', '=', 'activo')
+            ->update(['status' => 'inactivo']);
+
+        return redirect()->route('aseguradoras.index');
     }
 }
