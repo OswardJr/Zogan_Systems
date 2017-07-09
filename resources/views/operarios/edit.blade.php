@@ -78,7 +78,7 @@
                                       <div class="form-group @if ($errors->has('tipo')) has-error @endif">                                     
                                       <label>Tipo</label>
                                       <select class="form-control" name="tipo" value="{{ $operarios->tipo }}" >
-                                          <option></option>
+                                          <option>{{ $operarios->tipo }}</option>
                                           <option id="tipo" value="latonero">Latonero</option>
                                           <option id="tipo" value="pintor">Pintor</option>
                                       </select>
@@ -88,7 +88,7 @@
                                     <div class="form-group col-md-offset-3 col-md-6">
                                       <div class="form-group @if ($errors->has('direccion')) has-error @endif">                                     
                                       <label>Direcci&oacuten<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <textarea type="text" name="direccion" value="{{ $operarios->direccion }}" id="" class="form-control" placeholder="Dirección" ></textarea>
+                                      <textarea type="text" name="direccion" value="{{ $operarios->direccion }}" id="" class="form-control" placeholder="Dirección" >{{ $operarios->direccion }}</textarea>
                                     </div>
                                   </div>  
                                     <center class="col-md-offset-3 col-md-6">

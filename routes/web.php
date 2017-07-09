@@ -55,7 +55,7 @@ Route::get('/listcorre', 'CorredoresController@index');
 
 Route::get('/listanalis', 'AnalistasController@index');
 
-Route::get('/listvehi', 'PropietariosController@index');
+Route::get('/listvehi', 'VehiculosController@index');
 
 Route::get('/listorden', 'ReparacionesController@on');
 
@@ -72,8 +72,6 @@ Route::get('/propietarios/findRif', 'PropietariosController@findRif');
 Route::get('/reparaciones', 'ReparacionesController@index');
 
 Route::get('/reparaciones/create', 'ReparacionesController@create');
-
-Route::get('/reparaciones/findProduct', 'ReparacionesController@findProduct');
 
 Route::post('/reparaciones/save', 'ReparacionesController@save');
 
@@ -95,6 +93,11 @@ Route::get('/ruta', 'ReparacionesController@index');
 
 Route::get('/home_ruta', 'ReparacionesController@me');
 
+Route::get('/home_services', 'VehiculosController@me');
+
 Route::get('/ruta', 'ReparacionesController@index');
+
+Route::get('citas/{search}', array(
+    'as' => 'search-retailers', 'uses' => 'CitasController@search'));
 
 Auth::routes();

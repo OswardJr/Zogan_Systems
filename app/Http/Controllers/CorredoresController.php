@@ -17,7 +17,7 @@ class CorredoresController extends Controller
 
     public function index()
     {
-      $corredores = DB::table('corredores')->orderBy('cedula', 'desc')->paginate(15);
+      $corredores = DB::table('corredores')->where('status', '=', 'activo')->orderBy('cedula', 'desc')->paginate(15);
 
       return view('/listcorre', ['corredores' => $corredores]); 
     }

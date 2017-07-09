@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Reparaciones;
+use App\Vehiculos;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class CitasController extends Controller
 {
@@ -21,17 +25,29 @@ class CitasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+
+public function create()
     {
-        return view('/citas/create');
+        // get all the reports
+        $reparaciones = Reparaciones::all();
+
+        // load the view and pass the reports
+      return view('citas/create', ['reparaciones' => $reparaciones]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+public function search($keyword) {    
+    if(isset($keyword)) {
+      $data = array('reparaciones' => Reparaciones::search($keyword));
+      return $data;
+    } else {
+      return "no results";
+    }
+
+          return view('citas/create', ['keyword' => $keyword]);
+
+ }
+
     public function store(Request $request)
     {
         //

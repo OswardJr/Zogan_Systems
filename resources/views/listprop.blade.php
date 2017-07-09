@@ -24,10 +24,9 @@
                 <thead>
                   <tr>
                     <th>Cédula/Rif</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
+                    <th>Nombre Completo</th>
                     <th>Correo</th>
-                    <th>Acciones</th>
+                    <th>Teléfono</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -35,9 +34,9 @@
                   <tr>
                     <td>{{ $prop->rif}}</td>
                     <td>{{ ($prop->nombre_completo) }}</td>
-                    <td>
+                    <td>{{ ($prop->email) }}</td>
+                    <td>{{ ($prop->telefono) }}</td>
 
-                    </td>
                   </tr>
                   @endforeach
 

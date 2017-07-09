@@ -14,7 +14,7 @@ class RepuestosController extends Controller
 
     public function index()
     {
-      $repuestos = DB::table('repuestos')->orderBy('codigo', 'desc')->paginate(15);
+      $repuestos = DB::table('repuestos')->where('status', '=', 'activo')->orderBy('codigo', 'desc')->paginate(15);
 
       return view('/listrepuesto', ['repuestos' => $repuestos]);        
     }

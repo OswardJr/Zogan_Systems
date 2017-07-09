@@ -69,7 +69,8 @@
           <div class="form-group col-lg-4">
             <label>Número del Siniestro:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
             <input type="text" name="nro_siniestro" id="" class="form-control" placeholder="93-562388688" >
-          </div>                                            </div>
+          </div>                                            
+          </div>
         </div>
 
         <div class="panel panel-primary">

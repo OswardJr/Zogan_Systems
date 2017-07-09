@@ -18,7 +18,7 @@ class AnalistasController extends Controller
 
     public function index()
     {
-      $analistas = DB::table('analistas')->orderBy('rif', 'desc')->paginate(15);
+      $analistas = DB::table('analistas')->where('status', '=', 'activo')->orderBy('rif', 'desc')->paginate(15);
 
       return view('/listanalis', ['analistas' => $analistas]);
     }

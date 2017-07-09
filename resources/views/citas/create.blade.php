@@ -19,6 +19,7 @@
 
                             <div class="col-md-12 ">
                                 <hr>
+                                  <form action="" method="POST">
                                    <div class="panel panel-primary">
                                 <div class="panel-heading ">
                                   <center>
@@ -30,7 +31,7 @@
                                     <div class="form-group col-md-6 " style="margin-bottom: 0px; height: 60px">
                                       <label>Placa<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                                       <div class="input-group input-group-sm">
-                                        <input type="text" name="" id="" class="form-control "title="El formato debe ser ABC105C"  placeholder="D10SV3N" onkeyup="this.value=this.value.toUpperCase()" value="" required="true" >
+                                        <input type="text" name="" id="search" class="form-control "title="El formato debe ser ABC105C"  placeholder="D10SV3N"  value="" required="true">
                                         <span class="input-group-btn">
                                           <button  data-toggle="tooltip" title="Consultar" class="btn btn-buscar btn-flat fa fa-search
                                           " type="button"  onClick="" name="btn-search"></button>
@@ -38,6 +39,7 @@
                                       </div>
                                       <center><span id="mensaje" class="help-block"></span></center>
                                     </div>
+
                                     <div class="form-group col-md-6">
                                       <label>Marca<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
                                       <input type="text" name="" id="" class="form-control" placeholder="Aveo" required="true" disabled="">
@@ -167,7 +169,7 @@
                                   <div class="form-group col-lg-offset-2 col-lg-4" id="sandbox-container">
                                     <label for="fecha_nac">Seleccione la Fecha</label>
                                     <div class="input-group date">
-                                      <input type="text" class="form-control" name="fecha" id="fecha" disabled placeholder="DD/MM/AAAA" required="required">
+                                      <input type="text" class="form-control" name="fecha" id="fecha" placeholder="DD/MM/AAAA" required="required">
                                       <span class="input-group-addon">
                                         <i class="glyphicon glyphicon-th"></i>
                                       </span>
@@ -177,14 +179,14 @@
                                   <div class="form-group col-lg-4 ">
                                     <div class="form-group">
                                       <label for="sel1">Seleccione la Hora</label>
-                                      <select class="form-control" id="sel1" name="" disabled>
+                                      <select class="form-control" id="sel1" name="">
                                         <option value=""></option>
                                         <option>8:00 AM</option>
                                         <option>9:00 AM</option>
                                         <option>10:00 AM</option>
                                         <option>11:00 AM</option>
-                                        <option>01:00 AM</option>
-                                        <option>02:00 AM</option>
+                                        <option>01:00 PM</option>
+                                        <option>02:00 PM</option>
                                         <option>03:00 PM</option>
                                       </select>
                                     </div>
@@ -198,10 +200,42 @@
                                       <div class="col-xs-offset-5 col-md-12">
                                           <button type="submit" class="btn btn-guardar fa fa-save"></button>
                                           <button type="reset" class="btn btn-refresh fa fa-repeat  "></button>
-                                    </div>                                   
+                                    </div>                          
+                                    </form>
+                                    </div>         
                             </div>                                    
 
-
+<script>
+$(function() {
+    $("#search").keyup(function() {
+        var keyword = $("#search").val();
+        if(keyword=='') {
+        } else {
+            $.ajax({
+                type: "POST",
+                url: "{{ url('search-retailers') }}",
+                data: {
+                    'keyword': keywork,
+                    '_token': '{{ csrf_token() }}',
+                },
+                dataType: 'html',
+              cache: false,
+              beforeSend: function(html) 
+              {
+                document.getElementById("live").innerHTML = ''; 
+                $("#keyword").show();
+                    $(".keyword").html(keyword);
+                },
+                success: function(html)
+                {
+                    $("#live").show();
+                    $("#live").append(html);
+                }
+            });
+        } return false;
+    });
+});
+</script>
 <script>
 $(document).ready(function() {
 
@@ -213,5 +247,4 @@ $(document).ready(function() {
 
 });
 </script>
-
 @include('layouts.footer')   

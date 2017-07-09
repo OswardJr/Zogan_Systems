@@ -13,7 +13,7 @@ class OperariosController extends Controller
 
     public function index()
     {
-      $operarios = DB::table('operarios')->orderBy('cedula', 'desc')->paginate(15);
+      $operarios = DB::table('operarios')->where('status', '=', 'activo')->orderBy('cedula', 'desc')->paginate(15);
 
       return view('/listope', ['operarios' => $operarios]);  
     }

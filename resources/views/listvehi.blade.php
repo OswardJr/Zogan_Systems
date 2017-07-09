@@ -17,7 +17,6 @@
                     <th>Propietario</th>
                     <th>Marca</th>
                     <th>Color</th>
-                    <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -27,19 +26,6 @@
                     <td>{{ ($vehi->marca) }}</td>
                     <td>{{ ($vehi->modelo) }}</td>
                     <td>{{ ($vehi->color) }}</td>
-                    <td>
-                      <a class="btn btn-buscar" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i>
-
-                      </a>
-
-                      <a class="btn btn-editar" data-toggle="tooltip" title="Actualizar"><i class="fa fa-pencil"></i>
-
-                      </a>
-
-                      <a class="btn btn-delete" data-toggle="tooltip" title="Eliminar"><i class="fa fa-trash"></i>
-
-                      </a>
-                    </td>
                   </tr>
                   @endforeach
 

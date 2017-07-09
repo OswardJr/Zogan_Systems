@@ -14,7 +14,7 @@ class AseguradorasController extends Controller
 
     public function index()
     {
-      $aseguradoras = DB::table('aseguradoras')->orderBy('rif', 'desc')->paginate(15);
+      $aseguradoras = DB::table('aseguradoras')->where('status', '=', 'activo')->orderBy('rif', 'desc')->paginate(15);
 
       return view('/listasegu', ['aseguradoras' => $aseguradoras]); 
     }

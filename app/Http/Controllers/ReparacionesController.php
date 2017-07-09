@@ -16,6 +16,15 @@ use Illuminate\Support\Facades\Validator;
 
 class ReparacionesController extends Controller
 {
+
+/*
+              SELECT i.vehiculo_id,q.marca,q.modelo,q.serial_carro,q.serial_motor,propietarios.nombre_completo 
+              FROM reparaciones as i 
+              inner JOIN vehiculos as q 
+              ON i.vehiculo_id = q.id 
+              INNER JOIN propietarios 
+              ON i.propietario_id = propietarios.id
+*/  
     public function index()
     {
       $autos = DB::select('

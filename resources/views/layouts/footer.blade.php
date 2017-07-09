@@ -45,7 +45,14 @@
         <script src="{{asset('ini.js')}}"></script>
         <script src="{{asset('bower_components/riot/riot.min.js')}}"></script>
         <script src="{{asset('bower_components/riot/riot+compiler.min.js')}}"></script>
-        <script src="{{asset('bower_components/EasyAutocomplete//dist/jquery.easy-autocomplete.min.js')}}"></script>        
+        <script src="{{asset('bower_components/EasyAutocomplete//dist/jquery.easy-autocomplete.min.js')}}"></script>    
+
+        <script src="{{asset('assets/global/plugins/select2/js/select2.full.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/global/plugins/jquery-validation/js/jquery.validate.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/global/plugins/jquery-validation/js/additional-methods.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/pages/scripts/form-wizard.min.js')}}" type="text/javascript"></script>
+
     <script>
         function baseUrl(url) {
             return '{{url('')}}/' + url;

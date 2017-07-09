@@ -10,22 +10,21 @@ use Illuminate\Support\Facades\Validator;
 class VehiculosController extends Controller
 {    
     private $path = 'vehiculos';    
-    private $propietarios = null;
+    private $vehiculos = null;
 
-    public function __CONSTRUCT()
-    {
-        $this->propietarios = new Propietarios();
-    }
     public function index()
     {
-        //
+      $vehiculos = DB::table('vehiculos')->orderBy('placa', 'desc')->paginate(15);
+
+      return view('/listvehi', ['vehiculos' => $vehiculos]);        
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function me()
+    {
+      $vehiculos = DB::table('vehiculos')->orderBy('placa', 'desc')->paginate(15);
+
+      return view('home_services', ['vehiculos' => $vehiculos]);  
+    }
     public function create()
     {
         return view('vehiculos/create');
@@ -51,7 +50,7 @@ class VehiculosController extends Controller
         $vehiculos->status = 'activo';
         $vehiculos->save();
 
-      return redirect('/listprop')->with('message','El vehiculo ha sido guardado exitosamente!');
+      return redirect('/listvehi')->with('message','El vehiculo ha sido guardado exitosamente!');
     }
 
     /**
