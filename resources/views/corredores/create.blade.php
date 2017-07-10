@@ -5,13 +5,13 @@
                         <section class="content">
                           <div class="row">
                             <div class="col-md-12 ">
-                                  <h3>Nuevo Corredor de Seguro</h3>
+                                  <h3>Corredores de Seguro</h3>
                                 <hr>
 
                                 <div class="panel panel-primary">
                                 <div class="panel-heading ">
                                   <center>
-                                    <h4>Datos del A.D.S</h4>
+                                    <h4>Datos del Corredor de Seguro</h4>
                                   </center>
                                 </div>
 
@@ -31,23 +31,23 @@
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Nombre<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="nombre" id="" class="form-control" placeholder="José" required="true">
+                                      <input type="text" name="nombre" id="" class="form-control" onkeyup="this.value=this.value.toUpperCase()" placeholder="José" required="true">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Apellido<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="apellido" id="" class="form-control" placeholder="Pérez" required="true">
+                                      <input type="text" name="apellido" id="" class="form-control" onkeyup="this.value=this.value.toUpperCase()" placeholder="Pérez" required="true">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Celular<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="celular" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0412-XXXXXXX">
+                                      <input type="text" name="celular" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0412-XXXXXXX" onkeyup="this.value=this.value.toUpperCase()" required="true">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Teléfono<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="telefono" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0244-XXXXXXX">
+                                      <input type="text" name="telefono" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0244-XXXXXXX" onkeyup="this.value=this.value.toUpperCase()" required="true">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Email<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="email" name="email" id="email" class="form-control" placeholder="contact@example.com">
+                                      <input type="email" name="email" id="email" class="form-control" placeholder="contact@example.com" onkeyup="this.value=this.value.toUpperCase()" required="true">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Aseguradora<a class="campos-required" title="Campo Obligatorio."> *</a></label>

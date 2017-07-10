@@ -15,7 +15,7 @@
                         <section class="content">
                           <div class="row">
                             <div class="col-md-12 ">
-                                  <h3>Nueva Aseguradora</h3>
+                                  <h3>Aseguradoras</h3>
                                 <hr>
 
                                 <div class="panel panel-primary">

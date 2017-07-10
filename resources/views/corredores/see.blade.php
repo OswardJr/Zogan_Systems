@@ -5,13 +5,13 @@
                         <section class="content">
                           <div class="row">
                             <div class="col-md-12 ">
-                                  <h3>Datos del Corredor de Seguro</h3>
+                                  <h3>Corredores de Seguro</h3>
                                 <hr>
 
                                 <div class="panel panel-primary">
                                 <div class="panel-heading ">
                                   <center>
-                                      <h4>Datos</h4>     
+                                      <h4>Datos del Corredor de Seguro</h4>     
                                   </center>
                                 </div>
 

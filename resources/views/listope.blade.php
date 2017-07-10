@@ -16,7 +16,7 @@
       <h3>Listado de Operarios</h3>
       <hr>
       <div class="panel panel-primary">
-        <div class="panel-heading"><strong>Operarios</strong></div>
+        <div class="panel-heading"><h4><strong>Operarios</strong></h4></div>
         <div class="row">
           <div class="col-md-12 ">
             <div class="table-responsive">
@@ -26,17 +26,15 @@
                     <th>Cédula/Rif</th>
                     <th>Nombre</th>
                     <th>Labor</th>
-                    <th>Estatus</th>
                     <th colspan="3">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
                   @foreach ($operarios as $ope)
                   <tr>
-                    <td>{{ $ope->id}}</td>
+                    <td>{{ $ope->cedula}}</td>
                     <td>{{ ($ope->nombre) }}</td>
                     <td>{{ ($ope->tipo) }}</td>
-                    <td>{{ ($ope->status) }}</td>
                     <td>
                       <a href="{{ route('operarios.show', $ope->id) }}" class="btn btn-buscar" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i>
 
@@ -54,7 +52,7 @@
                       <form action="{{ route('operarios.destroy', $ope->id) }}" method="post">
                         <input name="_method" type="hidden" value="DELETE">
                           <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button type="submit" onclick="if(!confirm('¿Desea eliminar al Operario?'))event.preventDefault();" class="btn btn-delete" data-toggle="tooltip" title="Eliminar"><i class="fa fa-trash"></i></button>
+                        <button type="submit" onclick="if(!confirm('¿Desea eliminar al operario?'))event.preventDefault();" class="btn btn-delete" data-toggle="tooltip" title="Eliminar"><i class="fa fa-trash"></i></button>
 
                       </form>
                     </td>

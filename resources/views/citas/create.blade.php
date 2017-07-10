@@ -206,37 +206,6 @@
                             </div>                                    
 
 <script>
-$(function() {
-    $("#search").keyup(function() {
-        var keyword = $("#search").val();
-        if(keyword=='') {
-        } else {
-            $.ajax({
-                type: "POST",
-                url: "{{ url('search-retailers') }}",
-                data: {
-                    'keyword': keywork,
-                    '_token': '{{ csrf_token() }}',
-                },
-                dataType: 'html',
-              cache: false,
-              beforeSend: function(html) 
-              {
-                document.getElementById("live").innerHTML = ''; 
-                $("#keyword").show();
-                    $(".keyword").html(keyword);
-                },
-                success: function(html)
-                {
-                    $("#live").show();
-                    $("#live").append(html);
-                }
-            });
-        } return false;
-    });
-});
-</script>
-<script>
 $(document).ready(function() {
 
     // page is now ready, initialize the calendar...

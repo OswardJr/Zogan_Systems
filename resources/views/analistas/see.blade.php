@@ -5,7 +5,7 @@
                         <section class="content">
                           <div class="row">
                             <div class="col-md-12 ">
-                                  <h3>Nuevo Analista</h3>
+                                  <h3>Analistas</h3>
                                 <hr>
 
                                 <div class="panel panel-primary">

@@ -19,7 +19,7 @@
       <h3>Ruta dentro del Taller</h3>
       <hr>
       <div class="panel panel-primary">
-        <div class="panel-heading"><strong>Vehículos en Reparación</strong></div>
+        <div class="panel-heading"><h4><strong>Vehículos en Reparación</strong></h4></div>
         <div class="row">
           <div class="col-md-12 ">
             <div class="table-responsive">

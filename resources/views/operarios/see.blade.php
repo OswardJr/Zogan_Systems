@@ -23,7 +23,7 @@
                               @endif  
                                                                             
                             <div class="col-md-12 ">
-                                  <h3>Datos</h3>
+                                  <h3>Operarios</h3>
                                 <hr>
 
                                 <div class="panel panel-primary ">
@@ -76,7 +76,7 @@
                                     </div>
                                   </div>
                                     <!-- textarea -->
-                                    <div class="form-group col-md-offset-3 col-md-6">
+                                    <div class="form-group col-md-6">
                                       <div class="form-group @if ($errors->has('direccion')) has-error @endif">                                     
                                       <label>Direcci&oacuten<a class="campos-required" title="Campo Obligatorio."></a></label>
                                       <input type="text" name="direccion" value="{{ $operarios->direccion }}" id="" class="form-control" placeholder="Dirección" disabled></input>

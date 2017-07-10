@@ -5,7 +5,7 @@
                         <section class="content">
                           <div class="row">
                             <div class="col-md-12 ">
-                                  <h3>Nuevo Analista</h3>
+                                  <h3>Analistas</h3>
                                 <hr>
 
                                 <div class="panel panel-primary">
@@ -33,28 +33,28 @@
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Nombre<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="nombre" id="" class="form-control" placeholder="José" required="true" value="{{ $analistas->nombre }}">
+                                      <input type="text" name="nombre" id="" class="form-control" placeholder="José" onkeyup="this.value=this.value.toUpperCase()" required="true" value="{{ $analistas->nombre }}">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Apellido<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="apellido" id="" class="form-control" placeholder="Pérez" required="true" value="{{ $analistas->apellido }}">
+                                      <input type="text" name="apellido" id="" class="form-control" placeholder="Pérez" onkeyup="this.value=this.value.toUpperCase()" required="true" value="{{ $analistas->apellido }}">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Celular<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="celular" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0412-XXXXXXX" value="{{ $analistas->celular }}">
+                                      <input type="text" name="celular" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0412-XXXXXXX" onkeyup="this.value=this.value.toUpperCase()" required="true" value="{{ $analistas->celular }}">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Teléfono<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="telefono" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0244-XXXXXXX" value="{{ $analistas->telefono }}">
+                                      <input type="text" name="telefono" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0244-XXXXXXX" onkeyup="this.value=this.value.toUpperCase()" required="true" value="{{ $analistas->telefono }}">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Email<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="email" name="email" id="email" class="form-control" placeholder="contact@example.com" value="{{ $analistas->email }}">
+                                      <input type="email" name="email" id="email" class="form-control" placeholder="contact@example.com" onkeyup="this.value=this.value.toUpperCase()" value="{{ $analistas->email }}" required="true">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Aseguradora<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                                     @foreach ($aseguradoras as $asegu)
-                                      <input type="text" name="one" id="one" class="form-control" placeholder="contact@example.com" value="{{ $asegu->denominacion }}" disabled>
+                                      <input type="text" name="one" id="one" class="form-control" placeholder="contact@example.com" onkeyup="this.value=this.value.toUpperCase()" required="true" value="{{ $asegu->denominacion }}" disabled>
                                     @endforeach          
                                     </div>
 

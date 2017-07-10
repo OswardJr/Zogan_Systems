@@ -23,7 +23,7 @@
                               @endif  
                                                                             
                             <div class="col-md-12 ">
-                                  <h3>Nuevo Operario</h3>
+                                  <h3>Operario</h3>
                                 <hr>
 
                                 <div class="panel panel-primary ">
@@ -53,31 +53,31 @@
                                     <div class="form-group col-md-6">
                                       <div class="form-group @if ($errors->has('nombre')) has-error @endif">                                     
                                       <label>Nombre<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="nombre" value="{{ $operarios->nombre }}" id="" class="form-control" placeholder="José" required="true">
+                                      <input type="text" name="nombre" value="{{ $operarios->nombre }}" id="" class="form-control" placeholder="José" onkeyup="this.value=this.value.toUpperCase()" required="true">
                                     </div>
                                   </div>  
                                     <div class="form-group col-md-6">
                                       <div class="form-group @if ($errors->has('apellido')) has-error @endif">                                     
                                       <label>Apellido<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="apellido" value="{{ $operarios->apellido }}" id="" class="form-control" placeholder="Pérez" required="true">
+                                      <input type="text" name="apellido" value="{{ $operarios->apellido }}" id="" class="form-control" placeholder="Pérez" onkeyup="this.value=this.value.toUpperCase()" required="true">
                                     </div>
                                   </div>  
                                     <div class="form-group col-md-6">
                                       <div class="form-group @if ($errors->has('telefono')) has-error @endif">                                     
                                       <label>Teléfono<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="telefono" value="{{ $operarios->telefono }}" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0244-XXXXXXX">
+                                      <input type="text" name="telefono" value="{{ $operarios->telefono }}" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0244-XXXXXXX" onkeyup="this.value=this.value.toUpperCase()" required="true">
                                     </div>
                                   </div>  
                                     <div class="form-group col-md-6">
                                       <div class="form-group @if ($errors->has('email')) has-error @endif">                                     
                                       <label>Email</label>
-                                      <input type="email" name="email" value="{{ $operarios->email }}" id="email" class="form-control" placeholder="contact@example.com">
+                                      <input type="email" name="email" value="{{ $operarios->email }}" id="email" class="form-control" placeholder="contact@example.com" onkeyup="this.value=this.value.toUpperCase()" required="true">
                                     </div>
                                   </div>  
                                     <div class="form-group col-md-6">
                                       <div class="form-group @if ($errors->has('tipo')) has-error @endif">                                     
                                       <label>Tipo</label>
-                                      <select class="form-control" name="tipo" value="{{ $operarios->tipo }}" >
+                                      <select class="form-control" name="tipo" value="{{ $operarios->tipo }}" required="true">
                                           <option>{{ $operarios->tipo }}</option>
                                           <option id="tipo" value="latonero">Latonero</option>
                                           <option id="tipo" value="pintor">Pintor</option>
@@ -85,10 +85,10 @@
                                     </div>
                                   </div>  
                                     <!-- textarea -->
-                                    <div class="form-group col-md-offset-3 col-md-6">
+                                    <div class="form-group col-md-6">
                                       <div class="form-group @if ($errors->has('direccion')) has-error @endif">                                     
                                       <label>Direcci&oacuten<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <textarea type="text" name="direccion" value="{{ $operarios->direccion }}" id="" class="form-control" placeholder="Dirección" >{{ $operarios->direccion }}</textarea>
+                                      <textarea type="text" name="direccion" value="{{ $operarios->direccion }}" id="" class="form-control" placeholder="Dirección" onkeyup="this.value=this.value.toUpperCase()" required="true">{{ $operarios->direccion }}</textarea>
                                     </div>
                                   </div>  
                                     <center class="col-md-offset-3 col-md-6">

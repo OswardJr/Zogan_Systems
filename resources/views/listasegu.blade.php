@@ -16,7 +16,7 @@
       <h3>Listado de Aseguradoras</h3>
       <hr>
       <div class="panel panel-primary">
-        <div class="panel-heading"><strong>Aseguradoras</strong></div>
+        <div class="panel-heading"><h4><strong>Aseguradoras</strong></h4></div>
         <div class="row">
           <div class="col-md-12 ">
             <div class="table-responsive">
@@ -27,7 +27,6 @@
                     <th>Denominación</th>
                     <th>Teléfono</th>
                     <th>Email</th>
-                    <th>Estatus</th>
                     <th colspan="3">Acciones</th>
                   </tr>
                 </thead>
@@ -38,7 +37,6 @@
                     <td>{{ ($asegu->denominacion) }}</td>
                     <td>{{ ($asegu->telefono) }}</td>
                     <td>{{ ($asegu->email) }}</td>
-                    <td>{{ ($asegu->status) }}</td>
                     <td>
                       <a href="{{ route('aseguradoras.show', $asegu->id) }}" class="btn btn-buscar" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i>
 

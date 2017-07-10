@@ -16,7 +16,7 @@
       <h3>Listado de Corredores</h3>
       <hr>
       <div class="panel panel-primary">
-        <div class="panel-heading"><strong>Corredores</strong></div>
+        <div class="panel-heading"><h4><strong>Corredores</strong></h4></div>
         <div class="row">
           <div class="col-md-12 ">
             <div class="table-responsive">
@@ -27,7 +27,6 @@
                     <th>Nombre</th>
                     <th>Teléfono</th>
                     <th>Email</th>
-                    <th>Estatus</th>
                     <th colspan="3">Acciones</th>
                   </tr>
                 </thead>
@@ -38,7 +37,6 @@
                     <td>{{ ($corre->nombre) }}</td>
                     <td>{{ ($corre->telefono) }}</td>
                     <td>{{ ($corre->email) }}</td>
-                    <td>{{ ($corre->status) }}</td>
                     <td>
                       <a href="{{ route('corredores.show', $corre->id) }}" class="btn btn-buscar" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i>
 

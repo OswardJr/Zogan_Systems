@@ -5,13 +5,13 @@
                         <section class="content">
                           <div class="row">
                             <div class="col-md-12 ">
-                                  <h3>Nuevo Corredor de Seguro</h3>
+                                  <h3>Corredores de Seguro</h3>
                                 <hr>
 
                                 <div class="panel panel-primary">
                                 <div class="panel-heading ">
                                   <center>
-                                    <h4>Datos del A.D.S</h4>
+                                    <h4>Datos del Corredor de Seguro</h4>
                                   </center>
                                 </div>
 
@@ -33,23 +33,23 @@
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Nombre<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="nombre" id="" class="form-control" placeholder="José" value="{{ $corredores->nombre }}"" required="true">
+                                      <input type="text" name="nombre" id="" class="form-control" placeholder="José" value="{{ $corredores->nombre }}" onkeyup="this.value=this.value.toUpperCase()" required="true">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Apellido<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="apellido" id="" class="form-control" placeholder="Pérez" value="{{ $corredores->apellido }}"" required="true">
+                                      <input type="text" name="apellido" id="" class="form-control" placeholder="Pérez" value="{{ $corredores->apellido }}" onkeyup="this.value=this.value.toUpperCase()" required="true">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Celular<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="celular" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0412-XXXXXXX" value="{{ $corredores->celular }}">
+                                      <input type="text" name="celular" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0412-XXXXXXX" onkeyup="this.value=this.value.toUpperCase()" value="{{ $corredores->celular }}" required="true">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Teléfono<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="telefono" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0244-XXXXXXX" value="{{ $corredores->telefono }}">
+                                      <input type="text" name="telefono" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0244-XXXXXXX" value="{{ $corredores->telefono }}" onkeyup="this.value=this.value.toUpperCase()" required="true">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Email<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="email" name="email" id="email" class="form-control" placeholder="contact@example.com" value="{{ $corredores->email }}">
+                                      <input type="email" name="email" id="email" class="form-control" placeholder="contact@example.com" value="{{ $corredores->email }}" onkeyup="this.value=this.value.toUpperCase()" required="true">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Aseguradora<a class="campos-required" title="Campo Obligatorio."> *</a></label>

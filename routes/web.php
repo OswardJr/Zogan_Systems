@@ -97,7 +97,4 @@ Route::get('/home_services', 'VehiculosController@me');
 
 Route::get('/ruta', 'ReparacionesController@index');
 
-Route::get('citas/{search}', array(
-    'as' => 'search-retailers', 'uses' => 'CitasController@search'));
-
 Auth::routes();

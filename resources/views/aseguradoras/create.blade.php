@@ -15,7 +15,7 @@
     <section class="content">
       <div class="row">
         <div class="col-md-12 ">
-          <h3>Nueva Aseguradora</h3>
+          <h3>Aseguradoras</h3>
           <hr>
 
           <div class="panel panel-primary">
@@ -41,15 +41,15 @@
               </div>
               <div class="form-group col-xs-6">
                 <label>Denominación<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
-                <input type="text" name="denominacion" id="" class="form-control" placeholder="Seguros Caracas C.A" required="true">
+                <input type="text" name="denominacion" id="" class="form-control" placeholder="Seguros Caracas C.A" onkeyup="this.value=this.value.toUpperCase()" required="true">
               </div>
               <div class="form-group col-xs-6">
                 <label>Teléfono<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                <input type="text" name="telefono" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0212-XXXXXXX">
+                <input type="text" name="telefono" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0212-XXXXXXX" onkeyup="this.value=this.value.toUpperCase()" required="true">
               </div>
               <div class="form-group col-xs-6">
                 <label>Email<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="contact@example.com">
+                <input type="email" name="email" id="email" class="form-control" placeholder="contact@example.com" onkeyup="this.value=this.value.toUpperCase()" required="true">
               </div>
               <center class="col-xs-offset-3 col-xs-6">
                 <span class="" style="font-weight:bold;">Los campos marcados con <a class="obli" rel="tooltip" style="font-size:20px;">*</a> son Obligatorios.</span><br><br>

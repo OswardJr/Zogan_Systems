@@ -13,7 +13,7 @@
                               </div>
                               @endif                                
                             <div class="col-xs-12 ">
-                                  <h3>Nuevo Propietario</h3>
+                                  <h3>Propietario</h3>
                                 <hr>
 
                                 <div class="panel panel-primary ">

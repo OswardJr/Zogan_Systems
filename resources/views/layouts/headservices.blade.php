@@ -311,28 +311,6 @@
 
                               <li class="nav-item">
                                 <a href="javascript:;" class="nav-link nav-toggle">
-                                  <i class="fa fa-wrench"></i>
-                                  <span class="title">Taller</span>
-                                  <span class="arrow "></span>
-                                </a>
-                                <ul class="sub-menu">
-                                  <li class="nav-item">
-                                    <a href="dashboard.php" target="" class="nav-link">
-                                      <i class="fa fa-truck"></i>  Vehículos en el Taller
-                                    </a>
-                                  </li>    
-
-                                  <li class="nav-item">
-                                    <a href="rev.php" class="nav-link">
-                                      <i class="fa fa-camera"></i>  Inspeccionar Vehículos
-                                    </a>
-                                  </li>     
-
-                                </ul>
-                              </li>
-
-                              <li class="nav-item">
-                                <a href="javascript:;" class="nav-link nav-toggle">
                                   <i class="fa fa-file-text-o"></i>
                                   <span class="title">Reportes</span>
                                   <span class="arrow "></span>

@@ -73,9 +73,11 @@ class ReparacionesController extends Controller
 
         $analistas = DB::table('analistas')->get();
 
-        $operarios = DB::table('operarios')->get();
+        $latoneros = DB::table('operarios')->where('tipo','=', 'latonero')->get();
 
-      return view('reparaciones.create', ['aseguradoras' => $aseguradoras, 'analistas' => $analistas, 'operarios' =>$operarios]);
+        $pintores = DB::table('operarios')->where('tipo','=', 'pintor')->get();
+
+      return view('reparaciones.create', ['aseguradoras' => $aseguradoras, 'analistas' => $analistas, 'latoneros' => $latoneros, 'pintores' => $pintores]);
     }
 
     public function store(Request $request)
@@ -152,10 +154,10 @@ class ReparacionesController extends Controller
         $ordenes->vehiculo_id = $Idvehi;        
         $analis = $request->get('two');    
         $ordenes->analista_id = $analis;        
-        $ope = $request->get('three');    
-        $ordenes->latonero_id = $ope;
-        $oper = $request->get('fourth');    
-        $ordenes->pintor_id = $oper;   
+        $lato = $request->get('three');    
+        $ordenes->latonero_id = $lato;
+        $pin = $request->get('fourth');    
+        $ordenes->pintor_id = $pin;   
         $ordenes->status = 'NINGUNO';             
         $ordenes->save();
         $Idorden = $ordenes->id;

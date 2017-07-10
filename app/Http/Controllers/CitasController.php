@@ -27,7 +27,7 @@ class CitasController extends Controller
      */
 
 
-public function create()
+    public function create()
     {
         // get all the reports
         $reparaciones = Reparaciones::all();
@@ -35,18 +35,6 @@ public function create()
         // load the view and pass the reports
       return view('citas/create', ['reparaciones' => $reparaciones]);
     }
-
-public function search($keyword) {    
-    if(isset($keyword)) {
-      $data = array('reparaciones' => Reparaciones::search($keyword));
-      return $data;
-    } else {
-      return "no results";
-    }
-
-          return view('citas/create', ['keyword' => $keyword]);
-
- }
 
     public function store(Request $request)
     {

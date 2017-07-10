@@ -16,12 +16,16 @@
     <div class="page-content-wrapper" style="">
       <div class="page-content">                    
         <section class="content">
-          <h3>Cargar de Actualizaciones</h3>
+          <h3>Actualizaciones</h3>
           <hr>
           <div class="btn btn-default btn-teal btn-responsive" style="float:right"><a href="{{ url('/ruta') }}" style="color:teal"><span class="fa fa-mail-reply-all fa-lg"></span></a></div><br><br><br>    
           <div class="col-md-12">
             <div class="panel panel-primary">
-              <div class="panel-heading">Datos del Vehículo</div>
+              <div class="panel-heading">
+              <center>
+              <h4>Datos del Vehículo</h4>
+              </center>                
+              </div>
               <div class="panel-body">
                 <div class="row">
                   <input type="hidden" value="{{ strtoupper($auto->id) }}" name="_idAuto">
@@ -46,17 +50,17 @@
             <div class="panel-body">
               <div class="form-group col-md-6 ">
                 <label>Encargado que Entrega</label>
-            <input type="text" name="encargado_entrega" id="" class="form-control" placeholder="José Hernández" required="true" >
+            <input type="text" name="encargado_entrega" id="" class="form-control" placeholder="José Hernández" onkeyup="this.value=this.value.toUpperCase()" required="true">
               </div>
 
               <div class="form-group col-md-6 ">
                 <label>Encargado que Recibe</label>
-            <input type="text" name="encargado_recibe" id="" class="form-control" placeholder="Manuel Pérez" required="true" >
+            <input type="text" name="encargado_recibe" id="" class="form-control" placeholder="Manuel Pérez" onkeyup="this.value=this.value.toUpperCase()" required="true">
               </div>
 
-              <div class="form-group col-md-offset-3 col-md-6 ">
+              <div class="form-group col-md-6 ">
                 <label>Descripción de Avances</label>
-                <textarea type="text" name="avances" placeholder="NO HUBIERON OBSERVACIONES" class="form-control"></textarea>
+                <textarea type="text" name="avances" onkeyup="this.value=this.value.toUpperCase()" placeholder="NO HUBIERON OBSERVACIONES" class="form-control"></textarea>
               </div>
             </div>
           </div>
@@ -64,7 +68,11 @@
 
           <div class="col-md-12">
             <div class="panel panel-primary">
-              <div class="panel-heading">Carga de las Fotos</div>
+              <div class="panel-heading">
+              <center>
+              <h4>Carga de las Fotos</h4>
+              </center>                
+              </div>
               <div class="panel-body">
                 <div class="col-md-6">
                   <div class="form-group">
