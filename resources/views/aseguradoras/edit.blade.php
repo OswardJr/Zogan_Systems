@@ -26,7 +26,7 @@
                                 </div>
 
                                 <div class="panel-body ">
-                                 <form method="post" action=" {{ url('/aseguradoras/') }}/{{ $aseguradoras->id }}">
+                                 <form method="post" name="crear" id="crear" action=" {{ url('/aseguradoras/') }}/{{ $aseguradoras->id }}">
                                    <input name="_method" type="hidden" value="PUT">
                                    <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -71,3 +71,26 @@
                 </div>
 
 @include('layouts.footer')   
+
+<script>
+      window.onload = function () {
+        document.crear.focus();
+        document.crear.addEventListener('submit', validarFormulario);
+    }
+
+    function validarFormulario(evObject) {
+        evObject.preventDefault();
+
+        var success = true;
+        var formulario = document.crear;
+        for (var q=0; q<formulario.length; q++) {
+            if(formulario[q].type =='text') {
+             if (formulario[q].value == null || formulario[q].value.length == 0 || /^\s*$/.test(formulario[q].value)){
+                 alert ('No pueden existir campos vacíos');
+                 success=false;
+             }
+         }
+     }
+     if (success ==true) {formulario.submit();}
+ }  
+</script> 
