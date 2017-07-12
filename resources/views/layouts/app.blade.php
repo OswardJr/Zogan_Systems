@@ -51,7 +51,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        Gandocam C.A
                     </a>
                 </div>
 
