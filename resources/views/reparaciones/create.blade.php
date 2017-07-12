@@ -11,7 +11,7 @@
         </div>
         <div class="col-md-3">
           <div class="panel-body ">
-            <h4><strong>Número:</strong> {{$id}}</h4>
+            <h4><strong>Número:</strong> 0000{{$id}}</h4>
           </div>
         </div>
       </div>

@@ -11,7 +11,14 @@
                                     <h5> {{ Session::get('message') }}</h5>
                                   </div>
                               </div>
-                              @endif        
+                              @endif  
+
+@if($errors->has('cedula'))
+   @foreach ($errors->all() as $error)
+      <div>{{ $error }}</div>
+  @endforeach
+@endif   
+                                                              
                               
                               @if(Session::get('errors'))
                               <div class="col-md-8 col-md-offset-2">
@@ -42,7 +49,7 @@
                                       <div class="input-group input-group-sm">
                                         <input type="text" name="cedula" id="" class="form-control " pattern="^([JVEG]{1})-([0-9]{8})$" title="El formato debe ser V-12345678"  placeholder="V12345678" onkeyup="this.value=this.value.toUpperCase()" required="true" >
                                         <span class="input-group-btn">
-                                          <button  data-toggle="tooltip" title="Consultar" class="btn btn-buscar btn-flat fa fa-search
+                                          <button  data-toggle="tooltip" title="Consultar" id="cedula" class="btn btn-buscar btn-flat fa fa-search
                                           " type="button" onClick="buscar() name="btn-search"></button>
                                         </span>
                                       </div>
@@ -129,3 +136,24 @@
      if (success ==true) {formulario.submit();}
  }  
 </script>       
+
+<script>
+$(function() {
+        $("#cedula").click(function(e) {
+            var itemExists = false;
+            var txt = $("#Text1").val();
+            e.preventDefault();
+            $("#Select1 option").each(function() {
+                if ($(this).text() == $.trim(txt)) {
+                    itemExists = true;
+                    alert('Item already exists');
+                }
+            });
+
+          if (!itemExists) {
+          $("#Select1").append("<option value=\"1\">" + txt + "</option>");
+          $("#Text1").val('');
+          }
+        });
+    });   
+</script>
