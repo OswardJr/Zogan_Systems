@@ -1,5 +1,4 @@
 @include('layouts.headruta')
-
 <div class="page-content-wrapper" style="">
   <div class="page-content">
     <section class="content">
@@ -18,7 +17,6 @@
           </div>
         </div>
       </div>
-
       <hr style="width:100%;">
       <div class="row">
         <div class="col-md-12" style="padding-left: 0px;">
@@ -29,47 +27,39 @@
                   <h4>Datos Pre-cargados del Vehículo</h4>
                 </center>
               </div>
-
               <div class="panel-body ">
                <div class="col-md-6 form-group" style="margin-top: 5px;">
                 <label for="cedula ">Placa</label>
                 <div class="input-group ">
-                 <input type="text " class="form-control" id="" name="" placeholdesr="V-XXXXXXX">
-                 <span class="input-group-btn ">
-                   <button class="btn btn-buscar btn-flat fa fa-search" type="button"></button>
-                 </span>
-               </div>
+                   <input type="text " class="form-control" id="placa" name="" placeholdesr="XXXXXXX">
+                   <span class="input-group-btn ">
+                     <button class="btn btn-buscar btn-flat fa fa-search" type="button"></button>
+                   </span>
+                 </div>
              </div>
-
              <div class="form-group col-md-6">
                <p class="margin"><strong>Marca</strong></p>
                <input type="text" name="" placeholdesr="Aveo" class="form-control">
              </div>
-
              <div class="form-group col-md-6">
                <p class="margin"><strong>Modelo</strong></p>
                <input type="text" name="" placeholdesr="LT" class="form-control">
              </div>
-
              <div class="form-group col-md-6">
               <p class="margin"><strong>Serial de Carrocería</strong></p>
               <input type="text" name="" placeholdesr="XXXXXXXXXXX" class="form-control">
             </div>
-
             <div class="form-group col-md-6">
               <p class="margin"><strong>Serial del Motor</strong></p>
               <input type="text" name="" placeholdesr="XXXXXXXXX" class="form-control">
             </div>
-
             <div class="form-group col-md-6">
               <p class="margin"><strong>Propietario</strong></p>
               <input type="text" name="" placeholdesr="Transeral, C.A" class="form-control">
             </div>
-
           </div>
         </div>
       </div>
-
       <div class="col-md-12">
         <div class="panel panel-primary ">
           <div class="panel-heading ">
@@ -77,9 +67,7 @@
               <h4>Datos de Recepción </h4>
             </center>
           </div>
-
           <div class="panel-body ">
-
             <div class="form-group col-md-6">
               <p class="margin"><strong>Chofer encargado</strong></p>
               <input type="text" name="" placeholdesr="Aveo" class="form-control">
@@ -88,7 +76,6 @@
               <p class="margin"><strong>Telefono del chofer</strong></p>
               <input type="text" name="" placeholdesr="Aveo" class="form-control">
             </div>
-
             <div class="col-md-6 form-group" style="margin-top: 5px;">
               <label for="cedula ">Productor de la poliza</label>
               <div class="input-group ">
@@ -107,7 +94,6 @@
                   </span>
                 </div>
               </div>
-
               <div class="form-group col-md-6" id="sandbox-container">
                 <label for="fecha_nac">fecha de recepcion</label>
                 <div class="input-group date">
@@ -125,7 +111,6 @@
                 <p class="margin"><strong>Combustible</strong></p>
                 <input type="text" name="" placeholdesr="Aveo" class="form-control">
               </div>
-
             </div>
           </div>
         </div>
@@ -265,17 +250,14 @@
                 <label><input type="checkbox" value="">Tapa Gasoil</label>
               </div>
             </div>
-
             <div class="col-md-12">
               <div class="checkbox">
                 <label for="comment">Informe de inspeccion</label>
                 <textarea class="form-control" rows="5" id="comment"></textarea>
               </div>
-
             </div>
           </div>
         </div>
-
         <div class="panel panel-primary ">
           <div class="panel-heading ">
             <center>
@@ -307,7 +289,13 @@
 </div>
 </div>
 @include('layouts.footer')
-
+<script>
+  $(function() {
+    $("#placa").autocomplete({
+      source: '/vehiculos/getjson'
+    });
+  });
+</script>
 <script type="text/javascript">
   $("#images-input").fileinput({
     language: "es",
