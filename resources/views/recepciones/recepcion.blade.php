@@ -33,7 +33,7 @@
                 <div class="input-group ">
                    <input type="text " class="form-control" id="placa" name="" placeholdesr="XXXXXXX">
                    <span class="input-group-btn ">
-                     <button class="btn btn-buscar btn-flat fa fa-search" type="button"></button>
+                     <button class="btn btn-buscar btn-flat fa fa-search"  onClick="buscar_vehiculo()" type="button"></button>
                    </span>
                  </div>
              </div>
@@ -289,13 +289,42 @@
 </div>
 </div>
 @include('layouts.footer')
-<script>
-  $(function() {
-    $("#placa").autocomplete({
-      source: '/vehiculos/getjson'
-    });
-  });
-</script>
+<!-- <script>
+$(function() {
+  $('#placa').autocomplete({
+    source: '/vehiculos/getjson'
+  })
+})
+
+
+function buscar_vehiculo() {
+    let placa = $('#placa').val()
+    if (placa == null) {
+      $('#placa').focus()
+      alert('Debe introducir la placa')
+    }
+    $.ajax({
+        url: '/vehiculos/getVehiculo/' + placa,
+        type: 'GET',
+        dataType: 'JSON',
+        success: function(data) {
+            // $('[name="rif-entrada"]').val(data.rif)
+            // $('[name="id_prov"]').val(data.id_prov)
+            // $('[name="razon_social"]').val(data.razon_social)
+            // $('[name="telefono"]').val(data.telefono)
+            // $('[name="direccion"]').val(data.direccion)
+            // // habilita el poder agregar productos despues de añadir prov
+            // $('#codigo').removeAttr('disabled')
+            // $('#precio').removeAttr('disabled')
+            // $('#cantidad').removeAttr('disabled')
+            console.log(data)
+        },
+        error: function(e) {
+            console.log(e)
+        }
+    })
+}
+</script> -->
 <script type="text/javascript">
   $("#images-input").fileinput({
     language: "es",

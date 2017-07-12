@@ -92,4 +92,10 @@ Route::get('/home_services', 'VehiculosController@me');
 
 Route::get('/ruta', 'ReparacionesController@index');
 
+// ruta para vehiculos
+
+// Route::get('vehiculos/getVehiculo/{id}', 'VehiculosController@getVehiculo');
+
+
+
 Auth::routes();
