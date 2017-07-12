@@ -80,8 +80,12 @@ class ReparacionesController extends Controller
         $latoneros = DB::table('operarios')->where('tipo','=', 'latonero')->get();
 
         $pintores = DB::table('operarios')->where('tipo','=', 'pintor')->get();
+        // obtengo el ultimo id
+        $id = DB::table('reparaciones')->max('id');
+        // digo = si existe el ultimo id sumale 1 , sino muestrame el nro 1
+        $id = $id ? $id + 1 : 1 ;
 
-      return view('reparaciones.create', ['aseguradoras' => $aseguradoras, 'analistas' => $analistas, 'latoneros' => $latoneros, 'pintores' => $pintores]);
+      return view('reparaciones.create', ['id'=> $id, 'aseguradoras' => $aseguradoras, 'analistas' => $analistas, 'latoneros' => $latoneros, 'pintores' => $pintores]);
     }
 
     public function store(Request $request)

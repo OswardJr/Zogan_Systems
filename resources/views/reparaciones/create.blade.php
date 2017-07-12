@@ -11,7 +11,7 @@
         </div>
         <div class="col-md-3">
           <div class="panel-body ">
-            <h4><strong>Número:</strong> 0000001</h4>
+            <h4><strong>Número:</strong> {{$id}}</h4>
           </div>
         </div>
       </div>
@@ -30,7 +30,7 @@
         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
           <div class="panel-body">
             <form method="post" action="{{ url('/reparaciones') }}">
-              <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">        
+              <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="form-group col-lg-4">
                 <label>Cédula / Rif:<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
                 <input type="text" name="rif" id="" onkeyup="this.value=this.value.toUpperCase()" class="form-control" placeholder="V-20989357" required="true" >
@@ -63,7 +63,7 @@
               <div class="form-group col-lg-4">
                 <label>Número de Poliza:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                 <input type="text" name="numero" id="" class="form-control" placeholder="93-56-2399217" >
-              </div>  
+              </div>
               <div class="form-group col-lg-4">
                 <label>Número del Certificado / Recibo:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                 <input type="text" name="num_certificado" id="" class="form-control" placeholder="0/4739494" >
@@ -71,7 +71,7 @@
               <div class="form-group col-lg-4">
                 <label>Número del Siniestro:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                 <input type="text" name="nro_siniestro" id="" class="form-control" placeholder="93-562388688" >
-              </div> 
+              </div>
             </div>
           </div>
         </div>
@@ -104,7 +104,7 @@
               <div class="form-group col-md-3">
                 <label>Año:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                 <input type="number" name="anio" id="" onkeyup="this.value=this.value.toUpperCase()" class="form-control" placeholder="2013" >
-              </div>  
+              </div>
               <div class="form-group col-md-3">
                 <label>Color:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                 <input type="text" name="color" id="" onkeyup="this.value=this.value.toUpperCase()" class="form-control" placeholder="BLANCO" >
@@ -360,7 +360,7 @@
               <label for="">Total Orden de Reparación:</label>
               <input type="text" name="monto_final" placeholder="bsf" class="form-control">
             </div>
-          </div>      
+          </div>
         </div>
       </div>
     </div>
@@ -401,7 +401,7 @@
             <div class="form-group col-md-6 ">
               <label>Repuestos No Disponibles</label>
               <textarea type="text" name="no_dispo" placeholder="REPARAR Y PINTAR INSTALAR" onkeyup="this.value=this.value.toUpperCase()" class="form-control"></textarea>
-            </div>      
+            </div>
           </div>
         </div>
       </div>
@@ -430,20 +430,20 @@
                 <option value=""></option>
                 @foreach ($pintores as $pin)
                 <option value="{{ $pin->id }}">{{ $pin->nombre }} {{ $pin->apellido }}</option>
-                @endforeach                       
+                @endforeach
               </select>
-            </div>      
+            </div>
           </div>
         </div>
-      </div>        
+      </div>
     </div>
 
     <div class="col-xs-offset-5 col-md-7">
       <button type="submit" class="btn btn-guardar fa fa-save"></button>
       <button type="reset" class="btn btn-refresh fa fa-repeat  "></button>
-    </div>  
-  </form>                                
-</div>                                    
+    </div>
+  </form>
+</div>
 </div>
 </div>
 
