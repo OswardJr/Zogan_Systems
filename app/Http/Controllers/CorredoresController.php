@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Validator;
 
 class CorredoresController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     private $path = 'corredores';
 
     private $Corre_asegu = 'Corre_asegu';
@@ -19,7 +23,7 @@ class CorredoresController extends Controller
     {
       $corredores = DB::table('corredores')->where('status', '=', 'activo')->orderBy('cedula', 'desc')->paginate(15);
 
-      return view('/listcorre', ['corredores' => $corredores]); 
+      return view('/listcorre', ['corredores' => $corredores]);
     }
 
     /**
@@ -42,19 +46,19 @@ class CorredoresController extends Controller
      */
     public function store(Request $request)
     {
-        $corredores = new Corredores();  
+        $corredores = new Corredores();
         $corredores->cedula = $request->cedula;
         $corredores->nombre = $request->nombre;
         $corredores->apellido = $request->apellido;
         $corredores->celular = $request->celular;
         $corredores->telefono = $request->telefono;
         $corredores->email = $request->email;
-        $corre = $request->get('one');        
+        $corre = $request->get('one');
         $corredores->status = 'activo';
         $corredores->save();
         $Idcorre = $corredores->id;
 //QUE ESTUPIDEZ............
-        $aseguCorre = new Corre_asegu(); 
+        $aseguCorre = new Corre_asegu();
         $aseguCorre->corredor_id = $Idcorre;
         $aseguCorre->aseguradora_id = $corre;
         $aseguCorre->save();
@@ -68,16 +72,16 @@ class CorredoresController extends Controller
 
        foreach ($corredores as $value) {
         $aseguradoras = DB::select('
-              SELECT i.aseguradora_id, aseguradoras.denominacion 
-              FROM corre_asegu as i 
-              inner JOIN corredores as q 
-              ON i.corredor_id = q.id 
-              INNER JOIN aseguradoras 
-              ON i.aseguradora_id = aseguradoras.id 
+              SELECT i.aseguradora_id, aseguradoras.denominacion
+              FROM corre_asegu as i
+              inner JOIN corredores as q
+              ON i.corredor_id = q.id
+              INNER JOIN aseguradoras
+              ON i.aseguradora_id = aseguradoras.id
               WHERE corredor_id = :id', ['id' => $corredores->id]);
 
         foreach ($aseguradoras as $asegu) {
-        }            
+        }
       }
 
       $seguros = DB::table('aseguradoras')->get();
@@ -91,21 +95,21 @@ class CorredoresController extends Controller
 
        foreach ($corredores as $value) {
         $aseguradoras = DB::select('
-              SELECT i.aseguradora_id, aseguradoras.denominacion 
-              FROM corre_asegu as i 
-              inner JOIN corredores as q 
-              ON i.corredor_id = q.id 
-              INNER JOIN aseguradoras 
-              ON i.aseguradora_id = aseguradoras.id 
+              SELECT i.aseguradora_id, aseguradoras.denominacion
+              FROM corre_asegu as i
+              inner JOIN corredores as q
+              ON i.corredor_id = q.id
+              INNER JOIN aseguradoras
+              ON i.aseguradora_id = aseguradoras.id
               WHERE corredor_id = :id', ['id' => $corredores->id]);
 
         foreach ($aseguradoras as $asegu) {
-        }            
+        }
       }
 
       $seguros = DB::table('aseguradoras')->get();
 
-        return view($this->path.'.edit', ['corredores' => $corredores, 'aseguradoras' => $aseguradoras, 'seguros' => $seguros]); 
+        return view($this->path.'.edit', ['corredores' => $corredores, 'aseguradoras' => $aseguradoras, 'seguros' => $seguros]);
     }
 
     public function update(Request $request, $id)
@@ -117,13 +121,13 @@ class CorredoresController extends Controller
           $corredores->celular = $request->celular;
           $corredores->telefono = $request->telefono;
           $corredores->email = $request->email;
-          $asegu = $request->get('one'); 
-          $segu = $request->get('one');                                             
+          $asegu = $request->get('one');
+          $segu = $request->get('one');
           $corredores->status = 'activo';
           $corredores->save();
           $Idcorre = $corredores->id;
 //QUE ESTUPIDEZ............
-   
+
 
           return redirect()->route('corredores.index');
     }

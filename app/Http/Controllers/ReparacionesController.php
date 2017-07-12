@@ -18,22 +18,26 @@ class ReparacionesController extends Controller
 {
 
 /*
-              SELECT i.vehiculo_id,q.marca,q.modelo,q.serial_carro,q.serial_motor,propietarios.nombre_completo 
-              FROM reparaciones as i 
-              inner JOIN vehiculos as q 
-              ON i.vehiculo_id = q.id 
-              INNER JOIN propietarios 
+              SELECT i.vehiculo_id,q.marca,q.modelo,q.serial_carro,q.serial_motor,propietarios.nombre_completo
+              FROM reparaciones as i
+              inner JOIN vehiculos as q
+              ON i.vehiculo_id = q.id
+              INNER JOIN propietarios
               ON i.propietario_id = propietarios.id
-*/  
+*/
+   public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
       $autos = DB::select('
-              SELECT i.vehiculo_id,i.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo 
-              FROM reparaciones as i 
-              inner JOIN vehiculos as q 
-              ON i.vehiculo_id = q.id 
-              INNER JOIN propietarios 
-              ON i.propietario_id = propietarios.id');       
+              SELECT i.vehiculo_id,i.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo
+              FROM reparaciones as i
+              inner JOIN vehiculos as q
+              ON i.vehiculo_id = q.id
+              INNER JOIN propietarios
+              ON i.propietario_id = propietarios.id');
 
       return view('dashboard', ['autos' => $autos]);
     }
@@ -41,12 +45,12 @@ class ReparacionesController extends Controller
     public function me()
     {
       $autos = DB::select('
-              SELECT i.vehiculo_id,i.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo 
-              FROM reparaciones as i 
-              inner JOIN vehiculos as q 
-              ON i.vehiculo_id = q.id 
-              INNER JOIN propietarios 
-              ON i.propietario_id = propietarios.id');       
+              SELECT i.vehiculo_id,i.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo
+              FROM reparaciones as i
+              inner JOIN vehiculos as q
+              ON i.vehiculo_id = q.id
+              INNER JOIN propietarios
+              ON i.propietario_id = propietarios.id');
 
       return view('home_ruta', ['autos' => $autos]);
     }
@@ -54,17 +58,17 @@ class ReparacionesController extends Controller
     public function on()
     {
       $reparaciones = DB::select('
-              SELECT i.vehiculo_id,i.analista_id,i.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo,analistas.nombre 
-              FROM reparaciones as i 
-              inner JOIN vehiculos as q 
-              ON i.vehiculo_id = q.id 
-              INNER JOIN propietarios 
+              SELECT i.vehiculo_id,i.analista_id,i.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo,analistas.nombre
+              FROM reparaciones as i
+              inner JOIN vehiculos as q
+              ON i.vehiculo_id = q.id
+              INNER JOIN propietarios
               ON i.propietario_id = propietarios.id
-              INNER JOIN analistas 
+              INNER JOIN analistas
               ON i.analista_id = analistas.id
               ');
 
-      return view('/listorden', ['reparaciones' => $reparaciones]);     
+      return view('/listorden', ['reparaciones' => $reparaciones]);
     }
 
     public function create()
@@ -85,9 +89,9 @@ class ReparacionesController extends Controller
 
         $polizas = new Polizas();
         $polizas->numero = $request->numero;
-        $asegu = $request->get('one');    
+        $asegu = $request->get('one');
         $polizas->aseguradora_id = $asegu;
-        $polizas->save();  
+        $polizas->save();
         $Idpoli = $polizas->id;
 
 
@@ -117,7 +121,7 @@ class ReparacionesController extends Controller
         $ordenes = new Reparaciones();
         $ordenes->fecha_ocu = $request->fecha_ocu;
         $ordenes->num_certificado = $request->num_certificado;
-        $ordenes->nro_siniestro = $request->nro_siniestro;        
+        $ordenes->nro_siniestro = $request->nro_siniestro;
         $ordenes->notas = $request->notas;
         $ordenes->mano_obra = $request->mano_obra;
         $ordenes->depreciacion = $request->depreciacion;
@@ -128,8 +132,8 @@ class ReparacionesController extends Controller
         $ordenes->total_repues = $request->total_repues;
         $ordenes->depre_repues = $request->depre_repues;
         $ordenes->total_accesorios = $request->total_accesorios;
-        $ordenes->repues_taller = $request->repues_taller;  
-        $ordenes->depre_acce = $request->depre_acce;  
+        $ordenes->repues_taller = $request->repues_taller;
+        $ordenes->depre_acce = $request->depre_acce;
         $ordenes->manejo_repues = $request->manejo_repues;
         $ordenes->deduccion = $request->deduccion;
         $ordenes->desc_prepago = $request->desc_prepago;
@@ -142,7 +146,7 @@ class ReparacionesController extends Controller
         $ordenes->ordenes_repues = $request->ordenes_repues;
         $ordenes->repues_otros = $request->repues_otros;
         $ordenes->depreciacion_two = $request->depreciacion_two;
-        $ordenes->accesorios = $request->accesorios;    
+        $ordenes->accesorios = $request->accesorios;
         $ordenes->depreciacion_nega = $request->depreciacion_nega;
         $ordenes->total_ordenes_acc = $request->total_ordenes_acc;
         $ordenes->monto_final = $request->monto_final;
@@ -150,15 +154,15 @@ class ReparacionesController extends Controller
         $ordenes->tipos_daños = $request->tipos_daños;
         $ordenes->selec_repues = $request->selec_repues;
         $ordenes->no_dispo = $request->no_dispo;
-        $ordenes->propietario_id = $Idprop;        
-        $ordenes->vehiculo_id = $Idvehi;        
-        $analis = $request->get('two');    
-        $ordenes->analista_id = $analis;        
-        $lato = $request->get('three');    
+        $ordenes->propietario_id = $Idprop;
+        $ordenes->vehiculo_id = $Idvehi;
+        $analis = $request->get('two');
+        $ordenes->analista_id = $analis;
+        $lato = $request->get('three');
         $ordenes->latonero_id = $lato;
-        $pin = $request->get('fourth');    
-        $ordenes->pintor_id = $pin;   
-        $ordenes->status = 'NINGUNO';             
+        $pin = $request->get('fourth');
+        $ordenes->pintor_id = $pin;
+        $ordenes->status = 'NINGUNO';
         $ordenes->save();
         $Idorden = $ordenes->id;
 
@@ -188,9 +192,9 @@ class ReparacionesController extends Controller
 
     /*public function autoComplete(Request $request) {
             $query = $request->get('term','');
-            
+
             $repuestos=Repuestos::where('codigo','LIKE','%'.$query.'%')->get();
-            
+
             $data=array();
             foreach ($repuestos as $repuesto) {
                     $data[]=array('value'=>$repuestos->codigo,'id'=>$repuestos->id);
@@ -199,8 +203,8 @@ class ReparacionesController extends Controller
                  return $data;
             else
                 return ['value'=>'No Result Found','id'=>''];
-                
-    }  
+
+    }
 
      <script>
    $(document).ready(function() {
@@ -215,14 +219,14 @@ class ReparacionesController extends Controller
                 },
                 success: function(data) {
                     response(data);
-                   
+
                 }
             });
         },
         minLength: 3,
-       
+
     });
 });
 </script>
-     */             
+     */
 }

@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Validator;
 
 class AnalistasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     private $path = 'analistas';
 
@@ -33,19 +37,19 @@ class AnalistasController extends Controller
 
     public function store(Request $request)
     {
-        $analistas = new Analistas();  
+        $analistas = new Analistas();
         $analistas->rif = $request->rif;
         $analistas->nombre = $request->nombre;
         $analistas->apellido = $request->apellido;
         $analistas->celular = $request->celular;
         $analistas->telefono = $request->telefono;
         $analistas->email = $request->email;
-        $anali = $request->get('two');        
+        $anali = $request->get('two');
         $analistas->status = 'activo';
-        $analistas->save();        
+        $analistas->save();
         $Idanalis = $analistas->id;
 
-        $aseguAnalis = new Analis_asegu(); 
+        $aseguAnalis = new Analis_asegu();
         $aseguAnalis->analista_id = $Idanalis;
         $aseguAnalis->aseguradora_id = $anali;
         $aseguAnalis->save();
@@ -60,16 +64,16 @@ class AnalistasController extends Controller
 
        foreach ($analistas as $value) {
         $aseguradoras = DB::select('
-              SELECT i.aseguradora_id, aseguradoras.denominacion 
-              FROM analis_asegu as i 
-              inner JOIN analistas as q 
-              ON i.analista_id = q.id 
-              INNER JOIN aseguradoras 
-              ON i.aseguradora_id = aseguradoras.id 
+              SELECT i.aseguradora_id, aseguradoras.denominacion
+              FROM analis_asegu as i
+              inner JOIN analistas as q
+              ON i.analista_id = q.id
+              INNER JOIN aseguradoras
+              ON i.aseguradora_id = aseguradoras.id
               WHERE analista_id = :id', ['id' => $analistas->id]);
 
         foreach ($aseguradoras as $asegu) {
-        }            
+        }
       }
 
       $seguros = DB::table('aseguradoras')->get();
@@ -83,21 +87,21 @@ class AnalistasController extends Controller
 
        foreach ($analistas as $value) {
         $aseguradoras = DB::select('
-              SELECT i.aseguradora_id, aseguradoras.denominacion 
-              FROM analis_asegu as i 
-              inner JOIN analistas as q 
-              ON i.analista_id = q.id 
-              INNER JOIN aseguradoras 
-              ON i.aseguradora_id = aseguradoras.id 
+              SELECT i.aseguradora_id, aseguradoras.denominacion
+              FROM analis_asegu as i
+              inner JOIN analistas as q
+              ON i.analista_id = q.id
+              INNER JOIN aseguradoras
+              ON i.aseguradora_id = aseguradoras.id
               WHERE analista_id = :id', ['id' => $analistas->id]);
 
         foreach ($aseguradoras as $asegu) {
-        }            
+        }
       }
 
       $seguros = DB::table('aseguradoras')->get();
 
-        return view($this->path.'.edit', ['analistas' => $analistas, 'aseguradoras' => $aseguradoras, 'seguros' => $seguros]); 
+        return view($this->path.'.edit', ['analistas' => $analistas, 'aseguradoras' => $aseguradoras, 'seguros' => $seguros]);
     }
 
     public function update(Request $request, $id)
@@ -109,12 +113,12 @@ class AnalistasController extends Controller
           $analistas->celular = $request->celular;
           $analistas->telefono = $request->telefono;
           $analistas->email = $request->email;
-          $anali = $request->get('two'); 
+          $anali = $request->get('two');
           $analistas->status = 'activo';
           $analistas->save();
           $Idanalis = $analistas->id;
 //QUE ESTUPIDEZ............
-   
+
 
           return redirect()->route('analistas.index');
     }

@@ -10,13 +10,17 @@ use Illuminate\Support\Facades\Validator;
 
 class AseguradorasController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     private $path = 'aseguradoras';
 
     public function index()
     {
       $aseguradoras = DB::table('aseguradoras')->where('status', '=', 'activo')->orderBy('rif', 'desc')->paginate(15);
 
-      return view('/listasegu', ['aseguradoras' => $aseguradoras]); 
+      return view('/listasegu', ['aseguradoras' => $aseguradoras]);
     }
 
     public function create()
@@ -29,7 +33,7 @@ class AseguradorasController extends Controller
 
       Validator::make($request->all(), [
         'rif'=> 'required',
-        'denominacion' => 'required',       
+        'denominacion' => 'required',
         'telefono' => 'required',
         'email' => 'required',
         ])->validate();
@@ -54,7 +58,7 @@ class AseguradorasController extends Controller
     public function edit($id)
     {
       $aseguradoras = Aseguradoras::findOrFail($id);
-        return view($this->path.'.edit', compact('aseguradoras')); 
+        return view($this->path.'.edit', compact('aseguradoras'));
     }
 
     public function update(Request $request, $id)

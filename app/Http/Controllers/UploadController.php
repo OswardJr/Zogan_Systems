@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 use Storage;
 use App\Imagenes;
-use App\Revisiones; 
-use App\Vehiculos; 
-use App\Propietarios; 
-use App\Recepciones; 
+use App\Revisiones;
+use App\Vehiculos;
+use App\Propietarios;
+use App\Recepciones;
 use App\Image_rev;
 use App\Reparaciones;
 
@@ -19,6 +19,10 @@ use App\Http\Controllers\Controller;
 
 class UploadController extends Controller
 {
+  public function __construct()
+    {
+        $this->middleware('auth');
+    }
   public function index()
   {
 
@@ -69,12 +73,12 @@ class UploadController extends Controller
 
     foreach ($results as $value) {
       $images = DB::select('
-        SELECT i.imagen_id, r.tipo,r.fecha, imagenes.nombre 
-        FROM image_revs as i 
-        inner JOIN revisiones as r 
-        ON i.revision_id = r.id 
-        INNER JOIN imagenes 
-        ON i.imagen_id = imagenes.id 
+        SELECT i.imagen_id, r.tipo,r.fecha, imagenes.nombre
+        FROM image_revs as i
+        inner JOIN revisiones as r
+        ON i.revision_id = r.id
+        INNER JOIN imagenes
+        ON i.imagen_id = imagenes.id
         WHERE revision_id = :id', ['id' => $value->id]);
       foreach ($images as $image){
         if ($image->tipo == 'LATONERIA') {
@@ -90,16 +94,16 @@ class UploadController extends Controller
           array_push($PULITURA,$image);
         }
         elseif ($image->tipo == 'LIMPIEZA') {
-          array_push($LIMPIEZA,$image); 
+          array_push($LIMPIEZA,$image);
         }
         elseif ($image->tipo == 'ENTREGA') {
-          array_push($ENTREGA,$image); 
-        }        
+          array_push($ENTREGA,$image);
+        }
         elseif ($image->tipo == 'DESARMADO') {
-          array_push($DESARMADO,$image); 
+          array_push($DESARMADO,$image);
         }
       }
-      $array = array('DESARMADO'=>$DESARMADO,'LATONERIA'=>$LATONERIA,'PINTURA'=>$PINTURA,'PREPARACION'=>$PREPARACION,'PULITURA'=>$PULITURA,'LIMPIEZA'=>$LIMPIEZA,'ENTREGA'=>$ENTREGA);      
+      $array = array('DESARMADO'=>$DESARMADO,'LATONERIA'=>$LATONERIA,'PINTURA'=>$PINTURA,'PREPARACION'=>$PREPARACION,'PULITURA'=>$PULITURA,'LIMPIEZA'=>$LIMPIEZA,'ENTREGA'=>$ENTREGA);
     }
 
         // SELECT id FROM revisions WHERE vehiculo_id = 1
@@ -114,7 +118,7 @@ class UploadController extends Controller
 
   public function upload(Request $request)
   {
-   $rev = new Revisiones();  
+   $rev = new Revisiones();
    $auto = new Reparaciones();
    $idAuto = $request->_idAuto;
    $auto = Reparaciones::find($idAuto);
@@ -135,14 +139,14 @@ class UploadController extends Controller
 
    $rev->save();
 
-   $revId = $rev->id; 
+   $revId = $rev->id;
 
    if ($request->hasFile('images')) {
     $files = $request->file('images');
 
     foreach($files as $file){
-      $image = new Imagenes();  
-      $imageRev = new Image_rev();  
+      $image = new Imagenes();
+      $imageRev = new Image_rev();
       $randomName = str_random(5);
       $imageName = $randomName.'.'.$file->getClientOriginalExtension();
       $image->nombre = $imageName;
@@ -155,6 +159,6 @@ class UploadController extends Controller
     }
   }
   return redirect('revision/'. $request->_idAuto )->with('message','Ha sido guardado exitosamente!');
-}    
+}
 
 }

@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<!-- 
+<!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
 Version: 4.6
 Author: KeenThemes
@@ -49,7 +49,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="{{asset('assets/layouts/layout/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/fileinput/css/fileinput.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> 
+        <link rel="shortcut icon" href="favicon.ico" />
         <style type="text/css">
             .panel-primary>.panel-heading{
                 color: rgba(0, 0, 0, 0.80);
@@ -193,13 +193,20 @@ License: You must have a valid license purchased only from themeforest(the above
                                   <li class="dropdown dropdown-user">
                                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                       <img alt="" class="img-circle" src="{{asset('assets/layouts/layout/img/avatar3_small.jpg')}}" />
-                                      <span class="username username-hide-on-mobile"> Osward Jr </span>
+                                      <span class="username username-hide-on-mobile"> {{ Auth::user()->name }}  </span>
                                       <i class="fa fa-angle-down"></i>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-default">
                                       <li>
-                                        <a href="#">
-                                          <i class="icon-user"></i> Cerrar Sesión </a>
+                                      <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Cerrar Sesión
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
                                         </li>
                                       </ul>
                                     </li>
@@ -269,13 +276,13 @@ License: You must have a valid license purchased only from themeforest(the above
                                           <a href="#" target="" class="nav-link">
                                             <i class="icon-user"></i>  Nuevo
                                           </a>
-                                        </li>    
+                                        </li>
 
                                         <li class="nav-item">
                                           <a href="#" class="nav-link">
-                                            <i class="fa fa-file-text-o"></i>  Listado 
+                                            <i class="fa fa-file-text-o"></i>  Listado
                                           </a>
-                                        </li>     
+                                        </li>
                                       </ul>
                                     </li>
 
@@ -291,13 +298,13 @@ License: You must have a valid license purchased only from themeforest(the above
                                           <a href="javascript:;" target="_blank" class="nav-link">
                                             <i class="fa fa-truck"></i>  Perfil de Usuario
                                           </a>
-                                        </li>    
+                                        </li>
 
                                         <li class="nav-item">
                                           <a href="#" class="nav-link">
                                             <i class="fa fa-unlock-alt"></i>  Seguridad
                                           </a>
-                                        </li>     
+                                        </li>
                                       </ul>
                                     </li>
                                   </ul>
@@ -327,7 +334,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                       <div class="col-lg-3 col-md-6 col-xs-6">
                                         <div class="panel panel-primary">
                                           <div class="panel-heading">
-                                          <a href="{{ url('home_services') }}" style="color:#000">                                          
+                                          <a href="{{ url('home_services') }}" style="color:#000">
                                             <div class="row">
                                               <div class="col-xs-3">
                                                 <i class="fa  fa-truck fa-5x"></i>
@@ -370,7 +377,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                       <div class="col-lg-3 col-md-6 col-xs-6 ">
                                         <div class="panel panel-primary">
                                           <div class="panel-heading">
-                                          <a href="{{ url('/home_repuestos') }}" style="color:#000">                                   
+                                          <a href="{{ url('/home_repuestos') }}" style="color:#000">
                                             <div class="row">
                                               <div class="col-xs-3">
                                                 <i class="fa fa-wrench fa-5x"></i>
@@ -393,7 +400,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                       <div class="col-lg-3 col-md-6 col-xs-6 ">
                                         <div class="panel panel-primary">
                                           <div class="panel-heading">
-                                            <a href="#" style="color:#000">      
+                                            <a href="#" style="color:#000">
                                             <div class="row">
                                               <div class="col-xs-3">
                                                 <i class="fa fa-briefcase fa-5x"></i>
@@ -417,7 +424,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                       <div class="col-lg-3 col-md-6 col-xs-6 ">
                                         <div class="panel panel-primary">
                                           <div class="panel-heading">
-                                            <a href="#" style="color:#000">      
+                                            <a href="#" style="color:#000">
                                             <div class="row">
                                               <div class="col-xs-3">
                                                 <i class="fa fa-briefcase fa-5x"></i>
@@ -427,7 +434,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <div></div>
                                               </div>
                                             </div>
-                                          </div>                                            
+                                          </div>
                                             <div class="panel-footer" style="background:white">
                                               <span class="pull-left" style="color:black"><strong>Almacén</strong></span>
                                               <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -440,7 +447,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                       <div class="col-lg-3 col-md-6 col-xs-6 ">
                                         <div class="panel panel-primary">
                                           <div class="panel-heading">
-                                          <a href="#" style="color:#000">           
+                                          <a href="#" style="color:#000">
                                             <div class="row">
                                               <div class="col-xs-3">
                                                 <i class="fa fa-money fa-5x"></i>
@@ -459,11 +466,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                           </a>
                                         </div>
                                       </div>
-                                                                            
+
                                       <div class="col-lg-3 col-md-6 col-xs-6 ">
                                         <div class="panel panel-primary">
                                           <div class="panel-heading">
-                                          <a href="#" style="color:#000">           
+                                          <a href="#" style="color:#000">
                                             <div class="row">
                                               <div class="col-xs-3">
                                                 <i class="fa fa-line-chart fa-5x"></i>
@@ -486,7 +493,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                       <div class="col-lg-3 col-md-6 col-xs-6">
                                         <div class="panel panel-primary">
                                           <div class="panel-heading">
-                                          <a href="#" style="color:#000">           
+                                          <a href="#" style="color:#000">
                                             <div class="row">
                                               <div class="col-xs-3">
                                                 <i class="fa fa-sign-out fa-5x"></i>

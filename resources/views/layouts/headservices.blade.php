@@ -11,11 +11,11 @@
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="description" />
         <meta content="" name="author" />
-        <!-- BEGIN GLOBAL MANDATORY STYLES -->       
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="{{asset('assets/global/plugins/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/global/plugins/simple-line-icons/simple-line-icons.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/global/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset('assets/global/plugins/bootstrap/css/bootstrap-switch.min.css')}}" rel="stylesheet" type="text/css" />        
+        <link href="{{asset('assets/global/plugins/bootstrap/css/bootstrap-switch.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/global/plugins/bootstrap/css/my.css')}}" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
         <!-- BEGIN PAGE LEVEL PLUGINS -->
@@ -30,11 +30,11 @@
         <!-- BEGIN THEME LAYOUT STYLES -->
         <link href="{{asset('assets/layouts/layout/css/layout.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/layouts/layout/css/easy-autocomplete.css')}}" rel="stylesheet" type="text/css" />
-        <link href="{{asset('assets/layouts/layout/css/easy-autocomplete.min.css')}}" rel="stylesheet" type="text/css" />        
+        <link href="{{asset('assets/layouts/layout/css/easy-autocomplete.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/layouts/layout/css/themes/light.css')}}" rel="stylesheet" type="text/css" id="style_color" />
         <link href="{{asset('assets/layouts/layout/css/custom.min.css')}}" rel="stylesheet" type="text/css" />
         <link href="{{asset('assets/fileinput/css/fileinput.min.css')}}" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="{{asset('bower_components/EasyAutocomplete/dist/easy-autocomplete.min.css')}}">    
+        <link rel="stylesheet" href="{{asset('bower_components/EasyAutocomplete/dist/easy-autocomplete.min.css')}}">
 
         <link href="{{asset('assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css')}}" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
@@ -46,7 +46,7 @@
         <link href="{{asset('assets/global/css/components.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
 
         <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> 
+        <link rel="shortcut icon" href="favicon.ico" />
         <style type="text/css">
             .panel-primary>.panel-heading{
                 color: rgba(0, 0, 0, 0.80);
@@ -187,11 +187,11 @@
                                       </li>
                                     </ul>
                                   </li>
-                                  
+
                                   <li class="dropdown dropdown-user">
                                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                       <img alt="" class="img-circle" src="{{asset('assets/layouts/layout/img/avatar3_small.jpg')}}" />
-                                      <span class="username username-hide-on-mobile"> Osward Jr </span>
+                                      <span class="username username-hide-on-mobile"> {{ Auth::user()->name }}  </span>
                                       <i class="fa fa-angle-down"></i>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-default">
@@ -270,20 +270,20 @@
                                     <a href="{{ url('/aseguradoras/create') }}" target="" class="nav-link">
                                       <i class="fa fa-building"></i>  Aseguradoras
                                     </a>
-                                  </li>    
+                                  </li>
 
                                   <li class="nav-item">
                                     <a href="{{ url('/corredores/create') }}" class="nav-link">
                                       <i class="fa fa-user"></i>  Corredores de Seguro
                                     </a>
-                                  </li> 
-       
+                                  </li>
+
                                   <li class="nav-item">
                                     <a href="{{ url('/operarios/create') }}" class="nav-link">
-                                      <i class="fa fa-group"></i>  Operarios 
-                                    </a>    
+                                      <i class="fa fa-group"></i>  Operarios
+                                    </a>
                                   </li>
-  
+
                                 </ul>
                               </li>
 
@@ -298,13 +298,13 @@
                                     <a href="{{ url('/reparaciones/create') }}" target="" class="nav-link">
                                       <i class="fa fa-truck"></i>  Orden de Reparación
                                     </a>
-                                  </li>    
+                                  </li>
 
                                   <li class="nav-item">
                                     <a href="{{ url('/citas/create') }}" class="nav-link">
                                       <i class="fa fa-user"></i>  Asignación de Citas
                                     </a>
-                                  </li>     
+                                  </li>
 
                                 </ul>
                               </li>
@@ -315,19 +315,19 @@
                                   <span class="title">Reportes</span>
                                   <span class="arrow "></span>
                                 </a>
-                                <ul class="sub-menu">    
+                                <ul class="sub-menu">
 
                                   <li class="nav-item">
                                     <a href="{{ url('/listprop') }}" class="nav-link">
                                       <i class="fa fa-suitcase"></i>  Propietarios
                                     </a>
-                                  </li>     
+                                  </li>
 
                                   <li class="nav-item">
                                     <a href="{{ url('/listvehi') }}" class="nav-link">
                                       <i class="fa fa-suitcase"></i>  Vehículos
                                     </a>
-                                  </li>   
+                                  </li>
 
                                   <li class="nav-item">
                                     <a href="{{ url('/listope') }}" class="nav-link">
@@ -339,18 +339,18 @@
                                     <a href="{{ url('/listcorre') }}" class="nav-link">
                                       <i class="fa fa-suitcase"></i>  A.D.S
                                     </a>
-                                  </li> 
+                                  </li>
 
                                   <li class="nav-item">
                                     <a href="{{ url('/listasegu') }}" class="nav-link">
                                       <i class="fa fa-suitcase"></i>  Aseguradoras
                                     </a>
-                                  </li>  
+                                  </li>
                                   <li class="nav-item">
                                     <a href="{{ url('/listanalis') }}" class="nav-link">
                                       <i class="fa fa-suitcase"></i>  Analistas
                                     </a>
-                                  </li>                                      
+                                  </li>
                                 </ul>
                               </li>
 
@@ -360,59 +360,59 @@
                                     <span class="title">Módulos</span>
                                     <span class="arrow "></span>
                                 </a>
-                                <ul class="sub-menu">    
+                                <ul class="sub-menu">
 
                                     <li class="nav-item">
                                         <a href="{{url('home_services')}}" class="nav-link">
                                             <i class="fa fa-truck"></i>  Servicios
                                         </a>
-                                    </li>   
+                                    </li>
 
                                     <li class="nav-item">
                                         <a href="{{url('home_ruta')}}" class="nav-link">
                                             <i class="fa fa-refresh"></i>  Ruta
                                         </a>
-                                    </li> 
+                                    </li>
 
                                     <li class="nav-item">
                                         <a href="{{url('home_repuestos')}}" class="nav-link">
                                             <i class="fa fa-wrench"></i>  Repuestos
                                         </a>
-                                    </li> 
+                                    </li>
 
 
                                     <li class="nav-item">
                                         <a href="#" class="nav-link">
                                             <i class="fa fa-chain"></i>  Materiales
                                         </a>
-                                    </li>                                        
+                                    </li>
 
                                     <li class="nav-item">
                                         <a href="#" class="nav-link">
                                             <i class="fa fa-briefcase"></i>  Almacén
                                         </a>
-                                    </li> 
+                                    </li>
 
 
                                     <li class="nav-item">
                                         <a href="#" class="nav-link">
                                             <i class="fa fa-money"></i>  Facturación
                                         </a>
-                                    </li>                                        
+                                    </li>
 
                                     <li class="nav-item">
                                         <a href="#" class="nav-link">
                                             <i class="fa fa-line-chart"></i>  Estadísticas
                                         </a>
-                                    </li> 
+                                    </li>
 
                                     <li class="nav-item">
                                         <a href="#" class="nav-link">
                                             <i class="fa fa-sign-out"></i>  Web
                                         </a>
-                                    </li>   
+                                    </li>
                                 </ul>
-                            </li>  
+                            </li>
 
                             </ul>
                             <!-- END SIDEBAR MENU -->
@@ -423,4 +423,4 @@
                         <!-- END SIDEBAR -->
                         <!-- BEGIN CONTENT -->
                         <!-- END CONTENT -->
-                        <!-- BEGIN QUICK SIDEBAR -->         
+                        <!-- BEGIN QUICK SIDEBAR -->

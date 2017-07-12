@@ -9,18 +9,22 @@ use Illuminate\Support\Facades\Validator;
 
 class PropietariosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     private $path = 'propietarios';
-    
+
     public function __CONSTRUCT()
     {
-        $this->propietarios = new Propietarios();            
+        $this->propietarios = new Propietarios();
     }
 
     public function index()
     {
       $propietarios = DB::table('propietarios')->orderBy('rif', 'desc')->paginate(15);
 
-      return view('/listprop', ['propietarios' => $propietarios]);      
+      return view('/listprop', ['propietarios' => $propietarios]);
     }
 
     /**
@@ -46,7 +50,7 @@ class PropietariosController extends Controller
         'rif'=> 'required',
         'nombre' => 'required',
         'apellido' => 'required',
-        'celular' => 'required',        
+        'celular' => 'required',
         'telefono' => 'required',
         'email' => 'required',
         'direccion' => 'required',
@@ -59,11 +63,11 @@ class PropietariosController extends Controller
         $propietarios->celular = $request->celular;
         $propietarios->telefono = $request->telefono;
         $propietarios->email = $request->email;
-        $propietarios->direccion = $request->direccion;        
+        $propietarios->direccion = $request->direccion;
         $propietarios->status = 'activo';
         $propietarios->save();
 
-      return redirect('/listprop')->with('message','El propietario ha sido guardado exitosamente!');          
+      return redirect('/listprop')->with('message','El propietario ha sido guardado exitosamente!');
     }
 
     /**
@@ -87,7 +91,7 @@ class PropietariosController extends Controller
     public function edit($id)
     {
         $propietarios = Propietarios::findOrFail($id);
-        return view($this->path.'.edit', compact('propietarios'));       
+        return view($this->path.'.edit', compact('propietarios'));
     }
 
     public function update(Request $request, $id)
@@ -96,7 +100,7 @@ class PropietariosController extends Controller
         'rif'=> 'required',
         'nombre' => 'required',
         'apellido' => 'required',
-        'celular' => 'required',        
+        'celular' => 'required',
         'telefono' => 'required',
         'email' => 'required',
         'direccion' => 'required',
@@ -109,7 +113,7 @@ class PropietariosController extends Controller
         $propietarios->celular = $request->celular;
         $propietarios->telefono = $request->telefono;
         $propietarios->email = $request->email;
-        $propietarios->direccion = $request->direccion;        
+        $propietarios->direccion = $request->direccion;
         $propietarios->status = 'activo';
         $propietarios->save();
 
@@ -119,7 +123,7 @@ class PropietariosController extends Controller
     public function destroy($id)
     {
 //        DB::table('propietarios')->where('id', 7)->update(['status' => 'inactivo']);
-    
+
 /*
         $ope = Operarios::findOrFail($id);
         $ope->delete();
@@ -132,6 +136,6 @@ class PropietariosController extends Controller
     {
         return $this->_clientRepo
                     ->findByName($req->input('q'));
-    }    
+    }
 */
 }

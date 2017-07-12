@@ -8,22 +8,26 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class VehiculosController extends Controller
-{    
-    private $path = 'vehiculos';    
+{
+  public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    private $path = 'vehiculos';
     private $vehiculos = null;
 
     public function index()
     {
       $vehiculos = DB::table('vehiculos')->orderBy('placa', 'desc')->paginate(15);
 
-      return view('/listvehi', ['vehiculos' => $vehiculos]);        
+      return view('/listvehi', ['vehiculos' => $vehiculos]);
     }
 
     public function me()
     {
       $vehiculos = DB::table('vehiculos')->orderBy('placa', 'desc')->paginate(15);
 
-      return view('home_services', ['vehiculos' => $vehiculos]);  
+      return view('home_services', ['vehiculos' => $vehiculos]);
     }
     public function create()
     {
@@ -45,8 +49,8 @@ class VehiculosController extends Controller
         $vehiculos->anio = $request->anio;
         $vehiculos->serial_motor = $request->serial_motor;
         $vehiculos->serial_carro = $request->serial_carro;
-        $vehiculos->color = $request->color;  
-        $vehiculos->tipo = $request->tipo;                      
+        $vehiculos->color = $request->color;
+        $vehiculos->tipo = $request->tipo;
         $vehiculos->status = 'activo';
         $vehiculos->save();
 
@@ -97,11 +101,11 @@ class VehiculosController extends Controller
     {
         //
     }
-    
+
 
 /*       public function findRif(Request $req)
     {
         return $this->propietarios->findByName($req->input('q'));
     }
-*/        
+*/
 }

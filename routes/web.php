@@ -1,12 +1,7 @@
 <?php
 
-Route::get('/', function () {
-     return view('index');
-});
-
-Route::get('/index', function () {
-    return view('index');
-});
+Route::get('/index', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
 Route::get('/home_services', function () {
     return view('home_services');

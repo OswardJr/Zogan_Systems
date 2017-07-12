@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Validator;
 
 class RepuestosController extends Controller
 {
+  public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     private $path = 'repuestos';
 
@@ -16,7 +20,7 @@ class RepuestosController extends Controller
     {
       $repuestos = DB::table('repuestos')->where('status', '=', 'activo')->orderBy('codigo', 'desc')->paginate(15);
 
-      return view('/listrepuesto', ['repuestos' => $repuestos]);        
+      return view('/listrepuesto', ['repuestos' => $repuestos]);
     }
 
     /**
@@ -39,7 +43,7 @@ class RepuestosController extends Controller
     {
       Validator::make($request->all(), [
         'codigo'=> 'required',
-        'descripcion' => 'required',       
+        'descripcion' => 'required',
         'cantidad' => 'required',
         'marca' => 'required',
         'modelo' => 'required',
@@ -68,7 +72,7 @@ class RepuestosController extends Controller
     public function edit($id)
     {
       $repuestos = Repuestos::findOrFail($id);
-        return view($this->path.'.edit', compact('repuestos')); 
+        return view($this->path.'.edit', compact('repuestos'));
     }
 
 

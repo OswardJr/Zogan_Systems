@@ -9,13 +9,17 @@ use Illuminate\Support\Facades\Validator;
 
 class OperariosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     private $path = 'operarios';
 
     public function index()
     {
       $operarios = DB::table('operarios')->where('status', '=', 'activo')->orderBy('cedula', 'desc')->paginate(15);
 
-      return view('/listope', ['operarios' => $operarios]);  
+      return view('/listope', ['operarios' => $operarios]);
     }
 
     /**
@@ -27,7 +31,7 @@ class OperariosController extends Controller
     {
       $operarios = DB::table('operarios')->get();
 
-      return view('operarios/create', ['operarios' => $operarios]);         
+      return view('operarios/create', ['operarios' => $operarios]);
     }
 
     /**
@@ -56,7 +60,7 @@ class OperariosController extends Controller
         $operarios->telefono = $request->telefono;
         $operarios->email = $request->email;
         $operarios->tipo = $request->tipo;
-        $operarios->direccion = $request->direccion;        
+        $operarios->direccion = $request->direccion;
         $operarios->status = 'activo';
         $operarios->save();
 
@@ -84,7 +88,7 @@ class OperariosController extends Controller
     public function edit($id)
     {
       $operarios = Operarios::findOrFail($id);
-        return view($this->path.'.edit', compact('operarios')); 
+        return view($this->path.'.edit', compact('operarios'));
     }
 
     public function update(Request $request, $id)
@@ -114,7 +118,7 @@ class OperariosController extends Controller
     }
 
     public function destroy($id)
-    {        
+    {
         $ope = DB::table('operarios')
             ->where('id', '=', $id)
             ->where('status', '=', 'activo')

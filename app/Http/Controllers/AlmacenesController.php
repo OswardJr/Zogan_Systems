@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Validator;
 
 class AlmacenesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +30,7 @@ class AlmacenesController extends Controller
      */
     public function create()
     {
-        return view('almacenes/create');        
+        return view('almacenes/create');
     }
 
     /**
