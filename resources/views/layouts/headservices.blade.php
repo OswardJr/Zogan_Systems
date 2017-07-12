@@ -196,8 +196,15 @@
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-default">
                                       <li>
-                                        <a href="#">
-                                          <i class="icon-user"></i> Cerrar Sesión </a>
+                                       <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Cerrar Sesión
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
                                         </li>
                                       </ul>
                                     </li>
