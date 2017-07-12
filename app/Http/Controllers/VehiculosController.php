@@ -57,22 +57,20 @@ class VehiculosController extends Controller
       return redirect('/listvehi')->with('message','El vehiculo ha sido guardado exitosamente!');
     }
 
-    // public function getVehiculo ($id){
-    //   // // $auto = DB::table('vehiculos')
-    //   // //       ->select('placa', 'marca', 'modelo', 'serial_motor', 'serial_carro')
-    //   // //        ->where('placa', $id)
-    //   // //       ->get();
+    public function getVehiculo ($placa){
 
-    //   // // return response()->json($auto);
+      $auto = DB::table('vehiculos')
+      ->select('id','placa', 'marca', 'modelo', 'serial_motor', 'serial_carro')
+      ->where('placa', $placa)
+      ->get();
 
-    //   //  $autos = DB::select('
-    //   //         SELECT i.vehiculo_id,i.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo
-    //   //         FROM reparaciones as i
-    //   //         inner JOIN vehiculos as q
-    //   //         ON i.vehiculo_id = q.id
-    //   //         INNER JOIN propietarios
-    //   //         ON i.propietario_id = propietarios.id');
-    // }
+      $ordenes = DB::select('SELECT `fecha_ocu`, `subtotal`, `nro_siniestro`, `num_certificado` from reparaciones where vehiculo_id="'.$auto[0]->id.'"');
+
+      return response()->json([
+        'auto' => $auto,
+        'ordenes' => $ordenes
+        ]);
+    }
 
     /**
      * Display the specified resource.
