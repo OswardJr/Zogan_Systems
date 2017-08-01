@@ -77,9 +77,10 @@ class ReparacionesController extends Controller
 
         $analistas = DB::table('analistas')->get();
 
-        $latoneros = DB::table('operarios')->where('tipo','=', 'latonero')->get();
+        $latoneros = DB::table('operarios')->where('tipo','=', 'latonero')->where('status','=','activo')->get();
 
-        $pintores = DB::table('operarios')->where('tipo','=', 'pintor')->get();
+        $pintores = DB::table('operarios')->where('tipo','=', 'pintor')->where('status','=','activo')->get();
+        
         // obtengo el ultimo id
         $id = DB::table('reparaciones')->max('id');
         // digo = si existe el ultimo id sumale 1 , sino muestrame el nro 1

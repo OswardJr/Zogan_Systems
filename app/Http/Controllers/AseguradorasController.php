@@ -90,4 +90,19 @@ class AseguradorasController extends Controller
 
         return redirect()->route('aseguradoras.index');
     }
+
+    public function search(Request $request)
+    {
+      $return_arr = array();
+      $asegu_rif = $request->term;
+      $asegus = DB::table('aseguradoras')
+      ->select('rif')
+      ->where('rif', 'like', ''.$asegu_rif.'%')
+      ->get();
+
+      foreach ($asegus as $asegu) {
+       $return_arr[] = $asegu->rif;
+     }
+     return response()->json($return_arr);
+   }    
 }

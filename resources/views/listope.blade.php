@@ -3,7 +3,7 @@
 <br><div class="col-md-12">
 @if(Session::get('message'))
 <div class="col-md-10 col-md-offset-2">
-  <div class="alert alert-success alert-dismissable">
+  <div class="alert alert-success alert-dismissable" id="result">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
     <h3> {{ Session::get('message') }}</h3>
   </div>

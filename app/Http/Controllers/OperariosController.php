@@ -6,6 +6,7 @@ use App\Operarios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\OperariosRequest;
 
 class OperariosController extends Controller
 {
@@ -40,18 +41,14 @@ class OperariosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(OperariosRequest $request)
     {
 
-      Validator::make($request->all(), [
-        'cedula'=> 'required',
-        'nombre' => 'required',
-        'apellido' => 'required',
-        'telefono' => 'required',
-        'email' => 'required',
-        'tipo' => 'required',
-        'direccion' => 'required',
-        ])->validate();
+      $validator = Validator::make(
+          $request->all(),
+          $request->rules(),
+          $request->messages())
+      ->validate();
 
         $operarios = new Operarios();
         $operarios->cedula = $request->cedula;
@@ -64,7 +61,16 @@ class OperariosController extends Controller
         $operarios->status = 'activo';
         $operarios->save();
 
+
+      if ($validator->valid()){
+          
+          if($request->ajax()){
+
+              return response()->json(["valid" => true]);
+          }
+
       return redirect('/listope')->with('message','El operario ha sido guardado exitosamente!');
+      }
     }
 
     /**

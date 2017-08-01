@@ -79,13 +79,7 @@
                   <th>Acción</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr >
-                  <td></td>
-                </td>
-              </tr>
-            </tr>
-          </tbody>
+
         </table>
       </div>
     </div>
@@ -185,9 +179,13 @@
   })
   function buscar_vehiculo() {
     let placa = $('#placa').val()
-    if (placa == null) {
-      $('#placa').focus()
-      alert('Debe introducir la placa')
+    if (placa==null){
+      $('placa').focus()
+      alert('Placa no registrada')        
+    }
+    else if (placa == false) {
+      $('placa').focus()
+      alert('Introduzca la digitación de la placa por favor')
     }
     $.ajax({
       url: '/vehiculos/getVehiculo/' + placa,
@@ -203,15 +201,17 @@
         $('#placa').val(thisData.placa)
 
         $('#table').append(`
+        <tbody>
           <tr>
-            <th>${thisData1.fecha_ocu}</th>
-            <th>${thisData1.subtotal}</th>
-            <th>${thisData1.nro_siniestro}</th>
-            <th>${thisData1.num_certificado}</th>
-            <th><div class="checkbox">
-              <label><input type="checkbox" value="">Seleccionar</label>
-            </div></th>
+            <td>${thisData1.fecha_ocu}</td>
+            <td>${thisData1.subtotal}</td>
+            <td>${thisData1.nro_siniestro}</td>
+            <td>${thisData1.num_certificado}</td>
+            <td>
+              <label><input type="checkbox" value="">  Seleccionar</label>
+            </td>
           </tr>
+        </tbody>  
           `)
       },
       error: function(e) {

@@ -9,10 +9,7 @@ use Illuminate\Support\Facades\Validator;
 
 class PropietariosController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
     private $path = 'propietarios';
 
     public function __CONSTRUCT()
