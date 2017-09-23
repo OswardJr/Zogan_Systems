@@ -43,7 +43,7 @@
                   <td>{{ strtoupper($auto->nombre_completo) }}</td>
                   <td>{{ strtoupper($auto->status) }}</td>
                   <td>
-                    @if ($auto->status == "limpieza")
+                    @if ($auto->status == "LIMPIEZA")
                     <a class="btn btn-success btn-xs" title="Agregar revision al vehículo"><i class="fa fa-camera fa-lg"></i>
                     </a>
                     @else

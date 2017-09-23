@@ -132,4 +132,31 @@ class AnalistasController extends Controller
 
         return redirect()->route('analistas.index');
     }
+    public function getAnalista ($rif){
+
+      $analista = DB::table('analistas')
+      ->select('id','rif')
+      ->where('rif', $rif)
+      ->get();
+
+      return response()->json([
+        'analista' => $analista
+        ]);
+    }
+
+    public function mostrar(Request $request)
+    {
+      $return_arr = array();
+      $analistaRif = $request->term;
+      $analistas = DB::table('analistas')
+      ->select('rif')
+      ->where('rif', 'like', ''.$analistaRif.'%')
+      ->get();
+
+      foreach ($analistas as $analista) {
+       $return_arr[] = $analista->rif;
+     }
+     return response()->json($return_arr);
+   }
+
 }

@@ -35,7 +35,7 @@
                 <div class="input-group input-group-sm">
                   <input type="text" name="rif" id="" class="form-control " pattern="^([JVEG]{1})-([0-9]{8})-([0-9]{1})$" title="El formato debe ser J-12345678-9" value="{{ old('rif') }}" placeholder="J-12345678-9" onkeyup="this.value=this.value.toUpperCase()" value="" required="true">
                   <span class="input-group-btn">
-                    <button  data-toggle="tooltip" title="Consultar" class="btn btn-buscar btn-flat fa fa-search
+                    <button  data-toggle="tooltip" onclick='search_analista()' title="Consultar" class="btn btn-buscar btn-flat fa fa-search
                     " type="button" name="btn-search"></button>
                   </span>
                 </div>
@@ -90,6 +90,39 @@
 </div>
 
 @include('layouts.footer')   
+
+<script type="text/javascript">
+    $(function() {
+    $('#rif').autocomplete({
+      source: '/anal/mostrar'
+    })
+  })
+  function search_analista() {
+    let rif = $('#rif').val()
+    if (rif==''){
+      $('rif').focus()
+      alert('rif no registrada')        
+    }
+    else if (rif == false) {
+      $('rif').focus()
+      alert('Introduzca la digitación de la rif por favor')
+    }
+    $.ajax({
+      url: '/analistas/getAnalista/' + rif,
+      type: 'GET',
+      dataType: 'JSON',
+      success: function(data) {
+           const thisData = data['analista'][0]
+
+        $('#rif').val(thisData.rif)
+     return alert('Analista ya regis')
+      },
+      error: function(e) {
+        console.log(e)
+      }
+    })
+  }
+</script>
 
 <script>
   window.onload = function () {

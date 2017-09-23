@@ -96,6 +96,7 @@ Route::get('/ruta', 'ReparacionesController@index');
 
 Route::get('vehiculos/getVehiculo/{id}', 'VehiculosController@getVehiculo');
 
+Route::get('analistas/getAnalista/{id}', 'AnalistasController@getAnalista');
 
 
 Auth::routes();

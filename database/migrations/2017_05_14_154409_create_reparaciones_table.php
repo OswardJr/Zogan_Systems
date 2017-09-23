@@ -15,6 +15,7 @@ class CreateReparacionesTable extends Migration
     {
         Schema::create('reparaciones', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('usuario_id')->unsigned();
             $table->integer('propietario_id')->unsigned();
             $table->integer('vehiculo_id')->unsigned();
             $table->integer('analista_id')->unsigned();
