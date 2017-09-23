@@ -38,11 +38,4 @@ class OperariosRequest extends FormRequest
 
         ];        
     }
-
-    public function response(array $errors)
-    {
-        if ($this->ajax()){
-            return response()->json($errors);
-        }
-    }
 }

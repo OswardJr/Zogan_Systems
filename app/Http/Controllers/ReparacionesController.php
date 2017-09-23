@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Repuestos;
 use Illuminate\Http\Request;
 use App\Analistas;
@@ -122,6 +123,7 @@ class ReparacionesController extends Controller
         $vehiculos->save();
         $Idvehi = $vehiculos->id;
 
+        $idusuario = Auth::user()->id;
 
         $ordenes = new Reparaciones();
         $ordenes->fecha_ocu = $request->fecha_ocu;
@@ -159,6 +161,7 @@ class ReparacionesController extends Controller
         $ordenes->tipos_daños = $request->tipos_daños;
         $ordenes->selec_repues = $request->selec_repues;
         $ordenes->no_dispo = $request->no_dispo;
+        $ordenes->usuario_id = $idusuario;
         $ordenes->propietario_id = $Idprop;
         $ordenes->vehiculo_id = $Idvehi;
         $analis = $request->get('two');
