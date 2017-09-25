@@ -31,7 +31,7 @@
                   <td>{{ strtoupper($auto->status) }}</td>
                   <td>
                     @if ($auto->status == "RECEPCION")
-                    <a class="btn btn-warning btn-xs" title="Recepción del Vehículo"><i class="fa fa-camera fa-lg"></i>
+                    <a class="btn btn-warning btn-xs" title="Recepción del Vehículo"><i class="fa fa-clipboard fa-lg"></i>
                     </a>
                     @else
                     <a href="{{ url('recepcion') }}/{{ $auto->vehiculo_id }}" class="btn btn-warning btn-xs" title="Recepción del Vehículo"><i class="fa fa-clipboard fa-lg"></i>

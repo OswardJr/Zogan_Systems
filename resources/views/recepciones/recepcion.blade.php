@@ -16,11 +16,11 @@
 <div class="page-content-wrapper" style="">
   <div class="page-content">
     <section class="content">
+          <h3>Recepción del Vehículo</h3>
+          <hr>      
       <div class="col-md-12">
-        <div class="col-md-6">
-          <h2>Recepción del Vehículo.</h2>
-        </div>
-        <div class="col-md-offset-2 col-md-3">
+                  <a class="btn btn-default btn-teal btn-responsive" style="float: right;" href="{{ url('/ruta') }}" title="Regresar"><i class="fa fa-mail-reply-all fa-lg"></i></a><br><br><br>
+<!--         <div class="col-md-3">
           <div class="panel-body ">
             <div class="checkbox">
               <label><input type="checkbox" name="tipo[]" value="SI">Aseguradora</label>
@@ -29,10 +29,10 @@
               <label><input type="checkbox" name="tipo[]" value="SI">Particular</label>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
-      <hr style="width:100%;">
-      <div class="row">
+<!--       <hr style="width:100%;">
+ -->      <div class="row">
         <div class="col-md-12" style="padding-left: 0px;">
           <div class="col-md-12">
             <div class="panel panel-primary ">

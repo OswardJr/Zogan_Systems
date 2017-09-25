@@ -18,7 +18,7 @@
         <section class="content">
           <h3>Actualizaciones</h3>
           <hr>
-          <div class="btn btn-default btn-teal btn-responsive" style="float:right"><a href="{{ url('/ruta') }}" style="color:teal"><span class="fa fa-mail-reply-all fa-lg"></span></a></div><br><br><br>    
+          <a class="btn btn-default btn-teal btn-responsive" style="float: right;" href="{{ url('/ruta') }}" title="Regresar"><i class="fa fa-mail-reply-all fa-lg"></i></a><br><br><br><br>   
           <div class="col-md-12">
             <div class="panel panel-primary">
               <div class="panel-heading">

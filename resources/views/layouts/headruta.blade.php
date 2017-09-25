@@ -251,7 +251,7 @@
                                     <span class="selected"></span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+<!--                             <li class="nav-item">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <i class="fa fa-plus"></i>
                                     <span class="title">Recepción</span>
@@ -264,7 +264,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> -->
 
                             <li class="nav-item">
                                 <a href="javascript:;" class="nav-link nav-toggle">
