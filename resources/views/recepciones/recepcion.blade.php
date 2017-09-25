@@ -1,4 +1,18 @@
 @include('layouts.headruta')
+
+<form enctype="multipart/form-data" name="f1" action="{{ url('/carga')}}" method="post">
+  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+  <div class="container">
+    @if(Session::get('message'))
+    <div class="col-md-8 col-md-offset-2">
+      <div class="alert alert-success alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <h5> {{ Session::get('message') }}</h5>
+      </div>
+    </div>
+    @endif
+    <h2></h2>
+
 <div class="page-content-wrapper" style="">
   <div class="page-content">
     <section class="content">
@@ -9,10 +23,10 @@
         <div class="col-md-offset-2 col-md-3">
           <div class="panel-body ">
             <div class="checkbox">
-              <label><input type="checkbox" value="">Aseguradora</label>
+              <label><input type="checkbox" name="tipo[]" value="SI">Aseguradora</label>
             </div>
             <div class="checkbox">
-              <label><input type="checkbox" value="">Particular</label>
+              <label><input type="checkbox" name="tipo[]" value="SI">Particular</label>
             </div>
           </div>
         </div>
@@ -28,35 +42,16 @@
                 </center>
               </div>
               <div class="panel-body ">
-               <div class="col-md-6 form-group" style="margin-top: 5px;">
-                <label for="cedula ">Placa</label>
-                <div class="input-group ">
-                   <input type="text " class="form-control" id="placa" name="" placeholdesr="XXXXXXX">
-                   <span class="input-group-btn ">
-                     <button class="btn btn-buscar btn-flat fa fa-search"  onClick="buscar_vehiculo()" type="button"></button>
-                   </span>
-                 </div>
-             </div>
-             <div class="form-group col-md-6">
-               <p class="margin"><strong>Marca</strong></p>
-               <input type="text" name="" placeholdesr="Aveo" class="form-control">
-             </div>
-             <div class="form-group col-md-6">
-               <p class="margin"><strong>Modelo</strong></p>
-               <input type="text" name="" placeholdesr="LT" class="form-control">
-             </div>
-             <div class="form-group col-md-6">
-              <p class="margin"><strong>Serial de Carrocería</strong></p>
-              <input type="text" name="" placeholdesr="XXXXXXXXXXX" class="form-control">
-            </div>
-            <div class="form-group col-md-6">
-              <p class="margin"><strong>Serial del Motor</strong></p>
-              <input type="text" name="" placeholdesr="XXXXXXXXX" class="form-control">
-            </div>
-            <div class="form-group col-md-6">
-              <p class="margin"><strong>Propietario</strong></p>
-              <input type="text" name="" placeholdesr="Transeral, C.A" class="form-control">
-            </div>
+              <div class="panel-body">
+                <div class="row">
+                  <input type="hidden" value="{{ strtoupper($auto->id) }}" name="_idAuto">
+                  <div class="col-md-6"><p><strong>Placa:</strong> {{ strtoupper($auto->placa) }}</p></div>
+                  <div class="col-md-6"><p><strong>Propietario:</strong> {{ strtoupper($prop->nombre_completo) }}</p></div>
+                  <div class="col-md-6"><p><strong>Marca:</strong> {{ strtoupper($auto->marca) }}</p></div>
+                  <div class="col-md-6"><p><strong>Modelo:</strong> {{ strtoupper($auto->modelo) }}</p></div>
+                  <div class="col-md-6"><p><strong>Color:</strong> {{ strtoupper($auto->color) }}</p></div>
+                </div>
+              </div>
           </div>
         </div>
       </div>
@@ -70,46 +65,31 @@
           <div class="panel-body ">
             <div class="form-group col-md-6">
               <p class="margin"><strong>Chofer encargado</strong></p>
-              <input type="text" name="" placeholdesr="Aveo" class="form-control">
+              <input type="text" name="chofer" placeholdesr="Aveo" class="form-control">
             </div>
             <div class="form-group col-md-6">
               <p class="margin"><strong>Telefono del chofer</strong></p>
-              <input type="text" name="" placeholdesr="Aveo" class="form-control">
+              <input type="text" name="tlf_chofer" placeholdesr="Aveo" class="form-control">
             </div>
             <div class="col-md-6 form-group" style="margin-top: 5px;">
               <label for="cedula ">Productor de la poliza</label>
-              <div class="input-group ">
-                <input type="text " class="form-control" id="" name="" placeholdesr="V-XXXXXXX">
-                <span class="input-group-btn ">
-                  <bn>
-                  </span>
-                </div>
+                <input type="text " class="form-control" id="" name="productor" placeholdesr="V-XXXXXXX">
               </div>
               <div class="col-md-6 form-group" style="margin-top: 5px;">
                 <label for="cedula ">Persona que recibe</label>
-                <div class="input-group ">
-                  <input type="text " class="form-control" id="" name="" placeholdesr="V-XXXXXXX">
-                  <span class="input-group-btn ">
-                    <button class="btn btn-info btn-flat fa fa-search" type="button"></button>
-                  </span>
-                </div>
+                  <input type="text " class="form-control" id="" name="recibe" placeholdesr="V-XXXXXXX">
               </div>
               <div class="form-group col-md-6" id="sandbox-container">
-                <label for="fecha_nac">fecha de recepcion</label>
-                <div class="input-group date">
-                  <input type="text" class="form-control" name="fecha" id="fecha" disabled placeholdesr="DD/MM/AAAA" required="required">
-                  <span class="input-group-addon">
-                    <i class="glyphicon glyphicon-th"></i>
-                  </span>
-                </div>
+                  <label for="sel1"><p>Fecha de Recepción</p></label>
+                    <input type="date" class="form-control" name="_fechaRec" required="true" value="<?php echo date('Y-m-d'); ?>">
               </div>
               <div class="form-group col-md-6">
                 <p class="margin"><strong>Kilometraje</strong></p>
-                <input type="text" name="" placeholdesr="Aveo" class="form-control">
+                <input type="text" name="kilometraje" placeholdesr="Aveo" class="form-control">
               </div>
               <div class="form-group col-md-6">
                 <p class="margin"><strong>Combustible</strong></p>
-                <input type="text" name="" placeholdesr="Aveo" class="form-control">
+                <input type="text" name="combustible" placeholdesr="Aveo" class="form-control">
               </div>
             </div>
           </div>
@@ -124,137 +104,138 @@
               <h4>Detalles</h4>
             </center>
           </div>
-          <div class="panel-body ">
+          <div class="panel-body">
+<!--               <a href="javascript:seleccionar_todo()">Marcar todos</a> | 
+              <a href="javascript:deseleccionar_todo()">Marcar ninguno</a><br>
+
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Aire acondicionado</label>
+                <label><input type="checkbox" name="A" value="SI">Aire acondicionado</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Alfombras</label>
+                <label><input type="checkbox" name="B" value="SI">Alfombras</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Tablero</label>
+                <label><input type="checkbox" name="C" value="SI">Tablero</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Asientos</label>
+                <label><input type="checkbox" name="D" value="SI">Asientos</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Tapiceria</label>
+                <label><input type="checkbox" name="E" value="SI">Tapiceria</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Radio / Reproductor</label>
+                <label><input type="checkbox" name="F" value="SI">Radio / Reproductor</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Encendedor</label>
+                <label><input type="checkbox" name="G" value="SI">Encendedor</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Techo interno</label>
+                <label><input type="checkbox" name="H" value="SI">Techo interno</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Parabrisas delantero</label>
+                <label><input type="checkbox" name="I" value="SI">Parabrisas delantero</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Parabrisas trasero</label>
+                <label><input type="checkbox" name="J" value="SI">Parabrisas trasero</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">vidrio puerta izquierda</label>
+                <label><input type="checkbox" name="K" value="SI">vidrio puerta izquierda</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">vidrio puerta derecha</label>
+                <label><input type="checkbox" name="L" value="SI">vidrio puerta derecha</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Retrovisor derecho</label>
+                <label><input type="checkbox" name="M" value="SI">Retrovisor derecho</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Retrovisor izquierdo</label>
+                <label><input type="checkbox" name="N" value="SI">Retrovisor izquierdo</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Faro izquierdo</label>
+                <label><input type="checkbox" name="Ñ" value="SI">Faro izquierdo</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Faro derecho</label>
+                <label><input type="checkbox" name="O" value="SI">Faro derecho</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Manilla izquierda</label>
+                <label><input type="checkbox" name="P" value="SI">Manilla izquierda</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Manilla derecha</label>
+                <label><input type="checkbox" name="Q" value="SI">Manilla derecha</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Stop izquierdo</label>
+                <label><input type="checkbox" name="R" value="SI">Stop izquierdo</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Stop derecho</label>
+                <label><input type="checkbox" name="S" value="SI">Stop derecho</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Asientos</label>
+                <label><input type="checkbox" name="T" value="SI">Asientos</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Cocuyo izquierdo</label>
+                <label><input type="checkbox" name="U" value="SI">Cocuyo izquierdo</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Cocuyo derecho</label>
+                <label><input type="checkbox" name="V" value="SI">Cocuyo derecho</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Emblema</label>
+                <label><input type="checkbox" name="W" value="SI">Emblema</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" value="">Tapa Gasoil</label>
+                <label><input type="checkbox" name="X" value="SI">Tapa Gasoil</label>
               </div>
-            </div>
+            </div> --><br>
             <div class="col-md-12">
-              <div class="checkbox">
                 <label for="comment">Informe de inspeccion</label>
-                <textarea class="form-control" rows="5" id="comment"></textarea>
-              </div>
+                <textarea class="form-control" name="observacion" rows="5" id="comment"></textarea>
             </div>
           </div>
         </div>
@@ -334,3 +315,16 @@ function buscar_vehiculo() {
   });
 </script>
 
+<script>
+function seleccionar_todo(){ 
+   for (i=0;i<document.f1.elements.length;i++) 
+      if(document.f1.elements[i].type == "checkbox")  
+         document.f1.elements[i].checked=1 
+}
+
+function deseleccionar_todo(){ 
+   for (i=0;i<document.f1.elements.length;i++) 
+      if(document.f1.elements[i].type == "checkbox")  
+         document.f1.elements[i].checked=0 
+}  
+</script>

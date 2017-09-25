@@ -33,7 +33,7 @@ class ReparacionesController extends Controller
     public function index()
     {
       $autos = DB::select('
-              SELECT i.vehiculo_id,i.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo
+              SELECT i.vehiculo_id,q.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo
               FROM reparaciones as i
               inner JOIN vehiculos as q
               ON i.vehiculo_id = q.id
@@ -46,7 +46,7 @@ class ReparacionesController extends Controller
     public function me()
     {
       $autos = DB::select('
-              SELECT i.vehiculo_id,i.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo
+              SELECT i.vehiculo_id,q.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo
               FROM reparaciones as i
               inner JOIN vehiculos as q
               ON i.vehiculo_id = q.id
@@ -59,7 +59,7 @@ class ReparacionesController extends Controller
     public function on()
     {
       $reparaciones = DB::select('
-              SELECT i.vehiculo_id,i.analista_id,i.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo,analistas.nombre
+              SELECT i.vehiculo_id,i.analista_id,q.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo,analistas.nombre
               FROM reparaciones as i
               inner JOIN vehiculos as q
               ON i.vehiculo_id = q.id
@@ -120,6 +120,7 @@ class ReparacionesController extends Controller
         $vehiculos->color = $request->color;
         $vehiculos->serial_motor = $request->serial_motor;
         $vehiculos->serial_carro = $request->serial_carro;
+        $vehiculos->status = 'NINGUNO';        
         $vehiculos->save();
         $Idvehi = $vehiculos->id;
 
@@ -170,7 +171,6 @@ class ReparacionesController extends Controller
         $ordenes->latonero_id = $lato;
         $pin = $request->get('fourth');
         $ordenes->pintor_id = $pin;
-        $ordenes->status = 'NINGUNO';
         $ordenes->save();
         $Idorden = $ordenes->id;
 

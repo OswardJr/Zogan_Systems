@@ -23,6 +23,7 @@ class CreateVehiculosTable extends Migration
             $table->string('serial_carro');
             $table->string('color');
             $table->string('tipo');
+            $table->string('status');            
             $table->timestamps();
         });
     }

@@ -43,11 +43,19 @@
                   <td>{{ strtoupper($auto->nombre_completo) }}</td>
                   <td>{{ strtoupper($auto->status) }}</td>
                   <td>
-                    @if ($auto->status == "LIMPIEZA")
+                    @if ($auto->status == "RECEPCION")
+                    <a class="btn btn-warning btn-xs" title="Recepción del Vehículo"><i class="fa fa-camera fa-lg"></i>
+                    </a>
+                    @else
+                    <a href="{{ url('recepcion') }}/{{ $auto->vehiculo_id }}" class="btn btn-warning btn-xs" title="Recepción del Vehículo"><i class="fa fa-clipboard fa-lg"></i>
+                    </a>
+                    @endif
+                    
+                    @if ($auto->status == "COMPLETO")
                     <a class="btn btn-success btn-xs" title="Agregar revision al vehículo"><i class="fa fa-camera fa-lg"></i>
                     </a>
                     @else
-                    <a href="{{ url('revision') }}/{{ $auto->vehiculo_id }}" class="btn btn-success btn-xs" title="Agregar revision al vehículo"><i class="fa fa-camera fa-lg"></i>
+                    <a href="{{ url('revision') }}/{{ $auto->vehiculo_id }}" class="btn btn-success btn-xs" title="Actualizaciones del Vehículo"><i class="fa fa-camera fa-lg"></i>
                     </a>
                     @endif
 

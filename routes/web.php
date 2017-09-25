@@ -70,6 +70,7 @@ Route::get('/reparaciones/create', 'ReparacionesController@create');
 
 Route::post('/reparaciones/save', 'ReparacionesController@save');
 
+
 Route::resource('imagenes', 'ImagenesController');
 
 Route::resource('images-rev', 'ImageRevController');
@@ -79,6 +80,17 @@ Route::resource('revisiones', 'RevisionesController');
 Route::get('revision/{id}', 'RevisionesController@index');
 
 Route::post('upload', 'UploadController@upload');
+
+
+
+Route::resource('images-rec', 'ImageRecController');
+
+Route::resource('recepciones', 'RecepcionesController');
+
+Route::get('recepcion/{id}', 'RecepcionesController@index');
+
+Route::post('carga', 'CargaController@upload');
+
 
 Route::get('mivehiculo/{placa}', 'UploadController@mivehiculo');
 

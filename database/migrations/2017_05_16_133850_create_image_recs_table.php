@@ -13,7 +13,7 @@ class CreateImageRecepsTable extends Migration
      */
     public function up()
     {
-        Schema::create('image_receps', function (Blueprint $table) {
+        Schema::create('image_recs', function (Blueprint $table) {
             $table->integer('imagen_id')->unsigned();
             $table->integer('recepcion_id')->unsigned();
             $table->timestamps();

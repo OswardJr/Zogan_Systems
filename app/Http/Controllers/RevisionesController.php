@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Reparaciones;
-use App\Revisiones;
 use App\Vehiculos;
+use App\Revisiones;
 use App\Propietarios;
+use App\Reparaciones;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -16,7 +16,11 @@ class RevisionesController extends Controller
     {
       $this->middleware('auth');
     }
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index($id)
     {
       $tiposRev = array('DESARMADO','LATONERIA','PREPARACION','PINTURA','PULITURA','LIMPIEZA','ENTREGA');
@@ -29,17 +33,12 @@ class RevisionesController extends Controller
 
       $prop = Propietarios::find($id);
 
-      if ( !$prop ) {
+      if ( !$auto ) {
         abort(404);
-      }
+      }      
 
-      $repa = Reparaciones::find($id);
+      $revs = Vehiculos::find($id)->revisions;
 
-      if ( !$repa ) {
-        abort(404);
-      }
-
-      $revs = Reparaciones::find($id)->revisions;
 
       foreach ($revs as $rev) {
         if ($rev->tipo == 'LATONERIA') {
@@ -65,35 +64,71 @@ class RevisionesController extends Controller
         }
       }
 
-      return view('revisiones.new', compact('auto','prop','repa', 'revs', 'tiposRev'));
+      return view('revisiones.new', compact('auto', 'revs', 'tiposRev', 'prop'));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         //
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         //
     }
 
-    public function show($id)
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Revision  $revision
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Revision $revision)
     {
         //
     }
 
-    public function edit($id)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Revision  $revision
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Revision $revision)
     {
         //
     }
 
-    public function update(Request $request, $id)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Revision  $revision
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Revision $revision)
     {
         //
     }
 
-    public function destroy($id)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Revision  $revision
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Revision $revision)
     {
         //
     }

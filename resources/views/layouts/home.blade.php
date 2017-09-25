@@ -397,7 +397,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                           </a>
                                         </div>
                                       </div>
-                                      <div class="col-lg-3 col-md-6 col-xs-6 ">
+<!--                                       <div class="col-lg-3 col-md-6 col-xs-6 ">
                                         <div class="panel panel-primary">
                                           <div class="panel-heading">
                                             <a href="#" style="color:#000">
@@ -466,7 +466,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                           </a>
                                         </div>
                                       </div>
-
+ -->
                                       <div class="col-lg-3 col-md-6 col-xs-6 ">
                                         <div class="panel panel-primary">
                                           <div class="panel-heading">

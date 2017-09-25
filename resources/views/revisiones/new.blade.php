@@ -34,7 +34,6 @@
                   <div class="col-md-6"><p><strong>Marca:</strong> {{ strtoupper($auto->marca) }}</p></div>
                   <div class="col-md-6"><p><strong>Modelo:</strong> {{ strtoupper($auto->modelo) }}</p></div>
                   <div class="col-md-6"><p><strong>Color:</strong> {{ strtoupper($auto->color) }}</p></div>
-                  <div class="col-md-6"><p><strong>Número del Siniestro:</strong> {{ strtoupper($repa->nro_siniestro) }}</p></div>
                 </div>
               </div>
             </div>

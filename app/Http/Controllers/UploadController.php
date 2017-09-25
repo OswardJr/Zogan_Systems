@@ -3,16 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Storage;
-use App\Imagenes;
 use App\Revisiones;
+use App\Imagenes;
 use App\Vehiculos;
 use App\Propietarios;
-use App\Recepciones;
 use App\Image_rev;
 use App\Reparaciones;
-
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -121,9 +118,9 @@ class UploadController extends Controller
    $rev = new Revisiones();
    $auto = new Reparaciones();
    $idAuto = $request->_idAuto;
-   $auto = Reparaciones::find($idAuto);
-   if ($request->_tipoRev == "armado") {
-     $auto->status = "completo";
+   $auto = Vehiculos::find($idAuto);
+   if ($request->_tipoRev == "ENTREGA") {
+     $auto->status = "COMPLETO";
    } else {
      $auto->status = $request->_tipoRev;
    }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Image_rec;
 use Illuminate\Http\Request;
 
 class ImageRecController extends Controller

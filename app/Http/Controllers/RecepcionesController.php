@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Vehiculos;
+use App\Recepciones;
+use App\Propietarios;
+use App\Reparaciones;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class RecepcionesController extends Controller
@@ -10,9 +15,32 @@ class RecepcionesController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index()
+    public function index($id)
     {
+      $tiposRec = array('RECEPCION');
 
+      $auto = Vehiculos::find($id);
+
+      if ( !$auto ) {
+        abort(404);
+      }
+
+      $prop = Propietarios::find($id);
+
+      if ( !$auto ) {
+        abort(404);
+      }      
+
+      $recs = Vehiculos::find($id)->recepcions;
+
+
+      foreach ($recs as $rec) {
+        if ($rec->tipo == 'RECEPCION') {
+          $tiposRec = array_except($tiposRec, [0]);
+        }
+      }
+
+      return view('recepciones.recepcion', compact('auto', 'recs', 'tiposRec', 'prop'));
     }
 
     public function create()

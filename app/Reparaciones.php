@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reparaciones extends Model
 {
-    public function detail(){
-        return $this->hasMany('App\Orden_repues');
-    } 
-    public function revisions()
-    {
-        return $this->hasMany('App\Revisiones','Vehiculo_id');
-    } 
+   public function revisions() 
+   {
+      return $this->hasMany('Reparaciones');
+   }
+   public function recepcions() 
+   {
+      return $this->hasMany('Reparaciones');
+   }   
 }
