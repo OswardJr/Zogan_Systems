@@ -292,6 +292,12 @@
                                     </a>
                                   </li>
 
+                                  <li class="nav-item">
+                                    <a href="{{ url('/operarios/create') }}" class="nav-link">
+                                      <i class="fa fa-group"></i>  Ayudantes
+                                    </a>
+                                  </li>                                  
+
                                 </ul>
                               </li>
 
@@ -385,26 +391,6 @@
                                     <li class="nav-item">
                                         <a href="{{url('home_repuestos')}}" class="nav-link">
                                             <i class="fa fa-wrench"></i>  Repuestos
-                                        </a>
-                                    </li>
-
-
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fa fa-chain"></i>  Materiales
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fa fa-briefcase"></i>  Almacén
-                                        </a>
-                                    </li>
-
-
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fa fa-money"></i>  Facturación
                                         </a>
                                     </li>
 

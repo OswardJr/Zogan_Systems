@@ -256,15 +256,16 @@
                                     <span class="arrow "></span>
                                 </a>
                                 <ul class="sub-menu">
-                                    <li class="nav-item">
-                                        <a href="{{url('/repuestos/create')}}" class="nav-link">
-                                            <i class="fa fa-suitcase"></i>  Repuestos
-                                        </a>
-                                    </li>
 
                                     <li class="nav-item">
                                         <a href="#" class="nav-link">
-                                            <i class="fa fa-building"></i>  Almacenar
+                                            <i class="fa fa-building"></i>  Áreas del Álmacen
+                                        </a>
+                                    </li>                                    
+                                    
+                                    <li class="nav-item">
+                                        <a href="{{url('/repuestos/create')}}" class="nav-link">
+                                            <i class="fa fa-suitcase"></i>  Respuestos
                                         </a>
                                     </li>
 
@@ -326,26 +327,6 @@
                                     <li class="nav-item">
                                         <a href="{{url('home_repuestos')}}" class="nav-link">
                                             <i class="fa fa-wrench"></i>  Repuestos
-                                        </a>
-                                    </li>
-
-
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fa fa-chain"></i>  Materiales
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fa fa-briefcase"></i>  Almacén
-                                        </a>
-                                    </li>
-
-
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fa fa-money"></i>  Facturación
                                         </a>
                                     </li>
 

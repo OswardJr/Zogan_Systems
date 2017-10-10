@@ -326,26 +326,6 @@
                                         </a>
                                     </li>
 
-
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fa fa-chain"></i>  Materiales
-                                        </a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fa fa-briefcase"></i>  Almacén
-                                        </a>
-                                    </li>
-
-
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fa fa-money"></i>  Facturación
-                                        </a>
-                                    </li>
-
                                     <li class="nav-item">
                                         <a href="#" class="nav-link">
                                             <i class="fa fa-line-chart"></i>  Estadísticas
