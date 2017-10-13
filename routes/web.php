@@ -1,6 +1,9 @@
 <?php
 
 Route::get('/index', 'HomeController@index');
+
+Route::get('/respaldo', 'RespaldosController@index');
+
 Route::get('/', 'HomeController@index');
 
 Route::get('/home_services', function () {
@@ -26,6 +29,8 @@ Route::resource('analistas', 'AnalistasController');
 
 Route::resource('operarios', 'OperariosController');
 
+Route::resource('ayudantes', 'AyudantesController');
+
 Route::resource('repuestos', 'RepuestosController');
 
 Route::resource('vehiculos', 'VehiculosController');
@@ -36,6 +41,8 @@ Route::resource('corredores', 'CorredoresController');
 
 Route::resource('reparaciones', 'ReparacionesController');
 
+Route::resource('respaldos', 'RespaldosController');
+
 Route::resource('recepciones', 'RecepcionesController');
 
 Route::resource('citas', 'CitasController');
@@ -43,6 +50,8 @@ Route::resource('citas', 'CitasController');
 Route::get('/listprop', 'PropietariosController@index');
 
 Route::get('/listope', 'OperariosController@index');
+
+Route::get('/listayu', 'AyudantesController@index');
 
 Route::get('/listasegu', 'AseguradorasController@index');
 
@@ -109,6 +118,5 @@ Route::get('/ruta', 'ReparacionesController@index');
 Route::get('vehiculos/getVehiculo/{id}', 'VehiculosController@getVehiculo');
 
 Route::get('analistas/getAnalista/{id}', 'AnalistasController@getAnalista');
-
 
 Auth::routes();

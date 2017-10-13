@@ -293,7 +293,7 @@
                                   </li>
 
                                   <li class="nav-item">
-                                    <a href="{{ url('/operarios/create') }}" class="nav-link">
+                                    <a href="{{ url('/ayudantes/create') }}" class="nav-link">
                                       <i class="fa fa-group"></i>  Ayudantes
                                     </a>
                                   </li>                                  

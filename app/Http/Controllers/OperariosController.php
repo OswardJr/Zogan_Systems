@@ -22,11 +22,6 @@ class OperariosController extends Controller
       return view('/listope', ['operarios' => $operarios]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
       $operarios = DB::table('operarios')->get();
@@ -34,12 +29,6 @@ class OperariosController extends Controller
       return view('operarios/create', ['operarios' => $operarios]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $operarios = new Operarios();
@@ -57,24 +46,12 @@ class OperariosController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $operarios = Operarios::findOrFail($id);
         return view($this->path.'.see', compact('operarios'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
       $operarios = Operarios::findOrFail($id);

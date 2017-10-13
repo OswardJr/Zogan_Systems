@@ -301,6 +301,12 @@ License: You must have a valid license purchased only from themeforest(the above
                                         </li>
 
                                         <li class="nav-item">
+                                          <a href="{{ url('/respaldo') }}" target="_blank" class="nav-link">
+                                            <i class="fa fa-user"></i>  Respaldo de Información
+                                          </a>
+                                        </li>                                        
+
+                                        <li class="nav-item">
                                           <a href="#" class="nav-link">
                                             <i class="fa fa-unlock-alt"></i>  Seguridad
                                           </a>
