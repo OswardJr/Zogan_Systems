@@ -49,13 +49,32 @@
             <div class="panel-body">
               <div class="form-group col-md-6 ">
                 <label>Encargado que Entrega</label>
-            <input type="text" name="encargado_entrega" id="" class="form-control" placeholder="José Hernández" onkeyup="this.value=this.value.toUpperCase()" required="true">
-              </div>
+              <select name="encargado_entrega" class="form-control">
+                <option value=""></option>
+                @foreach ($ayudantes as $ayu)
+                <option value="{{ $ayu->id }}">{{ $ayu->nombre }} {{ $ayu->apellido }}</option>
+                @endforeach
+              </select>              
+            </div>
 
               <div class="form-group col-md-6 ">
                 <label>Encargado que Recibe</label>
-            <input type="text" name="encargado_recibe" id="" class="form-control" placeholder="Manuel Pérez" onkeyup="this.value=this.value.toUpperCase()" required="true">
-              </div>
+              <select name="encargado_recibe" class="form-control">
+                <option value=""></option>
+                @foreach ($ayudantes as $ayu)
+                <option value="{{ $ayu->id }}">{{ $ayu->nombre }} {{ $ayu->apellido }}</option>
+                @endforeach
+              </select>              
+            </div>
+
+            <div class="form-group col-md-6 ">
+              <label>Latonero</label>
+
+            </div>
+            <div class="form-group col-md-6 ">
+              <label>Pintor</label>
+
+            </div>
 
               <div class="form-group col-md-6 ">
                 <label>Descripción de Avances</label>
