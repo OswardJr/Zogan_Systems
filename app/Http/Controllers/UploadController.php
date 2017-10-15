@@ -10,6 +10,7 @@ use App\Vehiculos;
 use App\Propietarios;
 use App\Image_rev;
 use App\Reparaciones;
+use App\Ayudantes;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -20,6 +21,9 @@ class UploadController extends Controller
     {
         $this->middleware('auth');
     }
+
+  private $path = 'ayudantes';
+
   public function index()
   {
 
@@ -115,6 +119,9 @@ class UploadController extends Controller
 
   public function upload(Request $request)
   {
+
+   $ayudantes = DB::table('ayudantes')->get();
+
    $rev = new Revisiones();
    $auto = new Reparaciones();
    $idAuto = $request->_idAuto;

@@ -52,7 +52,7 @@
               <select name="encargado_entrega" class="form-control">
                 <option value=""></option>
                 @foreach ($ayudantes as $ayu)
-                <option value="{{ $ayu->id }}">{{ $ayu->nombre }} {{ $ayu->apellido }}</option>
+                <option value="{{ $ayu->nombre }}">{{ $ayu->nombre }} {{ $ayu->apellido }}</option>
                 @endforeach
               </select>              
             </div>
@@ -62,7 +62,7 @@
               <select name="encargado_recibe" class="form-control">
                 <option value=""></option>
                 @foreach ($ayudantes as $ayu)
-                <option value="{{ $ayu->id }}">{{ $ayu->nombre }} {{ $ayu->apellido }}</option>
+                <option value="{{ $ayu->nombre }}">{{ $ayu->nombre }} {{ $ayu->apellido }}</option>
                 @endforeach
               </select>              
             </div>

@@ -6,6 +6,7 @@ use App\Vehiculos;
 use App\Revisiones;
 use App\Propietarios;
 use App\Reparaciones;
+use App\Ayudantes;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -16,11 +17,9 @@ class RevisionesController extends Controller
     {
       $this->middleware('auth');
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    private $path = 'ayudantes';
+
     public function index($id)
     {
       $tiposRev = array('DESARMADO','LATONERIA','PREPARACION','PINTURA','PULITURA','LIMPIEZA','ENTREGA');
@@ -30,6 +29,8 @@ class RevisionesController extends Controller
       if ( !$auto ) {
         abort(404);
       }
+
+      $ayudantes = DB::table('ayudantes')->get();
 
       $prop = Propietarios::find($id);
 
@@ -64,7 +65,7 @@ class RevisionesController extends Controller
         }
       }
 
-      return view('revisiones.new', compact('auto', 'revs', 'tiposRev', 'prop'));
+      return view('revisiones.new', compact('auto', 'revs', 'tiposRev', 'prop', 'ayudantes'));
     }
 
     /**
