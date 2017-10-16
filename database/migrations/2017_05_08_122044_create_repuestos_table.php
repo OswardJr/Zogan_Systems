@@ -20,7 +20,7 @@ class CreateRepuestosTable extends Migration
             $table->string('cantidad');
             $table->string('marca', 30);
             $table->string('modelo', 30);
-            $table->string('costo', 20);
+            $table->string('area');
             $table->enum('status', ['activo', 'inactivo']);
             $table->timestamps();     
         });

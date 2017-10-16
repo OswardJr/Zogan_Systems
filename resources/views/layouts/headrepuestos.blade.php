@@ -185,7 +185,7 @@
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-default">
                                       <li>
-                                                                              <a href="{{ route('logout') }}"
+                                        <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Cerrar Sesión
@@ -258,7 +258,7 @@
                                 <ul class="sub-menu">
 
                                     <li class="nav-item">
-                                        <a href="#" class="nav-link">
+                                        <a href="{{url('/areas/create')}}" class="nav-link">
                                             <i class="fa fa-building"></i>  Áreas del Álmacen
                                         </a>
                                     </li>                                    
@@ -281,30 +281,21 @@
                                 <ul class="sub-menu">
 
                                     <li class="nav-item">
+                                        <a href="{{ url('/listareas') }}" class="nav-link">
+                                            <i class="fa fa-suitcase"></i>  Áreas
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
                                         <a href="{{ url('/listrepuesto') }}" class="nav-link">
                                             <i class="fa fa-suitcase"></i>  Repuestos
                                         </a>
                                     </li>
+
                                 </ul>
                             </li>
 
                             <li class="nav-item">
-                                <a href="javascript:;" class="nav-link nav-toggle">
-                                    <i class="fa fa-gears"></i>
-                                    <span class="title">Configuración</span>
-                                    <span class="arrow "></span>
-                                </a>
-                                <ul class="sub-menu">
-
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fa fa-unlock-alt"></i>  Respaldo
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                                                        <li class="nav-item">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <i class="fa fa-clone"></i>
                                     <span class="title">Módulos</span>

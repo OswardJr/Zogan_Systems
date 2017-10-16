@@ -2,83 +2,84 @@
 
 namespace App\Http\Controllers;
 
+use App\Areas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class AreasController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    private $path = 'areas';
+
     public function index()
     {
-        //
+      $areas = DB::table('areas')->where('status', '=', 'activo')->orderBy('codigo', 'desc')->paginate(15);
+
+      return view('/listareas', ['areas' => $areas]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('areas/create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+      Validator::make($request->all(), [
+        'codigo'=> 'required',
+        'descripcion' => 'required',
+        ])->validate();
+
+        $areas = new Areas();
+        $areas->codigo = $request->codigo;
+        $areas->descripcion = $request->descripcion;
+        $areas->status = 'activo';
+        $areas->save();
+
+      return redirect('/listareas')->with('message','El área ha sido registrada de manera exitosa!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $areas = Areas::findOrFail($id);
+        return view($this->path.'.see', compact('areas'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $areas = Areas::findOrFail($id);
+        return view($this->path.'.edit', compact('areas'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+      $this->validate($request, [
+        'codigo'=> 'required',
+        'descripcion' => 'required',
+        ]);
+
+          $areas = Areas::findOrFail($id);
+          $areas->codigo = $request->codigo;
+          $areas->descripcion = $request->descripcion;
+          $areas->status = 'activo';
+          $areas->save();
+
+          return redirect()->route('areas.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $ars = DB::table('areas')
+            ->where('id', '=', $id)
+            ->where('status', '=', 'activo')
+            ->update(['status' => 'inactivo']);
+
+        return redirect()->route('areas.index');
     }
 }

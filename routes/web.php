@@ -33,6 +33,8 @@ Route::resource('ayudantes', 'AyudantesController');
 
 Route::resource('repuestos', 'RepuestosController');
 
+Route::resource('areas', 'AreasController');
+
 Route::resource('vehiculos', 'VehiculosController');
 
 Route::resource('propietarios', 'PropietariosController');
@@ -53,6 +55,8 @@ Route::get('/listope', 'OperariosController@index');
 
 Route::get('/listayu', 'AyudantesController@index');
 
+Route::get('/listars', 'AreasController@index');
+
 Route::get('/listasegu', 'AseguradorasController@index');
 
 Route::get('/listcorre', 'CorredoresController@index');
@@ -64,6 +68,8 @@ Route::get('/listvehi', 'VehiculosController@index');
 Route::get('/listorden', 'ReparacionesController@on');
 
 Route::get('/listrepuesto', 'RepuestosController@index');
+
+Route::get('/listareas', 'AreasController@index');
 
 Route::get('/vehiculos/create', 'VehiculosController@create');
 
@@ -110,6 +116,8 @@ Route::get('/ruta', 'ReparacionesController@index');
 Route::get('/home_ruta', 'ReparacionesController@me');
 
 Route::get('/home_services', 'VehiculosController@me');
+
+Route::get('/home_repuestos', 'RepuestosController@index');
 
 Route::get('/ruta', 'ReparacionesController@index');
 

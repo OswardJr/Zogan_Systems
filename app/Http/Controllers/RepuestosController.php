@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repuestos;
+use App\Areas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -23,22 +24,13 @@ class RepuestosController extends Controller
       return view('/listrepuesto', ['repuestos' => $repuestos]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('repuestos/create');
+        $repuestos = DB::table('areas')->get();
+
+        return view('repuestos/create', ['repuestos' => $repuestos]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
       Validator::make($request->all(), [
@@ -47,7 +39,6 @@ class RepuestosController extends Controller
         'cantidad' => 'required',
         'marca' => 'required',
         'modelo' => 'required',
-        'costo' => 'required',
         ])->validate();
 
         $repuestos = new Repuestos();
@@ -56,7 +47,8 @@ class RepuestosController extends Controller
         $repuestos->cantidad = $request->cantidad;
         $repuestos->marca = $request->marca;
         $repuestos->modelo = $request->modelo;
-        $repuestos->costo = $request->costo;
+        $repu = $request->get('one');
+        $repuestos->area = $repu;
         $repuestos->status = 'activo';
         $repuestos->save();
 
@@ -71,6 +63,8 @@ class RepuestosController extends Controller
 
     public function edit($id)
     {
+      $repuestos = DB::table('areas')->get();
+
       $repuestos = Repuestos::findOrFail($id);
         return view($this->path.'.edit', compact('repuestos'));
     }
@@ -84,7 +78,6 @@ class RepuestosController extends Controller
         'cantidad' => 'required',
         'marca' => 'required',
         'modelo' => 'required',
-        'costo' => 'required',
         ]);
 
           $repuestos = Repuestos::findOrFail($id);
@@ -93,7 +86,6 @@ class RepuestosController extends Controller
           $repuestos->cantidad = $request->cantidad;
           $repuestos->marca = $request->marca;
           $repuestos->modelo = $request->modelo;
-          $repuestos->costo = $request->costo;
           $repuestos->status = 'activo';
           $repuestos->save();
 
@@ -102,6 +94,11 @@ class RepuestosController extends Controller
 
     public function destroy($id)
     {
-        //
+        $reps = DB::table('repuestos')
+            ->where('id', '=', $id)
+            ->where('status', '=', 'activo')
+            ->update(['status' => 'inactivo']);
+
+        return redirect()->route('repuestos.index');
     }
 }

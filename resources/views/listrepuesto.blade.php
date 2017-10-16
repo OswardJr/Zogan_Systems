@@ -13,7 +13,7 @@
 <div class="page-content-wrapper" style="">
   <div class="page-content">
     <section class="content">
-      <h3>Listado de Repuestos</h3>
+      <h3>Repuestos Asignados en el Área de Almacén</h3>
       <hr>
       <div class="panel panel-primary">
         <div class="panel-heading"><h4><strong>Repuestos</strong></h4></div>
@@ -26,7 +26,7 @@
                     <th>Código</th>
                     <th>Descripción</th>
                     <th>Marca</th>
-                    <th>Precio de Compra</th>
+                    <th>Área de Almacenaje</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
@@ -36,19 +36,27 @@
                     <td>{{ ($repu->codigo) }}</td>
                     <td>{{ ($repu->descripcion) }}</td>
                     <td>{{ ($repu->marca) }}</td>
-                    <td>{{ ($repu->costo) }}</td>
+                    <td>{{ ($repu->area) }}</td>
                     <td>
                       <a href="{{ route('repuestos.show', $repu->id) }}" class="btn btn-buscar" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i>
 
                       </a>
+                      </td>
 
+                      <td>
                       <a href="{{ route('repuestos.edit', $repu->id) }}" class="btn btn-editar" data-toggle="tooltip" title="Actualizar"><i class="fa fa-pencil"></i>
 
                       </a>
 
-                      <a class="btn btn-delete" data-toggle="tooltip" title="Eliminar"><i class="fa fa-trash"></i>
+                      </td>
 
-                      </a>
+                      <td>
+                      <form action="{{ route('repuestos.destroy', $repu->id) }}" method="post">
+                        <input name="_method" type="hidden" value="DELETE">
+                          <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <button type="submit" onclick="if(!confirm('¿Desea eliminar este repuesto?'))event.preventDefault();" class="btn btn-delete" data-toggle="tooltip" title="Eliminar"><i class="fa fa-trash"></i></button>
+
+                      </form>
                     </td>
                   </tr>
                   @endforeach

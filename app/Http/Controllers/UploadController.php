@@ -134,8 +134,10 @@ class UploadController extends Controller
    $auto->save();
 
 
-   $rev->encargado_entrega = $request->encargado_entrega;
-   $rev->encargado_recibe = $request->encargado_recibe;
+   $re = $request->get('encargado_entrega');
+   $rev->encargado_entrega = $re;
+   $res = $request->get('encargado_recibe');
+   $rev->encargado_recibe = $res;   
    $rev->avances = $request->avances;
    $rev->tipo = $request->_tipoRev;
    $rev->fecha = $request->_fechaRev;

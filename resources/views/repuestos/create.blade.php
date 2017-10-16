@@ -31,14 +31,7 @@
                                    <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <div class="form-group col-md-6 " style="margin-bottom: 0px; height: 60px">
                                       <label>Código<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <div class="input-group input-group-sm">
                                         <input type="text" name="codigo" id="" class="form-control "title="El formato debe ser ABC105C"  placeholder="R0001" onkeyup="this.value=this.value.toUpperCase()" value="" required="true" >
-                                        <span class="input-group-btn">
-                                          <button  data-toggle="tooltip" title="Consultar" class="btn btn-buscar btn-flat fa fa-search
-                                          " type="button"  onClick="" name="btn-search"></button>
-                                        </span>
-                                      </div>
-                                      <center><span id="mensaje" class="help-block"></span></center>
                                     </div>
                                     <div class="form-group col-md-6">
                                       <label>Descripción<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
@@ -57,15 +50,20 @@
                                       <input type="text" name="modelo" class="form-control" placeholder="5200bsf" required="">
                                     </div> 
                                     <div class="form-group col-md-6">
-                                      <label>Costo<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="costo" class="form-control" placeholder="5200bsf" required="true">
+                                        <label>Área de Almacén<a class="campos-required" title="Campo Obligatorio."> *</a></label>
+                                          <select name="one" class="form-control">
+                                              <option></option>
+                                              @foreach ($repuestos as $reps)
+                                              <option value="{{ $reps->descripcion }}">{{ $reps->descripcion }}</option>
+                                              @endforeach                                          
+                                          </select>
                                     </div>                                  
                               </div>
 
                               </div><!-- /.modal-content -->
                             </div><!-- /.modal-dialog -->
                           </div>
-
+<!-- 
                       <div class="panel panel-primary ">
                         <div class="panel-heading ">
                           <center>
@@ -77,7 +75,7 @@
                             <input id="images-input1" name="" type="file" multiple data-preview-file-type="any" class="file" required="true">
                           </div>
                         </div>
-                      </div>
+                      </div> -->
                                                           
                           <center class="col-lg-offset-3 col-lg-6">
                                       <input type="hidden" name="token" value="" />

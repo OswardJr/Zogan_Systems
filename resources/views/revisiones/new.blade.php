@@ -67,15 +67,6 @@
               </select>              
             </div>
 
-            <div class="form-group col-md-6 ">
-              <label>Latonero</label>
-
-            </div>
-            <div class="form-group col-md-6 ">
-              <label>Pintor</label>
-
-            </div>
-
               <div class="form-group col-md-6 ">
                 <label>Descripción de Avances</label>
                 <textarea type="text" name="avances" onkeyup="this.value=this.value.toUpperCase()" placeholder="NO HUBIERON OBSERVACIONES" class="form-control"></textarea>

@@ -26,36 +26,18 @@
                                 </div>
 
                                 <div class="panel-body ">
-                                 <form method="post" action=" {{ url('/repuestos/') }}/{{ $repuestos->id }}">
+                                 <form method="post" action=" {{ url('/areas/') }}/{{ $areas->id }}">
                                    <input name="_method" type="hidden" value="PUT">
                                    <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
 
                                     <div class="form-group col-xs-6 ">
-                                      <label>Codigo<a class="campos-required" title="Campo Obligatorio."> </a></label>
-                                        <input type="text" name="codigo" id="" class="form-control " title="El formato debe ser J-12345678-9"  placeholder="A0001" onkeyup="this.value=this.value.toUpperCase()" value="{{ $repuestos->codigo }}" required="true" disabled>
+                                      <label>Código<a class="campos-required" title="Campo Obligatorio."> </a></label>
+                                        <input type="text" name="codigo" id="" class="form-control " title="El formato debe ser J-12345678-9"  placeholder="A0001" onkeyup="this.value=this.value.toUpperCase()" value="{{ $areas->codigo }}" required="true" disabled>
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Descripción<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> </a></label>
-                                      <input type="text" name="descripcion" id="" class="form-control" value="{{ $repuestos->descripcion }}" placeholder="Seguros Caracas C.A" required="true" disabled>
-                                    </div>
-                                    <div class="form-group col-xs-6">
-                                      <label>Cantidad<a class="campos-required" title="Campo Obligatorio."> </a></label>
-                                      <input type="text" name="cantidad" id="" value="{{ $repuestos->cantidad }}" class="form-control" placeholder="0212-XXXXXXX" disabled>
-                                    </div>
-                                    <div class="form-group col-xs-6">
-                                      <label>Marca<a class="campos-required" title="Campo Obligatorio."> </a></label>
-                                      <input type="text" name="marca" id="marca" class="form-control" value="{{ $repuestos->marca }}" placeholder="contact@example.com" disabled>
-                                    </div>
-                                    <div class="form-group col-xs-6">
-                                      <label>Modelo<a class="campos-required" title="Campo Obligatorio."> </a></label>
-                                      <input type="text" name="modelo" id="modelo" class="form-control" value="{{ $repuestos->modelo }}" placeholder="contact@example.com" disabled>
-                                    </div>
-                                    <div class="form-group col-xs-6">
-                                      <label>Área en donde se ubica:<a class="campos-required" title="Campo Obligatorio."></a></label>
-                                        <ul type="disk">
-                                            <li>{{ $repuestos->area }}</li>
-                                        </ul>
-                                    </div>                                  
+                                      <input type="text" name="descripcion" id="" class="form-control" value="{{ $areas->descripcion }}" placeholder="Seguros Caracas C.A" required="true" disabled>
+                                    </div>                          
                                     <center class="col-xs-offset-3 col-xs-6">
                                       <button data-toggle="tooltip" title="Regresar" type="reset" onClick="javascript:history.go(-1);" class="btn btn-refresh margin glyphicon glyphicon-arrow-left"></button>
                                     </center>

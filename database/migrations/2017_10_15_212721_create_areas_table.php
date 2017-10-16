@@ -13,7 +13,13 @@ class CreateAreasTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('areas', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('codigo', 20);
+            $table->text('descripcion');            
+            $table->enum('status', ['activo', 'inactivo']);
+            $table->timestamps();
+        });
     }
 
     /**
