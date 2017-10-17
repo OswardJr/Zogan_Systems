@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-5 col-md-offset-3">
             <div class="panel panel-default">
-                <center><div class="panel-heading"><h4>Iniciar sesión</h4></div></center>
+                <center><div class="panel-heading"><h4><strong>Iniciar sesión</strong></h4></div></center>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
@@ -44,9 +44,9 @@
                                    Iniciar sesión
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+<!--                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Recordar Contraseña?
-                                </a>
+                                </a> -->
                             </div>
                         </div>
                     </form>
