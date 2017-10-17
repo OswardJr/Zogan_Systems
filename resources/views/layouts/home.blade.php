@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
@@ -273,14 +272,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                       </a>
                                       <ul class="sub-menu">
                                         <li class="nav-item">
-                                          <a href="#" target="" class="nav-link">
-                                            <i class="icon-user"></i>  Nuevo
-                                          </a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                          <a href="#" class="nav-link">
-                                            <i class="fa fa-file-text-o"></i>  Listado
+                                          <a href="{{ url('/listusers') }}" target="" class="nav-link">
+                                            <i class="icon-user"></i>  Listado
                                           </a>
                                         </li>
                                       </ul>

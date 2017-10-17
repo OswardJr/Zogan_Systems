@@ -47,7 +47,11 @@ Route::resource('respaldos', 'RespaldosController');
 
 Route::resource('recepciones', 'RecepcionesController');
 
+Route::resource('usuarios', 'UserController');
+
 Route::resource('citas', 'CitasController');
+
+Route::get('/listusers', 'UserController@index');
 
 Route::get('/listprop', 'PropietariosController@index');
 
@@ -70,6 +74,8 @@ Route::get('/listorden', 'ReparacionesController@on');
 Route::get('/listrepuesto', 'RepuestosController@index');
 
 Route::get('/listareas', 'AreasController@index');
+
+Route::get('/listusers', 'UserController@index');
 
 Route::get('/vehiculos/create', 'VehiculosController@create');
 
