@@ -133,7 +133,7 @@ header('Content-type: text/html; charset=utf-8');
 
         body {
             margin:0;
-            background: #ecf0f5;
+            background: #ffffff;
             padding:0;
             text-align:center;
             font-size:14px;
@@ -249,7 +249,7 @@ header('Content-type: text/html; charset=utf-8');
 
         #frm_cht {
             display:inline-block;
-            background:#efeffc;
+            background:#ffffff;
             padding:0 2px 5px 2px;
         }
         #frm_cht #ch_all {
