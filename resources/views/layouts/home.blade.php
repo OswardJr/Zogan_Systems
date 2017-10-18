@@ -267,7 +267,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <li class="nav-item">
                                       <a href="javascript:;" class="nav-link nav-toggle">
                                         <i class="fa fa-plus"></i>
-                                        <span class="title">Usuarios</span>
+                                        <span class="title">Perfil de Usuario</span>
                                         <span class="arrow "></span>
                                       </a>
                                       <ul class="sub-menu">
@@ -288,13 +288,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                       </a>
                                       <ul class="sub-menu">
                                         <li class="nav-item">
-                                          <a href="javascript:;" target="_blank" class="nav-link">
-                                            <i class="fa fa-truck"></i>  Perfil de Usuario
-                                          </a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                          <a href="{{ url('/respaldo') }}" target="_blank" class="nav-link">
+                                          <a href="respaldo" target="_blank" class="nav-link">
                                             <i class="fa fa-user"></i>  Respaldo de Información
                                           </a>
                                         </li>                                        
