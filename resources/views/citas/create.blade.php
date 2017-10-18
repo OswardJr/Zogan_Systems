@@ -19,7 +19,9 @@
 
     <div class="col-md-12 ">
       <hr>
-      <form action="" method="POST">
+      <form action="{{ url('/citas') }}" method="POST">
+               <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
+
        <div class="panel panel-primary">
         <div class="panel-heading ">
           <center>
@@ -31,7 +33,7 @@
           <div class="form-group col-md-6 " style="margin-bottom: 0px; height: 60px">
             <label>Placa<a class="campos-required" title="Campo Obligatorio."> *</a></label>
             <div class="input-group ">
-             <input type="text " class="form-control" id="placa" name="" placeholdesr="XXXXXXX">
+             <input type="text " name="placa" class="form-control" id="placa" name="" placeholdesr="XXXXXXX">
              <span class="input-group-btn ">
                <button class="btn btn-buscar btn-flat fa fa-search"  onClick="buscar_vehiculo()" type="button"></button>
              </span>
@@ -58,7 +60,8 @@
 <!--           <div class="form-group col-md-6">
             <label>Propietario<a class="campos-required" title="Campo Obligatorio."> *</a></label>
             <input type="text" name="" id="" pattern="" class="form-control" placeholder="Transeral, C.A" disabled="">
-          </div>  -->                                           </div>
+          </div>  -->                                           
+            </div>
         </div>
 
         <div class="panel panel-primary ">
@@ -121,46 +124,28 @@
       </tbody>
     </table>
   </div> -->
-</div>
-</div>
 
-<!--   <div class="panel panel-primary ">
+  <div class="panel panel-primary ">
     <div class="panel-heading ">
       <center>
         <h4>Datos de la Cita</h4>
       </center>
     </div>
     <div class="panel-body ">
-      <div class="form-group col-lg-offset-2 col-lg-4" id="sandbox-container">
+      <div class="form-group col-lg-offset-4 col-lg-4" id="sandbox-container">
         <label for="fecha_nac">Seleccione la Fecha</label>
         <div class="input-group date">
-          <input type="text" class="form-control" name="fecha" id="fecha" placeholder="DD/MM/AAAA" required="required">
+          <input type="date" class="form-control" name="fecha" id="fecha" placeholder="DD/MM/AAAA" required="required">
           <span class="input-group-addon">
             <i class="glyphicon glyphicon-th"></i>
           </span>
         </div>
       </div>
 
-      <div class="form-group col-lg-4 ">
-        <div class="form-group">
-          <label for="sel1">Seleccione la Hora</label>
-          <select class="form-control" id="sel1" name="">
-            <option value=""></option>
-            <option>8:00 AM</option>
-            <option>9:00 AM</option>
-            <option>10:00 AM</option>
-            <option>11:00 AM</option>
-            <option>01:00 PM</option>
-            <option>02:00 PM</option>
-            <option>03:00 PM</option>
-          </select>
-        </div>
-      </div>
-
-      <div id='calendar'></div>
+      <!-- <div id='calendar'></div> -->
 
     </div>
-  </div> -->
+  </div>
 
   <div class="col-xs-offset-5 col-md-12">
     <button type="submit" class="btn btn-guardar fa fa-save"></button>
@@ -181,7 +166,7 @@
     let placa = $('#placa').val()
     if (placa==null){
       $('placa').focus()
-      alert('Placa no registrada')        
+      alert('Placa no registrada')
     }
     else if (placa == false) {
       $('placa').focus()
@@ -208,15 +193,17 @@
             <td>${thisData1.nro_siniestro}</td>
             <td>${thisData1.num_certificado}</td>
             <td>
-              <label><input type="checkbox" value="">  Seleccionar</label>
+              <label><input type="checkbox" name="orden_id" value="${thisData1.id}">  Seleccionar</label>
             </td>
           </tr>
-        </tbody>  
+        </tbody>
           `)
       },
-      error: function(e) {
-        console.log(e)
-      }
+      error: function (e, status) {
+
+            if (e.status == 500)
+                alert("Placa no registrada");
+        }
     })
   }
 </script>

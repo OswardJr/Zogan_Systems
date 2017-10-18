@@ -27,7 +27,7 @@
                     <th>Descripción</th>
                     <th>Marca</th>
                     <th>Área de Almacenaje</th>
-                    <th>Acciones</th>
+                    <th colspan="3">Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
