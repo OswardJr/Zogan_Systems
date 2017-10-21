@@ -19,7 +19,8 @@
         <div class="col-md-12 ">
           <h3>Corredores de Seguro</h3>
           <hr>
-
+          <a class="btn btn-default btn-teal btn-responsive" style="float: right;" href="javascript:history.back(1)" title="Regresar"><i class="fa fa-mail-reply-all fa-lg"></i></a><br><br><br><br>  
+          
           <div class="panel panel-primary">
             <div class="panel-heading ">
               <center>

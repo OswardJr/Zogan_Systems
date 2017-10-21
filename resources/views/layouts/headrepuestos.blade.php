@@ -258,13 +258,13 @@
                                 <ul class="sub-menu">
 
                                     <li class="nav-item">
-                                        <a href="{{url('/areas/create')}}" class="nav-link">
+                                        <a href="{{url('/listareas')}}" class="nav-link">
                                             <i class="fa fa-building"></i>  Áreas del Álmacen
                                         </a>
                                     </li>                                    
                                     
                                     <li class="nav-item">
-                                        <a href="{{url('/repuestos/create')}}" class="nav-link">
+                                        <a href="{{url('/listrepuesto')}}" class="nav-link">
                                             <i class="fa fa-suitcase"></i>  Respuestos
                                         </a>
                                     </li>

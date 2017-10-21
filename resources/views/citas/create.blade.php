@@ -19,6 +19,8 @@
 
     <div class="col-md-12 ">
       <hr>
+          <a class="btn btn-default btn-teal btn-responsive" style="float: right;" href="javascript:history.back(1)" title="Regresar"><i class="fa fa-mail-reply-all fa-lg"></i></a><br><br><br><br>  
+                
       <form action="{{ url('/citas') }}" method="POST">
                <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
 

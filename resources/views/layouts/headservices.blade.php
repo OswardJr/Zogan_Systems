@@ -269,31 +269,31 @@
                                 </a>
                                 <ul class="sub-menu">
                                   <li class="nav-item">
-                                    <a href="{{ url('/analistas/create') }}" target="" class="nav-link">
-                                      <i class="icon-user"></i>  Analistas
-                                    </a>
-                                  </li>
-
-                                  <li class="nav-item">
-                                    <a href="{{ url('/aseguradoras/create') }}" target="" class="nav-link">
+                                    <a href="{{ url('/listasegu') }}" target="" class="nav-link">
                                       <i class="fa fa-building"></i>  Aseguradoras
                                     </a>
-                                  </li>
+                                  </li> 
+                                                                    
+                                  <li class="nav-item">
+                                    <a href="{{ url('/listanalis') }}" target="" class="nav-link">
+                                      <i class="fa fa-user"></i>  Analistas
+                                    </a>
+                                  </li>                                 
 
                                   <li class="nav-item">
-                                    <a href="{{ url('/corredores/create') }}" class="nav-link">
+                                    <a href="{{ url('/listcorre') }}" class="nav-link">
                                       <i class="fa fa-user"></i>  Corredores de Seguro
                                     </a>
                                   </li>
 
                                   <li class="nav-item">
-                                    <a href="{{ url('/operarios/create') }}" class="nav-link">
+                                    <a href="{{ url('/listope') }}" class="nav-link">
                                       <i class="fa fa-group"></i>  Operarios
                                     </a>
                                   </li>
 
                                   <li class="nav-item">
-                                    <a href="{{ url('/ayudantes/create') }}" class="nav-link">
+                                    <a href="{{ url('/listayu') }}" class="nav-link">
                                       <i class="fa fa-group"></i>  Ayudantes
                                     </a>
                                   </li>                                  

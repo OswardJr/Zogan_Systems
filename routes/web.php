@@ -51,6 +51,8 @@ Route::resource('usuarios', 'UserController');
 
 Route::resource('citas', 'CitasController');
 
+Route::resource('vehiculos', 'VehiculosController');
+
 Route::get('/listusers', 'UserController@index');
 
 Route::get('/listprop', 'PropietariosController@index');

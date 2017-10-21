@@ -114,3 +114,17 @@
     border-color: #abe7ed;
     color: #425354;
 }
+.btn-nuevo 
+{
+    background-color: white;
+    border-color: rgba(128, 0, 128, 0.63);
+    border-radius: 0px;    
+    color: purple;
+}
+
+.btn-nuevo:hover 
+{
+    color: purple;
+    background-color: white;
+    border-color: rgba(128, 0, 128, 0.63);
+}

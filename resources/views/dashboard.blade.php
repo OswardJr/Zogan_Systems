@@ -12,7 +12,7 @@
     @endif
     <div class="col-md-12">
       <div class="text-right nuevo-veh">
-        <a href="{{ url('/reparaciones/create') }}" class="btn btn-info"><span class="fa fa-list"> Nueva Orden</span></a>
+        <a href="{{ url('/reparaciones/create') }}" class="btn btn-nuevo" title="Registrar Orden de Reparación"><span class="fa fa-plus"></span></a>
       </div>
     </div>
     <section class="content">

@@ -14,9 +14,16 @@
   <div class="page-content">
     <section class="content">
       <h3>Listado de Corredores</h3>
+      <div class="text-right nuevo-veh">
+              <a href="{{ url('/corredores/create') }}" title="Registrar Corredor de Seguro" class="btn btn-nuevo"><span class="fa fa-plus"></span></a>
+            </div>
       <hr>
       <div class="panel panel-primary">
         <div class="panel-heading"><h4><strong>Corredores</strong></h4></div>
+          <div class="input-group">
+            <span class="input-group-addon"><strong>Buscar</strong></span>
+            <input id="filtrar" type="text" class="form-control" placeholder="Ingrese acá los datos que desea buscar por favor....">
+          </div>
         <div class="row">
           <div class="col-md-12 ">
             <div class="table-responsive">
@@ -30,7 +37,7 @@
                     <th colspan="3">Acciones</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="buscar">
                   @foreach ($corredores as $corre)
                   <tr>
                     <td>{{ ($corre->cedula) }}</td>
@@ -75,3 +82,23 @@
 </div>
 
 @include('layouts.footer')
+
+<script>
+  $(document).ready(function () {
+
+            (function ($) {
+
+                $('#filtrar').keyup(function () {
+
+                    var rex = new RegExp($(this).val(), 'i');
+                    $('.buscar tr').hide();
+                    $('.buscar tr').filter(function () {
+                        return rex.test($(this).text());
+                    }).show();
+
+                })
+
+            }(jQuery));
+
+        });  
+</script>
