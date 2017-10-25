@@ -257,7 +257,7 @@
                               <li class="nav-item start active open">
                                 <a href="{{url('home_services')}}" class="nav-link nav-toggle">
                                   <i class="icon-home"></i>
-                                  <span class="title">Área Operativa</span>
+                                  <span class="title">Área de Usuarios</span>
                                   <span class="selected"></span>
                                 </a>
                               </li>

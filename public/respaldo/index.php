@@ -15,11 +15,11 @@ $bk = new backupmysql($lang, $dir);
 
 $frm = '<body style="background: white;">'. '<h1>'. $bk->langTxt('msg_bmk') .'</h1>
 <div class="col-xs-12">
-  <div class="col-xs-6 col-xs-offset-3" style="top: 130px;">
+  <div class="col-xs-6 col-xs-offset-2" style="top: 130px;">
     <form action="" method="post" id="">
       <div class="panel panel-primary" >
         <div class="panel-heading">
-          <center><div class="panel-title"><strong>Backup</strong></div></center>
+          <center><div class="panel-title"><strong>Respaldo de Información</strong></div></center>
       </div>
       <div style="padding-top:10px" class="panel-body" >
           <div style="display:none" id="login-alert" class="alert alert-danger col-xs-12"></div>

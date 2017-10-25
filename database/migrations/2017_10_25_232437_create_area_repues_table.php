@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAlmacRepuesTable extends Migration
+class CreateAreaRepuesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateAlmacRepuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('almac_repues', function (Blueprint $table) {
-            $table->integer('almacen_id')->unsigned();
+        Schema::create('area_repues', function (Blueprint $table) {
+            $table->integer('area_id')->unsigned();
             $table->integer('repuesto_id')->unsigned();
             $table->timestamps();
             
-            $table->foreign('almacen_id')->references('id')->on('almacenes')->onDelete('cascade');
+            $table->foreign('area_id')->references('id')->on('areas')->onDelete('cascade');
             $table->foreign('repuesto_id')->references('id')->on('repuestos')->onDelete('cascade');
         });
     }
@@ -30,6 +30,6 @@ class CreateAlmacRepuesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('almac_repues');
+        Schema::dropIfExists('area_repues');
     }
 }

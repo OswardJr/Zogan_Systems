@@ -31,7 +31,7 @@ class AseguradorasController extends Controller
     public function store(Request $request)
     {
       Validator::make($request->all(), [
-        'rif'=> 'required',
+        'rif'=> 'required|unique:aseguradoras',
         'denominacion' => 'required',
         'telefono' => 'required',
         'email' => 'required',

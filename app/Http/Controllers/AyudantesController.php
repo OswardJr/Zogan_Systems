@@ -31,6 +31,15 @@ class AyudantesController extends Controller
 
     public function store(Request $request)
     {
+      Validator::make($request->all(), [
+        'cedula'=> 'required|unique:operarios',
+        'nombre' => 'required',
+        'apellido' => 'required',
+        'telefono' => 'required',
+        'email' => 'required',
+        'direccion' => 'required',
+        ])->validate();
+
         $ayudantes = new Ayudantes();
         $ayudantes->cedula = $request->cedula;
         $ayudantes->nombre = $request->nombre;

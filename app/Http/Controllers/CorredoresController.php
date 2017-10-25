@@ -33,7 +33,7 @@ class CorredoresController extends Controller
      */
     public function create()
     {
-      $corredores = DB::table('aseguradoras')->get();
+        $corredores = DB::table('aseguradoras')->where('status','=','activo')->get();
 
       return view('corredores/create', ['corredores' => $corredores]);
     }
@@ -46,6 +46,15 @@ class CorredoresController extends Controller
      */
     public function store(Request $request)
     {
+      Validator::make($request->all(), [
+        'cedula'=> 'required|unique:corredores',
+        'nombre' => 'required',
+        'apellido' => 'required',
+        'celular' => 'required',
+        'telefono' => 'required',
+        'email' => 'required',
+        ])->validate();
+
         $corredores = new Corredores();
         $corredores->cedula = $request->cedula;
         $corredores->nombre = $request->nombre;

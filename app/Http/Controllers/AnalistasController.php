@@ -29,7 +29,7 @@ class AnalistasController extends Controller
 
     public function create()
     {
-      $analistas = DB::table('aseguradoras')->get();
+        $analistas = DB::table('aseguradoras')->where('status','=','activo')->get();
 
       return view('analistas/create', ['analistas' => $analistas]);
     }
@@ -37,6 +37,15 @@ class AnalistasController extends Controller
 
     public function store(Request $request)
     {
+      Validator::make($request->all(), [
+        'rif'=> 'required|unique:analistas',
+        'nombre' => 'required',
+        'apellido' => 'required',
+        'celular' => 'required',
+        'telefono' => 'required',
+        'email' => 'required',
+        ])->validate();
+
         $analistas = new Analistas();
         $analistas->rif = $request->rif;
         $analistas->nombre = $request->nombre;

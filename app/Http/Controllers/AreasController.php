@@ -32,7 +32,7 @@ class AreasController extends Controller
     public function store(Request $request)
     {
       Validator::make($request->all(), [
-        'codigo'=> 'required',
+        'codigo'=> 'required|unique:areas',
         'descripcion' => 'required',
         ])->validate();
 

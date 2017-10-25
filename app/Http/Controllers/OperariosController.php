@@ -31,6 +31,16 @@ class OperariosController extends Controller
 
     public function store(Request $request)
     {
+      Validator::make($request->all(), [
+        'cedula'=> 'required|unique:operarios',
+        'nombre' => 'required',
+        'apellido' => 'required',
+        'telefono' => 'required',
+        'email' => 'required',
+        'tipo' => 'required',
+        'direccion' => 'required',
+        ])->validate();
+
         $operarios = new Operarios();
         $operarios->cedula = $request->cedula;
         $operarios->nombre = $request->nombre;

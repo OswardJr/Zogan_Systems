@@ -34,7 +34,7 @@ class RepuestosController extends Controller
     public function store(Request $request)
     {
       Validator::make($request->all(), [
-        'codigo'=> 'required',
+        'codigo'=> 'required|unique:repuestos',
         'descripcion' => 'required',
         'cantidad' => 'required',
         'marca' => 'required',

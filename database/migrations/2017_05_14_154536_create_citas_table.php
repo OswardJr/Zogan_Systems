@@ -17,7 +17,6 @@ class CreateCitasTable extends Migration
             $table->increments('id');
             $table->integer('reparacion_id')->unsigned();
             $table->date('selec_dia');
-            $table->string('hora');
             $table->timestamps();
 
             $table->foreign('reparacion_id')->references('id')->on('reparaciones')->onDelete('cascade');            
