@@ -15,7 +15,7 @@ $bk = new backupmysql($lang, $dir);
 
 $frm = '<body style="background: white;">'. '<h1>'. $bk->langTxt('msg_bmk') .'</h1>
 <div class="col-xs-12">
-  <div class="col-xs-4 col-xs-offset-4" style="top: 130px;">
+  <div class="col-xs-6 col-xs-offset-3" style="top: 130px;">
     <form action="" method="post" id="">
       <div class="panel panel-primary" >
         <div class="panel-heading">

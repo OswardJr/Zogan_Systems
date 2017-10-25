@@ -5,6 +5,9 @@
     <section class="content">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
+                <h3>Nuevo Usuario</h3>
+                                <hr>
+                <a class="btn btn-default btn-teal btn-responsive" style="float: right;" href="javascript:history.back(1)" title="Regresar"><i class="fa fa-mail-reply-all fa-lg"></i></a><br><br><br><br>                  
                 <div class="panel panel-default">
                     <center><div class="panel-heading"><h4>Registrar Usuario</h4></div></center>
                 <div class="panel-body">
@@ -15,7 +18,7 @@
                             <label for="name" class="col-md-4 control-label">Nombre</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" placeholder="Indique el nombre" name="name" value="{{ old('name') }}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -29,7 +32,7 @@
                             <label for="email" class="col-md-4 control-label">Correo Electronico</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" class="form-control" placeholder="Indique el correo electrónico" name="email" value="{{ old('email') }}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -44,7 +47,7 @@
 
                             <div class="col-md-6">
                                 <select name="rol" class="form-control" required>
-                                    <option value=""></option>
+                                    <option value="">---     Elija el rol    ---</option>
                                     <option value="Administrador">Administrador</option>
                                     <option value="Empleado">Empleado</option>
                                 </select>
@@ -61,7 +64,7 @@
                             <label for="password" class="col-md-4 control-label">Contraseña</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <input id="password" type="password" placeholder="Contraseña" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -75,15 +78,15 @@
                             <label for="password-confirm" class="col-md-4 control-label">Confirmar Contraseña</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input id="password-confirm" type="password" placeholder="Repita su contraseña" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <center><button type="submit" class="btn btn-primary">
-                                    Registrar
-                                </button></center>
+                                <center>                                      
+                                    <button data-toggle="tooltip" title="Guardar" type="submit" class="btn btn-guardar margin glyphicon glyphicon-floppy-disk" name="agregar"></button>
+                                </center>
                             </div>
                         </div>
                     </form>

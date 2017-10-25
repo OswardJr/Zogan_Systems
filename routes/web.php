@@ -55,6 +55,8 @@ Route::resource('vehiculos', 'VehiculosController');
 
 Route::get('/listusers', 'UserController@index');
 
+Route::get('/resp', 'UserController@respaldo');
+
 Route::get('/listprop', 'PropietariosController@index');
 
 Route::get('/listope', 'OperariosController@index');
@@ -84,6 +86,8 @@ Route::get('/vehiculos/create', 'VehiculosController@create');
 Route::get('/vehiculos/findRif', 'VehiculosController@findRif');
 
 Route::get('/propietarios/create', 'PropietariosController@create');
+
+Route::get('/usuarios/respaldo', 'UserController@respaldo');
 
 Route::get('/propietarios/findRif', 'PropietariosController@findRif');
 

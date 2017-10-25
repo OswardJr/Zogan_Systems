@@ -29,6 +29,10 @@ class UserController extends Controller
     {
       return view('usuarios/create');
     }
+    public function respaldo()
+    {
+      return view('usuarios/respaldo');
+    }
 
     public function store(Request $request)
     {

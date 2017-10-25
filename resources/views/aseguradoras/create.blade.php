@@ -33,14 +33,7 @@
                <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
                <div class="form-group col-xs-6 " style="margin-bottom: 0px; height: 60px">
                 <label>Rif<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                <div class="input-group input-group-sm">
                   <input type="text" name="rif" id="" class="form-control " pattern="^([JVEG]{1})-([0-9]{8})-([0-9]{1})$" title="El formato debe ser J-12345678-9" value="{{ old('rif') }}" placeholder="J-12345678-9" onkeyup="this.value=this.value.toUpperCase()" value="" required="true" >
-                  <span class="input-group-btn">
-                    <button  data-toggle="tooltip" id="buscar_asegu()" title="Consultar" class="btn btn-buscar btn-flat fa fa-search
-                    " type="button" name="btn-search"></button>
-                  </span>
-                </div>
-                <center><span id="mensaje" class="help-block"></span></center>
               </div>
               <div class="form-group col-xs-6">
                 <label>Denominación<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>

@@ -288,7 +288,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                       </a>
                                       <ul class="sub-menu">
                                         <li class="nav-item">
-                                          <a href="respaldo" target="_blank" class="nav-link">
+                                          <a href="resp" class="nav-link">
                                             <i class="fa fa-user"></i>  Respaldo de Información
                                           </a>
                                         </li>                                        
