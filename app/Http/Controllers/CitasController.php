@@ -5,6 +5,12 @@ namespace App\Http\Controllers;
 use App\Citas;
 use App\Reparaciones;
 use Illuminate\Http\Request;
+use Auth;
+use App\Aseguradoras;
+use App\Propietarios;
+use App\Vehiculos;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class CitasController extends Controller {
 	public function __construct() {
@@ -16,8 +22,11 @@ class CitasController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-		// load the view and pass the reports
-		return view('citas/index');
+      $citas = DB::table('citas')
+			->select('id', 'selec_dia')
+			->get();
+
+      return view('/listcitas', ['citas' => $citas]);
 	}
 	public function see() {
 		$citas = Citas::all();

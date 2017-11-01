@@ -18,6 +18,7 @@ class CreateReparacionesTable extends Migration
             $table->integer('usuario_id')->unsigned();
             $table->integer('propietario_id')->unsigned();
             $table->integer('vehiculo_id')->unsigned();
+            $table->integer('poliza_id')->unsigned();
             $table->integer('analista_id')->unsigned();
             $table->integer('latonero_id')->unsigned();
             $table->integer('pintor_id')->unsigned();

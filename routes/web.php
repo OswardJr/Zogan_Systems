@@ -81,6 +81,8 @@ Route::get('/listareas', 'AreasController@index');
 
 Route::get('/listusers', 'UserController@index');
 
+Route::get('/listcitas', 'CitasController@index');
+
 Route::get('/vehiculos/create', 'VehiculosController@create');
 
 Route::get('/vehiculos/findRif', 'VehiculosController@findRif');
@@ -97,6 +99,7 @@ Route::get('/reparaciones/create', 'ReparacionesController@create');
 
 Route::post('/reparaciones/save', 'ReparacionesController@save');
 
+Route::get('/reparaciones/create', 'ReparacionesController@create');
 
 Route::resource('imagenes', 'ImagenesController');
 
@@ -139,4 +142,6 @@ Route::get('vehiculos/getVehiculo/{id}', 'VehiculosController@getVehiculo');
 
 Route::get('analistas/getAnalista/{id}', 'AnalistasController@getAnalista');
 
-Auth::routes();
+Route::get('/pdf', 'ReparacionesController@invoice');
+
+auth::routes();

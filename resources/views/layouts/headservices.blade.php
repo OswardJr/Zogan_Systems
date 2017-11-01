@@ -365,6 +365,16 @@
                                       <i class="fa fa-suitcase"></i>  Analistas
                                     </a>
                                   </li>
+                                  <li class="nav-item">
+                                    <a href="{{ url('/listorden') }}" class="nav-link">
+                                      <i class="fa fa-suitcase"></i>  Ordenes de Reparación
+                                    </a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a href="{{ url('/listcitas') }}" class="nav-link">
+                                      <i class="fa fa-suitcase"></i>  Citas Programadas
+                                    </a>
+                                  </li>                                                                    
                                 </ul>
                               </li>
 

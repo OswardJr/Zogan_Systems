@@ -18,14 +18,16 @@ use Illuminate\Support\Facades\Validator;
 class ReparacionesController extends Controller
 {
 
-/*
-              SELECT i.vehiculo_id,q.marca,q.modelo,q.serial_carro,q.serial_motor,propietarios.nombre_completo
-              FROM reparaciones as i
-              inner JOIN vehiculos as q
-              ON i.vehiculo_id = q.id
-              INNER JOIN propietarios
-              ON i.propietario_id = propietarios.id
-*/
+
+              // SELECT i.*,e.rif,e.nombre_completo,e.telefono,e.email,vehiculos.placa,vehiculos.marca,vehiculos.modelo,vehiculos.anio,vehiculos.serial_motor,vehiculos.serial_carro,vehiculos.color,vehiculos.tipo,polizas.numero
+              // FROM reparaciones as i
+              // inner JOIN propietarios as e
+              // ON i.propietario_id = e.id
+              // INNER JOIN vehiculos
+              // ON i.vehiculo_id = vehiculos.id
+              // INNER JOIN polizas
+              // ON i.poliza_id = polizas.id 
+              
    public function __construct()
     {
         $this->middleware('auth');
@@ -165,6 +167,7 @@ class ReparacionesController extends Controller
         $ordenes->usuario_id = $idusuario;
         $ordenes->propietario_id = $Idprop;
         $ordenes->vehiculo_id = $Idvehi;
+        $ordenes->poliza_id = $Idpoli;
         $analis = $request->get('two');
         $ordenes->analista_id = $analis;
         $lato = $request->get('three');
@@ -196,6 +199,34 @@ class ReparacionesController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function invoice($id) 
+    {
+        $reparaciones = Reparaciones::findOrFail($id);
+
+        $data = $this->getData();
+        $date = date('Y-m-d');
+        $invoice = "2222";
+        $view =  \View::make('pdf.invoice', compact('data', 'date', 'invoice'))->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream('invoice');
+    }
+
+    public function getData() 
+    {
+      $autos = DB::select('
+              SELECT i.*,e.rif,e.nombre_completo,e.telefono,e.email,vehiculos.placa,vehiculos.marca,vehiculos.modelo,vehiculos.anio,vehiculos.serial_motor,vehiculos.serial_carro,vehiculos.color,vehiculos.tipo,polizas.numero
+              FROM reparaciones as i
+              inner JOIN propietarios as e
+              ON i.propietario_id = e.id
+              INNER JOIN vehiculos
+              ON i.vehiculo_id = vehiculos.id
+              INNER JOIN polizas
+              ON i.poliza_id = polizas.id ');
+
+      return $autos;
     }
 
     /*public function autoComplete(Request $request) {
