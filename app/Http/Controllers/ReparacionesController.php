@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use PDF;
 use Auth;
 use App\Repuestos;
 use Illuminate\Http\Request;
@@ -201,17 +201,23 @@ class ReparacionesController extends Controller
         //
     }
 
-    public function invoice($id) 
+    public function invoice() 
     {
-        $reparaciones = Reparaciones::findOrFail($id);
+        // $view =  \View::make('pdf.invoice', compact('data', 'date', 'invoice'))->render();
 
-        $data = $this->getData();
-        $date = date('Y-m-d');
-        $invoice = "2222";
-        $view =  \View::make('pdf.invoice', compact('data', 'date', 'invoice'))->render();
+        // $data = $this->getData();
+        // $date = date('Y-m-d');
+        $view =  \View::make('pdf.invoice')->render();
+        
         $pdf = \App::make('dompdf.wrapper');
+        
         $pdf->loadHTML($view);
-        return $pdf->stream('invoice');
+        
+        return $pdf->download('Orden.pdf');
+
+      // $pdf = PDF::loadView('pdf.invoice')->setWarnings(false);
+
+      // return $pdf->download('invoice.pdf');      
     }
 
     public function getData() 

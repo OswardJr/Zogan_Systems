@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use Auth;
+use App\Reparaciones;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        // $dash = DB::select('SELECT COUNT(*) FROM reparaciones WHERE status = "activo"');
+
+        $dash = DB::table('reparaciones')->where('status', '=', 'activo')->count();
+
+        return view('index', compact('dash'));
     }
 }

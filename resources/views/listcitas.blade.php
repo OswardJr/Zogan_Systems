@@ -30,7 +30,10 @@
               <table data-toggle="table" class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th>#</th>
+                    <th>Placa</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Propietario</th>
                     <th>Fecha de la Cita</th>
                     <th>Archivos</th>
                   </tr>
@@ -38,7 +41,10 @@
                 <tbody class="buscar">
                   @foreach ($citas as $repar)
                   <tr>
-                    <td>{{ $repar->id}}</td>
+                    <td>{{ $repar->placa}}</td>
+                    <td>{{ $repar->marca}}</td>
+                    <td>{{ $repar->modelo}}</td>
+                    <td>{{ $repar->nombre_completo}}</td>
                     <td>{{ ($repar->selec_dia) }}</td>
                     <td>
                       <a href="" class="btn btn-success" data-toggle="tooltip" title="Descargar"><i class="fa fa-download"></i>

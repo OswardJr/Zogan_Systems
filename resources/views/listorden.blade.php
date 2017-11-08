@@ -47,9 +47,8 @@
                     <td>{{ ($repar->status) }}</td>
                     <td>{{ ($repar->nombre) }}</td>
                     <td>
-                      <a href="" class="btn btn-success" data-toggle="tooltip" title="Descargar"><i class="fa fa-download"></i>
-
-                      </a>
+                      <a href="{{ url('pdf/invoice') }}" class="btn btn-success" data-toggle="tooltip" title="Descargar"><i class="fa fa-download"></i>
+                       </a>
                     </td> 
                   </tr>
                   @endforeach

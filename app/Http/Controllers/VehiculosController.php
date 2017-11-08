@@ -56,7 +56,7 @@ class VehiculosController extends Controller {
 			->where('placa', $placa)
 			->get();
 
-		$ordenes = DB::select('SELECT `id`,`fecha_ocu`, `subtotal`, `nro_siniestro`, `num_certificado` from reparaciones where vehiculo_id="' . $auto[0]->id . '"');
+		$ordenes = DB::select('SELECT `id`,`fecha_ocu`, `subtotal`, `nro_siniestro`, `num_certificado`, `propietario_id`, `vehiculo_id` from reparaciones where vehiculo_id="' . $auto[0]->id . '"');
 
 		return response()->json([
 			'auto' => $auto,

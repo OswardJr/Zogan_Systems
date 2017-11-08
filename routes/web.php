@@ -142,6 +142,6 @@ Route::get('vehiculos/getVehiculo/{id}', 'VehiculosController@getVehiculo');
 
 Route::get('analistas/getAnalista/{id}', 'AnalistasController@getAnalista');
 
-Route::get('/pdf', 'ReparacionesController@invoice');
+Route::get('pdf/invoice', 'ReparacionesController@invoice');
 
 auth::routes();

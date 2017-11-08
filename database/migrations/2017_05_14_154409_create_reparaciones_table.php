@@ -57,6 +57,7 @@ class CreateReparacionesTable extends Migration
             $table->text('tipos_daños');
             $table->text('selec_repues');
             $table->text('no_dispo');
+            $table->enum('status', ['activo', 'inactivo']);                    
             $table->timestamps();
 
             $table->foreign('propietario_id')->references('id')->on('propietarios');

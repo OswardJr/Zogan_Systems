@@ -13,5 +13,9 @@ class Reparaciones extends Model
    public function recepcions() 
    {
       return $this->hasMany('Reparaciones');
-   }   
+   }  
+   public function home() 
+   {
+      return $this->hasMany('Reparaciones');
+   }      
 }

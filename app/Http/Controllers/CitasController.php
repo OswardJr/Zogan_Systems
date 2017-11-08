@@ -22,9 +22,13 @@ class CitasController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 */
 	public function index() {
-      $citas = DB::table('citas')
-			->select('id', 'selec_dia')
-			->get();
+      $citas = DB::select('
+              SELECT i.*,e.rif,e.nombre_completo,vehiculos.placa,vehiculos.marca,vehiculos.modelo,vehiculos.anio,vehiculos.serial_motor
+              FROM citas as i
+              inner JOIN propietarios as e
+              ON i.propietario_id = e.id
+              INNER JOIN vehiculos
+              ON i.vehiculo_id = vehiculos.id');
 
       return view('/listcitas', ['citas' => $citas]);
 	}
@@ -52,6 +56,8 @@ class CitasController extends Controller {
 	public function store(Request $request) {
 		$cita = new Citas();
 		$cita->reparacion_id = $request->orden_id[0];
+		$cita->vehiculo_id = $request->orden_id[0];
+		$cita->propietario_id = $request->orden_id[0];
 		$cita->selec_dia = $request->fecha;
 		$cita->save();
 

@@ -14,6 +14,7 @@
             <h4><strong>Número:</strong> 0000{{$id}}</h4>
           </div>
         </div>
+          <a class="btn btn-default btn-teal btn-responsive" style="float: right;" href="javascript:history.back(1)" title="Regresar"><i class="fa fa-mail-reply-all fa-lg"></i></a><br><br><br><br>        
       </div>
     </div>
 <hr>
