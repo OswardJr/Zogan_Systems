@@ -1,14 +1,7 @@
 @include('layouts.headservices')
 
 <br><div class="col-md-12">
-@if(Session::get('message'))
-<div class="col-md-10 col-md-offset-2">
-  <div class="alert alert-success alert-dismissable">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <h3> {{ Session::get('message') }}</h3>
-  </div>
-</div>
-@endif
+
 </div>
 <div class="page-content-wrapper" style="">
   <div class="page-content">
@@ -100,4 +93,25 @@
             }(jQuery));
 
         });  
+</script>
+
+<script>
+  @if(Session::has('message'))
+    var type = "{{ Session::get('alert-type', 'info') }}";
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('message') }}");
+            break;
+        
+        case 'warning':
+            toastr.warning("{{ Session::get('message') }}");
+            break;
+        case 'success':
+            toastr.success("{{ Session::get('message') }}");
+            break;
+        case 'error':
+            toastr.error("{{ Session::get('message') }}");
+            break;
+    }
+  @endif
 </script>

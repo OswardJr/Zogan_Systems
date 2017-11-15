@@ -10,7 +10,9 @@
         "dompdf/dompdf": "dev-master as 0.8.0", 
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
-        "laraveles/spanish": "^1.0"
+        "laraveles/spanish": "^1.0",
+        "guzzlehttp/guzzle": "~4.0",
+        "oriceon/toastr-5-laravel": "dev-master"                
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

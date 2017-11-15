@@ -61,7 +61,7 @@ class ReparacionesController extends Controller
     public function on()
     {
       $reparaciones = DB::select('
-              SELECT i.vehiculo_id,i.analista_id,q.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo,analistas.nombre
+              SELECT i.*,q.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo,analistas.nombre
               FROM reparaciones as i
               inner JOIN vehiculos as q
               ON i.vehiculo_id = q.id
@@ -234,6 +234,30 @@ class ReparacionesController extends Controller
 
       return $autos;
     }
+
+    public function downloadPDF($id){
+
+          $reparaciones = Reparaciones::find($id);
+          $reparacione = Vehiculos::find($id);
+          $reparacion = Propietarios::find($id);
+          $reparacio = Polizas::find($id);
+          $reparaci = Operarios::find($id);
+
+          // $reparaciones = DB::select('
+          //     SELECT i.*,e.rif,e.nombre_completo,e.telefono,e.email,vehiculos.placa,vehiculos.marca,vehiculos.modelo,vehiculos.anio,vehiculos.serial_motor,vehiculos.serial_carro,vehiculos.color,vehiculos.tipo,polizas.numero
+          //     FROM reparaciones as i
+          //     inner JOIN propietarios as e
+          //     ON i.propietario_id = e.id
+          //     INNER JOIN vehiculos
+          //     ON i.vehiculo_id = vehiculos.id
+          //     INNER JOIN polizas
+          //     ON i.poliza_id = polizas.id
+          //     WHERE i.id = :id', ['id' => $repar->id]              
+          //     );
+
+          $pdf = PDF::loadView('htmltopdfview', compact('reparaciones','reparacione','reparacion','reparacio','reparaci'));
+          return $pdf->stream('orden.pdf');
+        }      
 
     /*public function autoComplete(Request $request) {
             $query = $request->get('term','');

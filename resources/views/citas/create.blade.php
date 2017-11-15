@@ -161,7 +161,7 @@
 <script type="text/javascript">
   $(function() {
     $('#placa').autocomplete({
-      source: '/vehiculos/show'
+      source: '/Zogan_Systems/public/vehiculos/show'
     })
   })
   function buscar_vehiculo() {
@@ -175,7 +175,7 @@
       alert('Introduzca la digitación de la placa por favor')
     }
     $.ajax({
-      url: '/vehiculos/getVehiculo/' + placa,
+      url: '/Zogan_Systems/public/vehiculos/getVehiculo/' + placa,
       type: 'GET',
       dataType: 'JSON',
       success: function(data) {

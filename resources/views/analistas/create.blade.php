@@ -32,7 +32,7 @@
               <form method="post" name="crear" id="crear" action="{{ url('/analistas') }}">
                <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}"> 
                <div class="form-group col-xs-6 " style="margin-bottom: 0px; height: 60px">
-                <label>Cédula ó Rif<a class="campos-required" title="Campo Obligatorio."> *</a></label>
+                <label>Rif<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                 <div class="input-group input-group-sm">
                   <input type="text" name="rif" id="" class="form-control " pattern="^([JVEG]{1})-([0-9]{8})-([0-9]{1})$" title="El formato debe ser J-12345678-9" value="{{ old('rif') }}" placeholder="J-12345678-9" onkeyup="this.value=this.value.toUpperCase()" value="" required="true">
                   <span class="input-group-btn">

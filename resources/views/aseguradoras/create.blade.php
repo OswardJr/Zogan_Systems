@@ -29,12 +29,20 @@
             </div>
 
             <div class="panel-body ">
-              <form method="post" name="crear" id="crear" action="{{ url('/aseguradoras') }}">
+              <form method="POST" name="crear" id="crear" action="{{ url('/aseguradoras') }}">
                <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
-               <div class="form-group col-xs-6 " style="margin-bottom: 0px; height: 60px">
-                <label>Rif<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                  <input type="text" name="rif" id="" class="form-control " pattern="^([JVEG]{1})-([0-9]{8})-([0-9]{1})$" title="El formato debe ser J-12345678-9" value="{{ old('rif') }}" placeholder="J-12345678-9" onkeyup="this.value=this.value.toUpperCase()" value="" required="true" >
-              </div>
+               
+          <div class="form-group col-md-6 " style="margin-bottom: 0px; height: 60px">
+            <label>Rif<a class="campos-required" title="Campo Obligatorio."> *</a></label>
+            <div class="input-group ">
+             <input type="text " name="rif" class="form-control" id="rif" pattern="^([JVEG]{1})-([0-9]{8})-([0-9]{1})$" title="El formato debe ser J-12345678-9" placeholder="J-12345678-9" value="{{ old('rif') }}" onkeyup="this.value=this.value.toUpperCase()" required="true" >
+             <span class="input-group-btn ">
+               <button class="btn btn-buscar btn-flat fa fa-search"  onClick="buscar_asegu()" type="button"></button>
+             </span>
+           </div>
+           <center><span id="mensaje" class="help-block"></span></center>
+         </div>
+
               <div class="form-group col-xs-6">
                 <label>Denominación<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
                 <input type="text" name="denominacion" id="" value="{{ old('denominacion') }}" class="form-control" placeholder="Seguros Caracas C.A" onkeyup="this.value=this.value.toUpperCase()" required="true">
@@ -89,35 +97,35 @@
  }  
 </script> 
 
-<script>
+<!-- <script type="text/javascript">
   $(function() {
     $('#rif').autocomplete({
-      source: '/vehiculos/getjson'
+      source: '/Zogan_Systems/public/vehiculos/edit'
     })
   })
-
-
   function buscar_asegu() {
     let rif = $('#rif').val()
-    if (rif == null) {
-      $('#rif').focus()
-      alert('Debe introducir la rif')
+    if (rif==null){
+      $('rif').focus()
+      alert('Rif no registrado')
+    }
+    else if (rif == false) {
+      $('rif').focus()
+      alert('Introduzca el rif por favor')
     }
     $.ajax({
-      url: '/aseguradoras/search/' + rif,
+      url: '/Zogan_Systems/public/vehiculos/getAseguradora/' + rif,
       type: 'GET',
       dataType: 'JSON',
       success: function(data) {
-       $('[name="rif-entrada"]').val(data.rif)
-       $('[name="id_prov"]').val(data.id_prov)
-       $('[name="razon_social"]').val(data.razon_social)
-       $('[name="telefono"]').val(data.telefono)
-       $('[name="direccion"]').val(data.direccion)
-       console.log(data)
-     },
-     error: function(e) {
-      console.log(e)
-    }
-  })
+                alert("Rif");
+
+      },
+      error: function (e, status) {
+
+            if (e.status == 500)
+                alert("Rif no registrado");
+        }
+    })
   }
-</script>
+</script> -->

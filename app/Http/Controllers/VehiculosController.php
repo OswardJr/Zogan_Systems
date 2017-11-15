@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class VehiculosController extends Controller {
 	public function __construct() {
@@ -27,12 +28,6 @@ class VehiculosController extends Controller {
 		return view('vehiculos/create');
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @return \Illuminate\Http\Response
-	 */
 	public function store(Request $request) {
 		$vehiculos = new Vehiculos();
 		$vehiculos->placa = $request->placa;
@@ -64,12 +59,6 @@ class VehiculosController extends Controller {
 		]);
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
 	public function show(Request $request) {
 		$return_arr = array();
 		$autoPlaca = $request->term;
@@ -84,33 +73,36 @@ class VehiculosController extends Controller {
 		return response()->json($return_arr);
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
-	public function edit($id) {
-		//
+	public function edit(Request $request) {
+		$return_arr = array();
+		$RifOne = $request->term;
+		$asegus = DB::table('aseguradoras')
+			->select('id','rif')
+			->where('rif', 'like', '' . $RifOne . '%')
+			->get();
+
+		foreach ($asegus as $asegu) {
+			$return_arr[] = $asegu->rif;
+		}
+		return response()->json($return_arr);
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  \Illuminate\Http\Request  $request
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
+	public function getAseguradora($rif) {
+
+		$asegu = DB::table('aseguradoras')
+			->select('rif')
+			->where('rif', $rif)
+			->get();
+
+		return response()->json([
+			'asegu' => $asegu,
+		]);
+	}	
+
 	public function update(Request $request, $id) {
 		//
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return \Illuminate\Http\Response
-	 */
 	public function destroy($id) {
 		//
 	}

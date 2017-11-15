@@ -98,7 +98,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <ul class="dropdown-menu">
                   <li class="external">
                     <h3>
-                      <a href="{{url('home_ruta')}}"><span class="bold"><?php echo $dash; ?> Órdenes</span> pendientes.
+                      <a href="{{url('home_ruta')}}"><span class="bold"><?php echo $dash; ?> Órdenes</span> Pendientes.
                       </a></h3>
                     </li>
                     <li>

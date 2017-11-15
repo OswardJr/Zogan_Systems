@@ -63,7 +63,12 @@ class AnalistasController extends Controller
         $aseguAnalis->aseguradora_id = $anali;
         $aseguAnalis->save();
 
-      return redirect('/listanalis')->with('message','El analista ha sido registrado de manera exitosamente!');
+        $notification = array(
+            'message' => 'Well done.', 
+            'alert-type' => 'success'
+        );
+
+      return redirect('/listanalis')->with($notification);
 
     }
 

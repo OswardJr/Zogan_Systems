@@ -136,12 +136,21 @@ Route::get('/home_repuestos', 'RepuestosController@index');
 
 Route::get('/ruta', 'ReparacionesController@index');
 
-// ruta para vehiculos
 
+// rutas para las busquedas
 Route::get('vehiculos/getVehiculo/{id}', 'VehiculosController@getVehiculo');
 
-Route::get('analistas/getAnalista/{id}', 'AnalistasController@getAnalista');
+Route::get('vehiculos/getAseguradora/{id}', 'VehiculosController@getAseguradora');
 
+// pdf
 Route::get('pdf/invoice', 'ReparacionesController@invoice');
 
+Route::get('htmltopdfview',array('as'=>'htmltopdfview','uses'=>'ReparacionesController@htmltopdfview'));
+
+Route::get('/downloadPDF/{id}','ReparacionesController@downloadPDF');
+
 auth::routes();
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
