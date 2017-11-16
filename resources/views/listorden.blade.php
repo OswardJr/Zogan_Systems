@@ -47,7 +47,7 @@
                     <td>{{ ($repar->status) }}</td>
                     <td>{{ ($repar->nombre) }}</td>
                     <td>                      
-                      <a href="{{action('ReparacionesController@downloadPDF', $repar->id)}}" class="btn btn-success" data-toggle="tooltip" title="Descargar"><i class="fa fa-download"></i>
+                      <a href="{{action('ReparacionesController@downloadPDF', $repar->id)}}" class="btn btn-success" target="_blank" data-toggle="tooltip" title="Descargar"><i class="fa fa-download"></i>
                        </a>
                     </td> 
                   </tr>

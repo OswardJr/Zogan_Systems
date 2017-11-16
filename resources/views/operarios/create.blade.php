@@ -37,8 +37,7 @@
                   <div class="input-group input-group-sm">
                     <input type="text" name="cedula" id="cedula" class="form-control " pattern="^([JVEG]{1})-([0-9]{8})$" title="El formato debe ser V-12345678" value="{{ old('cedula') }}" placeholder="V-12345678" onkeyup="this.value=this.value.toUpperCase()" required="true">
                     <span class="input-group-btn">
-                      <button  data-toggle="tooltip" title="Consultar" id="cedula" class="btn btn-buscar btn-flat fa fa-search
-                      " type="button" name="btn-search"></button>
+                      <button  data-toggle="tooltip" title="Consultar" id="cedula" class="btn btn-buscar btn-flat fa fa-search" onclick="buscar_operario()" type="button" name="btn-search"></button>
                     </span>
                   </div>
                 </div> 
@@ -100,36 +99,6 @@
 </section><!-- /.content -->
 </div>
 
-
-<script type="text/javascript">
-  $(function(){
-    $("#crear").submit(function(e){
-      var fields = $(this).serialize();
-      $.post("{{ url('/operarios') }}",fields, function(data){
-
-        if(data.valid !== undefined)
-        {
-          $("#result").html("formulario enviado");
-          $("#crear")[0].reset();
-
-          $("#errores").html('');
-        }
-        else{
-          $("#errores").html('');
-
-          if(data.cedula !== undefined)
-          {
-            $("#errores").html(data.cedula);
-          }
-        }
-
-      });
-
-      return false;
-    });
-  });
-</script>
-
 @include('layouts.footer')         
 
 <script>
@@ -153,4 +122,35 @@
    }
    if (success ==true) {formulario.submit();}
  }  
+</script>
+
+<script type="text/javascript">
+  $(function() {
+    $('#cedula').autocomplete({
+      source: '/Zogan_Systems/public/operarios/on'
+    })
+  })
+  function buscar_operario() {
+    let cedula = $('#cedula').val()
+    if (cedula==null){
+      $('cedula').focus()
+      alert('Cédula no registrada')
+    }
+    else if (cedula == false) {
+      $('cedula').focus()
+      alert('Introduzca el número de cédula por favor')
+    }
+    $.ajax({
+      url: '/Zogan_Systems/public/operarios/getOperario/' + cedula,
+      type: 'GET',
+      dataType: 'JSON',
+      success: function(data) {
+          if (!data['ope'][0]) {
+            alert('La cédula no existe')          
+          }else {
+            alert('La cédula ya se encuentra registrada')
+          }
+      },
+    })
+  }
 </script>

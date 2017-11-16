@@ -105,29 +105,4 @@ class AseguradorasController extends Controller
    //   return response()->json($return_arr);
    // }   
 
-  public function getAseguradora($rif) {
-
-    $asegu = DB::table('aseguradoras')
-      ->select('id', 'rif')
-      ->where('rif', $rif)
-      ->get();
-
-    return response()->json([
-      'asegu' => $asegu,
-    ]);
-  }
-
-  public function on(Request $request) {
-    $return_arr = array();
-    $aseguRif = $request->term;
-    $aseguss = DB::table('aseguradoras')
-      ->select('rif')
-      ->where('rif', 'like', '' . $aseguRif . '%')
-      ->get();
-
-    foreach ($aseguss as $asegu) {
-      $return_arr[] = $asegu->rif;
-    }
-    return response()->json($return_arr);
-  }   
 }

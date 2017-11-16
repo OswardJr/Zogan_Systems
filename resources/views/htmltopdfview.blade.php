@@ -4,7 +4,7 @@
 <body>
 <header>
 
-    <img src="{{URL::asset('http://localhost/Zogan_Systems/public/img/gandocam.png')}}" class="img-responsive" style="float:right;" alt="Image"/>
+    <img src="{{URL::asset('http://localhost/Zogan_Systems/public/img/gandocam.png')}}" style="margin-left:340px;width: 90px;height: 40px"/>
 
 <style>
 @page {
@@ -135,15 +135,22 @@ table.collapse {
 table.collapse td {
   border: 1px solid black;
 }
+
+h3 {
+  border-top: 1px solid  #5D6975;
+  border-bottom: 1px solid  #5D6975;
+  color: #5D6975;
+  font-size: 2.4em;
+  line-height: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  margin: 0 0 20px 0;
+  background: url("http://localhost/Zogan_Systems/public/img/dimension.png");
+}
   
 </style>
   </header>
-  <hr>
-  <div id="linea">
     <h3>Orden de Reparación</h3>
-  </div>
-
-    <br/>
 
     <table class="collapse">
       <tr>

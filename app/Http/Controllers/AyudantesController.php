@@ -98,4 +98,29 @@ class AyudantesController extends Controller
 
         return redirect()->route('ayudantes.index');
     }
+public function getAyudante($cedula) {
+
+    $ayu = DB::table('ayudantes')
+      ->select('id', 'cedula')
+      ->where('cedula', $cedula)
+      ->get();
+
+    return response()->json([
+      'ayu' => $ayu,
+    ]);
+  }
+
+  public function on(Request $request) {
+    $return_arr = array();
+    $ayudanteCedula = $request->term;
+    $ayudantes = DB::table('ayudantes')
+      ->select('cedula')
+      ->where('cedula', 'like', '' . $ayudanteCedula . '%')
+      ->get();
+
+    foreach ($ayudantes as $ayu) {
+      $return_arr[] = $ayu->cedula;
+    }
+    return response()->json($return_arr);
+  }     
 }

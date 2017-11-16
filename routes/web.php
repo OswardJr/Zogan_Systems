@@ -137,10 +137,19 @@ Route::get('/home_repuestos', 'RepuestosController@index');
 Route::get('/ruta', 'ReparacionesController@index');
 
 
-// rutas para las busquedas
+// rutas para las consultas por ajax
 Route::get('vehiculos/getVehiculo/{id}', 'VehiculosController@getVehiculo');
 
 Route::get('vehiculos/getAseguradora/{id}', 'VehiculosController@getAseguradora');
+
+Route::get('analistas/getAnalista/{id}', 'AnalistasController@getAnalista');
+
+Route::get('corredores/getCorredor/{id}', 'CorredoresController@getCorredor');
+
+Route::get('operarios/getOperario/{id}', 'OperariosController@getOperario');
+
+Route::get('ayudantes/getAyudante/{id}', 'AyudantesController@getAyudante');
+
 
 // pdf
 Route::get('pdf/invoice', 'ReparacionesController@invoice');
@@ -148,6 +157,8 @@ Route::get('pdf/invoice', 'ReparacionesController@invoice');
 Route::get('htmltopdfview',array('as'=>'htmltopdfview','uses'=>'ReparacionesController@htmltopdfview'));
 
 Route::get('/downloadPDF/{id}','ReparacionesController@downloadPDF');
+
+
 
 auth::routes();
 

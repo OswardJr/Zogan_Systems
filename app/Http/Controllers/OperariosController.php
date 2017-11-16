@@ -103,4 +103,30 @@ class OperariosController extends Controller
 
         return redirect()->route('operarios.index');
     }
+
+public function getOperario($cedula) {
+
+    $ope = DB::table('operarios')
+      ->select('id', 'cedula')
+      ->where('cedula', $cedula)
+      ->get();
+
+    return response()->json([
+      'ope' => $ope,
+    ]);
+  }
+
+  public function on(Request $request) {
+    $return_arr = array();
+    $opeCedula = $request->term;
+    $opes = DB::table('operarios')
+      ->select('cedula')
+      ->where('cedula', 'like', '' . $opeCedula . '%')
+      ->get();
+
+    foreach ($opes as $ope) {
+      $return_arr[] = $ope->cedula;
+    }
+    return response()->json($return_arr);
+  }    
 }

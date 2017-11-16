@@ -35,8 +35,8 @@
                     <th>Modelo</th>
                     <th>Propietario</th>
                     <th>Fecha de la Cita</th>
-                    <th>Archivos</th>
-                  </tr>
+<!--                     <th>Archivos</th>
+ -->                  </tr>
                 </thead>
                 <tbody class="buscar">
                   @foreach ($citas as $repar)
@@ -46,11 +46,11 @@
                     <td>{{ $repar->modelo}}</td>
                     <td>{{ $repar->nombre_completo}}</td>
                     <td>{{ ($repar->selec_dia) }}</td>
-                    <td>
+<!--                     <td>
                       <a href="" class="btn btn-success" data-toggle="tooltip" title="Descargar"><i class="fa fa-download"></i>
 
                       </a>
-                    </td> 
+                    </td> --> 
                   </tr>
                   @endforeach
 

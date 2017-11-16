@@ -34,9 +34,9 @@
                <div class="form-group col-xs-6 " style="margin-bottom: 0px; height: 60px">
                 <label>Rif<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                 <div class="input-group input-group-sm">
-                  <input type="text" name="rif" id="" class="form-control " pattern="^([JVEG]{1})-([0-9]{8})-([0-9]{1})$" title="El formato debe ser J-12345678-9" value="{{ old('rif') }}" placeholder="J-12345678-9" onkeyup="this.value=this.value.toUpperCase()" value="" required="true">
+                  <input type="text" name="rif" id="rif" class="form-control " pattern="^([JVEG]{1})-([0-9]{8})-([0-9]{1})$" title="El formato debe ser J-12345678-9" value="{{ old('rif') }}" placeholder="J-12345678-9" onkeyup="this.value=this.value.toUpperCase()" value="" required="true">
                   <span class="input-group-btn">
-                    <button  data-toggle="tooltip" onclick='search_analista()' title="Consultar" class="btn btn-buscar btn-flat fa fa-search
+                    <button  data-toggle="tooltip" onclick='buscar_analis()' title="Consultar" class="btn btn-buscar btn-flat fa fa-search
                     " type="button" name="btn-search"></button>
                   </span>
                 </div>
@@ -92,39 +92,6 @@
 
 @include('layouts.footer')   
 
-<script type="text/javascript">
-    $(function() {
-    $('#rif').autocomplete({
-      source: '/anal/mostrar'
-    })
-  })
-  function search_analista() {
-    let rif = $('#rif').val()
-    if (rif==''){
-      $('rif').focus()
-      alert('rif no registrada')        
-    }
-    else if (rif == false) {
-      $('rif').focus()
-      alert('Introduzca la digitación de la rif por favor')
-    }
-    $.ajax({
-      url: '/analistas/getAnalista/' + rif,
-      type: 'GET',
-      dataType: 'JSON',
-      success: function(data) {
-           const thisData = data['analista'][0]
-
-        $('#rif').val(thisData.rif)
-     return alert('Analista ya regis')
-      },
-      error: function(e) {
-        console.log(e)
-      }
-    })
-  }
-</script>
-
 <script>
   window.onload = function () {
     document.crear.focus();
@@ -147,3 +114,34 @@
    if (success ==true) {formulario.submit();}
  }  
 </script>  
+
+<script type="text/javascript">
+  $(function() {
+    $('#rif').autocomplete({
+      source: '/Zogan_Systems/public/analistas/on'
+    })
+  })
+  function buscar_analis() {
+    let rif = $('#rif').val()
+    if (rif==null){
+      $('rif').focus()
+      alert('rif no registrado')
+    }
+    else if (rif == false) {
+      $('rif').focus()
+      alert('Introduzca el rif por favor')
+    }
+    $.ajax({
+      url: '/Zogan_Systems/public/analistas/getAnalista/' + rif,
+      type: 'GET',
+      dataType: 'JSON',
+      success: function(data) {
+          if (!data['anali'][0]) {
+            alert('El Rif no existe')          
+          }else {
+            alert('El Rif ya se encuentra registrado')
+          }
+      },
+    })
+  }
+</script>

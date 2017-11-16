@@ -150,4 +150,32 @@ class CorredoresController extends Controller
 
         return redirect()->route('corredores.index');
     }
+
+public function getCorredor($cedula) {
+
+    $corre = DB::table('corredores')
+      ->select('id', 'cedula')
+      ->where('cedula', $cedula)
+      ->get();
+
+    return response()->json([
+      'corre' => $corre,
+    ]);
+  }
+
+  public function on(Request $request) {
+    $return_arr = array();
+    $correCedula = $request->term;
+    $corres = DB::table('corredores')
+      ->select('cedula')
+      ->where('cedula', 'like', '' . $correCedula . '%')
+      ->get();
+
+    foreach ($corres as $corre) {
+      $return_arr[] = $corre->cedula;
+    }
+    return response()->json($return_arr);
+  }
+
+
 }

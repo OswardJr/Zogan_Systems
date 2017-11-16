@@ -146,31 +146,31 @@ class AnalistasController extends Controller
 
         return redirect()->route('analistas.index');
     }
-    public function getAnalista ($rif){
 
-      $analista = DB::table('analistas')
-      ->select('id','rif')
+public function getAnalista($rif) {
+
+    $anali = DB::table('analistas')
+      ->select('id', 'rif')
       ->where('rif', $rif)
       ->get();
 
-      return response()->json([
-        'analista' => $analista
-        ]);
-    }
+    return response()->json([
+      'anali' => $anali,
+    ]);
+  }
 
-    public function mostrar(Request $request)
-    {
-      $return_arr = array();
-      $analistaRif = $request->term;
-      $analistas = DB::table('analistas')
+  public function on(Request $request) {
+    $return_arr = array();
+    $analisRif = $request->term;
+    $analis = DB::table('analistas')
       ->select('rif')
-      ->where('rif', 'like', ''.$analistaRif.'%')
+      ->where('rif', 'like', '' . $analisRif . '%')
       ->get();
 
-      foreach ($analistas as $analista) {
-       $return_arr[] = $analista->rif;
-     }
-     return response()->json($return_arr);
-   }
+    foreach ($analis as $anali) {
+      $return_arr[] = $anali->rif;
+    }
+    return response()->json($return_arr);
+  }
 
 }

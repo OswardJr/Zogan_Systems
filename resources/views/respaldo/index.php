@@ -43,7 +43,7 @@ $frm ='<h1>'. $bk->langTxt('msg_bmk') .'</h1>
             </div>
         </div>
         <div style="margin-bottom: 15px; margin-right: 10px" class="input-group">
-            <div class="col-xs-6" style=" left: 100%;">
+            <div class="col-md-offset-1 col-md-6" style=" left: 100%;">
                 <input type="submit" class="btn btn-info" value="'. $bk->langTxt('msg_send') .'">
             </div>
         </div>

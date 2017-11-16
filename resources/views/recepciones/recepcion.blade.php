@@ -20,19 +20,19 @@
           <hr>      
       <div class="col-md-12">
                   <a class="btn btn-default btn-teal btn-responsive" style="float: right;" href="{{ url('/ruta') }}" title="Regresar"><i class="fa fa-mail-reply-all fa-lg"></i></a><br><br><br>
-<!--         <div class="col-md-3">
+        <div class="col-md-3">
           <div class="panel-body ">
             <div class="checkbox">
-              <label><input type="checkbox" name="tipo[]" value="SI">Aseguradora</label>
+              <label><input type="checkbox" name="" value="SI">Aseguradora</label>
             </div>
             <div class="checkbox">
-              <label><input type="checkbox" name="tipo[]" value="SI">Particular</label>
+              <label><input type="checkbox" name="" value="SI">Particular</label>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
-<!--       <hr style="width:100%;">
- -->      <div class="row">
+      <hr style="width:100%;">
+      <div class="row">
         <div class="col-md-12" style="padding-left: 0px;">
           <div class="col-md-12">
             <div class="panel panel-primary ">
@@ -105,134 +105,134 @@
             </center>
           </div>
           <div class="panel-body">
-<!--               <a href="javascript:seleccionar_todo()">Marcar todos</a> | 
+              <a href="javascript:seleccionar_todo()">Marcar todos</a> | 
               <a href="javascript:deseleccionar_todo()">Marcar ninguno</a><br>
 
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="A" value="SI">Aire acondicionado</label>
+                <label><input type="checkbox" name="" value="SI">Aire acondicionado</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="B" value="SI">Alfombras</label>
+                <label><input type="checkbox" name="" value="SI">Alfombras</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="C" value="SI">Tablero</label>
+                <label><input type="checkbox" name="" value="SI">Tablero</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="D" value="SI">Asientos</label>
+                <label><input type="checkbox" name="" value="SI">Asientos</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="E" value="SI">Tapiceria</label>
+                <label><input type="checkbox" name="" value="SI">Tapiceria</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="F" value="SI">Radio / Reproductor</label>
+                <label><input type="checkbox" name="" value="SI">Radio / Reproductor</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="G" value="SI">Encendedor</label>
+                <label><input type="checkbox" name="" value="SI">Encendedor</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="H" value="SI">Techo interno</label>
+                <label><input type="checkbox" name="" value="SI">Techo interno</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="I" value="SI">Parabrisas delantero</label>
+                <label><input type="checkbox" name="" value="SI">Parabrisas delantero</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="J" value="SI">Parabrisas trasero</label>
+                <label><input type="checkbox" name="" value="SI">Parabrisas trasero</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="K" value="SI">vidrio puerta izquierda</label>
+                <label><input type="checkbox" name="" value="SI">vidrio puerta izquierda</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="L" value="SI">vidrio puerta derecha</label>
+                <label><input type="checkbox" name="" value="SI">vidrio puerta derecha</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="M" value="SI">Retrovisor derecho</label>
+                <label><input type="checkbox" name="" value="SI">Retrovisor derecho</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="N" value="SI">Retrovisor izquierdo</label>
+                <label><input type="checkbox" name="" value="SI">Retrovisor izquierdo</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="Ñ" value="SI">Faro izquierdo</label>
+                <label><input type="checkbox" name="" value="SI">Faro izquierdo</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="O" value="SI">Faro derecho</label>
+                <label><input type="checkbox" name="" value="SI">Faro derecho</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="P" value="SI">Manilla izquierda</label>
+                <label><input type="checkbox" name="" value="SI">Manilla izquierda</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="Q" value="SI">Manilla derecha</label>
+                <label><input type="checkbox" name="" value="SI">Manilla derecha</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="R" value="SI">Stop izquierdo</label>
+                <label><input type="checkbox" name="" value="SI">Stop izquierdo</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="S" value="SI">Stop derecho</label>
+                <label><input type="checkbox" name="" value="SI">Stop derecho</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="T" value="SI">Asientos</label>
+                <label><input type="checkbox" name="" value="SI">Asientos</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="U" value="SI">Cocuyo izquierdo</label>
+                <label><input type="checkbox" name="" value="SI">Cocuyo izquierdo</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="V" value="SI">Cocuyo derecho</label>
+                <label><input type="checkbox" name="" value="SI">Cocuyo derecho</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="W" value="SI">Emblema</label>
+                <label><input type="checkbox" name="" value="SI">Emblema</label>
               </div>
             </div>
             <div class="col-md-4">
               <div class="checkbox">
-                <label><input type="checkbox" name="X" value="SI">Tapa Gasoil</label>
+                <label><input type="checkbox" name="" value="SI">Tapa Gasoil</label>
               </div>
-            </div> --><br>
+            </div><br>
             <div class="col-md-12">
                 <label for="comment">Informe de inspeccion</label>
                 <textarea class="form-control" name="observacion" rows="5" id="comment"></textarea>
