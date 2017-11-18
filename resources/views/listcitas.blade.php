@@ -35,6 +35,8 @@
                     <th>Modelo</th>
                     <th>Propietario</th>
                     <th>Fecha de la Cita</th>
+                    <th>Estado</th>
+                    <th>Acción</th>
                   </tr>
                 </thead>
                 <tbody class="buscar">
@@ -45,6 +47,14 @@
                     <td>{{ $repar->modelo}}</td>
                     <td>{{ $repar->nombre_completo}}</td>
                     <td>{{ ($repar->selec_dia) }}</td>
+                    <td>{{ ($repar->act) }}</td>
+                    <td>
+                      <form action="{{ route('citas.destroy', $repar->id) }}" method="post">
+                        <input name="_method" type="hidden" value="DELETE">
+                          <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <button type="submit" onclick="if(!confirm('¿Desea procesar la cita?'))event.preventDefault();" style="background-color: #7c69cd; color: white" class="btn btn-lpurple fr" data-toggle="tooltip" title="Procesar Cita"><i class="fa fa-refresh"></i></button>
+                      </form>
+                    </td> 
                   </tr>
                   @endforeach
 

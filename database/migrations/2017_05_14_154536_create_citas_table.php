@@ -19,6 +19,7 @@ class CreateCitasTable extends Migration
             $table->integer('vehiculo_id')->unsigned();
             $table->integer('propietario_id')->unsigned();
             $table->date('selec_dia');
+            $table->enum('act', ['ASIGNADA', 'VENCIDA']);                    
             $table->timestamps();
 
             $table->foreign('reparacion_id')->references('id')->on('reparaciones')->onDelete('cascade'); 

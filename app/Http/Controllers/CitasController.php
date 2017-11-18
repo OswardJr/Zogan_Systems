@@ -28,7 +28,9 @@ class CitasController extends Controller {
               inner JOIN propietarios as e
               ON i.propietario_id = e.id
               INNER JOIN vehiculos
-              ON i.vehiculo_id = vehiculos.id');
+              ON i.vehiculo_id = vehiculos.id
+              WHERE
+              i.act = "ASIGNADA"');
 
       return view('/listcitas', ['citas' => $citas]);
 	}
@@ -59,6 +61,7 @@ class CitasController extends Controller {
 		$cita->vehiculo_id = $request->orden_id[0];
 		$cita->propietario_id = $request->orden_id[0];
 		$cita->selec_dia = $request->fecha;
+        $cita->act = 'ASIGNADA';		
 		$cita->save();
 
 		return redirect('/citas')->with('message', 'La cita ha sido guardada exitosamente!');
@@ -101,7 +104,13 @@ class CitasController extends Controller {
 	 * @param  int  $id
 	 * @return \Illuminate\Http\Response
 	 */
-	public function destroy($id) {
-		//
-	}
+    public function destroy($id)
+    {
+        $cita = DB::table('citas')
+            ->where('id', '=', $id)
+            ->where('act', '=', 'ASIGNADA')
+            ->update(['act' => 'VENCIDA']);
+
+        return redirect()->route('citas.index')->with('message', 'Cita gestionada exitosamente!');
+    }
 }
