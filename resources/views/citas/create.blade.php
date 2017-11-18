@@ -137,7 +137,7 @@
       <div class="form-group col-lg-offset-4 col-lg-4" id="sandbox-container">
         <label for="fecha_nac">Seleccione la Fecha</label>
         <div class="input-group date">
-          <input type="date" class="form-control" name="fecha" id="fecha" placeholder="DD/MM/AAAA" required="required">
+          <input type="date" class="form-control" name="fecha" id="fecha" value="{{ date('Y-m-d') }}"  required="required">
           <span class="input-group-addon">
             <i class="glyphicon glyphicon-th"></i>
           </span>

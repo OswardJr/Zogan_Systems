@@ -15,7 +15,7 @@
     <section class="content">
       <h3>Listado de Órdenes de Reparación</h3>
       <div class="text-right nuevo-veh">
-              <a href="{{ url('/reparaciones/create') }}" title="Registrar Corredor de Seguro" class="btn btn-nuevo"><span class="fa fa-plus"></span></a>
+              <a href="{{ url('/reparaciones/create') }}" title="Nueva Orden de Reparación" class="btn btn-nuevo"><span class="fa fa-plus"></span></a>
             </div>
       <hr>
       <div class="panel panel-primary">

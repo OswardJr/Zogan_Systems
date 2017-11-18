@@ -32,7 +32,7 @@
 
                                     <div class="form-group col-xs-6 " style="margin-bottom: 0px; height: 60px">
                                       <label>Codigo<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                        <input type="text" name="codigo" id="" class="form-control " title="El formato debe ser J-12345678-9"  placeholder="A0001" onkeyup="this.value=this.value.toUpperCase()" value="{{ $repuestos->codigo }}" required="true" >
+                                        <input type="text" name="codigo" id="" class="form-control " title="El formato debe ser J-12345678-9"  placeholder="A0001" onkeyup="this.value=this.value.toUpperCase()" value="{{ $repuestos->codigo }}" required="true" readonly>
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Descripción<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>

@@ -41,7 +41,7 @@
                                       <div class="form-group @if ($errors->has('cedula')) has-error @endif">                
                                       <label>Cédula<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                                       <div class="input-group input-group-sm">
-                                        <input type="text" name="cedula" value="{{ $ayudantes->cedula }}" id="" class="form-control " pattern="^([JVEG]{1})-([0-9]{8})$" title="El formato debe ser V-12345678"  placeholder="V12345678" onkeyup="this.value=this.value.toUpperCase()" required="true" >
+                                        <input type="text" name="cedula" value="{{ $ayudantes->cedula }}" id="" class="form-control " pattern="^([JVEG]{1})-([0-9]{8})$" title="El formato debe ser V-12345678"  placeholder="V12345678" onkeyup="this.value=this.value.toUpperCase()" required="true" readonly>
                                         <span class="input-group-btn">
                                           <button  data-toggle="tooltip" title="Consultar" class="btn btn-buscar btn-flat fa fa-search
                                           " type="button" onClick="buscar() name="btn-search"></button>

@@ -17,9 +17,9 @@
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
                                 @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
                                 @endif
                             </div>
                         </div>
@@ -31,9 +31,9 @@
                                 <input id="password" type="password" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
                                 @endif
                             </div>
                         </div>
@@ -41,28 +41,18 @@
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                   Entrar
-                                </button>
+                                 Entrar
+                             </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    ¿Recuperar Contraseña?
-                                </a>
-                            </div>
+                             <a class="btn btn-link" href="{{ route('password.request') }}">
+                                ¿Recuperar Contraseña?
+                            </a>
                         </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-7">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Recordar
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

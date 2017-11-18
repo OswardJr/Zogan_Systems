@@ -76,9 +76,9 @@ class ReparacionesController extends Controller
 
     public function create()
     {
-        $aseguradoras = DB::table('aseguradoras')->get();
+        $aseguradoras = DB::table('aseguradoras')->where('status','=', 'activo')->get();
 
-        $analistas = DB::table('analistas')->get();
+        $analistas = DB::table('analistas')->where('status','=', 'activo')->get();
 
         $latoneros = DB::table('operarios')->where('tipo','=', 'latonero')->where('status','=','activo')->get();
 

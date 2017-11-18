@@ -157,11 +157,3 @@ Route::get('pdf/invoice', 'ReparacionesController@invoice');
 Route::get('htmltopdfview',array('as'=>'htmltopdfview','uses'=>'ReparacionesController@htmltopdfview'));
 
 Route::get('/downloadPDF/{id}','ReparacionesController@downloadPDF');
-
-
-
-auth::routes();
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

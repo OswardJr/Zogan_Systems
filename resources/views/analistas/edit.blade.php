@@ -23,7 +23,7 @@
                                     <div class="form-group col-xs-6 " style="margin-bottom: 0px; height: 60px">
                                       <label>Cédula ó Rif<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                                       <div class="input-group input-group-sm">
-                                        <input type="text" name="rif" id="" class="form-control " pattern="^([JVEG]{1})-([0-9]{8})-([0-9]{1})$" title="El formato debe ser J-12345678-9"  placeholder="J-12345678-9" onkeyup="this.value=this.value.toUpperCase()" value="{{ $analistas->rif }}" required="true" >
+                                        <input type="text" name="rif" id="" class="form-control " pattern="^([JVEG]{1})-([0-9]{8})-([0-9]{1})$" title="El formato debe ser J-12345678-9"  placeholder="J-12345678-9" onkeyup="this.value=this.value.toUpperCase()" value="{{ $analistas->rif }}" required="true" readonly>
                                         <span class="input-group-btn">
                                           <button  data-toggle="tooltip" title="Consultar" class="btn btn-buscar btn-flat fa fa-search
                                           " type="button" name="btn-search"></button>
