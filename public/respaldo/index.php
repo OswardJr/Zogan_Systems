@@ -17,7 +17,7 @@ $frm = '<body style="background: white;">'. '<h1>'. $bk->langTxt('msg_bmk') .'</
 <div class="col-xs-12">
   <div class="col-xs-6 col-xs-offset-2" style="top: 130px;">
     <form action="" method="post" id="">
-      <div class="panel panel-primary" >
+      <div class="panel panel-default" >
         <div class="panel-heading">
           <center><div class="panel-title"><strong>Respaldo de Información</strong></div></center>
       </div>

@@ -52,7 +52,11 @@ class backupmysql {
 
       for($i=0; $i<$nr; $i++) {
         if($i >0 && ($i %12) ==0) $re['f'] .='</div><div class="ch_tables">';  //close Div and open the next
-        $re['f'] .= '<label><input type="checkbox" name="tables[]" value="'. $tables[$i] .'">'. $tables[$i] .'</label>';
+        $re['f'] .= '
+      <div class="col-md-12">
+        <p style="padding: 0px 60px 0px 60px;"><input type="checkbox" name="tables[]" value="'. $tables[$i] .'">'. $tables[$i] .'</p>
+      </div>
+        ';
       }
       $re['f'] .='</div><br>';  //close last .ch_tables
       $re['f'] = str_ireplace('<div class="ch_tables"></div>', '', $re['f']) .'<input type="submit" value="'. $this->langTxt('msg_backup') .'"></form>';

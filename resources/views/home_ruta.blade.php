@@ -34,47 +34,57 @@
                     <a class="btn btn-warning btn-xs disabled" title="Recepción del Vehículo" role="button"><i class="fa fa-clipboard fa-lg"></i>
                     </a>
                     <a href="{{ url('revision') }}/{{ $auto->vehiculo_id }}" class="btn btn-success btn-xs" title="Actualizaciones del Vehículo"><i class="fa fa-camera fa-lg"></i>
-                    </a>                    
+                    </a>                 
+                    <a href="#" class="btn btn-success disabled" target="_blank" data-toggle="tooltip" role="button" title="Descargar"><i class="fa fa-download"></i>
+                    </a>                       
                     @elseif ($auto->status == "DESARMADO")
                     <a class="btn btn-warning btn-xs disabled" title="Recepción del Vehículo" role="button"><i class="fa fa-clipboard fa-lg"></i>
                     </a>
                     <a href="{{ url('revision') }}/{{ $auto->vehiculo_id }}" class="btn btn-success btn-xs" title="Actualizaciones del Vehículo"><i class="fa fa-camera fa-lg"></i>
                     </a>
+                    <a href="#" class="btn btn-success disabled" target="_blank" data-toggle="tooltip" role="button" title="Descargar"><i class="fa fa-download"></i>                    
                     @elseif ($auto->status == "LATONERIA")
                     <a class="btn btn-warning btn-xs disabled" title="Recepción del Vehículo" role="button"><i class="fa fa-clipboard fa-lg"></i>
                     </a>
                     <a href="{{ url('revision') }}/{{ $auto->vehiculo_id }}" class="btn btn-success btn-xs" title="Actualizaciones del Vehículo"><i class="fa fa-camera fa-lg"></i>
                     </a>
+                    <a href="#" class="btn btn-success disabled" target="_blank" data-toggle="tooltip" role="button" title="Descargar"><i class="fa fa-download"></i>                    
                     @elseif ($auto->status == "PINTURA")
                     <a class="btn btn-warning btn-xs disabled" title="Recepción del Vehículo" role="button"><i class="fa fa-clipboard fa-lg"></i>
                     </a>
                     <a href="{{ url('revision') }}/{{ $auto->vehiculo_id }}" class="btn btn-success btn-xs" title="Actualizaciones del Vehículo"><i class="fa fa-camera fa-lg"></i>
                     </a>
+                    <a href="#" class="btn btn-success disabled" target="_blank" data-toggle="tooltip" role="button" title="Descargar"><i class="fa fa-download"></i>                    
                     @elseif ($auto->status == "PREPARACION")
                     <a class="btn btn-warning btn-xs disabled" title="Recepción del Vehículo" role="button"><i class="fa fa-clipboard fa-lg"></i>
                     </a>
                     <a href="{{ url('revision') }}/{{ $auto->vehiculo_id }}" class="btn btn-success btn-xs" title="Actualizaciones del Vehículo"><i class="fa fa-camera fa-lg"></i>
                     </a>
+                    <a href="#" class="btn btn-success disabled" target="_blank" data-toggle="tooltip" role="button" title="Descargar"><i class="fa fa-download"></i>                    
                     @elseif ($auto->status == "PULITURA")
                     <a class="btn btn-warning btn-xs disabled" title="Recepción del Vehículo" role="button"><i class="fa fa-clipboard fa-lg"></i>
                     </a>
                     <a href="{{ url('revision') }}/{{ $auto->vehiculo_id }}" class="btn btn-success btn-xs" title="Actualizaciones del Vehículo"><i class="fa fa-camera fa-lg"></i>
                     </a>
+                    <a href="#" class="btn btn-success disabled" target="_blank" data-toggle="tooltip" role="button" title="Descargar"><i class="fa fa-download"></i>                    
                     @elseif ($auto->status == "LIMPIEZA")
                     <a class="btn btn-warning btn-xs disabled" title="Recepción del Vehículo" role="button"><i class="fa fa-clipboard fa-lg"></i>
                     </a>
                     <a href="{{ url('revision') }}/{{ $auto->vehiculo_id }}" class="btn btn-success btn-xs" title="Actualizaciones del Vehículo"><i class="fa fa-camera fa-lg"></i>
                     </a>
+                    <a href="#" class="btn btn-success disabled" target="_blank" data-toggle="tooltip" role="button" title="Descargar"><i class="fa fa-download"></i>                    
                     @elseif ($auto->status == "COMPLETO")
                     <a class="btn btn-warning btn-xs disabled" title="Recepción del Vehículo" role="button"><i class="fa fa-clipboard fa-lg"></i>
                     </a>
                     <a class="btn btn-success btn-xs disabled" title="Agregar revision al vehículo" role="button"><i class="fa fa-camera fa-lg"></i>
                     </a>
+                    <a href="#" class="btn btn-success" target="_blank" data-toggle="tooltip" title="Descargar"><i class="fa fa-download"></i>                    
                     @else
                     <a href="{{ url('recepcion') }}/{{ $auto->vehiculo_id }}" class="btn btn-warning btn-xs" title="Recepción del Vehículo"><i class="fa fa-clipboard fa-lg"></i>
                     </a>
                     <a class="btn btn-success btn-xs disabled" title="Agregar revision al vehículo" role="button"><i class="fa fa-camera fa-lg"></i>
-                    </a>                   
+                    </a>
+                    <a href="#" class="btn btn-success disabled" target="_blank" data-toggle="tooltip" role="button" title="Descargar"><i class="fa fa-download"></i>                                       
                     @endif
                   </td>
                 </tr>

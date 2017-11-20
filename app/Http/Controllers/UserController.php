@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Hash;
+use Auth;
 
 class UserController extends Controller
 {
@@ -63,12 +64,29 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        //
+      $usuarios = User::findOrFail($id);
+        return view($this->path.'.edit', compact('usuarios'));
     }
 
     public function update(Request $request, $id)
     {
-        //
+          $usuarios = Auth::user();
+
+          $validation = Validator::make($request->all(), [
+            'actpassword' => 'hash:' . $usuarios->actpassword,
+            'password' => 'required|different:actpassword|confirmed'
+          ]);
+
+          if ($validation->fails()) {
+            return redirect()->back()->withErrors($validation->errors());
+          }else{
+
+          $usuarios->actpassword = Hash::make(Request::input('password'));
+          $usuarios->save();
+
+                    return redirect()->route('usuarios.index')->with('message','contra guardada exitosamente!');
+}
+
     }
 
     public function destroy($id)
