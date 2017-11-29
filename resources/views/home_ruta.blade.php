@@ -3,9 +3,14 @@
 <div class="page-content-wrapper" style="">
   <div class="page-content">
     <section class="content">
-      <h3>Se Encuentra en el Módulo de la Ruta del Taller</h3>      
+      <h3>Módulo: Ruta del Taller</h3>      
       <hr>
-      <div class="panel panel-primary">
+
+          <div class="col-md-12 ">
+              <img src="{{asset('/img/logo.png')}}" alt="logo" style="height:300px; width:230px;float: right; margin-top: 50px" class="logo-default" />
+          </div>
+
+<!--       <div class="panel panel-primary">
         <div class="panel-heading"><h4><strong>Vehículos en Reparación</strong></h4></div>
         <div class="row">
           <div class="col-md-12 ">
@@ -17,8 +22,8 @@
                    <th>Placa</th>
                    <th>Marca / Modelo</th>
                    <th>Propietario</th>
-                   <th>Estatus</th>
-                   <th>Acciones</th>
+                   <th>Poliza</th>
+                   <th>Nº del Siniestro</th>
                  </tr>
                </thead>
                <tbody>
@@ -28,8 +33,9 @@
                   <td>{{ strtoupper($auto->placa) }}</td>
                   <td>{{ strtoupper($auto->marca) }} - {{ strtoupper($auto->modelo)}}</td>
                   <td>{{ strtoupper($auto->nombre_completo) }}</td>
-                  <td>{{ strtoupper($auto->status) }}</td>
-                  <td>
+                  <td>{{ strtoupper($auto->numero) }}</td>
+                  <td>{{ strtoupper($auto->nro_siniestro) }}</td>
+
                     @if ($auto->status == "RECEPCION")
                     <a class="btn btn-warning btn-xs disabled" title="Recepción del Vehículo" role="button"><i class="fa fa-clipboard fa-lg"></i>
                     </a>
@@ -78,14 +84,8 @@
                     </a>
                     <a class="btn btn-success btn-xs disabled" title="Agregar revision al vehículo" role="button"><i class="fa fa-camera fa-lg"></i>
                     </a>
-                    <a href="#" class="btn btn-default btn-xs" target="_blank" data-toggle="tooltip" title="Descargar"><i class="fa fa-download"></i>         @else
-                    <a href="{{ url('recepcion') }}/{{ $auto->vehiculo_id }}" class="btn btn-warning btn-xs" title="Recepción del Vehículo"><i class="fa fa-clipboard fa-lg"></i>
-                    </a>
-                    <a class="btn btn-success btn-xs disabled" title="Agregar revision al vehículo" role="button"><i class="fa fa-camera fa-lg"></i>
-                    </a>
-                    <a href="#" class="btn btn-default btn-xs disabled" target="_blank" data-toggle="tooltip" role="button" title="Descargar"><i class="fa fa-download"></i>                                       
+                    <a href="#" class="btn btn-default btn-xs" target="_blank" data-toggle="tooltip" title="Descargar"><i class="fa fa-download"></i> 
                     @endif
-                  </td>
                 </tr>
                 @endforeach
               </tbody>
@@ -95,7 +95,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </section>
 
 </div>

@@ -176,20 +176,14 @@
                                   <span class="selected"></span>
                                 </a>
                               </li>
+
                                     <li class="nav-item">
-                                      <a href="javascript:;" class="nav-link nav-toggle">
-                                        <i class="fa fa-plus"></i>
+                                      <a href="{{ url('/listusers') }}" class="nav-link nav-toggle">
+                                        <i class="icon-user"></i>
                                         <span class="title">Perfil de Usuario</span>
-                                        <span class="arrow "></span>
+                                        <span class="selected"></span>
                                       </a>
-                                      <ul class="sub-menu">
-                                        <li class="nav-item">
-                                          <a href="{{ url('/listusers') }}" target="" class="nav-link">
-                                            <i class="icon-user"></i>  Listado
-                                          </a>
-                                        </li>
-                                      </ul>
-                                    </li>
+                                    </li> 
 
                                     <li class="nav-item">
                                       <a href="javascript:;" class="nav-link nav-toggle">

@@ -67,7 +67,7 @@ class CargaController extends Controller
    $auto->status = 'RECEPCION';        
    $auto->save();
 
-
+   $rec->metodo = $request->metodo;    
    $rec->chofer = $request->chofer;
    $rec->tlf_chofer = $request->tlf_chofer;
    $rec->productor = $request->productor;
@@ -98,7 +98,7 @@ class CargaController extends Controller
       $file->move(public_path('images'), $imageName);
     }
   }
-  return redirect('recepcion/'. $request->_idAuto )->with('message','Ha sido guardado exitosamente!');
+  return redirect('/ruta')->with('message','¡Ha sido guardada exitosamente!');
 }
 
 }

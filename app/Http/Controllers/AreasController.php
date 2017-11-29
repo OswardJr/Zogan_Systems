@@ -42,7 +42,7 @@ class AreasController extends Controller
         $areas->status = 'activo';
         $areas->save();
 
-      return redirect('/listareas')->with('message','El área ha sido registrada de manera exitosa!');
+      return redirect('/listareas')->with('message','¡El área ha sido guardada de manera exitosa!');
     }
 
     public function show($id)
@@ -70,7 +70,7 @@ class AreasController extends Controller
           $areas->status = 'activo';
           $areas->save();
 
-          return redirect()->route('areas.index');
+          return redirect()->route('areas.index')->with('message','¡Área actualizada con éxito!');
     }
 
     public function destroy($id)
@@ -80,6 +80,6 @@ class AreasController extends Controller
             ->where('status', '=', 'activo')
             ->update(['status' => 'inactivo']);
 
-        return redirect()->route('areas.index');
+        return redirect()->route('areas.index')->with('message','¡Área eliminada de manera exitosa!');
     }
 }

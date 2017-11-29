@@ -60,6 +60,8 @@ class CreateReparacionesTable extends Migration
             $table->enum('status', ['activo', 'inactivo']);                    
             $table->timestamps();
 
+            $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade');            
+
             $table->foreign('propietario_id')->references('id')->on('propietarios');
 
             $table->foreign('vehiculo_id')->references('id')->on('vehiculos');

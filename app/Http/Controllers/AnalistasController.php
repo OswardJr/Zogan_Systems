@@ -68,7 +68,7 @@ class AnalistasController extends Controller
       'alert-type' => 'success'
     );
 
-    return redirect('/listanalis')->with($notification);
+    return redirect('/listanalis')->with('message','¡El analista ha sido guardado exitosamente!');
 
   }
 
@@ -134,7 +134,7 @@ class AnalistasController extends Controller
 //QUE ESTUPIDEZ............
 
 
-    return redirect()->route('analistas.index');
+    return redirect()->route('analistas.index')->with('message','¡Analista actualizado con éxito!');
   }
 
   public function destroy($id)
@@ -144,7 +144,7 @@ class AnalistasController extends Controller
     ->where('status', '=', 'activo')
     ->update(['status' => 'inactivo']);
 
-    return redirect()->route('analistas.index');
+    return redirect()->route('analistas.index')->with('message','¡Analista eliminado exitosamente!');
   }
 
   public function getAnalista($rif) {

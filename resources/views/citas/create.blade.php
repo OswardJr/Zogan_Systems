@@ -11,7 +11,7 @@
         </div>
         <div class="col-md-3">
           <div class="panel-body ">
-            <h4><strong>Número:</strong> 0000001</h4>
+            <h4><strong>Número:</strong> 0000{{$id}}</h4>
           </div>
         </div>
       </div>
@@ -21,7 +21,7 @@
       <hr>
           <a class="btn btn-default btn-teal btn-responsive" style="float: right;" href="javascript:history.back(1)" title="Regresar"><i class="fa fa-mail-reply-all fa-lg"></i></a><br><br><br><br>  
                 
-      <form action="{{ url('/citas') }}" method="POST">
+      <form action="{{ url('/citas') }}" method="POST" onkeypress="return anular(event)">
                <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
 
        <div class="panel panel-primary">
@@ -35,7 +35,7 @@
           <div class="form-group col-md-6 " style="margin-bottom: 0px; height: 60px">
             <label>Placa<a class="campos-required" title="Campo Obligatorio."> *</a></label>
             <div class="input-group ">
-             <input type="text " name="placa" class="form-control" id="placa" name="" placeholdesr="XXXXXXX">
+             <input type="text " name="placa" class="form-control" id="placa" name="" placeholdesr="XXXXXXX" required>
              <span class="input-group-btn ">
                <button class="btn btn-buscar btn-flat fa fa-search"  onClick="buscar_vehiculo()" type="button"></button>
              </span>
@@ -137,7 +137,7 @@
       <div class="form-group col-lg-offset-4 col-lg-4" id="sandbox-container">
         <label for="fecha_nac">Seleccione la Fecha</label>
         <div class="input-group date">
-          <input type="date" class="form-control" name="fecha" id="fecha" value="{{ date('Y-m-d') }}"  required="required">
+          <input type="date" class="form-control" min="{{ date('Y-m-d') }}" name="fecha" id="fecha" value="{{ date('Y-m-d') }}"  required oninvalid="setCustomValidity('No puede elegir fechas anteriores respecto al día actual.')">
           <span class="input-group-addon">
             <i class="glyphicon glyphicon-th"></i>
           </span>
@@ -157,6 +157,19 @@
 </div>
 </div>
 @include('layouts.footer')
+
+<script>
+function validateForm() {
+    var frm = document.forms["form"];
+    if (!frm["one"].checked) return;
+
+    var x = frm["nrumowy"].value;
+    if (x == null || x == "") {
+        alert("Numer umowy musi zostać uzupełniony.");
+        return false;
+    }
+}
+</script>
 
 <script type="text/javascript">
   $(function() {
@@ -195,7 +208,7 @@
             <td>${thisData1.nro_siniestro}</td>
             <td>${thisData1.num_certificado}</td>
             <td>
-              <label><input type="checkbox" name="orden_id" value="${thisData1.id}">  Seleccionar</label>
+              <label><input type="checkbox" title="Selecciona la casilla" id="one" name="orden_id" value="${thisData1.id}" required oninvalid="setCustomValidity('El campo es obligatorio.')">  Seleccionar</label>
             </td>
           </tr>
         </tbody>
@@ -208,6 +221,25 @@
         }
     })
   }
+</script>
+
+<script type="text/javascript">
+     function anular(e) {
+          tecla = (document.all) ? e.keyCode : e.which;
+          return (tecla != 13);
+     }
+</script>
+
+<script>
+  var check = document.getElementById("one");
+
+  check.addEventListener("keyup", function (event) {
+    if (check.validity.typeMismatch) {
+      check.setCustomValidity("Er coño de su madre nojoda");
+    } else {
+      check.setCustomValidity("");
+    }
+  });  
 </script>
 <!-- <script>
   $(document).ready(function() {

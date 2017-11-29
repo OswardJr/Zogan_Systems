@@ -23,6 +23,9 @@ class UserController extends Controller
     {
       $usuarios = DB::table('users')->where('status', '=', 'activo')->orderBy('id', 'desc')->paginate(15);
 
+// $user = DB::table('users')->where('name', '=', Auth::user()->name);
+
+// return view('/listusers', ['usuarios' => $usuarios, 'user' => $user]);
       return view('/listusers', ['usuarios' => $usuarios]);
     }
 
@@ -53,7 +56,7 @@ class UserController extends Controller
         $usuarios->status = 'activo';
         $usuarios->save();
 
-      return redirect('/listusers')->with('message','El usuario ha sido guardado exitosamente!');
+      return redirect('/listusers')->with('message','¡El usuario ha sido guardado exitosamente!');
     }
 
     public function show($id)
@@ -70,23 +73,22 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-          $usuarios = Auth::user();
+      Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'password' => 'required|string|min:6|confirmed',
+            'rol' => 'required',
+        ])->validate();
 
-          $validation = Validator::make($request->all(), [
-            'actpassword' => 'hash:' . $usuarios->actpassword,
-            'password' => 'required|different:actpassword|confirmed'
-          ]);
-
-          if ($validation->fails()) {
-            return redirect()->back()->withErrors($validation->errors());
-          }else{
-
-          $usuarios->actpassword = Hash::make(Request::input('password'));
+          $usuarios = User::findOrFail($id);
+          $usuarios->name = $request->name;
+          $usuarios->email = $request->email;
+          $usuarios->password = Hash::make(Input::get('password'));
+          $usuarios->rol = $request->rol;
+          $usuarios->status = 'activo';
           $usuarios->save();
 
-                    return redirect()->route('usuarios.index')->with('message','contra guardada exitosamente!');
-}
-
+          return redirect()->route('usuarios.index')->with('message','¡Usuario actualizado con éxito!');
     }
 
     public function destroy($id)
@@ -96,6 +98,6 @@ class UserController extends Controller
             ->where('status', '=', 'activo')
             ->update(['status' => 'inactivo']);
 
-        return redirect()->route('usuarios.index');
+        return redirect()->route('usuarios.index')->with('message','¡Usuario eliminado exitosamente!');
     }
 }

@@ -52,15 +52,15 @@
               </div>
               <div class="form-group col-xs-6">
                 <label>Celular<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                <input type="text" name="celular" id="" value="{{ old('celular') }}" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0412-XXXXXXX" onkeyup="this.value=this.value.toUpperCase()" required="true">
+                <input type="text" name="celular" id="" value="{{ old('celular') }}" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0412-XXXXXXX" title="El formato debe ser 0244-1234567" onkeyup="this.value=this.value.toUpperCase()" required="true">
               </div>
               <div class="form-group col-xs-6">
                 <label>Teléfono<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                <input type="text" name="telefono" id="" value="{{ old('telefono') }}" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0244-XXXXXXX" onkeyup="this.value=this.value.toUpperCase()" required="true">
+                <input type="text" name="telefono" id="" value="{{ old('telefono') }}" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0244-XXXXXXX" onkeyup="this.value=this.value.toUpperCase()" title="El formato debe ser 0244-1234567" required="true">
               </div>
               <div class="form-group col-xs-6">
                 <label>Email<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control" placeholder="contact@example.com" onkeyup="this.value=this.value.toUpperCase()" required="true">
+                <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control" title="El formato debe ser contact@example.com" placeholder="contact@example.com" onkeyup="this.value=this.value.toUpperCase()" required="true">
               </div>
               <div class="form-group col-xs-6">
                 <label>Aseguradora<a class="campos-required" title="Campo Obligatorio."> *</a></label>
@@ -74,7 +74,7 @@
               </div>
 
               <center class="col-xs-offset-3 col-xs-6">
-                <span class="" style="font-weight:bold;">Los campos marcados con <a class="obli" rel="tooltip" style="font-size:20px;">*</a> son Obligatorios.</span><br><br>
+                <span class="" style="font-weight:bold;">Los campos marcados con <a class="obli" rel="tooltip" style="font-size:20px;">*</a> son obligatorios.</span><br><br>
                 <button data-toggle="tooltip" title="Guardar" type="submit" class="btn btn-guardar margin glyphicon glyphicon-floppy-disk" name="agregar"></button>
                 <button data-toggle="tooltip" title="Limpiar Formulario" type="reset" class="btn btn-refresh margin glyphicon glyphicon-repeat"></button>
               </center>

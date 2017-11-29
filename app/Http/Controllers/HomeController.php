@@ -28,8 +28,10 @@ class HomeController extends Controller
     {
         // $dash = DB::select('SELECT COUNT(*) FROM reparaciones WHERE status = "activo"');
 
-        $dash = DB::table('reparaciones')->where('status', '=', 'activo')->count();
+        $dash = DB::table('vehiculos')->where('usuario_id', '=', Auth::user()->id)->where('status', '=', 'NINGUNO')->count();
 
-        return view('index', compact('dash'));
+        $hash = DB::table('citas')->where('usuario_id', '=', Auth::user()->id)->where('act', '=', 'ASIGNADA')->count();
+
+        return view('index', compact('dash','hash'));
     }
 }

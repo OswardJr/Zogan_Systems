@@ -164,7 +164,9 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Laraveles\Spanish\SpanishServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class, 
-        'Kamaln7\Toastr\ToastrServiceProvider',        /*
+        'Kamaln7\Toastr\ToastrServiceProvider', 
+        'Grimthorr\LaravelToast\ServiceProvider',        
+               /*
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
@@ -228,7 +230,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Input' => Illuminate\Support\Facades\Input::class,
         'PDF' => 'Barryvdh\DomPDF\Facade',
-        'Toastr' => 'Kamaln7\Toastr\Facades\Toastr',        
+        'Toastr' => 'Kamaln7\Toastr\Facades\Toastr',  
+        'Toast' => 'Grimthorr\LaravelToast\Facade',              
 
     ],
 

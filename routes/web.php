@@ -132,9 +132,7 @@ Route::get('/home_ruta', 'ReparacionesController@me');
 
 Route::get('/home_services', 'VehiculosController@me');
 
-Route::get('/home_repuestos', 'RepuestosController@index');
-
-Route::get('/ruta', 'ReparacionesController@index');
+Route::get('/home_repues', 'RepuestosController@index');
 
 
 // rutas para las consultas por ajax

@@ -45,7 +45,7 @@ class AseguradorasController extends Controller
         $aseguradoras->status = 'activo';
         $aseguradoras->save();
 
-      return redirect('/listasegu')->with('message','La aseguradora ha sido guardada exitosamente!');
+      return redirect('/listasegu')->with('message','¡La aseguradora ha sido guardada exitosamente!');
     }
 
     public function show($id)
@@ -77,7 +77,7 @@ class AseguradorasController extends Controller
           $aseguradoras->status = 'activo';
 
           $aseguradoras->save();
-          return redirect()->route('aseguradoras.index');
+          return redirect()->route('aseguradoras.index')->with('message','¡Aseguradora actualizada con éxito!');
     }
 
     public function destroy($id)
@@ -87,7 +87,7 @@ class AseguradorasController extends Controller
             ->where('status', '=', 'activo')
             ->update(['status' => 'inactivo']);
 
-        return redirect()->route('aseguradoras.index');
+        return redirect()->route('aseguradoras.index')->with('message','¡Aseguradora eliminada con éxito!');
     }
 
    //  public function search(Request $request)

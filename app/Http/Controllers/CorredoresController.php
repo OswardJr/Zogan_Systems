@@ -72,7 +72,7 @@ class CorredoresController extends Controller
         $aseguCorre->aseguradora_id = $corre;
         $aseguCorre->save();
 
-      return redirect('/listcorre')->with('message','El corredor ha sido registrado de manera exitosamente!');
+      return redirect('/listcorre')->with('message','¡El corredor ha sido guardado exitosamente!');
     }
 
     public function show($id)
@@ -138,7 +138,7 @@ class CorredoresController extends Controller
 //QUE ESTUPIDEZ............
 
 
-          return redirect()->route('corredores.index');
+          return redirect()->route('corredores.index')->with('message','¡Corredor actualizado exitosamente!');
     }
 
     public function destroy($id)
@@ -148,7 +148,7 @@ class CorredoresController extends Controller
             ->where('status', '=', 'activo')
             ->update(['status' => 'inactivo']);
 
-        return redirect()->route('corredores.index');
+        return redirect()->route('corredores.index')->with('message','¡Corredor de seguro eliminado exitosamente!');
     }
 
 public function getCorredor($cedula) {

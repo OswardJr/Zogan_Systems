@@ -23,8 +23,11 @@ class CreateVehiculosTable extends Migration
             $table->string('serial_carro');
             $table->string('color');
             $table->string('tipo');
-            $table->string('status');            
+            $table->string('status'); 
+            $table->integer('usuario_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('usuario_id')->references('id')->on('users')->onDelete('cascade');            
         });
     }
 

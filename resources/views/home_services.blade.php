@@ -3,9 +3,12 @@
 <div class="page-content-wrapper" style="">
   <div class="page-content">
     <section class="content">
-      <h3>Se Encuentra en el Módulo de Servicios</h3>
+      <h3>Módulo de Servicios</h3>
       <hr>
-      <div class="panel panel-primary">
+          <div class="col-md-12 ">
+              <img src="{{asset('/img/logo.png')}}" alt="logo" style="height:300px; width:230px;float: right; margin-top: 50px" class="logo-default" />
+          </div>
+<!--       <div class="panel panel-primary">
         <div class="panel-heading"><h4><strong>Vehículos Registrados</strong></h4></div>
         <div class="row">
           <div class="col-md-12 ">
@@ -35,10 +38,10 @@
             {{ $vehiculos->links() }}
 
 
-          </div><!-- /.col -->
-      </div><!-- /.row -->
+          </div>
+      </div>
     </div>
-  </div>
+  </div> -->
 </section><!-- /.content -->
 
 </div>

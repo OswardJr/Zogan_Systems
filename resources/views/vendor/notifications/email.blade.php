@@ -26,7 +26,7 @@
         case 'error':
             $color = 'red';
             break;
-        default:
+        default: 
             $color = 'blue';
     }
 ?>

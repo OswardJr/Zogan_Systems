@@ -1,18 +1,17 @@
 @include('layouts.headrepuestos')
 
-                          <div class="col-md-12">
-                              @if(Session::get('message'))
-                              <div class="col-md-6 col-md-offset-6">
-                                  <div class="alert alert-danger alert-dismissable">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                    <h3> {{ Session::get('message') }}</h3>
-                                  </div>
-                              </div>
-                              @endif                            
-                          </div> 
-                          
                 <div class="page-content-wrapper">
-                    <div class="page-content">                    
+                    <div class="page-content">   
+                          <div class="col-md-12">
+                          @if(Session::get('message'))
+                          <div class="col-md-8 col-md-offset-2">
+                            <div class="alert alert-success alert-dismissable">
+                              <button type="button" class="close" style="color: black" data-dismiss="alert" aria-hidden="true">&times;</button>
+                              <h3> {{ Session::get('message') }}</h3>
+                            </div>
+                          </div>
+                          @endif
+                          </div>                                     
                         <section class="content">
                           <div class="row">
                             <div class="col-md-12 ">

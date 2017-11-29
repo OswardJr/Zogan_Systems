@@ -50,7 +50,7 @@ class AyudantesController extends Controller
         $ayudantes->status = 'activo';
         $ayudantes->save();
 
-      return redirect('/listayu')->with('message','El obrero ha sido guardado exitosamente!');
+      return redirect('/listayu')->with('message','¡El ayudante ha sido guardado exitosamente!');
     }
 
     public function show($id)
@@ -86,7 +86,7 @@ class AyudantesController extends Controller
           $ayudantes->status = 'activo';
 
           $ayudantes->save();
-          return redirect()->route('ayudantes.index');
+          return redirect()->route('ayudantes.index')->with('message','¡Ayudante actualizado con éxito!');
     }
 
     public function destroy($id)
@@ -96,7 +96,7 @@ class AyudantesController extends Controller
             ->where('status', '=', 'activo')
             ->update(['status' => 'inactivo']);
 
-        return redirect()->route('ayudantes.index');
+        return redirect()->route('ayudantes.index')->with('message','¡Ayudante eliminado de manera exitosa!');
     }
 public function getAyudante($cedula) {
 

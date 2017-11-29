@@ -49,14 +49,14 @@
                 </div>
                 <div class="form-group col-xs-6">
                   <label>Teléfono<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                  <input type="text" name="telefono" id="telefono" value="{{ old('telefono') }}" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0212-XXXXXXX" onkeyup="this.value=this.value.toUpperCase()" required="true">
+                  <input type="text" name="telefono" id="telefono" value="{{ old('telefono') }}" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0212-XXXXXXX" onkeyup="this.value=this.value.toUpperCase()" title="El formato debe ser 0244-1234567" required="true">
                 </div>
                 <div class="form-group col-xs-6">
                   <label>Email<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                  <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control" placeholder="contact@example.com" onkeyup="this.value=this.value.toUpperCase()" required="true">
+                  <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control" placeholder="contact@example.com" onkeyup="this.value=this.value.toUpperCase()" title="El formato debe ser contact@example.com" required="true">
                 </div>
                 <center class="col-xs-offset-3 col-xs-6">
-                  <span class="" style="font-weight:bold;">Los campos marcados con <a class="obli" rel="tooltip" style="font-size:20px;">*</a> son Obligatorios.</span><br><br>
+                  <span class="" style="font-weight:bold;">Los campos marcados con <a class="obli" rel="tooltip" style="font-size:20px;">*</a> son obligatorios.</span><br><br>
                   <button data-toggle="tooltip" title="Guardar" type="submit" class="btn btn-guardar margin glyphicon glyphicon-floppy-disk" name="agregar"></button>
                   <button data-toggle="tooltip" title="Limpiar Formulario" type="reset" class="btn btn-refresh margin glyphicon glyphicon-repeat"></button>
                 </center>
@@ -127,3 +127,14 @@
       })
     }
   </script>
+
+      <script>
+      function formatear(){
+        var num_sf=document.getElementById('telefono').value;
+        var num_cf='';
+        num_cf=num_sf.substring(0,3)+"-";
+        num_cf+=num_sf.substring(3,6)+"-";
+        num_cf+=num_sf.substring(6,9);
+        document.getElementById('telefono').value=num_cf;
+      }
+    </script>

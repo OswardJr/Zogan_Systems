@@ -164,7 +164,7 @@ class UploadController extends Controller
       $file->move(public_path('images'), $imageName);
     }
   }
-  return redirect('revision/'. $request->_idAuto )->with('message','Ha sido guardado exitosamente!');
+  return redirect('/ruta')->with('message','¡Ha sido guardada exitosamente!');
 }
 
 }

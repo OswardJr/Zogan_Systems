@@ -214,14 +214,14 @@ h3 {
     </tr>
 
      <tr>
-    <td colspan="4" height="200" style="text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">
-      <span>{{ $reparaciones->notas }}</span>
-      <span>{{ $reparaciones->notas }}</span>
-      <span>{{ $reparaciones->notas }}</span>
-      <span>{{ $reparaciones->notas }}</span>
-      <span>{{ $reparaciones->notas }}</span>
-      <span>{{ $reparaciones->notas }}</span>
-      <span>{{ $reparaciones->notas }}</span>
+    <td colspan="4" height="200" style="font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">
+      <p>{{ $reparaciones->notas }}</p>
+      <p>{{ $reparaciones->notas }}</p>
+      <p>{{ $reparaciones->notas }}</p>
+      <p>{{ $reparaciones->notas }}</p>
+      <p>{{ $reparaciones->notas }}</p>
+      <p>{{ $reparaciones->notas }}</p>
+      <p>{{ $reparaciones->notas }}</p>
 
 
     </td>
@@ -240,10 +240,10 @@ h3 {
    </tr> 
 
       <tr>
-      <td colspan="2" style="width:130px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">{{ $reparaciones->descripcion_daños }}</td>
+      <td colspan="2" style="text-align:justify; width:80px;font-weight: normal;color: #5D6975;padding: 5px 20px"><span style="font-size: 10px">{{ $reparaciones->tipos_daños }}</span></td>
 
-      <td colspan="1" style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">{{ $reparaciones->tipos_daños }}</td>
+      <td colspan="1" style="width:100px;font-weight: normal;color: #5D6975;padding: 5px 20px;"><span style="text-align:justify;font-size: 10px">{{ $reparaciones->tipos_daños }}</span></td>
 
-      <td height="150" style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;"></td>
+      <td height="150" width="20" colspan="1" style="text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;"></td>
    </tr>       
   </table>

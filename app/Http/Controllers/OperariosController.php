@@ -52,7 +52,7 @@ class OperariosController extends Controller
         $operarios->status = 'activo';
         $operarios->save();
 
-      return redirect('/listope')->with('message','El operario ha sido guardado exitosamente!');
+      return redirect('/listope')->with('message','¡El operario ha sido guardado exitosamente!');
 
     }
 
@@ -91,7 +91,7 @@ class OperariosController extends Controller
           $operarios->status = 'activo';
 
           $operarios->save();
-          return redirect()->route('operarios.index');
+          return redirect()->route('operarios.index')->with('message','¡Operario actualizado con éxito!');
     }
 
     public function destroy($id)
@@ -101,7 +101,7 @@ class OperariosController extends Controller
             ->where('status', '=', 'activo')
             ->update(['status' => 'inactivo']);
 
-        return redirect()->route('operarios.index');
+        return redirect()->route('operarios.index')->with('message','¡Operario eliminado exitosamente!');
     }
 
 public function getOperario($cedula) {

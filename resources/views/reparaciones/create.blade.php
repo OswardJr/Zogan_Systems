@@ -42,11 +42,11 @@
               </div>
               <div class="form-group col-lg-4">
                 <label>Teléfono:<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
-                <input type="text" name="telefono" id="" class="form-control" placeholder="Pacheco Requena Osward José" required="true" >
+                <input type="text" name="telefono" id="" class="form-control" placeholder="0212-XXXXXXX" required="true" >
               </div>
               <div class="form-group col-lg-4">
                 <label>Correo:<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
-                <input type="text" name="email" id="" onkeyup="this.value=this.value.toUpperCase()" class="form-control" placeholder="Pacheco Requena Osward José" required="true" >
+                <input type="text" name="email" id="" onkeyup="this.value=this.value.toUpperCase()" class="form-control" placeholder="contact@example.com" required="true" >
               </div>
               <div class="form-group col-lg-4">
                 <label for="">Seleccione la Aseguradora</label>
@@ -59,7 +59,7 @@
               </div>
               <div class="form-group col-lg-4">
                 <label>Fecha de Ocurrencia del Siniestro:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                <input type="text" name="fecha_ocu" id="" class="form-control" placeholder="25-11-2016" required="true" >
+                <input type="date" name="fecha_ocu" id="" class="form-control" placeholder="25-11-2016" required="true" >
               </div>
               <div class="form-group col-lg-4">
                 <label>Número de Poliza:<a class="campos-required" title="Campo Obligatorio."> *</a></label>
@@ -165,7 +165,7 @@
            <div class="col-lg-offset-1 col-lg-4">
             <div class="form-group">
               <label for="">Mano de Obra:</label>
-              <input type="text" name="mano_obra" placeholder="bsf" class="form-control">
+              <input type="number" name="mano_obra" placeholder="bsf" class="form-control">
             </div>
           </div>
 
@@ -458,3 +458,9 @@
   })
 </script>
 
+<script type="text/javascript">
+     function anular(e) {
+          tecla = (document.all) ? e.keyCode : e.which;
+          return (tecla != 13);
+     }
+</script>

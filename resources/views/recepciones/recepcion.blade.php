@@ -1,6 +1,7 @@
 @include('layouts.headruta')
 
-<form enctype="multipart/form-data" name="f1" action="{{ url('/carga')}}" method="post">
+<form enctype="multipart/form-data" name="f1" action="{{ url('/carga')}}" onkeypress="return anular(event)" method="post">
+  
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
   <div class="container">
     @if(Session::get('message'))
@@ -22,11 +23,11 @@
                   <a class="btn btn-default btn-teal btn-responsive" style="float: right;" href="{{ url('/ruta') }}" title="Regresar"><i class="fa fa-mail-reply-all fa-lg"></i></a><br><br><br>
         <div class="col-md-3">
           <div class="panel-body ">
-            <div class="checkbox">
-              <label><input type="checkbox" name="" value="SI">Aseguradora</label>
+            <div class="radio">
+              <label><input type="radio" name="metodo" value="Aseguradora">Aseguradora</label>
             </div>
-            <div class="checkbox">
-              <label><input type="checkbox" name="" value="SI">Particular</label>
+            <div class="radio">
+              <label><input type="radio" name="metodo" value="Particular">Particular</label>
             </div>
           </div>
         </div>
@@ -235,7 +236,7 @@
             </div><br>
             <div class="col-md-12">
                 <label for="comment">Informe de inspeccion</label>
-                <textarea class="form-control" name="observacion" rows="5" id="comment"></textarea>
+                <textarea class="form-control" name="observacion" rows="5" id="comment" required></textarea>
             </div>
           </div>
         </div>
@@ -327,4 +328,11 @@ function deseleccionar_todo(){
       if(document.f1.elements[i].type == "checkbox")  
          document.f1.elements[i].checked=0 
 }  
+</script>
+
+<script type="text/javascript">
+     function anular(e) {
+          tecla = (document.all) ? e.keyCode : e.which;
+          return (tecla != 13);
+     }
 </script>

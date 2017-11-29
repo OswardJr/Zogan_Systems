@@ -98,9 +98,14 @@ License: You must have a valid license purchased only from themeforest(the above
                 <ul class="dropdown-menu">
                   <li class="external">
                     <h3>
-                      <a href="{{url('home_ruta')}}"><span class="bold"><?php echo $dash; ?> Órdenes</span> Pendientes.
+                      <a href="{{url('/ruta')}}"><span class="bold"><?php echo $dash; ?> Órdenes</span> Pendientes.
                       </a></h3>
                     </li>
+                  <li class="external">
+                    <h3>
+                      <a href="{{url('/listcitas')}}"><span class="bold"><?php echo $hash; ?> Citas</span> por procesar.
+                      </a></h3>
+                    </li>                    
                     <li>
 <!--                       <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
                         <li>
@@ -264,21 +269,15 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <li class="heading">
                                       <h3 class="uppercase"></h3>
                                     </li>
-                                    <li class="nav-item">
-                                      <a href="javascript:;" class="nav-link nav-toggle">
-                                        <i class="fa fa-plus"></i>
-                                        <span class="title">Perfil de Usuario</span>
-                                        <span class="arrow "></span>
-                                      </a>
-                                      <ul class="sub-menu">
-                                        <li class="nav-item">
-                                          <a href="{{ url('/listusers') }}" target="" class="nav-link">
-                                            <i class="icon-user"></i>  Listado
-                                          </a>
-                                        </li>
-                                      </ul>
-                                    </li>
 
+
+                                    <li class="nav-item">
+                                      <a href="{{ url('/listusers') }}" class="nav-link nav-toggle">
+                                        <i class="icon-user"></i>
+                                        <span class="title">Perfil de Usuario</span>
+                                        <span class="selected"></span>
+                                      </a>
+                                    </li>                                    
 
                                     <li class="nav-item">
                                       <a href="javascript:;" class="nav-link nav-toggle">
@@ -321,8 +320,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                   <div class="container-fluid">
                                     <div class="row">
                                       <div class="col-lg-12">
-                                        <h2><strong>Bienvenido a Zogan Systems</strong></h2>
-                                        <ul><h3>Sistema de Gestion Operativa.</h3></ul>                <hr>
+                                        <h2><strong>¡Bienvenido a Zogan Systems!</strong></h2>
+                                        <ul><h3>Sistema de Gestión Operativa.</h3></ul>                <hr>
                                       </div>
                                       <div class="col-lg-3 col-md-6 col-xs-6">
                                         <div class="panel panel-primary">

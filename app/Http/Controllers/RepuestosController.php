@@ -52,7 +52,7 @@ class RepuestosController extends Controller
         $repuestos->status = 'activo';
         $repuestos->save();
 
-      return redirect('/listrepuesto')->with('message','El repuesto ha sido registrado de manera exitosamente!');
+      return redirect('/listrepuesto')->with('message','¡El repuesto ha sido guardado exitosamente!');
     }
 
     public function show($id)
@@ -89,7 +89,7 @@ class RepuestosController extends Controller
           $repuestos->status = 'activo';
           $repuestos->save();
 
-          return redirect()->route('repuestos.index');
+          return redirect()->route('repuestos.index')->with('message','¡Repuesto actualizado con éxito!');
     }
 
     public function destroy($id)
@@ -99,6 +99,6 @@ class RepuestosController extends Controller
             ->where('status', '=', 'activo')
             ->update(['status' => 'inactivo']);
 
-        return redirect()->route('repuestos.index');
+        return redirect()->route('repuestos.index')->with('message','¡Repuesto eliminado exitosamente!');
     }
 }

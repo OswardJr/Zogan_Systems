@@ -35,12 +35,16 @@ class ReparacionesController extends Controller
     public function index()
     {
       $autos = DB::select('
-              SELECT i.vehiculo_id,q.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo
+              SELECT i.id,i.vehiculo_id,q.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo, z.reparacion_id, z.act, z.estatus
               FROM reparaciones as i
               inner JOIN vehiculos as q
               ON i.vehiculo_id = q.id
               INNER JOIN propietarios
-              ON i.propietario_id = propietarios.id');
+              ON i.propietario_id = propietarios.id
+              INNER JOIN citas as z
+              ON i.id = z.reparacion_id
+              WHERE z.estatus = "activo"
+              ');
 
       return view('dashboard', ['autos' => $autos]);
     }
@@ -48,13 +52,15 @@ class ReparacionesController extends Controller
     public function me()
     {
       $autos = DB::select('
-              SELECT i.vehiculo_id,q.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo
+              SELECT i.vehiculo_id, i.nro_siniestro, q.status, q.marca,q.modelo,q.placa,propietarios.nombre_completo, x.id, x.numero
               FROM reparaciones as i
               inner JOIN vehiculos as q
               ON i.vehiculo_id = q.id
               INNER JOIN propietarios
-              ON i.propietario_id = propietarios.id');
-
+              ON i.propietario_id = propietarios.id
+              inner JOIN polizas as x
+              ON i.poliza_id = x.id
+              ');
       return view('home_ruta', ['autos' => $autos]);
     }
 
@@ -122,7 +128,8 @@ class ReparacionesController extends Controller
         $vehiculos->color = $request->color;
         $vehiculos->serial_motor = $request->serial_motor;
         $vehiculos->serial_carro = $request->serial_carro;
-        $vehiculos->status = 'NINGUNO';        
+        $vehiculos->status = 'NINGUNO';
+        $vehiculos->usuario_id = $idusuario;                
         $vehiculos->save();
         $Idvehi = $vehiculos->id;
 

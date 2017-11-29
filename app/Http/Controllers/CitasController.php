@@ -51,8 +51,13 @@ class CitasController extends Controller {
 		// get all the reports
 		$reparaciones = Reparaciones::all();
 
+        // obtengo el ultimo id
+        $id = DB::table('reparaciones')->max('id');
+        // digo = si existe el ultimo id sumale 1 , sino muestrame el nro 1
+        $id = $id ? $id + 1 : 1 ;		
+
 		// load the view and pass the reports
-		return view('citas/create', ['reparaciones' => $reparaciones]);
+		return view('citas/create', ['id' => $id,'reparaciones' => $reparaciones]);
 	}
 
 	public function store(Request $request) {
@@ -64,7 +69,7 @@ class CitasController extends Controller {
         $cita->act = 'ASIGNADA';		
 		$cita->save();
 
-		return redirect('/citas')->with('message', 'La cita ha sido guardada exitosamente!');
+		return redirect('/citas')->with('message', '¡La cita ha sido guardada programada exitosamente!');
 	}
 
 	/**

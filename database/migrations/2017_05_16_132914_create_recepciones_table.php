@@ -16,6 +16,7 @@ class CreateRecepcionesTable extends Migration
         Schema::create('recepciones', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('vehiculo_id')->unsigned();
+            $table->enum('metodo', ['Aseguradora', 'Particular']);
             $table->string('chofer');
             $table->string('tlf_chofer');
             $table->string('productor');
