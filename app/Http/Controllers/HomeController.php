@@ -32,6 +32,8 @@ class HomeController extends Controller
 
         $hash = DB::table('citas')->where('usuario_id', '=', Auth::user()->id)->where('act', '=', 'ASIGNADA')->count();
 
-        return view('index', compact('dash','hash'));
+        $lash = DB::table('users')->where('id', '=', Auth::user()->id)->get();
+
+        return view('index', compact('dash','hash','lash'));
     }
 }
