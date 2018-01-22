@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Revisiones extends Model
-{
-    
+class Revisiones extends Model {
+
 }

@@ -31,7 +31,7 @@
                                    <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <div class="form-group col-md-6 " style="margin-bottom: 0px; height: 60px">
                                       <label>Código<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                        <input type="text" name="codigo" id="" class="form-control "title="El formato debe ser A0001"  placeholder="R0001" onkeyup="this.value=this.value.toUpperCase()" value="" required="true">
+                                        <input type="text" name="codigo" id="" class="form-control" title="Mínimo 10 carácteres." maxlength="10"  placeholder="R0001" onkeyup="this.value=this.value.toUpperCase()" value="" required="true">
                                     </div>
                                     <div class="form-group col-md-6">
                                       <label>Descripción<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>

@@ -32,23 +32,23 @@
 
                                     <div class="form-group col-xs-6 " style="margin-bottom: 0px; height: 60px">
                                       <label>Codigo<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                        <input type="text" name="codigo" id="" class="form-control " title="El formato debe ser J-12345678-9"  placeholder="A0001" onkeyup="this.value=this.value.toUpperCase()" value="{{ $repuestos->codigo }}" required="true" readonly>
+                                        <input type="text" name="codigo" id="" class="form-control" title="El formato debe ser A0001" maxlength="10"  placeholder="R0001" onkeyup="this.value=this.value.toUpperCase()" value="{{ $repuestos->codigo }}" required="true" readonly>
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Descripción<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="descripcion" id="" class="form-control" value="{{ $repuestos->descripcion }}" placeholder="Seguros Caracas C.A" required="true">
+                                      <input type="text" name="descripcion" id="" class="form-control" onkeyup="this.value=this.value.toUpperCase()" value="{{ $repuestos->descripcion }}" placeholder="ROLINERA" required="true">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Cantidad<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="cantidad" id="" value="{{ $repuestos->cantidad }}" class="form-control" placeholder="0212-XXXXXXX">
+                                      <input type="text" name="cantidad" id="" value="{{ $repuestos->cantidad }}" class="form-control" placeholder="12">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Marca<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="marca" id="marca" class="form-control" value="{{ $repuestos->marca }}" placeholder="contact@example.com">
+                                      <input type="text" name="marca" onkeyup="this.value=this.value.toUpperCase()" id="marca" class="form-control" value="{{ $repuestos->marca }}" placeholder="STANDARD">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Modelo<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="modelo" id="modelo" class="form-control" value="{{ $repuestos->modelo }}" placeholder="contact@example.com">
+                                      <input type="text" name="modelo" id="modelo" class="form-control" onkeyup="this.value=this.value.toUpperCase()" value="{{ $repuestos->modelo }}" placeholder="AX">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Área<a class="campos-required" title="Campo Obligatorio."> *</a></label>

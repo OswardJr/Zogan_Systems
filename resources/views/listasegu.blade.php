@@ -45,15 +45,21 @@
                     <td>{{ ($asegu->telefono) }}</td>
                     <td>{{ ($asegu->email) }}</td>
                     <td>
+
                       <a href="{{ route('aseguradoras.show', $asegu->id) }}" class="btn btn-buscar" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i>
 
                       </a>
                     </td>  
 
+                    @if ($user['rol'] == 'Administrador')
                     <td>
                       <a href="{{ route('aseguradoras.edit', $asegu->id) }}" class="btn btn-editar" data-toggle="tooltip" title="Actualizar"><i class="fa fa-pencil"></i>
-
                       </a>
+                    </td>
+                    @endif
+
+                    @if ($user['rol'] == 'Administrador')
+
                     <td>
                       <form action="{{ route('aseguradoras.destroy', $asegu->id) }}" method="post">
                         <input name="_method" type="hidden" value="DELETE">
@@ -62,6 +68,8 @@
 
                       </form>
                     </td>
+                  @endif
+
                   </tr>
                   @endforeach
 

@@ -46,15 +46,12 @@
                     <td>{{ ($anali->email) }}</td>
                     <td>
                       <a href="{{ route('analistas.show', $anali->id) }}" class="btn btn-buscar" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i>
-
                       </a>
                     </td>  
-                    
                     <td>
                       <a href="{{ route('analistas.edit', $anali->id) }}" class="btn btn-editar" data-toggle="tooltip" title="Actualizar"><i class="fa fa-pencil"></i>
                       </a>
                     </td>  
-
                     <td>
                       <form action="{{ route('analistas.destroy', $anali->id) }}" method="post">
                         <input name="_method" type="hidden" value="DELETE">

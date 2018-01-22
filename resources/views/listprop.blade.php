@@ -1,6 +1,8 @@
 @include('layouts.headservices')
 
-<br><div class="col-md-12">
+<div class="page-content-wrapper" style="">
+  <div class="page-content">
+<div class="col-md-12">
 @if(Session::get('message'))
 <div class="col-md-10 col-md-offset-2">
   <div class="alert alert-success alert-dismissable">
@@ -9,9 +11,11 @@
   </div>
 </div>
 @endif
+      <div class="text-right nuevo-veh">
+          <a href="{{ route('pdfprop',['download'=>'pdf']) }}" target="_blank" title="Descargar Listado" class="btn btn-default"><span class="fa fa-download"></span></a>              
+      </div>   
 </div>
-<div class="page-content-wrapper" style="">
-  <div class="page-content">
+
     <section class="content">
       <h3>Listado de Propietarios</h3>
       <hr>
@@ -36,7 +40,6 @@
                     <td>{{ ($prop->nombre_completo) }}</td>
                     <td>{{ ($prop->email) }}</td>
                     <td>{{ ($prop->telefono) }}</td>
-
                   </tr>
                   @endforeach
 

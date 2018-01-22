@@ -45,6 +45,11 @@
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="{{asset('assets/global/css/components.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
+        
+        <link rel="stylesheet" type="text/css" href="{{asset('DataTables/DataTables-1.10.16/css/dataTables.bootstrap.min.css')}}"/>
+        <link rel="stylesheet" type="text/css" href="{{asset('DataTables/DataTables-1.10.16/css/jquery.dataTables.min.css')}}"/>
+
+        <link href="{{asset('assets/global/css/components.min.css')}}" rel="stylesheet" id="style_components" type="text/css" />
 
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" />
@@ -106,7 +111,7 @@
 
                                   <li class="dropdown dropdown-user">
                                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                      <img alt="" class="img-circle" src="{{asset('assets/layouts/layout/img/avatar3_small.jpg')}}" />
+                                  
                                       <span class="username username-hide-on-mobile"> {{ Auth::user()->name }}  </span>
                                       <i class="fa fa-angle-down"></i>
                                     </a>
@@ -180,33 +185,18 @@
                                     <li class="nav-item">
                                       <a href="{{ url('/listusers') }}" class="nav-link nav-toggle">
                                         <i class="icon-user"></i>
-                                        <span class="title">Perfil de Usuario</span>
+                                        <span class="title">Usuarios</span>
                                         <span class="selected"></span>
                                       </a>
                                     </li> 
-
                                     <li class="nav-item">
-                                      <a href="javascript:;" class="nav-link nav-toggle">
-                                        <i class="fa fa-gears"></i>
-                                        <span class="title">Configuración</span>
-                                        <span class="arrow "></span>
+                                      <a href="{{ url('/bitacora') }}" class="nav-link nav-toggle">
+                                        <i class="icon-list"></i>
+                                        <span class="title">Bitácora</span>
+                                        <span class="selected"></span>
                                       </a>
-                                      <ul class="sub-menu">
-
-                                        <li class="nav-item">
-                                          <a href="{{ url('/resp') }}"  class="nav-link">
-                                            <i class="fa fa-user"></i>  Respaldo de Información
-                                          </a>
-                                        </li>                                        
-
-                                        <li class="nav-item">
-                                          <a href="#" class="nav-link">
-                                            <i class="fa fa-unlock-alt"></i>  Seguridad
-                                          </a>
-                                        </li>                                    
-
-
-                              <li class="nav-item">
+                                    </li> 
+                                    <li class="nav-item">
                                 <a href="javascript:;" class="nav-link nav-toggle">
                                     <i class="fa fa-clone"></i>
                                     <span class="title">Módulos</span>
@@ -245,6 +235,30 @@
                                     </li>
                                 </ul>
                             </li>
+                                    <li class="nav-item">
+                                      <a href="javascript:;" class="nav-link nav-toggle">
+                                        <i class="fa fa-gears"></i>
+                                        <span class="title">Configuración</span>
+                                        <span class="arrow "></span>
+                                      </a>
+                                      <ul class="sub-menu">
+
+                                        <li class="nav-item">
+                                          <a href="{{ url('/resp') }}"  class="nav-link">
+                                            <i class="fa fa-user"></i>  Respaldo de Información
+                                          </a>
+                                        </li>                                        
+
+                                        <li class="nav-item">
+                                          <a href="{{ url('/seguridad') }}"class="nav-link">
+                                            <i class="fa fa-unlock-alt"></i>  Seguridad
+                                          </a>
+                                        </li> 
+
+                                      </li>
+                                      
+
+                              
 
                             </ul>
                             <!-- END SIDEBAR MENU -->

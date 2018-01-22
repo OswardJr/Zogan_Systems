@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Aseguradoras;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
+use PDF;
+use App\Vehiculos;
+
+use App\Http\Controllers\PermisosController;
 
 class VehiculosController extends Controller {
 	public function __construct() {
@@ -17,17 +19,50 @@ class VehiculosController extends Controller {
 	public function index() {
 		$vehiculos = DB::table('vehiculos')->orderBy('placa', 'desc')->paginate(15);
 
-		return view('/listvehi', ['vehiculos' => $vehiculos]);
+		$permiso = new PermisosController;
+		$permisos = $permiso->permisos(9);
+		if ($permisos) {
+			return view('/listvehi', ['vehiculos' => $vehiculos]);
+		} else {
+			return redirect('/home')->with('message', '¡Acceso no permitido, contacte al administrador!');
+		}
+
 	}
 
 	public function me() {
 		$vehiculos = DB::table('vehiculos')->orderBy('placa', 'desc')->paginate(15);
 
-		return view('home_services', ['vehiculos' => $vehiculos]);
+		$permiso = new PermisosController;
+		$permisos = $permiso->permisos(12);
+		if ($permisos) {
+			return view('home_services', ['vehiculos' => $vehiculos]);
+		} else {
+			return redirect('/home')->with('message', '¡Acceso no permitido, contacte al administrador!');
+		}
 	}
+
+    public function mo()
+    {
+		$vehiculos = DB::table('vehiculos')->orderBy('placa', 'desc')->paginate(15);
+
+      return view('/vehi', ['vehiculos' => $vehiculos]);
+    }
+
+    public function descargar(Request $request){
+        $vehiculos = DB::table("vehiculos")->get();
+
+        view()->share('vehiculos',$vehiculos);
+
+
+        if($request->has('download')){
+            $pdf = PDF::loadView('vehiculos/vehi_pdf');
+            return $pdf->stream('Total_Vehículos.pdf');
+        }  
+    } 
+
 	public function create() {
 		return view('vehiculos/create');
-	}
+	}  
 
 	public function store(Request $request) {
 		$vehiculos = new Vehiculos();
@@ -52,7 +87,7 @@ class VehiculosController extends Controller {
 			->where('placa', $placa)
 			->get();
 
-		$ordenes = DB::select('SELECT `id`,`fecha_ocu`, `subtotal`, `nro_siniestro`, `num_certificado`, `propietario_id`, `vehiculo_id` from reparaciones where vehiculo_id="' . $auto[0]->id . '"');
+		$ordenes = DB::select('SELECT `id`,`fecha_ocu`, `monto_final`, `nro_siniestro`, `num_certificado`, `propietario_id`, `vehiculo_id` from reparaciones where vehiculo_id="' . $auto[0]->id . '"');
 
 		return response()->json([
 			'auto' => $auto,
@@ -74,7 +109,7 @@ class VehiculosController extends Controller {
 		return response()->json($return_arr);
 	}
 
-public function getAseguradora($rif) {
+	public function getAseguradora($rif) {
 
 		$asegu = DB::table('aseguradoras')
 			->select('id', 'rif', 'denominacion', 'telefono')
@@ -106,6 +141,62 @@ public function getAseguradora($rif) {
 
 	public function destroy($id) {
 		//
+	}
+	public function web(Request $request, $placa) {
+		$auto = Vehiculos::where('placa', $placa)->first();
+
+		if (!$auto) {
+			// $msj = array('status' => 'error');
+			// return $msj;
+			abort(404);
+		}
+
+		$results = DB::select('SELECT id  FROM revisiones WHERE vehiculo_id  = :id', ['id' => $auto->id]);
+
+		$array = array();
+		$desarmado = array();
+		$latoneria = array();
+		$pintura = array();
+		$preparacion = array();
+		$pulitura = array();
+		$limpieza = array();
+		$recepcion = array();
+
+		foreach ($results as $value) {
+			$images = DB::select('
+        SELECT i.imagen_id, r.tipo,r.fecha, imagenes.nombre
+        FROM image_revs as i
+        inner JOIN revisiones as r
+        ON i.revision_id = r.id
+        INNER JOIN imagenes
+        ON i.imagen_id = imagenes.id
+        WHERE revision_id = :id', ['id' => $value->id]);
+			foreach ($images as $image) {
+				if ($image->tipo == 'RECEPCION') {
+					array_push($recepcion, $image);
+				}
+				if ($image->tipo == 'DESARMADO') {
+					array_push($desarmado, $image);
+				} elseif ($image->tipo == 'LATONERIA') {
+					array_push($latoneria, $image);
+					array_push($pintura, $image);
+				} elseif ($image->tipo == 'PREPARACION') {
+					array_push($preparacion, $image);
+				} elseif ($image->tipo == 'PINTURA') {
+				} elseif ($image->tipo == 'PULITURA') {
+					array_push($pulitura, $image);
+				} elseif ($image->tipo == 'LIMPIEZA') {
+					array_push($limpieza, $image);
+				}
+			}
+			$array = array('recepcion' => $recepcion, 'desarmado' => $desarmado, 'latoneria' => $latoneria, 'pintura' => $pintura, 'preparacion' => $preparacion, 'pulitura' => $pulitura, 'limpieza' => $limpieza);
+		}
+		// if (!$array) {
+		//   $msj = array('status' => 'error');
+		//   return $msj;
+		// }
+		return view('vehiculos.buscar', ['data' => $array, 'auto' => $auto]);
+
 	}
 
 /*       public function findRif(Request $req)

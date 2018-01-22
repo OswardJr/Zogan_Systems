@@ -52,5 +52,7 @@
         <script src="{{asset('assets/pages/scripts/form-wizard.min.js')}}" type="text/javascript"></script>
         <script src="{{asset('js/jquery-ui.js')}}" type="text/javascript"></script>
 
+        <script src="{{asset('DataTables/datatables.min.js')}}" type="text/javascript"></script>
+
         <!-- END THEME LAYOUT SCRIPTS -->
     </body>

@@ -94,7 +94,7 @@
 
                                   <li class="dropdown dropdown-user">
                                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                      <img alt="" class="img-circle" src="{{asset('assets/layouts/layout/img/avatar3_small.jpg')}}" />
+                                      
                                       <span class="username username-hide-on-mobile">{{ Auth::user()->name }} </span>
                                       <i class="fa fa-angle-down"></i>
                                     </a>
@@ -196,13 +196,13 @@
                                 <ul class="sub-menu">
 
                                     <li class="nav-item">
-                                        <a href="{{ url('/listareas') }}" class="nav-link">
+                                        <a href="{{ url('/areas') }}" class="nav-link">
                                             <i class="fa fa-suitcase"></i>  Áreas
                                         </a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="{{ url('/listrepuesto') }}" class="nav-link">
+                                        <a href="{{ url('/repuestos') }}" class="nav-link">
                                             <i class="fa fa-suitcase"></i>  Repuestos
                                         </a>
                                     </li>

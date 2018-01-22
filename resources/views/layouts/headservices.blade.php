@@ -95,7 +95,7 @@
 
                                   <li class="dropdown dropdown-user">
                                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                      <img alt="" class="img-circle" src="{{asset('assets/layouts/layout/img/avatar3_small.jpg')}}" />
+                                      
                                       <span class="username username-hide-on-mobile"> {{ Auth::user()->name }}  </span>
                                       <i class="fa fa-angle-down"></i>
                                     </a>
@@ -242,43 +242,49 @@
                                   </li>
 
                                   <li class="nav-item">
-                                    <a href="{{ url('/listvehi') }}" class="nav-link">
+                                    <a href="{{ url('/vehi') }}" class="nav-link">
                                       <i class="fa fa-suitcase"></i>  Vehículos
                                     </a>
                                   </li>
 
                                   <li class="nav-item">
-                                    <a href="{{ url('/listope') }}" class="nav-link">
+                                    <a href="{{ url('/ope') }}" class="nav-link">
                                       <i class="fa fa-suitcase"></i>  Operarios
                                     </a>
                                   </li>
 
                                   <li class="nav-item">
-                                    <a href="{{ url('/listcorre') }}" class="nav-link">
+                                    <a href="{{ url('/ayu') }}" class="nav-link">
+                                      <i class="fa fa-suitcase"></i>  Ayudantes
+                                    </a>
+                                  </li>                                  
+
+                                  <li class="nav-item">
+                                    <a href="{{ url('/corred') }}" class="nav-link">
                                       <i class="fa fa-suitcase"></i>  A.D.S
                                     </a>
                                   </li>
 
                                   <li class="nav-item">
-                                    <a href="{{ url('/listasegu') }}" class="nav-link">
+                                    <a href="{{ url('/asegu') }}" class="nav-link">
                                       <i class="fa fa-suitcase"></i>  Aseguradoras
                                     </a>
                                   </li>
                                   <li class="nav-item">
-                                    <a href="{{ url('/listanalis') }}" class="nav-link">
+                                    <a href="{{ url('/analis') }}" class="nav-link">
                                       <i class="fa fa-suitcase"></i>  Analistas
                                     </a>
                                   </li>
                                   <li class="nav-item">
-                                    <a href="{{ url('/listorden') }}" class="nav-link">
+                                    <a href="{{ url('/orden') }}" class="nav-link">
                                       <i class="fa fa-suitcase"></i>  Ordenes de Reparación
                                     </a>
                                   </li>
                                   <li class="nav-item">
-                                    <a href="{{ url('/listcitas') }}" class="nav-link">
+                                    <a href="{{ url('/citas') }}" class="nav-link">
                                       <i class="fa fa-suitcase"></i>  Citas Programadas
                                     </a>
-                                  </li>                                                                    
+                                  </li>                                                                      
                                 </ul>
                               </li>
 

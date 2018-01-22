@@ -39,7 +39,7 @@ $frm = '<body style="background: white;">'. '<h1>'. $bk->langTxt('msg_bmk') .'</
         <div style="margin-bottom: 15px" class="input-group">
             <div class="col-xs-12">
                 '. $bk->langTxt('msg_database') .'
-                <input type="hidden" class="form-control"  value="zogan" required="true" name="dbname">
+                <input type="hidden" class="form-control"  value="schema" required="true" name="dbname">
             </div>
         </div>
         <div style="margin-bottom: 15px; margin-right: 10px" class="input-group">

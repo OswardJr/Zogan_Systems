@@ -40,11 +40,11 @@
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Teléfono<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="telefono" id="" value="{{ $aseguradoras->telefono }}" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0212-XXXXXXX" onkeyup="this.value=this.value.toUpperCase()" required="true">
+                                      <input type="text" name="telefono" id="" value="{{ $aseguradoras->telefono }}" pattern="^([0-9]{4})([0-9]{7})$" class="form-control" maxlength="11" onkeypress="return justNumbers(event);" title="El formato debe ser 02441234567" placeholder="0244XXXXXXX" onkeyup="this.value=this.value.toUpperCase()" required="true">
                                     </div>
                                     <div class="form-group col-xs-6">
                                       <label>Email<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="email" name="email" id="email" class="form-control" value="{{ $aseguradoras->email }}" placeholder="contact@example.com" onkeyup="this.value=this.value.toUpperCase()" required="true">
+                                      <input type="email" name="email" id="email" class="form-control" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" title="El formato debe ser contact@example.com" value="{{ $aseguradoras->email }}" placeholder="contact@example.com" onkeyup="this.value=this.value.toUpperCase()" required="true">
                                     </div>
                                     <center class="col-xs-offset-3 col-xs-6">
                                       <span class="" style="font-weight:bold;">Los campos marcados con <a class="obli" rel="tooltip" style="font-size:20px;">*</a> son Obligatorios.</span><br><br>
@@ -87,3 +87,14 @@
      if (success ==true) {formulario.submit();}
  }  
 </script> 
+
+<script>
+    function justNumbers(e)
+        {
+        var keynum = window.event ? window.event.keyCode : e.which;
+        if ((keynum == 8) || (keynum == 46))
+        return true;
+         
+        return /\d/.test(String.fromCharCode(keynum));
+        }  
+</script>

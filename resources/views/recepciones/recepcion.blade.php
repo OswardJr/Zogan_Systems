@@ -66,19 +66,19 @@
           <div class="panel-body ">
             <div class="form-group col-md-6">
               <p class="margin"><strong>Chofer encargado</strong></p>
-              <input type="text" name="chofer" placeholdesr="Aveo" class="form-control">
+              <input type="text" name="chofer" onkeyup="this.value=this.value.toUpperCase()" placeholdesr="RAFAEL" class="form-control">
             </div>
             <div class="form-group col-md-6">
               <p class="margin"><strong>Telefono del chofer</strong></p>
-              <input type="text" name="tlf_chofer" placeholdesr="Aveo" class="form-control">
+              <input type="text" name="tlf_chofer" pattern="^([0-9]{4})([0-9]{7})$" class="form-control" onkeypress="return justNumbers(event);" maxlength="11" placeholder="0424XXXXXXX" class="form-control">
             </div>
             <div class="col-md-6 form-group" style="margin-top: 5px;">
               <label for="cedula ">Productor de la poliza</label>
-                <input type="text " class="form-control" id="" name="productor" placeholdesr="V-XXXXXXX">
+                <input type="text " class="form-control" id="" onkeyup="this.value=this.value.toUpperCase()" name="productor" placeholdesr="SEGUROS UNIVERSITAS">
               </div>
               <div class="col-md-6 form-group" style="margin-top: 5px;">
                 <label for="cedula ">Persona que recibe</label>
-                  <input type="text " class="form-control" id="" name="recibe" placeholdesr="V-XXXXXXX">
+                  <input type="text " class="form-control" id="" onkeyup="this.value=this.value.toUpperCase()" name="recibe" placeholdesr="LUIS">
               </div>
               <div class="form-group col-md-6" id="sandbox-container">
                   <label for="sel1"><p>Fecha de Recepción</p></label>
@@ -86,11 +86,11 @@
               </div>
               <div class="form-group col-md-6">
                 <p class="margin"><strong>Kilometraje</strong></p>
-                <input type="text" name="kilometraje" placeholdesr="Aveo" class="form-control">
+                <input type="text" name="kilometraje" placeholdesr="22.000 KM" onkeyup="this.value=this.value.toUpperCase()" class="form-control">
               </div>
               <div class="form-group col-md-6">
                 <p class="margin"><strong>Combustible</strong></p>
-                <input type="text" name="combustible" placeholdesr="Aveo" class="form-control">
+                <input type="text" name="combustible" placeholdesr="22 LTS"onkeyup="this.value=this.value.toUpperCase()" class="form-control">
               </div>
             </div>
           </div>

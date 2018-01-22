@@ -6,6 +6,19 @@
       <div class="row">
 
         <div class="col-md-12">
+          @if(count($errors) > 0)
+          <div class="col-md-8 col-md-offset-2">          
+          <div class="alert alert-danger alert-dismissable" id="errores">
+            <button type="button" class="close" style="color: black" data-dismiss="alert" aria-hidden="true">&times;</button>
+            @foreach($errors->all() as $error)
+            <center><strong><h3>{{ $error }}</h3></strong></center>
+            @endforeach
+          </div>
+        </div>
+          @endif
+        </div>
+        
+        <div class="col-md-12">
          <div class="col-md-9">
           <h2>Asignación de Citas</h2>
         </div>
@@ -35,7 +48,7 @@
           <div class="form-group col-md-6 " style="margin-bottom: 0px; height: 60px">
             <label>Placa<a class="campos-required" title="Campo Obligatorio."> *</a></label>
             <div class="input-group ">
-             <input type="text " name="placa" class="form-control" id="placa" name="" placeholdesr="XXXXXXX" required>
+             <input type="text" class="form-control" id="placa" name="vehiculo_id" placeholdesr="XXXXXXX" required>
              <span class="input-group-btn ">
                <button class="btn btn-buscar btn-flat fa fa-search"  onClick="buscar_vehiculo()" type="button"></button>
              </span>
@@ -78,9 +91,9 @@
               <thead>
                 <tr>
                   <th>Fecha</th>
-                  <th>Poliza</th>
                   <th>Siniestro</th>
-                  <th>Sub Total</th>
+                  <th>Certificado</th>
+                  <th>Monto</th>
                   <th>Acción</th>
                 </tr>
               </thead>
@@ -204,11 +217,12 @@ function validateForm() {
         <tbody>
           <tr>
             <td>${thisData1.fecha_ocu}</td>
-            <td>${thisData1.subtotal}</td>
             <td>${thisData1.nro_siniestro}</td>
             <td>${thisData1.num_certificado}</td>
+            <td>${thisData1.montofinal}</td>
             <td>
-              <label><input type="checkbox" title="Selecciona la casilla" id="one" name="orden_id" value="${thisData1.id}" required oninvalid="setCustomValidity('El campo es obligatorio.')">  Seleccionar</label>
+              <label><input type="checkbox" title="Selecciona la casilla" id="one" name="orden_id" value="${thisData1.id}" >  Seleccionar</label>
+              <input type="hidden" name="vehiculo_id" value="${thisData1.id}">
             </td>
           </tr>
         </tbody>
@@ -235,7 +249,7 @@ function validateForm() {
 
   check.addEventListener("keyup", function (event) {
     if (check.validity.typeMismatch) {
-      check.setCustomValidity("Er coño de su madre nojoda");
+      check.setCustomValidity("Private");
     } else {
       check.setCustomValidity("");
     }

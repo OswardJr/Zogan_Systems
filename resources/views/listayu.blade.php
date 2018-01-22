@@ -50,11 +50,8 @@
 
                       <td>
                       <a href="{{ route('ayudantes.edit', $ayu->id) }}" class="btn btn-editar" data-toggle="tooltip" title="Actualizar"><i class="fa fa-pencil"></i>
-
                       </a>
-
                       </td>
-
                       <td>
                       <form action="{{ route('ayudantes.destroy', $ayu->id) }}" method="post">
                         <input name="_method" type="hidden" value="DELETE">
@@ -63,6 +60,7 @@
 
                       </form>
                     </td>
+                    
                   </tr>
                   @endforeach
 

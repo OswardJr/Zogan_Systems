@@ -2,6 +2,17 @@
 
 
 <div class="col-md-12">
+@if(Session::get('error'))
+<div class="col-md-6 col-md-offset-6">
+  <div class="alert alert-success alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <h3> {{ Session::get('error') }}</h3>
+</div>
+</div>
+@endif                            
+</div> 
+
+<div class="col-md-12">
 @if(Session::get('message'))
 <div class="col-md-6 col-md-offset-6">
   <div class="alert alert-danger alert-dismissable">
@@ -17,7 +28,6 @@
     <section class="content">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h3>Nuevo Usuario</h3>
                 <hr>
                 <a class="btn btn-default btn-teal btn-responsive" style="float: right;" href="javascript:history.back(1)" title="Regresar"><i class="fa fa-mail-reply-all fa-lg"></i></a><br><br><br><br>                  
                 <div class="panel panel-default">
@@ -57,48 +67,39 @@
                                 @endif
                             </div>
                         </div>
+                       
 
-                        <div class="form-group{{ $errors->has('rol') ? ' has-error' : '' }}">
-                            <label for="rol" class="col-md-4 control-label">Elegir Rol</label>
-
-                            <div class="col-md-6">
-                                <select name="rol" class="form-control" required>
-                                    <option value="{{ $usuarios->rol }}">{{ $usuarios->rol }}</option>
-                                    <option value=""></option>
-                                    <option value="">---     Roles    ---</option>
-                                    <option value="Administrador">Administrador</option>
-                                    <option value="Empleado">Empleado</option>
-                                </select>
-
-                                @if ($errors->has('rol'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('rol') }}</strong>
-                                </span>
-                                @endif
+                        <div class="col-md-10 col-md-offset-2">
+                              <h3>Permisos</h3>
+                              <p>Seccione las funciones a las que tendrá acceso el usuario</p>            
+                              <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th>Modulo / Permiso</th>
+                                    <th>Habilitar</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                @foreach ($modulos as $mod)
+                                  <tr>
+                                    <td>{{ ($mod->nombre) }}</td>
+                                    <td>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" 
+                                                   value="{{ ($mod->id) }}" 
+                                                   name="modulos[]"
+                                                    @if (in_array($mod->id, $checked ))
+                                                        {{ 'checked' }}
+                                                    @endif  
+                                            ></label>
+                                    </div>
+                                    </td>
+                                  </tr>
+                                @endforeach
+                                </tbody>
+                              </table>
                             </div>
-                        </div>                        
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Nueva Contraseña</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" placeholder="Nueva Contraseña" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('password') }}</strong>
-                                </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirmar Nueva Contraseña</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" placeholder="Repita su contraseña" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

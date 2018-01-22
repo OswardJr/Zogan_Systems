@@ -45,14 +45,12 @@
 
                       </a>
                       </td>
-
                       <td>
                       <a href="{{ route('areas.edit', $ars->id) }}" class="btn btn-editar" data-toggle="tooltip" title="Actualizar"><i class="fa fa-pencil"></i>
 
                       </a>
 
                       </td>
-
                       <td>
                       <form action="{{ route('areas.destroy', $ars->id) }}" method="post">
                         <input name="_method" type="hidden" value="DELETE">

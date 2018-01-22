@@ -52,7 +52,6 @@
                       <a href="{{ route('operarios.edit', $ope->id) }}" class="btn btn-editar" data-toggle="tooltip" title="Actualizar"><i class="fa fa-pencil"></i>
 
                       </a>
-
                       </td>
 
                       <td>
@@ -63,6 +62,7 @@
 
                       </form>
                     </td>
+                    
                   </tr>
                   @endforeach
 

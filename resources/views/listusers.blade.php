@@ -33,7 +33,6 @@
                     <th>#</th>
                     <th>Nombre</th>
                     <th>Email</th>
-                    <th>Rol</th>
                     <th colspan="3">Acciones</th>
                   </tr>
                 </thead>
@@ -43,7 +42,6 @@
                     <td>{{ ($usu->id) }}</td>
                     <td>{{ ($usu->name) }}</td>
                     <td>{{ ($usu->email) }}</td>
-                    <td>{{ ($usu->rol) }}</td>
                     <td>
                       <a href="{{ route('usuarios.show', $usu->id) }}" class="btn btn-buscar" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i>
 

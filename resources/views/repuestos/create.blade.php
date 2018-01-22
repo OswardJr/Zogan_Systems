@@ -30,11 +30,11 @@
                                    <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <div class="form-group col-md-6 " style="margin-bottom: 0px; height: 60px">
                                       <label>Código<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                        <input type="text" name="codigo" id="" class="form-control "title="El formato debe ser ABC105C"  placeholder="R0001" onkeyup="this.value=this.value.toUpperCase()" value="" required="true" >
+                                        <input type="text" name="codigo" id="" class="form-control" title="El formato debe ser como ejemplo: PARA00001. Mínimo 10 carácteres." maxlength="10"  placeholder="R0001" onkeyup="this.value=this.value.toUpperCase()" value="" required="true" >
                                     </div>
                                     <div class="form-group col-md-6">
                                       <label>Descripción<a class="campos-required" pattern="[A-Z]" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="descripcion" id="" class="form-control" placeholder="Rolinera" required="true">
+                                      <input type="text" name="descripcion" onkeyup="this.value=this.value.toUpperCase()" id="" class="form-control" placeholder="Rolinera" required="true">
                                     </div>
                                     <div class="form-group col-md-6">
                                       <label>Cantidad<a class="campos-required" title="Campo Obligatorio."> *</a></label>
@@ -42,11 +42,11 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                       <label>Marca<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="marca" id="" class="form-control" placeholder="Vy" required="true">
+                                      <input type="text" name="marca" onkeyup="this.value=this.value.toUpperCase()" id="" class="form-control" placeholder="Engine" required="true">
                                     </div>
                                     <div class="form-group col-md-6">
                                       <label>Modelo<a class="" title=" Obligatorio."> *</a></label>
-                                      <input type="text" name="modelo" class="form-control" placeholder="5200bsf" required="">
+                                      <input type="text" onkeyup="this.value=this.value.toUpperCase()" name="modelo" class="form-control" placeholder="Standard" required="">
                                     </div> 
                                     <div class="form-group col-md-6">
                                         <label>Área de Almacén<a class="campos-required" title="Campo Obligatorio."> *</a></label>

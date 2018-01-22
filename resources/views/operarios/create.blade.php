@@ -35,7 +35,7 @@
                 <div class="form-group @if ($errors->has('cedula')) has-error @endif">                
                   <label>Cédula<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                   <div class="input-group input-group-sm">
-                    <input type="text" name="cedula" id="cedula" class="form-control " pattern="^([JVEG]{1})-([0-9]{8})$" title="El formato debe ser V-12345678" value="{{ old('cedula') }}" placeholder="V-12345678" onkeyup="this.value=this.value.toUpperCase()" required="true">
+                    <input type="text" name="cedula" id="cedula" class="form-control " pattern="^([JVEG]{1})-([0-9]{8})$" title="El formato debe ser V-12345678. (En caso de que su número de cédula sea menor a 8 dígitos, agregue '0' ceros al inicio de la misma, ejemplo: V-06867424)." value="{{ old('cedula') }}" placeholder="V-12345678" onmouseOver = "tooltip('iddeldivescondidoquequieras')"; onkeyup="this.value=this.value.toUpperCase()" required="true">
                     <span class="input-group-btn">
                       <button  data-toggle="tooltip" title="Consultar" id="cedula" class="btn btn-buscar btn-flat fa fa-search" onclick="buscar_operario()" type="button" name="btn-search"></button>
                     </span>
@@ -58,13 +58,13 @@
               <div class="form-group col-md-6">
                 <div class="form-group @if ($errors->has('telefono')) has-error @endif">                                     
                   <label>Teléfono<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                  <input type="text" name="telefono" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0244-XXXXXXX" value="{{ old('telefono') }}" title="El formato debe ser 0244-1234567" onkeyup="this.value=this.value.toUpperCase()" required="true">
+                  <input type="text" name="telefono" id="" maxlength="11" pattern="^([0-9]{4})([0-9]{7})$" class="form-control" placeholder="0244XXXXXXX" value="{{ old('telefono') }}" onkeypress="return justNumbers(event);"  title="El formato debe ser 02441234567" onkeyup="this.value=this.value.toUpperCase()" required="true">
                 </div>
               </div>  
               <div class="form-group col-md-6">
                 <div class="form-group @if ($errors->has('email')) has-error @endif">                                     
-                  <label>Email</label>
-                  <input type="email" name="email" id="email" class="form-control" placeholder="contact@example.com" value="{{ old('email') }}" onkeyup="this.value=this.value.toUpperCase()" title="El formato debe ser contact@example.com" required="true">
+                  <label>Email<a class="campos-required" title="Campo Obligatorio."> *</a></label>
+                  <input type="email" name="email" id="email" class="form-control" placeholder="contact@example.com" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" value="{{ old('email') }}" onkeyup="this.value=this.value.toUpperCase()" title="El formato debe ser contact@example.com" required="true">
                 </div>
               </div>  
               <div class="form-group col-md-6">
@@ -153,4 +153,15 @@
       },
     })
   }
+</script>
+
+<script>
+    function justNumbers(e)
+        {
+        var keynum = window.event ? window.event.keyCode : e.which;
+        if ((keynum == 8) || (keynum == 46))
+        return true;
+         
+        return /\d/.test(String.fromCharCode(keynum));
+        }  
 </script>

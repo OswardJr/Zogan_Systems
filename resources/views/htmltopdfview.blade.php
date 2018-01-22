@@ -3,16 +3,16 @@
 </head>
 <body>
 <header>
-
-    <img src="{{URL::asset('http://localhost/Zogan_Systems/public/img/gandocam.png')}}" style="margin-left:340px;width: 90px;height: 40px"/>
+      <div id="me">
+      <h4 style="text-align:left;border:solid 0px;margin-left:70px;width:70%;">Urb. Castillito, Av. N°70, Parcela L-150 </h4>
+      <h4 style="text-align:left;border:solid 0px;margin-left:70px;width:50%;">San Diego Edo. Carabobo</h4>
+      <h4 style="text-align:left;border:solid 0px;margin-left:70px;width:50%;">(A dos cuadras del Big Low Center)</h4>
+      <h4 style="text-align:left;border:solid 0px;margin-left:70px;width:70%;">Telfs.:(0241) 871-8167 | (0241) 871-7402</h4>          
+    </div>
+    <img src="{{URL::asset('http://localhost/Zogan_Systems/public/img/gandocam.png')}}" style="float: right;width: 150px;height: 80px;margin-top: -30px"/>
 
 <style>
-@page {
-  margin-top: 1em;
-  margin-left: 1em;
-  margin-bottom: 1em;
-  margin-right: 1em;
-}
+
 * {
   background-color: #ffffff;
 }
@@ -150,57 +150,58 @@ h3 {
   
 </style>
   </header>
-    <h3>Orden de Reparación</h3>
+    <h3>Orden de Reparación  # {{ $reparacion->id }}</h3>
 
     <table class="collapse">
       <tr>
       <td colspan="2" style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">Nº de Poliza: {{ $reparacio->numero }}</td>
 
       <td colspan="2" style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">Nº de Certificado/Recibo: {{ $reparaciones->num_certificado }}</td>
-   </tr>  
-  <tr>
-    <td style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;font-size: 10px">Apellidos y Nombres del Asegurado:</td>
+   </tr>
+      <tr>
+      <td colspan="2" style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">Cédula/Rif: {{ $reparacion->rif }}</td>
 
-    <td style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975">Cédula/Rif:</td>
+      <td colspan="2" style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;font-size: 10px">Apellidos y Nombres del Asegurado: {{ $reparacion->nombre_completo }}</td>
+   </tr> 
 
-    <td style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;">Fecha del Siniestro:</td>
+      <tr>
+      <td colspan="2" style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">Fecha del Siniestro: {{ $reparaciones->fecha_ocu}}</td>
 
-    <td style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;">Nº Siniestro:</td>
-    </tr>
-
-  <tr>
-    <td style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;font-size: 9px">{{ $reparacion->nombre_completo}}</td>
-
-    <td style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;">{{ $reparacion->rif}}</td>
-
-    <td style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;">{{ $reparaciones->fecha_ocu}}</td>
-
-    <td style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;">{{ $reparaciones->nro_siniestro}}</td>
-    </tr> 
+      <td colspan="2" style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">Nº Siniestro: {{ $reparaciones->nro_siniestro}}</td>
+   </tr>        
 
   <tr>
     <td colspan="4" style="float: right; text-align:center;background:#F5F5F5;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">DATOS DEL VEHÍCULO</td>
     </tr> 
   <tr>
-    <td style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">Marca: {{ $reparacione->marca}}</td>
+    <td colspan="2" style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">Marca: {{ $reparacione->marca}}</td>
 
-    <td style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">Modelo: {{ $reparacione->modelo}}</td>
+    <td colspan="1" style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">Modelo: {{ $reparacione->modelo}}</td>
 
     <td style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">Tipo: {{ $reparacione->tipo}}</td>
+
+    </tr>
+
+  <tr>
+      <td colspan="2" style="width:130px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">Color: {{ $reparacione->color}}</td>
+
+      <td colspan="1" style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">Placa: {{ $reparacione->placa}}</td>
 
     <td style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">Año: {{ $reparacione->anio}}</td>
     </tr>
 
+
       <tr>
-      <td style="width:130px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">Color: {{ $reparacione->placa}}</td>
+      <td colspan="2" style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">Serial del Motor:</td>
 
-      <td style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">Placa: {{ $reparacione->placa}}</td>
-
-      <td style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">Serial del Motor: {{ $reparacione->serial_motor}}</td>
-
-      <td style="width:100px;text-align:center;font-weight: 5px;white-space: nowrap;color: #5D6975;padding: 5px 20px;font-size: 10px;">Serial de la Carrocería: {{ $reparacione->serial_carro}}</td>
+      <td colspan="2" style="width:100px;text-align:center;font-weight: 5px;white-space: nowrap;color: #5D6975;padding: 5px 20px;">Serial de la Carrocería:</td>
    </tr>
 
+      <tr>
+      <td colspan="2" style="width:100px;text-align:center;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">{{ $reparacione->serial_motor}}</td>
+
+      <td colspan="2" style="width:100px;text-align:center;font-weight: 5px;white-space: nowrap;color: #5D6975;padding: 5px 20px;">{{ $reparacione->serial_carro}}</td>
+   </tr>
      <tr>
     <td colspan="4" style="text-align:center;background:#F5F5F5;font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">NOTAS DEL ANALISTA</td>
     </tr>
@@ -215,14 +216,34 @@ h3 {
 
      <tr>
     <td colspan="4" height="200" style="font-weight: normal;white-space: nowrap;color: #5D6975;padding: 5px 20px;">
-      <p>{{ $reparaciones->notas }}</p>
-      <p>{{ $reparaciones->notas }}</p>
-      <p>{{ $reparaciones->notas }}</p>
-      <p>{{ $reparaciones->notas }}</p>
-      <p>{{ $reparaciones->notas }}</p>
-      <p>{{ $reparaciones->notas }}</p>
-      <p>{{ $reparaciones->notas }}</p>
+      <?php
 
+
+       $iva = number_format($reparaciones->monto_final - $reparaciones->monto_final / 1.12);
+       ?>
+      <p><strong>Mano de obra (Pintura / Latoneria): </strong> <?php echo number_format($reparaciones->mano_obra, 2, ',', '.') ?> BsF</p>
+
+      <p><strong>Mecanica:</strong> <?php echo number_format($reparaciones->mecanica_otros, 2, ',', '.') ?> BsF</p>
+
+      <p><strong>Subtotal Mano de obra:</strong> <?php  echo number_format($reparaciones->mano_obra +  $reparaciones->mecanica_otros, 2, ',', '.') ?> BsF</p>
+
+      <p><strong>Otros gastos:</strong> <?php echo number_format($reparaciones->otros_gastos, 2, ',', '.')  ?> BsF</p>
+
+      <p><strong>Total Mano de obra / Mecanica:</strong> <?php echo number_format($reparaciones->mano_obra + $reparaciones->mecanica_otros +  $reparaciones->otros_gastos, 2, ',', '.')  ?> BsF</p>
+
+      <p><strong>Sub total de orden:</strong> <?php echo number_format($reparaciones->mano_obra + $reparaciones->mecanica_otros +  $reparaciones->otros_gastos, 2, ',', '.')  ?> BsF</p>
+
+      <p><strong>IVA:</strong> <?php echo $iva  ?> BsF</p>
+      
+      <p><strong>Deducible Póliza:</strong> <?php echo number_format($reparaciones->deducible_p, 2, ',', '.')  ?> BsF</p>
+
+      <p><strong>I.S.L.R:</strong> <?php echo number_format($reparaciones->islr, 2, ',', '.')  ?> BsF</p>
+
+      <p><strong>Monto a cargo del asegurado:</strong> <?php echo number_format($reparaciones->monto_asegu, 2, ',', '.')  ?> BsF</p>
+
+      <p><strong>Total orden de reparacion:</strong> <?php echo number_format($reparaciones->monto_final)  ?> BsF</p>
+      <br>
+      <br>
 
     </td>
     </tr>    
@@ -240,7 +261,7 @@ h3 {
    </tr> 
 
       <tr>
-      <td colspan="2" style="text-align:justify; width:80px;font-weight: normal;color: #5D6975;padding: 5px 20px"><span style="font-size: 10px">{{ $reparaciones->tipos_daños }}</span></td>
+      <td colspan="2" style="text-align:justify; width:80px;font-weight: normal;color: #5D6975;padding: 5px 20px"><span style="font-size: 10px">{{ $reparaciones->descripcion_daños }}</span></td>
 
       <td colspan="1" style="width:100px;font-weight: normal;color: #5D6975;padding: 5px 20px;"><span style="text-align:justify;font-size: 10px">{{ $reparaciones->tipos_daños }}</span></td>
 

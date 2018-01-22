@@ -41,7 +41,7 @@
                                       <div class="form-group @if ($errors->has('cedula')) has-error @endif">                
                                       <label>Cédula<a class="campos-required" title="Campo Obligatorio."> *</a></label>
                                       <div class="input-group input-group-sm">
-                                        <input type="text" name="cedula" value="{{ $ayudantes->cedula }}" id="" class="form-control " pattern="^([JVEG]{1})-([0-9]{8})$" title="El formato debe ser V-12345678"  placeholder="V12345678" onkeyup="this.value=this.value.toUpperCase()" required="true" readonly>
+                                        <input type="text" name="cedula" value="{{ $ayudantes->cedula }}" id="" class="form-control " pattern="^([JVEG]{1})-([0-9]{8})$" title="El formato debe ser V-12345678. (En caso de que su número de cédula sea menor a 8 dígitos, agregue '0' ceros al inicio de la misma, ejemplo: V-06867424)."  placeholder="V-12345678" onkeyup="this.value=this.value.toUpperCase()" required="true" readonly>
                                         <span class="input-group-btn">
                                           <button  data-toggle="tooltip" title="Consultar" class="btn btn-buscar btn-flat fa fa-search
                                           " type="button" onClick="buscar() name="btn-search"></button>
@@ -65,13 +65,13 @@
                                     <div class="form-group col-md-6">
                                       <div class="form-group @if ($errors->has('telefono')) has-error @endif">                                     
                                       <label>Teléfono<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                                      <input type="text" name="telefono" value="{{ $ayudantes->telefono }}" id="" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0244-XXXXXXX" onkeyup="this.value=this.value.toUpperCase()" required="true">
+                                      <input type="text" name="telefono" value="{{ $ayudantes->telefono }}" maxlength="11" id="" pattern="^([0-9]{4})([0-9]{7})$" onkeypress="return justNumbers(event);" title="El formato debe ser 02441234567" class="form-control" placeholder="0244XXXXXXX" onkeyup="this.value=this.value.toUpperCase()" required="true">
                                     </div>
                                   </div>  
                                     <div class="form-group col-md-6">
                                       <div class="form-group @if ($errors->has('email')) has-error @endif">                                     
-                                      <label>Email</label>
-                                      <input type="email" name="email" value="{{ $ayudantes->email }}" id="email" class="form-control" placeholder="contact@example.com" onkeyup="this.value=this.value.toUpperCase()" required="true">
+                                      <label>Email<a class="campos-required" title="Campo Obligatorio."> *</a></label>
+                                      <input type="email" name="email" value="{{ $ayudantes->email }}" id="email" class="form-control" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" title="El formato debe ser contact@example.com" placeholder="contact@example.com" onkeyup="this.value=this.value.toUpperCase()" required="true">
                                     </div>
                                   </div>  
                                     <!-- textarea -->
@@ -120,3 +120,14 @@
      if (success ==true) {formulario.submit();}
  }  
 </script> 
+
+<script>
+    function justNumbers(e)
+        {
+        var keynum = window.event ? window.event.keyCode : e.which;
+        if ((keynum == 8) || (keynum == 46))
+        return true;
+         
+        return /\d/.test(String.fromCharCode(keynum));
+        }  
+</script>

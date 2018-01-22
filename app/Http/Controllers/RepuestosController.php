@@ -2,103 +2,139 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\PermisosController;
 use App\Repuestos;
-use App\Areas;
+use App\User;
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use PDF;
 
-class RepuestosController extends Controller
-{
-  public function __construct()
-    {
-        $this->middleware('auth');
-    }
+class RepuestosController extends Controller {
+	public function __construct() {
+		$this->middleware('auth');
+	}
 
-    private $path = 'repuestos';
+	private $path = 'repuestos';
 
-    public function index()
-    {
-      $repuestos = DB::table('repuestos')->where('status', '=', 'activo')->orderBy('codigo', 'desc')->paginate(15);
+	public function index() {
+		$repuestos = DB::table('repuestos')->where('status', '=', 'activo')->orderBy('codigo', 'desc')->paginate(15);
 
-      return view('/listrepuesto', ['repuestos' => $repuestos]);
-    }
+		$user = User::find(Auth::user()->id);
 
-    public function create()
-    {
-        $repuestos = DB::table('areas')->get();
+		$permiso = new PermisosController;
+		$permisos = $permiso->permisos(9);
+		$permiso->bitacora('Accedió al listado de repuestos');
+		if ($permisos) {
+			return view('/listrepuesto', ['repuestos' => $repuestos, 'user' => $user]);
+		} else {
+			return redirect('/home')->with('message', '¡Acceso no permitido, contacte al administrador!');
+		}
 
-        return view('repuestos/create', ['repuestos' => $repuestos]);
-    }
+	}
 
-    public function store(Request $request)
-    {
-      Validator::make($request->all(), [
-        'codigo'=> 'required|unique:repuestos',
-        'descripcion' => 'required',
-        'cantidad' => 'required',
-        'marca' => 'required',
-        'modelo' => 'required',
-        ])->validate();
+	public function mo() {
+		$repuestos = DB::table('repuestos')->where('status', '=', 'activo')->orderBy('codigo', 'desc')->paginate(15);
 
-        $repuestos = new Repuestos();
-        $repuestos->codigo = $request->codigo;
-        $repuestos->descripcion = $request->descripcion;
-        $repuestos->cantidad = $request->cantidad;
-        $repuestos->marca = $request->marca;
-        $repuestos->modelo = $request->modelo;
-        $repu = $request->get('one');
-        $repuestos->area = $repu;
-        $repuestos->status = 'activo';
-        $repuestos->save();
+		$user = User::find(Auth::user()->id);
 
-      return redirect('/listrepuesto')->with('message','¡El repuesto ha sido guardado exitosamente!');
-    }
+		$permiso = new PermisosController;
 
-    public function show($id)
-    {
-        $repuestos = Repuestos::findOrFail($id);
-        return view($this->path.'.see', compact('repuestos'));
-    }
+		$permiso->bitacora('Accedió al listado de repuestos');
 
-    public function edit($id)
-    {
-      $repuestos = DB::table('areas')->get();
+		return view('/repuestos', ['repuestos' => $repuestos]);
+	}
 
-      $repuestos = Repuestos::findOrFail($id);
-        return view($this->path.'.edit', compact('repuestos'));
-    }
+	public function create() {
+		$repuestos = DB::table('areas')->get();
 
+		$permiso = new PermisosController;
+		$permisos = $permiso->permisos(4);
+		if ($permisos) {
+			return view('repuestos/create', ['repuestos' => $repuestos]);
+		} else {
+			return redirect('/home')->with('message', '¡Acceso no permitido, contacte al administrador!');
+		}
 
-    public function update(Request $request, $id)
-    {
-      $this->validate($request, [
-        'codigo'=> 'required',
-        'descripcion' => 'required',
-        'cantidad' => 'required',
-        'marca' => 'required',
-        'modelo' => 'required',
-        ]);
+	}
 
-          $repuestos = Repuestos::findOrFail($id);
-          $repuestos->codigo = $request->codigo;
-          $repuestos->descripcion = $request->descripcion;
-          $repuestos->cantidad = $request->cantidad;
-          $repuestos->marca = $request->marca;
-          $repuestos->modelo = $request->modelo;
-          $repuestos->status = 'activo';
-          $repuestos->save();
+	public function store(Request $request) {
+		Validator::make($request->all(), [
+			'codigo' => 'required|unique:repuestos',
+			'descripcion' => 'required',
+			'cantidad' => 'required',
+			'marca' => 'required',
+			'modelo' => 'required',
+		])->validate();
 
-          return redirect()->route('repuestos.index')->with('message','¡Repuesto actualizado con éxito!');
-    }
+		$repuestos = new Repuestos();
+		$repuestos->codigo = $request->codigo;
+		$repuestos->descripcion = $request->descripcion;
+		$repuestos->cantidad = $request->cantidad;
+		$repuestos->marca = $request->marca;
+		$repuestos->modelo = $request->modelo;
+		$repu = $request->get('one');
+		$repuestos->area = $repu;
+		$repuestos->status = 'activo';
+		$repuestos->save();
 
-    public function destroy($id)
-    {
-        $reps = DB::table('repuestos')
-            ->where('id', '=', $id)
-            ->where('status', '=', 'activo')
-            ->update(['status' => 'inactivo']);
+		$permiso = new PermisosController;
+		$permiso->bitacora('Registró un repuesto codigo: ' . $request->codigo . '');
 
-        return redirect()->route('repuestos.index')->with('message','¡Repuesto eliminado exitosamente!');
-    }
+		return redirect('/listrepuesto')->with('message', '¡El repuesto ha sido guardado exitosamente!');
+	}
+
+	public function show($id) {
+		$repuestos = Repuestos::findOrFail($id);
+		return view($this->path . '.see', compact('repuestos'));
+	}
+
+	public function edit($id) {
+		$repuestos = DB::table('areas')->get();
+
+		$repuestos = Repuestos::findOrFail($id);
+		return view($this->path . '.edit', compact('repuestos'));
+	}
+
+	public function update(Request $request, $id) {
+		$this->validate($request, [
+			'codigo' => 'required',
+			'descripcion' => 'required',
+			'cantidad' => 'required',
+			'marca' => 'required',
+			'modelo' => 'required',
+		]);
+
+		$repuestos = Repuestos::findOrFail($id);
+		$repuestos->codigo = $request->codigo;
+		$repuestos->descripcion = $request->descripcion;
+		$repuestos->cantidad = $request->cantidad;
+		$repuestos->marca = $request->marca;
+		$repuestos->modelo = $request->modelo;
+		$repuestos->status = 'activo';
+		$repuestos->save();
+
+		return redirect('/listrepuesto')->with('message', '¡Repuesto actualizado con éxito!');
+	}
+
+	public function descargar(Request $request) {
+		$repuestos = DB::table("repuestos")->get();
+
+		view()->share('repuestos', $repuestos);
+
+		if ($request->has('download')) {
+			$pdf = PDF::loadView('repuestos/repuestos_pdf');
+			return $pdf->stream('Total_Repuestos.pdf');
+		}
+	}
+
+	public function destroy($id) {
+		$reps = DB::table('repuestos')
+			->where('id', '=', $id)
+			->where('status', '=', 'activo')
+			->update(['status' => 'inactivo']);
+
+		return redirect()->route('repuestos.index')->with('message', '¡Repuesto eliminado exitosamente!');
+	}
 }

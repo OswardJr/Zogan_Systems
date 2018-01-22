@@ -13,7 +13,7 @@
     @endif
       <div class="text-right nuevo-veh">
               <a href="{{ url('/corredores/create') }}" title="Registrar Corredor de Seguro" class="btn btn-nuevo"><span class="fa fa-plus"></span></a>
-            </div>    
+            </div>
     </div>
     <section class="content">
       <h3>Listado de Corredores</h3>
@@ -48,8 +48,8 @@
                       <a href="{{ route('corredores.show', $corre->id) }}" class="btn btn-buscar" data-toggle="tooltip" title="Ver"><i class="fa fa-eye"></i>
 
                       </a>
-                    </td>  
-                    
+                    </td>
+
                     <td>
                       <a href="{{ route('corredores.edit', $corre->id) }}" class="btn btn-editar" data-toggle="tooltip" title="Actualizar"><i class="fa fa-pencil"></i>
 
@@ -64,6 +64,7 @@
 
                       </form>
                     </td>
+
                   </tr>
                   @endforeach
 
@@ -100,5 +101,5 @@
 
             }(jQuery));
 
-        });  
+        });
 </script>

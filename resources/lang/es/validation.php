@@ -100,6 +100,12 @@ return [
     */
 
     'custom' => [
+        'vehiculo_id' => [
+            'unique' => 'Debes especificar el nombre del estudiante.',
+        ],
+    ],
+
+    'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],

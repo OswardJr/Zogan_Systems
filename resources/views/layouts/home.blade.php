@@ -98,7 +98,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <ul class="dropdown-menu">
                   <li class="external">
                     <h3>
-                      <a href="{{url('/ruta')}}"><span class="bold"><?php echo $dash; ?> Órdenes</span> Pendientes.
+                      <a href="{{url('/listorden')}}"><span class="bold"><?php echo $dash; ?> Órdenes</span> Pendientes.
                       </a></h3>
                     </li>
                   <li class="external">
@@ -196,16 +196,21 @@ License: You must have a valid license purchased only from themeforest(the above
 
                                   <li class="dropdown dropdown-user">
                                     <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                      <img alt="" class="img-circle" src="{{asset('assets/layouts/layout/img/avatar3_small.jpg')}}" />
+                                      
                                       <span class="username username-hide-on-mobile"> {{ Auth::user()->name }}  </span>
                                       <i class="fa fa-angle-down"></i>
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-default">
                                       <li>
+                                         <a href="{{ url('/seguridad') }}" class="nav-link">
+                                            <i class="fa fa-key"></i>Contraseña
+                                          </a>
+                                      </li>
+                                      <li>
                                       <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Cerrar Sesión
+                                            <i class="fa fa-close"></i>Cerrar Sesión
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -225,7 +230,6 @@ License: You must have a valid license purchased only from themeforest(the above
                               <!-- END HEADER INNER -->
                             </div>
                           @foreach ($lash as $las)    
-                              @if ($las->rol == "Administrador")
 
                             <!-- END HEADER -->
                             <!-- BEGIN HEADER & CONTENT DIVIDER -->
@@ -269,18 +273,20 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <span class="selected"></span>
                                       </a>
                                     </li>
-                                    <li class="heading">
-                                      <h3 class="uppercase"></h3>
-                                    </li>
-
-
                                     <li class="nav-item">
                                       <a href="{{ url('/listusers') }}" class="nav-link nav-toggle">
                                         <i class="icon-user"></i>
-                                        <span class="title">Perfil de Usuario</span>
+                                        <span class="title">Usuarios</span>
                                         <span class="selected"></span>
                                       </a>
-                                    </li>                                    
+                                    </li>      
+                                                                        <li class="nav-item">
+                                      <a href="{{ url('/bitacora') }}" class="nav-link nav-toggle">
+                                        <i class="icon-list"></i>
+                                        <span class="title">Bitácora</span>
+                                        <span class="selected"></span>
+                                      </a>
+                                    </li>                               
 
                                     <li class="nav-item">
                                       <a href="javascript:;" class="nav-link nav-toggle">
@@ -296,7 +302,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         </li>                                        
 
                                         <li class="nav-item">
-                                          <a href="#" class="nav-link">
+                                          <a href="{{ url('/seguridad') }}" class="nav-link">
                                             <i class="fa fa-unlock-alt"></i>  Seguridad
                                           </a>
                                         </li>
@@ -309,63 +315,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <!-- END SIDEBAR -->
                               </div>
                               <!-- END SIDEBAR -->
-                              <!-- BEGIN CONTENT -->
-                                    @elseif ($las->rol == "Empleado")
-                            <!-- END HEADER -->
-                            <!-- BEGIN HEADER & CONTENT DIVIDER -->
-                            <div class="clearfix"> </div>
-                            <!-- END HEADER & CONTENT DIVIDER -->
-                            <!-- BEGIN CONTAINER -->
-                            <div class="page-container">
-                              <!-- BEGIN SIDEBAR -->
-                              <div class="page-sidebar-wrapper">
-                                <!-- BEGIN SIDEBAR -->
-                                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-                                <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-                                <div class="page-sidebar page-sidebar">
-                                  <!-- BEGIN SIDEBAR MENU -->
-                                  <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
-                                  <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
-                                  <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
-                                  <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-                                  <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
-                                  <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-                                  <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
-                                    <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
-                                    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
-                                    <li class="sidebar-toggler-wrapper hide">
-                                      <div class="sidebar-toggler">
-                                        <span></span>
-                                      </div>
-                                    </li>
-                                    <!-- END SIDEBAR TOGGLER BUTTON -->
-                                    <!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
-                                    <li class="sidebar-search-wrapper">
-                                      <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
-                                      <!-- DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box -->
-                                      <!-- DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box -->
-                                      <!-- END RESPONSIVE QUICK SEARCH FORM -->
-                                    </li>
-                                    <li class="nav-item start active open">
-                                      <a href="javascript:;" class="nav-link nav-toggle">
-                                        <i class="icon-home"></i>
-                                        <span class="title">Home</span>
-                                        <span class="selected"></span>
-                                      </a>
-                                    </li>
-                                    <li class="heading">
-                                      <h3 class="uppercase"></h3>
-                                    </li>                                   
 
-                                  </ul>
-                                  <!-- END SIDEBAR MENU -->
-                                  <!-- END SIDEBAR MENU -->
-                                </div>
-                                <!-- END SIDEBAR -->
-                              </div>
-                              <!-- END SIDEBAR -->
-                              <!-- BEGIN CONTENT --> 
-                              @endif
                              
                             @endforeach                              
                               <div class="page-content-wrapper">
@@ -380,6 +330,17 @@ License: You must have a valid license purchased only from themeforest(the above
 
                                   <div class="container-fluid">
                                     <div class="row">
+                                      <div class="col-md-8 col-md-offset-2">
+                                      @if(Session::get('message'))
+                                      <div class="col-md-12">
+                                        <div class="alert alert-danger alert-dismissable">
+                                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                          <h3> {{ Session::get('message') }}</h3>
+                                      </div>
+                                      </div>
+                                      @endif                            
+                                      </div> 
+
                                       <div class="col-lg-12">
                                         <h2><strong>¡Bienvenido a Zogan Systems!</strong></h2>
                                         <ul><h3>Sistema de Gestión Operativa.</h3></ul>                <hr>
@@ -623,7 +584,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                       <!-- END CONTAINER -->
                                       <!-- BEGIN FOOTER -->
                                       <div class="page-footer">
-                                        <div class="page-footer-inner"> Gandocam, C.A 2016
+                                        <div class="page-footer-inner"> Gandocam, C.A 2018
                                         </div>
                                         <div class="scroll-to-top">
                                           <i class="icon-arrow-up"></i>

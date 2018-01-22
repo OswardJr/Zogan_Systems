@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\PermisosController;
 
-use Illuminate\Http\Request;
+class RespaldosController extends Controller {
+	public function index() {
 
-class RespaldosController extends Controller
-{
-    public function index()
-    {
-        return view('respaldo.index');
-    }
+		$permiso = new PermisosController;
+		$permiso->bitacora('Accedió al modulo de respaldo');
+		return view('respaldo.index');
+	}
 }

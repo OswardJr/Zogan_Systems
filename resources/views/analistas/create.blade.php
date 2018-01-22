@@ -52,15 +52,15 @@
               </div>
               <div class="form-group col-xs-6">
                 <label>Celular<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                <input type="text" name="celular" id="" value="{{ old('celular') }}" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0412-XXXXXXX" title="El formato debe ser 0244-1234567" onkeyup="this.value=this.value.toUpperCase()" required="true">
+                <input type="text" name="celular" id="" value="{{ old('celular') }}" pattern="^([0-9]{4})([0-9]{7})$" class="form-control" placeholder="0412XXXXXXX" maxlength="11" onkeypress="return justNumbers(event);" title="El formato debe ser 04121234567" onkeyup="this.value=this.value.toUpperCase()" required="true">
               </div>
               <div class="form-group col-xs-6">
                 <label>Teléfono<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                <input type="text" name="telefono" id="" value="{{ old('telefono') }}" pattern="^([0-9]{4})-([0-9]{7})$" class="form-control" placeholder="0244-XXXXXXX" onkeyup="this.value=this.value.toUpperCase()" title="El formato debe ser 0244-1234567" required="true">
+                <input type="text" name="telefono" id="" value="{{ old('telefono') }}" pattern="^([0-9]{4})([0-9]{7})$" class="form-control" placeholder="0244XXXXXXX" onkeyup="this.value=this.value.toUpperCase()" maxlength="11" onkeypress="return justNumbers(event);" title="El formato debe ser 02441234567" required="true">
               </div>
               <div class="form-group col-xs-6">
                 <label>Email<a class="campos-required" title="Campo Obligatorio."> *</a></label>
-                <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control" title="El formato debe ser contact@example.com" placeholder="contact@example.com" onkeyup="this.value=this.value.toUpperCase()" required="true">
+                <input type="email" name="email" id="email" value="{{ old('email') }}" class="form-control" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" title="El formato debe ser contact@example.com" placeholder="contact@example.com" onkeyup="this.value=this.value.toUpperCase()" required="true">
               </div>
               <div class="form-group col-xs-6">
                 <label>Aseguradora<a class="campos-required" title="Campo Obligatorio."> *</a></label>
@@ -144,4 +144,15 @@
       },
     })
   }
+</script>
+
+<script>
+    function justNumbers(e)
+        {
+        var keynum = window.event ? window.event.keyCode : e.which;
+        if ((keynum == 8) || (keynum == 46))
+        return true;
+         
+        return /\d/.test(String.fromCharCode(keynum));
+        }  
 </script>

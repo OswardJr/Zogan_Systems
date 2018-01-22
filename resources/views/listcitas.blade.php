@@ -36,7 +36,7 @@
                     <th>Propietario</th>
                     <th>Fecha de la Cita</th>
                     <th>Estado</th>
-                    <th>Acción</th>
+                    <th colspan="2">Acción</th>
                   </tr>
                 </thead>
                 <tbody class="buscar">
@@ -46,15 +46,25 @@
                     <td>{{ $repar->marca}}</td>
                     <td>{{ $repar->modelo}}</td>
                     <td>{{ $repar->nombre_completo}}</td>
-                    <td>{{ ($repar->selec_dia) }}</td>
+                    <td><strong>{{ ($repar->selec_dia) }}</strong></td>
                     <td>{{ ($repar->act) }}</td>
-                    <td>
-                      <form action="{{ route('citas.destroy', $repar->id) }}" method="post">
-                        <input name="_method" type="hidden" value="DELETE">
+<!--                     <td>
+                      <form action="{{ route('citas.edit', $repar->id_) }}" method="post">
+                        <input name="_method" type="hidden" value="PUT">
                           <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
                         <button type="submit" onclick="if(!confirm('¿Desea procesar la cita?'))event.preventDefault();" style="background-color: #7c69cd; color: white" class="btn btn-lpurple fr" data-toggle="tooltip" title="Procesar Cita"><i class="fa fa-refresh"></i></button>
                       </form>
-                    </td> 
+                    </td>  -->
+
+                    <td>
+                      <form action="{{ route('citas.destroy', $repar->id_) }}" method="post">
+                        <input name="_method" type="hidden" value="DELETE">
+                          <input required="true" type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <button type="submit" onclick="if(!confirm('¿Desea anular la cita?'))event.preventDefault();" class="btn btn-delete" data-toggle="tooltip" title="Procesar Cita"><i class="fa fa-trash"></i></button>
+                      </form>
+                    </td>                     
+
+
                   </tr>
                   @endforeach
 
