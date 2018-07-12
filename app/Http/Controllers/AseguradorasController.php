@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use PDF;
+use PDF;
 
 class AseguradorasController extends Controller {
 	public function __construct() {
